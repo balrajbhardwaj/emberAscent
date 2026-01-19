@@ -55,3 +55,98 @@ Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning conte
 - Target year groups: Year 4-5 (ages 8-10)
 - Free tier: unlimited questions, basic progress
 - Paid tier (Ascent): analytics dashboard, insights
+
+## Documentation Standards
+
+### File Headers
+Every file should start with a comment block explaining:
+- Purpose of the file
+- Key responsibilities
+- Dependencies (if complex)
+- Example:
+```typescript
+/**
+ * User Authentication Actions
+ * 
+ * Server actions for handling user authentication flow including:
+ * - Sign up with email/password
+ * - Sign in and session management
+ * - Password reset functionality
+ * 
+ * @module app/(auth)/actions
+ */
+```
+
+### Function Documentation
+Use JSDoc for all exported functions:
+```typescript
+/**
+ * Creates a new child profile during onboarding
+ * 
+ * @param formData - Form data containing child name, year group, etc.
+ * @returns Promise with success/error response
+ * @throws Never throws - returns error in response object
+ * 
+ * @example
+ * const formData = new FormData()
+ * formData.append('name', 'Emma')
+ * formData.append('yearGroup', '5')
+ * const result = await createInitialChild(formData)
+ */
+```
+
+### Component Documentation
+React components should document:
+- Purpose and usage
+- Props with types
+- Key behaviors or side effects
+```typescript
+/**
+ * Avatar picker component for child profile setup
+ * 
+ * Displays a grid of emoji avatars for children to choose from.
+ * Selection state is managed internally and communicated via onChange callback.
+ * 
+ * @param value - Currently selected avatar ID
+ * @param onChange - Callback when avatar selection changes
+ */
+```
+
+### Complex Logic Comments
+Add inline comments for:
+- Non-obvious business logic
+- Workarounds or hacks
+- Security considerations
+- Performance optimizations
+
+### Type Documentation
+Document complex types and interfaces:
+```typescript
+/**
+ * Child profile database record
+ * 
+ * Represents a learner account linked to a parent.
+ * Children do not have direct login access.
+ */
+export interface Child {
+  // ...
+}
+```
+
+### README Files
+Each major directory should have a README:
+- /lib/supabase/README.md - Supabase client usage
+- /types/README.md - Type system overview
+- /supabase/migrations/README.md - Migration guide
+
+### Commit Messages
+Follow conventional commits:
+- `feat:` New feature
+- `fix:` Bug fix
+- `docs:` Documentation only
+- `style:` Formatting, no code change
+- `refactor:` Code restructuring
+- `test:` Adding tests
+- `chore:` Maintenance tasks
+
+Example: `feat: add child profile setup flow with avatar picker`

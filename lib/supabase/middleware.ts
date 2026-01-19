@@ -42,13 +42,40 @@ export async function updateSession(request: NextRequest) {
     !user &&
     !request.nextUrl.pathname.startsWith('/login') &&
     !request.nextUrl.pathname.startsWith('/signup') &&
+    !request.nextUrl.pathname.startsWith('/forgot-password') &&
+    !request.nextUrl.pathname.startsWith('/reset-password') &&
     !request.nextUrl.pathname.startsWith('/api') &&
-    request.nextUrl.pathname.startsWith('/(dashboard)')
+    request.nextUrl.pathname !== '/'
   ) {
     // Redirect to login if accessing protected route without auth
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
+  }
+
+  // Check if authenticated user needs to complete setup
+  if (
+    user &&
+    request.nextUrl.pathname !== '/setup' &&
+    !request.nextUrl.pathname.startsWith('/login') &&
+    !request.nextUrl.pathname.startsWith('/signup') &&
+    !request.nextUrl.pathname.startsWith('/api') &&
+    request.nextUrl.pathname !== '/'
+  ) {
+    // Check if user has any children
+    const { data: children } = await supabase
+      .from('children')
+      .select('id')
+      .eq('parent_id', user.id)
+      .eq('is_active', true)
+      .limit(1)
+
+    if (!children || children.length === 0) {
+      // No children, redirect to setup
+      const url = request.nextUrl.clone()
+      url.pathname = '/setup'
+      return NextResponse.redirect(url)
+    }
   }
 
   // Redirect authenticated users away from auth pages
@@ -57,8 +84,16 @@ export async function updateSession(request: NextRequest) {
     (request.nextUrl.pathname === '/login' ||
       request.nextUrl.pathname === '/signup')
   ) {
+    // Check if they need setup first
+    const { data: children } = await supabase
+      .from('children')
+      .select('id')
+      .eq('parent_id', user.id)
+      .eq('is_active', true)
+      .limit(1)
+
     const url = request.nextUrl.clone()
-    url.pathname = '/practice'
+    url.pathname = children && children.length > 0 ? '/practice' : '/setup'
     return NextResponse.redirect(url)
   }
 
