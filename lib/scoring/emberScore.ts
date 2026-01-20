@@ -61,12 +61,10 @@ export function calculateEmberScore(question: QuestionForScoring): EmberScoreRes
   const breakdown: EmberScoreBreakdown = {
     curriculumAlignment: calculateCurriculumScore(question.curriculumReference),
     expertVerification: calculateExpertScore(question.reviewStatus),
-    communityFeedback: calculateCommunityScore({
-      totalAttempts: question.totalAttempts || 0,
-      errorReportCount: question.errorReportCount || 0,
-      helpfulVotes: question.helpfulVotes || 0,
-      notHelpfulVotes: question.notHelpfulVotes || 0,
-    }),
+    communityFeedback: calculateCommunityScore(question.communityStats || {
+      helpfulCount: 0,
+      practiceCount: 0,
+    }, question.errorReports || []),
   }
 
   const totalScore = 
@@ -136,22 +134,29 @@ function calculateExpertScore(reviewStatus?: ReviewStatus | null): number {
  * - High usage without issues: +0.1 per 100 attempts (max +4)
  * 
  * @param stats - Community interaction statistics
+ * @param errorReports - Array of error reports
  * @returns Score from 0 to 20
  */
-function calculateCommunityScore(stats: CommunityStats): number {
+function calculateCommunityScore(
+  stats: CommunityStats, 
+  errorReports: Array<{ status: string }>
+): number {
   let score = 16 // Base score
 
+  // Count unresolved error reports
+  const unresolvedReports = errorReports.filter(r => r.status === 'pending').length
+
   // Penalty for error reports (-2 each, no floor at 0 for component)
-  score -= stats.errorReportCount * 2
+  score -= unresolvedReports * 2
 
   // Bonus for helpful votes (+0.5 each, max +4)
-  const helpfulBonus = Math.min(4, stats.helpfulVotes * 0.5)
+  const helpfulBonus = Math.min(4, stats.helpfulCount * 0.5)
   score += helpfulBonus
 
   // Bonus for usage without issues (+0.1 per 100 attempts, max +4)
   // Only count if there are no error reports
-  if (stats.errorReportCount === 0 && stats.totalAttempts > 0) {
-    const usageBonus = Math.min(4, (stats.totalAttempts / 100) * 0.1)
+  if (unresolvedReports === 0 && stats.practiceCount > 0) {
+    const usageBonus = Math.min(4, (stats.practiceCount / 100) * 0.1)
     score += usageBonus
   }
 

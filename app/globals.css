@@ -82,3 +82,37 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Subtle pulse animation for verified Ember Scores */
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Ember Score tier colors */
+  .ember-score-overview[data-tier="green"] {
+    border-color: rgb(134 239 172);
+    background-color: rgb(240 253 244);
+  }
+  
+  .ember-score-overview[data-tier="amber"] {
+    border-color: rgb(252 211 77);
+    background-color: rgb(254 252 232);
+  }
+  
+  .ember-score-overview[data-tier="gray"] {
+    border-color: rgb(203 213 225);
+    background-color: rgb(248 250 252);
+  }
+}

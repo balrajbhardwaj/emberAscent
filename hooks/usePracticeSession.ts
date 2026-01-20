@@ -234,7 +234,7 @@ export function usePracticeSession(
       const { completeSession } = await import("@/app/(dashboard)/practice/[sessionType]/actions")
       
       // Complete session on server
-      await completeSession(session.sessionId, session.timeElapsed)
+      await completeSession(session.sessionId)
 
       // Clear localStorage
       localStorage.removeItem(`session_${session.sessionId}`)

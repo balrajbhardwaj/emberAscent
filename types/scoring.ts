@@ -32,21 +32,13 @@ export interface ReviewInfo {
 
 export interface QuestionForScoring {
   id: string
-  curriculumReference?: string | null
-  reviewStatus?: ReviewStatus | null
-  reviewedBy?: string | null
-  reviewedAt?: Date | null
-  
-  // Community feedback stats (from aggregated data)
-  totalAttempts?: number
-  errorReportCount?: number
-  helpfulVotes?: number
-  notHelpfulVotes?: number
+  curriculumReference: string | null
+  reviewStatus: ReviewStatus
+  errorReports: Array<{ id: string; report_type: string; status: string; created_at: string }>
+  communityStats: CommunityStats
 }
 
 export interface CommunityStats {
-  totalAttempts: number
-  errorReportCount: number // unresolved reports
-  helpfulVotes: number
-  notHelpfulVotes: number
+  helpfulCount: number
+  practiceCount: number
 }

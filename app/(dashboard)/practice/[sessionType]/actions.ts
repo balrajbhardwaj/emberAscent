@@ -239,12 +239,10 @@ export async function submitAttempt(
  * Finalizes session, calculates score, updates statistics.
  * 
  * @param sessionId - Session ID
- * @param timeElapsed - Total time in seconds
  * @returns Success boolean
  */
 export async function completeSession(
-  sessionId: string,
-  timeElapsed: number
+  sessionId: string
 ): Promise<boolean> {
   try {
     const supabase = await createClient()

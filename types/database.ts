@@ -83,11 +83,9 @@ export interface QuestionExplanations {
 }
 
 export interface EmberScoreBreakdown {
-  curriculum: number;
-  exam_pattern: number;
-  expert: number;
-  community: number;
-  technical: number;
+  curriculumAlignment: number;
+  expertVerification: number;
+  communityFeedback: number;
 }
 
 // =============================================================================
@@ -132,8 +130,11 @@ export interface Question {
   year_group: 4 | 5 | 6 | null;
   curriculum_reference: string | null;
   exam_board: ExamBoard;
+  review_status: 'reviewed' | 'spot_checked' | 'ai_only';
   ember_score: number;
   ember_score_breakdown: EmberScoreBreakdown | null;
+  helpful_count: number;
+  practice_count: number;
   is_published: boolean;
   created_by: string | null;
   reviewed_by: string | null;
