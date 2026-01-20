@@ -15,25 +15,45 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Clock, CheckCircle, XCircle } from "lucide-react"
+import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
+
+interface QuestionOption {
+  id: string
+  text: string
+}
 
 interface Question {
   id: string
-  text: string
-  options: Array<{ id: string; text: string }>
+  question_text: string
+  subject: string
+  topic: string | null
+  difficulty: string
+  options: QuestionOption[]
   correct_answer: string
-  explanation: any
+  explanations: {
+    step_by_step: string
+    visual: string
+    worked_example: string
+  } | null
+  ember_score: number
+  year_group: number | null
+  curriculum_reference: string | null
+  is_published: boolean
+  created_at: string
+  created_by: string | null
 }
 
 interface PracticeSession {
   id: string
   child_id: string
   session_type: string
-  subject: string
+  subject: string | null
+  topic: string | null
   total_questions: number
-  time_limit_seconds?: number
-  status: string
-  questions: string[]
+  started_at: string
+  completed_at: string | null
+  correct_answers: number
+  created_at: string
 }
 
 export default function PracticeSessionPage() {
@@ -48,6 +68,8 @@ export default function PracticeSessionPage() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [showExplanation, setShowExplanation] = useState(false)
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
   useEffect(() => {
     if (!sessionId) return
@@ -91,28 +113,30 @@ export default function PracticeSessionPage() {
 
       setSession(sessionData)
       
-      // Set timer if applicable
-      if (sessionData.time_limit_seconds) {
-        setTimeRemaining(sessionData.time_limit_seconds)
-      }
-
-      // Load questions
-      const { data: questionsData, error: questionsError } = await supabase
+      // Note: Timer and question list would need to be stored in a separate table
+      // or as metadata. For now, load random questions based on subject
+      
+      // Load questions based on session parameters
+      let query = supabase
         .from('questions')
         .select('*')
-        .in('id', sessionData.questions)
+        .eq('is_published', true)
+        .limit(sessionData.total_questions)
+      
+      if (sessionData.subject && sessionData.subject !== 'mixed') {
+        query = query.ilike('subject', `%${sessionData.subject}%`)
+      }
+
+      const { data: questionsData, error: questionsError } = await query
 
       if (questionsError) {
         console.error('Error loading questions:', questionsError)
         return
       }
 
-      // Ensure questions are in the same order as session.questions
-      const orderedQuestions = sessionData.questions.map(id => 
-        questionsData?.find(q => q.id === id)
-      ).filter(Boolean) as Question[]
-
-      setQuestions(orderedQuestions)
+      // Shuffle and limit questions
+      const shuffled = (questionsData || []).sort(() => Math.random() - 0.5)
+      setQuestions(shuffled.slice(0, sessionData.total_questions) as Question[])
     } catch (error) {
       console.error('Failed to load session:', error)
       router.push('/practice')
@@ -122,21 +146,28 @@ export default function PracticeSessionPage() {
   }
 
   function handleAnswerSelect(answerId: string) {
+    if (hasSubmitted) return
     setSelectedAnswer(answerId)
   }
 
-  function handleNextQuestion() {
-    if (!selectedAnswer) return
+  function handleSubmitAnswer() {
+    if (!selectedAnswer || hasSubmitted) return
 
     const currentQuestion = questions[currentQuestionIndex]
     setAnswers(prev => ({
       ...prev,
       [currentQuestion.id]: selectedAnswer
     }))
+    setHasSubmitted(true)
+    setShowExplanation(true)
+  }
 
+  function handleNextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1)
       setSelectedAnswer('')
+      setHasSubmitted(false)
+      setShowExplanation(false)
     } else {
       handleFinishSession()
     }
@@ -170,7 +201,7 @@ export default function PracticeSessionPage() {
         child_id: session.child_id,
         selected_answer: answers[question.id] || '',
         is_correct: answers[question.id] === question.correct_answer,
-        time_spent_seconds: 30 // TODO: Track actual time spent per question
+        time_taken_seconds: 30 // TODO: Track actual time spent per question
       }))
 
       await supabase
@@ -254,46 +285,131 @@ export default function PracticeSessionPage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-xl leading-relaxed">
-            {currentQuestion.text}
+            {currentQuestion.question_text}
           </CardTitle>
         </CardHeader>
         
         <CardContent className="space-y-4">
           {/* Answer Options */}
           <div className="space-y-3">
-            {currentQuestion.options.map((option) => (
-              <button
-                key={option.id}
-                className={`w-full p-4 text-left rounded-lg border-2 transition-all ${
-                  selectedAnswer === option.id
-                    ? 'border-blue-500 bg-blue-50'
-                    : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                }`}
-                onClick={() => handleAnswerSelect(option.id)}
-              >
-                <div className="flex items-center space-x-3">
-                  <span className={`flex h-6 w-6 items-center justify-center rounded-full border-2 text-sm font-medium ${
-                    selectedAnswer === option.id
-                      ? 'border-blue-500 bg-blue-500 text-white'
-                      : 'border-slate-300 text-slate-600'
-                  }`}>
-                    {option.id}
-                  </span>
-                  <span className="text-slate-900">{option.text}</span>
-                </div>
-              </button>
-            ))}
+            {currentQuestion.options.map((option) => {
+              const isCorrect = option.id === currentQuestion.correct_answer
+              const isSelected = selectedAnswer === option.id
+
+              let optionClass = 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+              let circleClass = 'border-slate-300 text-slate-600'
+
+              if (hasSubmitted) {
+                if (isCorrect) {
+                  optionClass = 'border-green-500 bg-green-50'
+                  circleClass = 'border-green-500 bg-green-500 text-white'
+                } else if (isSelected && !isCorrect) {
+                  optionClass = 'border-red-500 bg-red-50'
+                  circleClass = 'border-red-500 bg-red-500 text-white'
+                }
+              } else if (isSelected) {
+                optionClass = 'border-blue-500 bg-blue-50'
+                circleClass = 'border-blue-500 bg-blue-500 text-white'
+              }
+
+              return (
+                <button
+                  key={option.id}
+                  className={`w-full p-4 text-left rounded-lg border-2 transition-all ${optionClass} ${hasSubmitted ? 'cursor-default' : ''}`}
+                  onClick={() => handleAnswerSelect(option.id)}
+                  disabled={hasSubmitted}
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className={`flex h-6 w-6 items-center justify-center rounded-full border-2 text-sm font-medium ${circleClass}`}>
+                      {hasSubmitted && isCorrect ? (
+                        <CheckCircle className="h-4 w-4" />
+                      ) : hasSubmitted && isSelected && !isCorrect ? (
+                        <XCircle className="h-4 w-4" />
+                      ) : (
+                        option.id
+                      )}
+                    </span>
+                    <span className="text-slate-900">{option.text}</span>
+                  </div>
+                </button>
+              )
+            })}
           </div>
 
-          {/* Next Button */}
-          <div className="flex justify-end pt-6">
-            <Button 
-              onClick={handleNextQuestion}
-              disabled={!selectedAnswer}
-              size="lg"
-            >
-              {currentQuestionIndex === questions.length - 1 ? 'Finish Session' : 'Next Question'}
-            </Button>
+          {/* Explanation Panel */}
+          {showExplanation && currentQuestion.explanations && (
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <div className="flex items-start space-x-3">
+                <Lightbulb className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-amber-900">Explanation</h4>
+
+                  {currentQuestion.explanations.step_by_step && (
+                    <div>
+                      <p className="text-sm font-medium text-amber-800">Step by Step:</p>
+                      <p className="text-sm text-amber-900">{currentQuestion.explanations.step_by_step}</p>
+                    </div>
+                  )}
+
+                  {currentQuestion.explanations.worked_example && (
+                    <div>
+                      <p className="text-sm font-medium text-amber-800">Worked Example:</p>
+                      <p className="text-sm text-amber-900">{currentQuestion.explanations.worked_example}</p>
+                    </div>
+                  )}
+
+                  {currentQuestion.explanations.visual && (
+                    <div>
+                      <p className="text-sm font-medium text-amber-800">Visual Aid:</p>
+                      <p className="text-sm text-amber-900">{currentQuestion.explanations.visual}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Result feedback */}
+          {hasSubmitted && (
+            <div className={`mt-4 p-3 rounded-lg flex items-center space-x-2 ${
+              selectedAnswer === currentQuestion.correct_answer
+                ? 'bg-green-100 text-green-800'
+                : 'bg-red-100 text-red-800'
+            }`}>
+              {selectedAnswer === currentQuestion.correct_answer ? (
+                <>
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="font-medium">Correct!</span>
+                </>
+              ) : (
+                <>
+                  <XCircle className="h-5 w-5" />
+                  <span className="font-medium">
+                    Incorrect. The correct answer is {currentQuestion.correct_answer}.
+                  </span>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Action Buttons */}
+          <div className="flex justify-end pt-6 space-x-3">
+            {!hasSubmitted ? (
+              <Button
+                onClick={handleSubmitAnswer}
+                disabled={!selectedAnswer}
+                size="lg"
+              >
+                Submit Answer
+              </Button>
+            ) : (
+              <Button
+                onClick={handleNextQuestion}
+                size="lg"
+              >
+                {currentQuestionIndex === questions.length - 1 ? 'Finish Session' : 'Next Question'}
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>

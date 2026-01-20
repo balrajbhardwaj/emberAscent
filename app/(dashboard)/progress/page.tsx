@@ -14,7 +14,6 @@
  * @module app/(dashboard)/progress/page
  */
 
-import { BookOpen, Flame, TrendingUp, Target } from "lucide-react"
 import { OverviewCard } from "@/components/progress/OverviewCard"
 import { SubjectProgress } from "@/components/progress/SubjectProgress"
 import { ActivityTimeline } from "@/components/progress/ActivityTimeline"
@@ -103,28 +102,28 @@ export default async function ProgressPage() {
         {/* Overview Cards */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <OverviewCard
-            icon={BookOpen}
+            icon="BookOpen"
             label="Total Questions"
             value={overviewStats?.totalQuestions || 0}
             subtext="All time"
             color="blue"
           />
           <OverviewCard
-            icon={Flame}
+            icon="Flame"
             label="Current Streak"
             value={overviewStats?.currentStreak || 0}
             subtext={overviewStats?.currentStreak === 1 ? "day" : "days"}
             color="orange"
           />
           <OverviewCard
-            icon={TrendingUp}
+            icon="TrendingUp"
             label="This Week"
             value={overviewStats?.weeklyQuestions || 0}
             subtext="questions"
             color="purple"
           />
           <OverviewCard
-            icon={Target}
+            icon="Target"
             label="Overall Accuracy"
             value={`${overviewStats?.overallAccuracy || 0}%`}
             color="green"

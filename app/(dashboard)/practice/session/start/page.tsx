@@ -22,14 +22,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton"
 import { Clock, Target, Zap, ArrowLeft } from "lucide-react"
 
-interface SessionConfig {
-  mode: 'quick' | 'focus' | 'mock'
-  subject?: string
-  difficulty?: string
-  questionCount: number
-  timeLimit?: number
-}
-
 const sessionModes = {
   quick: {
     name: "Quick Practice",
@@ -125,7 +117,7 @@ function SessionStartContent() {
   }
 
   async function startSession() {
-    if (questions.length === 0) {
+    if (questions.length === 0 || !childId) {
       return
     }
 
@@ -135,16 +127,15 @@ function SessionStartContent() {
       const supabase = createClient()
       
       // Create practice session record
+      // subject must be null for mixed mode (database constraint only allows valid subject values)
       const { data: session, error } = await supabase
         .from('practice_sessions')
         .insert({
           child_id: childId,
           session_type: mode,
-          subject: subject || 'mixed',
+          subject: subject && subject !== 'mixed' ? subject : null,
           total_questions: questions.length,
-          time_limit_seconds: sessionConfig.timeLimit,
-          status: 'active',
-          questions: questions.map(q => q.id)
+          started_at: new Date().toISOString()
         })
         .select()
         .single()

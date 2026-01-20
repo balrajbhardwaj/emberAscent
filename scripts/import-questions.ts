@@ -124,7 +124,7 @@ async function importQuestionsFromFile(filePath: string) {
     for (let i = 0; i < transformedQuestions.length; i += batchSize) {
       const batch = transformedQuestions.slice(i, i + batchSize)
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('questions')
         .insert(batch)
 

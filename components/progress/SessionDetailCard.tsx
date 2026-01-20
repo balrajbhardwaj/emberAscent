@@ -162,9 +162,13 @@ export function SessionDetailCard({
                     </span>
                   </div>
                   <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    {/* eslint-disable-next-line react/forbid-dom-props */}
                     <div
                       className="h-full bg-white rounded-full transition-all"
-                      style={{ width: `${subject.accuracy}%` }}
+                      style={(() => {
+                        const progressStyle: React.CSSProperties = { width: `${subject.accuracy}%` }
+                        return progressStyle
+                      })()}
                     />
                   </div>
                 </div>

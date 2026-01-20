@@ -14,16 +14,16 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { CheckCircle, XCircle, Target, Clock, Trophy } from "lucide-react"
+import { CheckCircle, XCircle, Target, Trophy } from "lucide-react"
 
 interface SessionResults {
   id: string
   session_type: string
-  subject: string
+  subject: string | null
   total_questions: number
   correct_answers: number
-  time_limit_seconds?: number
-  completed_at: string
+  time_limit_seconds?: number | null
+  completed_at: string | null
 }
 
 interface QuestionResult {
@@ -67,7 +67,7 @@ export default function SessionResultsPage() {
         return
       }
 
-      setResults(sessionData)
+      setResults(sessionData as SessionResults)
 
       // Load question attempts with question details
       const { data: attemptsData, error: attemptsError } = await supabase

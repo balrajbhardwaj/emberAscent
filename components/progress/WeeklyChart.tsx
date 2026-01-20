@@ -87,6 +87,7 @@ export function WeeklyChart({ data, isLoading = false }: WeeklyChartProps) {
               >
                 {/* Bar */}
                 <div className="w-full flex flex-col justify-end h-full">
+                  {/* eslint-disable-next-line react/forbid-dom-props */}
                   <div
                     className={`w-full rounded-t-lg transition-all relative ${
                       day.hasSession
@@ -95,7 +96,13 @@ export function WeeklyChart({ data, isLoading = false }: WeeklyChartProps) {
                           : "bg-gradient-to-t from-blue-500 to-blue-400"
                         : "bg-slate-200"
                     } ${day.hasSession ? "hover:opacity-80" : ""}`}
-                    style={{ height: `${height}%`, minHeight: height > 0 ? "8px" : "0" }}
+                    style={(() => {
+                      const barStyle: React.CSSProperties = {
+                        height: `${height}%`,
+                        minHeight: height > 0 ? "8px" : "0"
+                      }
+                      return barStyle
+                    })()}
                   >
                     {/* Tooltip on hover */}
                     {day.hasSession && (

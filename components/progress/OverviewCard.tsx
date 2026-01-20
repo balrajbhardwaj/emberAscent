@@ -1,19 +1,28 @@
 /**
  * Overview Card Component
- * 
+ *
  * Displays a single stat card with icon, value, and label.
  * Used in the top row of the Progress dashboard.
- * 
+ *
  * @module components/progress/OverviewCard
  */
 "use client"
 
-import { LucideIcon } from "lucide-react"
+import { BookOpen, Flame, TrendingUp, Target } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
+const ICONS = {
+  BookOpen,
+  Flame,
+  TrendingUp,
+  Target,
+} as const
+
+type IconName = keyof typeof ICONS
+
 interface OverviewCardProps {
-  icon: LucideIcon
+  icon: IconName
   label: string
   value: string | number
   subtext?: string
@@ -57,7 +66,7 @@ const COLOR_CLASSES = {
  * @param isLoading - Loading state
  */
 export function OverviewCard({
-  icon: Icon,
+  icon,
   label,
   value,
   subtext,
@@ -65,6 +74,7 @@ export function OverviewCard({
   isLoading = false,
 }: OverviewCardProps) {
   const colors = COLOR_CLASSES[color]
+  const Icon = ICONS[icon]
 
   if (isLoading) {
     return (
