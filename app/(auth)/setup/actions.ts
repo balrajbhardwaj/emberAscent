@@ -94,7 +94,7 @@ export async function createInitialChild(
       target_school: targetSchool || null,
       avatar_url: avatarUrl || null,
       is_active: true,
-    })
+    } as any)
 
     if (insertError) {
       console.error("Child creation error:", insertError)

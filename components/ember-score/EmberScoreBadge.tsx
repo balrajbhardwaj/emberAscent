@@ -65,14 +65,14 @@ export function EmberScoreBadge({
 
   // Color variants by tier
   const colorClasses = {
-    verified: 'bg-green-100 text-green-700 border-green-300',
-    confident: 'bg-amber-100 text-amber-700 border-amber-300',
+    verified: 'bg-blue-100 text-blue-700 border-blue-300',
+    confident: 'bg-green-100 text-green-700 border-green-300',
     draft: 'bg-slate-100 text-slate-700 border-slate-300',
   }
 
   const flameColor = {
-    verified: 'text-green-600',
-    confident: 'text-amber-600',
+    verified: 'text-blue-600',
+    confident: 'text-green-600',
     draft: 'text-slate-600',
   }
 

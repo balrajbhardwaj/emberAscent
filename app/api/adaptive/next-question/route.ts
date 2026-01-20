@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
     
     // Get current difficulty or default to foundation
     const currentDifficulty: DifficultyLevel = 
-      (tracker?.current_difficulty as DifficultyLevel) || 'foundation'
+      ((tracker as any)?.current_difficulty as DifficultyLevel) || 'foundation'
     
     // Get questions already attempted in this session (to exclude)
     const excludeQuestionIds: string[] = []
@@ -109,9 +109,9 @@ export async function GET(request: NextRequest) {
       question,
       adaptiveInfo: {
         currentDifficulty,
-        recentAccuracy: tracker?.recent_accuracy || 0,
-        totalAttempts: tracker?.total_questions_in_topic || 0,
-        currentStreak: tracker?.current_streak || 0,
+        recentAccuracy: (tracker as any)?.recent_accuracy || 0,
+        totalAttempts: (tracker as any)?.total_questions_in_topic || 0,
+        currentStreak: (tracker as any)?.current_streak || 0,
       },
     })
   } catch (error) {

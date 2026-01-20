@@ -333,7 +333,7 @@ async function getChildWeakAreas(
   // Group by subtopic and calculate accuracy
   const subtopicStats = new Map<string, { correct: number; total: number }>()
   
-  attempts.forEach(attempt => {
+  attempts.forEach((attempt: any) => {
     const subtopic = attempt.questions?.subtopic_name
     if (!subtopic) return
     
@@ -382,7 +382,7 @@ async function getSubtopicAttemptCounts(
   
   // Count attempts per subtopic
   const counts = new Map<string, number>()
-  attempts.forEach(attempt => {
+  attempts.forEach((attempt: any) => {
     const subtopic = attempt.questions?.subtopic_name
     if (!subtopic) return
     

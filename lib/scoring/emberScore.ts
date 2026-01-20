@@ -199,14 +199,14 @@ export function getTierInfo(tier: ScoreTier): {
       return {
         label: 'Verified',
         description: 'Expert reviewed with strong community validation',
-        color: 'green',
+        color: 'blue',
         flames: 3,
       }
     case 'confident':
       return {
         label: 'Confident',
         description: 'Reviewed or well-validated by the community',
-        color: 'amber',
+        color: 'green',
         flames: 2,
       }
     case 'draft':

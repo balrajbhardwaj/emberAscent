@@ -1,10 +1,12 @@
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
-import { Database } from '@/types/supabase'
 
 /**
  * Creates a Supabase client for use in Server Components and Server Actions
  * Handles cookies properly for Next.js 14 App Router
+ * 
+ * Note: Database types are not used due to compatibility issues with current
+ * Supabase client version. Use explicit type assertions where needed.
  * 
  * Usage in Server Component:
  * ```typescript
@@ -15,7 +17,7 @@ import { Database } from '@/types/supabase'
 export async function createClient() {
   const cookieStore = await cookies()
 
-  return createServerClient<Database>(
+  return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
@@ -46,7 +48,7 @@ export async function createClient() {
 export async function createRouteHandlerClient() {
   const cookieStore = await cookies()
 
-  return createServerClient<Database>(
+  return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {

@@ -158,7 +158,7 @@ export function SessionQuestion({
               id: question.id,
               questionText: question.questionText,
               subject: question.subject,
-              emberScore: question.emberScore,
+              emberScore: question.emberScore ?? 75, // Fallback to 75
               emberScoreBreakdown: {
                 curriculumAlignment: 85,
                 expertVerified: true,

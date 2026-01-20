@@ -88,7 +88,7 @@ export default function SessionResultsPage() {
         return
       }
 
-      const formattedResults = attemptsData?.map(attempt => ({
+      const formattedResults = attemptsData?.map((attempt: any) => ({
         question_id: attempt.question_id,
         question_text: (attempt.questions as any)?.question_text || '',
         selected_answer: attempt.selected_answer,

@@ -67,14 +67,14 @@ async function PracticeContent({ childId }: { childId?: string }) {
 
   // Determine selected child
   const selectedChild = childId
-    ? children.find((c) => c.id === childId) || children[0]
+    ? children.find((c: any) => c.id === childId) || children[0]
     : children[0]
 
   // Fetch recent practice sessions (only completed ones for Recent Activity)
   const { data: recentSessions } = await supabase
     .from("practice_sessions")
     .select("*")
-    .eq("child_id", selectedChild.id)
+    .eq("child_id", (selectedChild as any).id)
     .not("completed_at", "is", null)
     .order("completed_at", { ascending: false })
     .limit(3)
@@ -85,7 +85,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const { data: todayAttempts } = await supabase
     .from("question_attempts")
     .select("id")
-    .eq("child_id", selectedChild.id)
+    .eq("child_id", (selectedChild as any).id)
     .gte("created_at", today.toISOString())
   
   const questionsToday = todayAttempts?.length || 0
@@ -94,7 +94,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const currentStreak = 0
 
   // Check if Quick Byte was completed today
-  const quickByteCompletedToday = await hasCompletedQuickByteToday(selectedChild.id)
+  const quickByteCompletedToday = await hasCompletedQuickByteToday((selectedChild as any).id)
 
   // Fetch 4 random questions for Quick Review (only if not completed today)
   const { data: quickReviewQuestions } = await supabase
@@ -107,7 +107,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const selectedQuickQuestions = quickReviewQuestions
     ?.sort(() => Math.random() - 0.5)
     .slice(0, 4)
-    .map((q) => {
+    .map((q: any) => {
       // Map options and ensure IDs are consistent
       const mappedOptions = q.options.map((opt: any) => ({
         id: opt.id,
@@ -124,7 +124,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
         id: q.id,
         subject: q.subject,
         questionText: q.question_text,
-        options: mappedOptions.map(opt => ({ id: opt.id, text: opt.text })),
+        options: mappedOptions.map((opt: any) => ({ id: opt.id, text: opt.text })),
         correctAnswerId: correctAnswerId,
         explanation: q.explanations?.step_by_step || "Great job!",
       }
@@ -137,7 +137,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       question_id,
       questions!inner(subject, topic)
     `)
-    .eq("child_id", selectedChild.id)
+    .eq("child_id", (selectedChild as any).id)
 
   // Get all unique topics per subject from questions table
   const { data: allQuestions } = await supabase
@@ -151,7 +151,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const masteredTopicsBySubject = new Map<string, Set<string>>()
 
   // Count all available topics
-  allQuestions?.forEach((q) => {
+  allQuestions?.forEach((q: any) => {
     if (!topicsBySubject.has(q.subject)) {
       topicsBySubject.set(q.subject, new Set())
     }
@@ -193,7 +193,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
   // Format sessions for RecentActivity component
   // Calculate from attempts if database field is 0 (due to previous PATCH errors)
   const formattedSessions = await Promise.all(
-    (recentSessions || []).map(async (session) => {
+    (recentSessions || []).map(async (session: any) => {
       let correct = session.correct_answers || 0
       let total = session.total_questions || 0
       
@@ -206,7 +206,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       
       if (attempts && attempts.length > 0) {
         total = attempts.length
-        correct = attempts.filter((a) => a.is_correct).length
+        correct = attempts.filter((a: any) => a.is_correct).length
       }
       
       return {
@@ -223,7 +223,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
     <div className="space-y-6">
       {/* Welcome Section */}
       <WelcomeCard
-        childName={selectedChild.name}
+        childName={(selectedChild as any).name}
         currentStreak={currentStreak}
         questionsToday={questionsToday}
       />
@@ -232,16 +232,16 @@ async function PracticeContent({ childId }: { childId?: string }) {
       {selectedQuickQuestions.length > 0 && (
         <QuickReviewSection 
           questions={selectedQuickQuestions} 
-          childId={selectedChild.id}
+          childId={(selectedChild as any).id}
           isCompletedToday={quickByteCompletedToday}
         />
       )}
 
       {/* Quick Actions */}
-      <QuickActionsSection childId={selectedChild.id} />
+      <QuickActionsSection childId={(selectedChild as any).id} />
 
       {/* Subject Browser */}
-      <SubjectBrowser subjects={subjects} childId={selectedChild.id} />
+      <SubjectBrowser subjects={subjects} childId={(selectedChild as any).id} />
 
       {/* Recent Activity */}
       <RecentActivity sessions={formattedSessions} />

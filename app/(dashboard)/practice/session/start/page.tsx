@@ -136,7 +136,7 @@ function SessionStartContent() {
           subject: subject && subject !== 'mixed' ? subject : null,
           total_questions: questions.length,
           started_at: new Date().toISOString()
-        })
+        } as any)
         .select()
         .single()
 

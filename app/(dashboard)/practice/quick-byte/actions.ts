@@ -62,7 +62,7 @@ export async function createQuickByteSession(
         subject: null, // Mixed subjects
         total_questions: questionIds.length,
         started_at: new Date().toISOString(),
-      })
+      } as any)
       .select()
       .single()
     
@@ -71,7 +71,7 @@ export async function createQuickByteSession(
       return null
     }
     
-    return data.id
+    return (data as any).id
   } catch (error) {
     console.error("Error creating Quick Byte session:", error)
     return null
@@ -107,7 +107,7 @@ export async function submitQuickByteAnswer(
         selected_answer: answerId,
         is_correct: answerId === correctAnswerId,
         time_taken_seconds: 10, // Approximate for Quick Byte
-      })
+      } as any)
     
     if (error) {
       console.error("Error submitting Quick Byte answer:", error)
@@ -138,10 +138,10 @@ export async function completeQuickByteSession(sessionId: string): Promise<boole
       .eq("session_id", sessionId)
     
     const totalCount = attempts?.length || 0
-    const correctCount = attempts?.filter((a) => a.is_correct).length || 0
+    const correctCount = attempts?.filter((a: any) => a.is_correct).length || 0
     
-    const { error } = await supabase
-      .from("practice_sessions")
+    const { error } = await (supabase
+      .from("practice_sessions") as any)
       .update({
         completed_at: new Date().toISOString(),
         total_questions: totalCount,

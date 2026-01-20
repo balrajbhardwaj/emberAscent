@@ -46,8 +46,8 @@ export default function FocusSessionPage() {
           .limit(1)
           .single()
 
-        if (children?.id) {
-          setChildId(children.id)
+        if ((children as any)?.id) {
+          setChildId((children as any).id)
         }
       }
     }

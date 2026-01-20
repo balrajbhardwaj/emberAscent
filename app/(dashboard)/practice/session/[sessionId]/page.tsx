@@ -15,7 +15,9 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
+import { Badge } from "@/components/ui/badge"
 import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
+import { EmberScore } from "@/components/practice/EmberScore"
 
 interface QuestionOption {
   id: string
@@ -111,7 +113,7 @@ export default function PracticeSessionPage() {
         return
       }
 
-      setSession(sessionData)
+      setSession(sessionData as any)
       
       // Note: Timer and question list would need to be stored in a separate table
       // or as metadata. For now, load random questions based on subject
@@ -121,10 +123,10 @@ export default function PracticeSessionPage() {
         .from('questions')
         .select('*')
         .eq('is_published', true)
-        .limit(sessionData.total_questions)
+        .limit((sessionData as any).total_questions)
       
-      if (sessionData.subject && sessionData.subject !== 'mixed') {
-        query = query.ilike('subject', `%${sessionData.subject}%`)
+      if ((sessionData as any).subject && (sessionData as any).subject !== 'mixed') {
+        query = query.ilike('subject', `%${(sessionData as any).subject}%`)
       }
 
       const { data: questionsData, error: questionsError } = await query
@@ -136,7 +138,7 @@ export default function PracticeSessionPage() {
 
       // Shuffle and limit questions
       const shuffled = (questionsData || []).sort(() => Math.random() - 0.5)
-      setQuestions(shuffled.slice(0, sessionData.total_questions) as Question[])
+      setQuestions(shuffled.slice(0, (sessionData as any).total_questions) as Question[])
     } catch (error) {
       console.error('Failed to load session:', error)
       router.push('/practice')
@@ -185,8 +187,8 @@ export default function PracticeSessionPage() {
       ).length
 
       // Update session
-      await supabase
-        .from('practice_sessions')
+      await (supabase
+        .from('practice_sessions') as any)
         .update({
           correct_answers: correctAnswers,
           completed_at: new Date().toISOString()
@@ -197,14 +199,14 @@ export default function PracticeSessionPage() {
       const attempts = questions.map(question => ({
         session_id: sessionId,
         question_id: question.id,
-        child_id: session.child_id,
+        child_id: (session as any).child_id,
         selected_answer: answers[question.id] || '',
-        is_correct: answers[question.id] === question.correct_answer,
+        is_correct: answers[question.id] === (question as any).correct_answer,
         time_taken_seconds: 30 // TODO: Track actual time spent per question
       }))
 
-      await supabase
-        .from('question_attempts')
+      await (supabase
+        .from('question_attempts') as any)
         .insert(attempts)
 
       // Navigate to results
@@ -283,6 +285,12 @@ export default function PracticeSessionPage() {
       {/* Question Card */}
       <Card>
         <CardHeader>
+          <div className="flex items-center justify-between mb-2">
+            <Badge variant="secondary" className="capitalize">
+              {currentQuestion.subject}
+            </Badge>
+            <EmberScore score={currentQuestion.ember_score} />
+          </div>
           <CardTitle className="text-xl leading-relaxed">
             {currentQuestion.question_text}
           </CardTitle>

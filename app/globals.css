@@ -115,4 +115,46 @@
     border-color: rgb(203 213 225);
     background-color: rgb(248 250 252);
   }
+
+  /* Handshake animation for trust page */
+  @keyframes hand-left {
+    0%, 100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(50px) rotate(-5deg);
+    }
+  }
+
+  @keyframes hand-right {
+    0%, 100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(-50px) rotate(5deg);
+    }
+  }
+
+  @keyframes sparkle-trust {
+    0%, 40%, 100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50%, 60% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-hand-left {
+    animation: hand-left 3s ease-in-out infinite;
+  }
+
+  .animate-hand-right {
+    animation: hand-right 3s ease-in-out infinite;
+  }
+
+  .animate-sparkle-trust {
+    animation: sparkle-trust 3s ease-in-out infinite;
+  }
 }

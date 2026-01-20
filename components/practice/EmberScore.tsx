@@ -20,6 +20,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -40,19 +41,29 @@ interface EmberScoreBreakdown {
 
 interface AscentTrustLevelProps {
   score: number
-  breakdown: EmberScoreBreakdown
+  breakdown?: EmberScoreBreakdown
   showDetails?: boolean
   size?: "sm" | "md" | "lg"
+}
+
+// Default breakdown when not provided
+const defaultBreakdown: EmberScoreBreakdown = {
+  curriculumAlignment: 0,
+  expertVerified: false,
+  communityRating: 0,
+  generatedBy: "AI Generated",
+  reviewedBy: "",
+  curriculumReference: "",
 }
 
 // Dot indicator component
 function TrustDots({ filled, total, color }: { filled: number; total: number; color: string }) {
   return (
-    <div className="flex items-center gap-0.5">
+    <div className="flex items-center gap-1">
       {Array.from({ length: total }).map((_, i) => (
         <div
           key={i}
-          className={`h-1.5 w-1.5 rounded-full transition-all ${
+          className={`h-2.5 w-2.5 rounded-full transition-all ${
             i < filled ? color : "bg-slate-300"
           }`}
         />
@@ -73,11 +84,16 @@ function TrustDots({ filled, total, color }: { filled: number; total: number; co
  */
 export function EmberScore({
   score,
-  breakdown,
+  breakdown = defaultBreakdown,
   showDetails = false,
   size = "md",
 }: AscentTrustLevelProps) {
   const [showInfoModal, setShowInfoModal] = useState(false)
+
+  // Guard against undefined/null score
+  if (score === undefined || score === null || isNaN(score)) {
+    return null
+  }
 
   // Determine trust tier
   const tier = score >= 90 ? "expert" : score >= 75 ? "reviewed" : "standard"
@@ -85,15 +101,15 @@ export function EmberScore({
   const tierLabel = tier === "expert" ? "Expert" : tier === "reviewed" ? "Reviewed" : "Standard"
   
   const tierColors = {
-    expert: "text-green-600 bg-green-50 border-green-200",
-    reviewed: "text-amber-600 bg-amber-50 border-amber-200",
-    standard: "text-slate-600 bg-slate-50 border-slate-200",
+    expert: "text-blue-600 bg-blue-50 border-blue-200",
+    reviewed: "text-green-600 bg-green-50 border-green-200",
+    standard: "text-slate-700 bg-slate-100 border-slate-300",
   }
 
   const dotColors = {
-    expert: "bg-green-500",
-    reviewed: "bg-amber-500",
-    standard: "bg-slate-500",
+    expert: "bg-blue-500",
+    reviewed: "bg-green-500",
+    standard: "bg-slate-600",
   }
 
   const sizes = {
@@ -146,10 +162,12 @@ export function EmberScore({
               variant="ghost"
               size="sm"
               className="w-full justify-start text-xs"
-              onClick={() => setShowInfoModal(true)}
+              asChild
             >
-              <Info className="mr-1 h-3 w-3" />
-              How are questions made?
+              <Link href="/how-questions-are-made">
+                <Info className="mr-1 h-3 w-3" />
+                How are questions made?
+              </Link>
             </Button>
           </div>
         </PopoverContent>

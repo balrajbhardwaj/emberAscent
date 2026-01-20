@@ -87,7 +87,7 @@ export default function SignupPage() {
             full_name: data.fullName,
             subscription_tier: "free",
             subscription_status: "active",
-          })
+          } as any)
 
         if (profileError) {
           console.error("Profile creation error:", profileError)

@@ -126,11 +126,13 @@ export function QuestionCard({
           </Badge>
 
           {/* Ember Score */}
-          <EmberScore
-            score={question.emberScore}
-            breakdown={question.emberScoreBreakdown}
-            size="sm"
-          />
+          {question.emberScore !== undefined && question.emberScore !== null && (
+            <EmberScore
+              score={question.emberScore}
+              breakdown={question.emberScoreBreakdown}
+              size="sm"
+            />
+          )}
 
           {/* Question Number */}
           {questionNumber && totalQuestions && (

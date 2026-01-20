@@ -33,7 +33,6 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import type { DifficultyLevel } from '@/types/adaptive'
 
 interface PerformanceRequest {
   childId: string
@@ -119,10 +118,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       adjustment: {
-        currentDifficulty: adjustment.current_difficulty,
-        shouldAdjust: adjustment.should_adjust,
-        recommendedDifficulty: adjustment.recommended_difficulty,
-        adjustmentReason: adjustment.adjustment_reason,
+        currentDifficulty: (adjustment as any).current_difficulty,
+        shouldAdjust: (adjustment as any).should_adjust,
+        recommendedDifficulty: (adjustment as any).recommended_difficulty,
+        adjustmentReason: (adjustment as any).adjustment_reason,
       },
     })
   } catch (error) {

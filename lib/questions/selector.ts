@@ -79,7 +79,7 @@ export async function selectQuestions(
         worked_example
       )
     `)
-    .eq("is_active", true)
+    .eq("is_published", true)
 
   // Apply subject filter
   if (criteria.subject) {
@@ -200,7 +200,7 @@ export async function selectQuestions(
     subject: q.subject,
     topic: q.topic,
     difficulty: q.difficulty,
-    ember_score: q.ember_score,
+    ember_score: q.ember_score ?? 75, // Default to 75 if not set
     options: Array.isArray(q.options) ? q.options : [],
     explanations: Array.isArray(q.explanations) && q.explanations[0]
       ? q.explanations[0]

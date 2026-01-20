@@ -112,7 +112,7 @@ export async function signUp(formData: FormData): Promise<AuthActionResponse> {
         full_name: fullName,
         subscription_tier: "free",
         subscription_status: "active",
-      })
+      } as any)
 
       if (profileError) {
         console.error("Profile creation error:", profileError)

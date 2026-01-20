@@ -29,12 +29,10 @@ import { MobileNav } from "@/components/dashboard/MobileNav"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
-  searchParams?: { childId?: string }
 }
 
 export default async function DashboardLayout({
   children: childrenProp,
-  searchParams = {},
 }: DashboardLayoutProps) {
   // Require authentication
   const user = await requireAuth()
@@ -57,16 +55,9 @@ export default async function DashboardLayout({
     redirect("/setup")
   }
 
-  // Determine selected child
-  // 1. From URL param if provided  
-  // 2. Otherwise, first child in list
-  let selectedChild = childrenData[0]
-  if (searchParams?.childId && childrenData.length > 0) {
-    const childFromParam = childrenData.find((c) => c.id === searchParams?.childId)
-    if (childFromParam) {
-      selectedChild = childFromParam
-    }
-  }
+  // Determine selected child - default to first child
+  // Child selection is managed by DashboardContext on client-side
+  const selectedChild = childrenData[0]
 
   // Additional safety check
   if (!selectedChild) {
@@ -80,7 +71,7 @@ export default async function DashboardLayout({
     .eq("id", user.id)
     .single()
 
-  const subscriptionTier = profile?.subscription_tier || "free"
+  const subscriptionTier = (profile as any)?.subscription_tier || "free"
 
   // TODO: Fetch current streak (placeholder for now)
   const currentStreak = 0

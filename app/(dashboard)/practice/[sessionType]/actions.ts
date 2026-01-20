@@ -55,11 +55,11 @@ export async function createSession(
       .limit(1)
       .single()
 
-    if (!children?.id) {
+    if (!(children as any)?.id) {
       throw new Error("No active child found")
     }
 
-    const childId = children.id
+    const childId = (children as any).id
 
     // Determine question count based on session type
     const questionCount = sessionType === "quick" ? 10 : sessionType === "focus" ? 25 : 50
@@ -94,7 +94,7 @@ export async function createSession(
         session_type: sessionType,
         total_questions: selectedQuestions.length,
         started_at: new Date().toISOString(),
-      })
+      } as any)
       .select()
       .single()
 
@@ -124,13 +124,13 @@ export async function createSession(
 
     // Build session state
     const sessionState: SessionState = {
-      sessionId: sessionData.id,
+      sessionId: (sessionData as any).id,
       childId: childId,
       type: sessionType,
       questions,
       currentIndex: 0,
       answers: {},
-      startedAt: new Date(sessionData.started_at),
+      startedAt: new Date((sessionData as any).started_at),
       timeElapsed: 0,
       timeLimit: sessionType === "mock" ? 45 * 60 : undefined, // 45 minutes for mock
       isPaused: false,
@@ -175,7 +175,7 @@ export async function loadSession(sessionId: string): Promise<SessionState | nul
 
     // Build answers map
     const answers: Record<string, string> = {}
-    attempts?.forEach((attempt) => {
+    attempts?.forEach((attempt: any) => {
       answers[attempt.question_id] = attempt.selected_answer
     })
 
@@ -219,7 +219,7 @@ export async function submitAttempt(
       selected_answer: answerId,
       is_correct: answerId === correctAnswerId,
       time_taken_seconds: timeSpent,
-    })
+    } as any)
 
     if (error) {
       console.error("Error submitting attempt:", error)
@@ -263,15 +263,15 @@ export async function completeSession(
       // Still update the session as complete with 0 answers
     }
 
-    const correctCount = attempts ? attempts.filter((a) => a.is_correct).length : 0
+    const correctCount = attempts ? attempts.filter((a: any) => a.is_correct).length : 0
     const totalCount = attempts ? attempts.length : 0
 
     console.log("Completing session:", { sessionId, correctCount, totalCount, attemptsFound: attempts?.length })
 
     // Update session - only update completed_at and correct_answers
     // Don't update total_questions as it was set during creation
-    const { data, error } = await supabase
-      .from("practice_sessions")
+    const { data, error } = await (supabase
+      .from("practice_sessions") as any)
       .update({
         completed_at: new Date().toISOString(),
         correct_answers: correctCount,
