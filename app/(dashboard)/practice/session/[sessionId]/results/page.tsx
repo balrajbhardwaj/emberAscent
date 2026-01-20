@@ -75,10 +75,10 @@ export default function SessionResultsPage() {
         .select(`
           *,
           questions:question_id (
-            text,
+            question_text,
             options,
             correct_answer,
-            explanation
+            explanations
           )
         `)
         .eq('session_id', sessionId)
@@ -90,15 +90,26 @@ export default function SessionResultsPage() {
 
       const formattedResults = attemptsData?.map(attempt => ({
         question_id: attempt.question_id,
-        question_text: (attempt.questions as any)?.text || '',
+        question_text: (attempt.questions as any)?.question_text || '',
         selected_answer: attempt.selected_answer,
         correct_answer: (attempt.questions as any)?.correct_answer || '',
         is_correct: attempt.is_correct,
-        explanation: (attempt.questions as any)?.explanation,
+        explanation: (attempt.questions as any)?.explanations,
         options: (attempt.questions as any)?.options || []
       })) || []
 
       setQuestionResults(formattedResults)
+      
+      // Calculate actual results from attempts (more accurate than session record)
+      const totalQuestions = formattedResults.length
+      const correctAnswers = formattedResults.filter(a => a.is_correct).length
+      
+      // Update results with calculated values
+      setResults({
+        ...sessionData as SessionResults,
+        total_questions: totalQuestions,
+        correct_answers: correctAnswers
+      })
     } catch (error) {
       console.error('Failed to load results:', error)
       router.push('/practice')

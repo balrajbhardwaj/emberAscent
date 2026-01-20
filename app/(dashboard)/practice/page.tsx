@@ -21,10 +21,12 @@
 import { Suspense } from "react"
 import { createClient } from "@/lib/supabase/server"
 import { WelcomeCard } from "@/components/practice/WelcomeCard"
+import { QuickReviewSection } from "@/components/practice/QuickReviewSection"
 import { QuickActionsSection } from "@/components/practice/QuickActionsSection"
 import { SubjectBrowser } from "@/components/practice/SubjectBrowser"
 import { RecentActivity } from "@/components/practice/RecentActivity"
 import { PracticeSkeleton } from "@/components/practice/PracticeSkeleton"
+import { hasCompletedQuickByteToday } from "./quick-byte/actions"
 
 /**
  * Practice Home Page
@@ -76,11 +78,56 @@ async function PracticeContent({ childId }: { childId?: string }) {
     .order("created_at", { ascending: false })
     .limit(3)
 
-  // TODO: Fetch today's question count
-  const questionsToday = 0
+  // Calculate today's question count from attempts
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const { data: todayAttempts } = await supabase
+    .from("question_attempts")
+    .select("id")
+    .eq("child_id", selectedChild.id)
+    .gte("created_at", today.toISOString())
+  
+  const questionsToday = todayAttempts?.length || 0
 
   // TODO: Calculate current streak
   const currentStreak = 0
+
+  // Check if Quick Byte was completed today
+  const quickByteCompletedToday = await hasCompletedQuickByteToday(selectedChild.id)
+
+  // Fetch 4 random questions for Quick Review (only if not completed today)
+  const { data: quickReviewQuestions } = await supabase
+    .from("questions")
+    .select("id, subject, question_text, options, correct_answer, explanations")
+    .eq("is_published", true)
+    .limit(100) // Get a pool to randomize from
+  
+  // Randomly select 4 questions from different subjects if possible
+  const selectedQuickQuestions = quickReviewQuestions
+    ?.sort(() => Math.random() - 0.5)
+    .slice(0, 4)
+    .map((q) => {
+      // Map options and ensure IDs are consistent
+      const mappedOptions = q.options.map((opt: any) => ({
+        id: opt.id,
+        text: opt.option_text || opt.text,
+        isCorrect: opt.is_correct || false,
+      }))
+      
+      // Find correct answer ID - use correct_answer field if available, otherwise find from options
+      const correctAnswerId = q.correct_answer || 
+        mappedOptions.find((opt: any) => opt.isCorrect)?.id || 
+        ""
+      
+      return {
+        id: q.id,
+        subject: q.subject,
+        questionText: q.question_text,
+        options: mappedOptions.map(opt => ({ id: opt.id, text: opt.text })),
+        correctAnswerId: correctAnswerId,
+        explanation: q.explanations?.step_by_step || "Great job!",
+      }
+    }) || []
 
   // Calculate real subject progress from question attempts
   const { data: topicProgress } = await supabase
@@ -143,13 +190,33 @@ async function PracticeContent({ childId }: { childId?: string }) {
   })
 
   // Format sessions for RecentActivity component
-  const formattedSessions = (recentSessions || []).map((session) => ({
-    id: session.id,
-    date: new Date(session.created_at),
-    subject: session.subject || "Mixed", // Use session subject or default to Mixed
-    questionsCorrect: session.correct_answers || 0,
-    questionsTotal: session.total_questions || 0,
-  }))
+  // Calculate from attempts if database field is 0 (due to previous PATCH errors)
+  const formattedSessions = await Promise.all(
+    (recentSessions || []).map(async (session) => {
+      let correct = session.correct_answers || 0
+      let total = session.total_questions || 0
+      
+      // Always calculate from attempts to ensure accuracy
+      // (Some older sessions may have incorrect database values due to PATCH errors)
+      const { data: attempts } = await supabase
+        .from("question_attempts")
+        .select("is_correct")
+        .eq("session_id", session.id)
+      
+      if (attempts && attempts.length > 0) {
+        total = attempts.length
+        correct = attempts.filter((a) => a.is_correct).length
+      }
+      
+      return {
+        id: session.id,
+        date: new Date(session.created_at),
+        subject: session.subject || "Mixed",
+        questionsCorrect: correct,
+        questionsTotal: total,
+      }
+    })
+  )
 
   return (
     <div className="space-y-6">
@@ -159,6 +226,15 @@ async function PracticeContent({ childId }: { childId?: string }) {
         currentStreak={currentStreak}
         questionsToday={questionsToday}
       />
+
+      {/* Quick Review Section - NEW! Always visible, shows completion message when done */}
+      {selectedQuickQuestions.length > 0 && (
+        <QuickReviewSection 
+          questions={selectedQuickQuestions} 
+          childId={selectedChild.id}
+          isCompletedToday={quickByteCompletedToday}
+        />
+      )}
 
       {/* Quick Actions */}
       <QuickActionsSection childId={selectedChild.id} />

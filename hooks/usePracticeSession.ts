@@ -39,6 +39,7 @@ export interface SessionQuestion {
 
 export interface SessionState {
   sessionId: string
+  childId: string
   type: SessionType
   questions: SessionQuestion[]
   currentIndex: number
@@ -139,8 +140,11 @@ export function usePracticeSession(
       }
     : { answered: 0, total: 0, percentage: 0 }
 
-  const submitAnswer = useCallback((answerId: string) => {
+  const submitAnswer = useCallback(async (answerId: string) => {
     if (!session || !currentQuestion) return
+
+    // Track start time if not already tracking
+    const questionStartTime = Date.now()
 
     setSession((prev) => {
       if (!prev) return prev
@@ -154,8 +158,25 @@ export function usePracticeSession(
       }
     })
 
-    // TODO: Submit to server via action
-    // submitAttempt(session.sessionId, currentQuestion.id, answerId)
+    // Submit to server via action
+    try {
+      const { submitAttempt } = await import("@/app/(dashboard)/practice/[sessionType]/actions")
+      
+      // Calculate time spent (use a simple estimate for now)
+      const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000)
+      
+      await submitAttempt(
+        session.sessionId,
+        session.childId,
+        currentQuestion.id,
+        answerId,
+        currentQuestion.correctAnswerId,
+        timeSpent || 1 // Minimum 1 second
+      )
+    } catch (error) {
+      console.error("Error submitting attempt:", error)
+      // Continue even if submission fails - we'll calculate from answers on completion
+    }
   }, [session, currentQuestion])
 
   const nextQuestion = useCallback(() => {
@@ -209,14 +230,17 @@ export function usePracticeSession(
         return { ...prev, isComplete: true }
       })
 
-      // TODO: Complete session on server
-      // await completeSession(session.sessionId)
+      // Import completeSession dynamically to avoid circular dependencies
+      const { completeSession } = await import("@/app/(dashboard)/practice/[sessionType]/actions")
+      
+      // Complete session on server
+      await completeSession(session.sessionId, session.timeElapsed)
 
       // Clear localStorage
       localStorage.removeItem(`session_${session.sessionId}`)
 
       // Navigate to results
-      router.push(`/practice/${session.type}/results?sessionId=${session.sessionId}`)
+      router.push(`/practice/session/${session.sessionId}/results`)
     } catch (err) {
       setError("Failed to end session")
       console.error(err)

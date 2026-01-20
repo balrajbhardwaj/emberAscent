@@ -188,7 +188,6 @@ export default function PracticeSessionPage() {
       await supabase
         .from('practice_sessions')
         .update({
-          status: 'completed',
           correct_answers: correctAnswers,
           completed_at: new Date().toISOString()
         })
