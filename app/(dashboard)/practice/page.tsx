@@ -82,33 +82,65 @@ async function PracticeContent({ childId }: { childId?: string }) {
   // TODO: Calculate current streak
   const currentStreak = 0
 
-  // Mock subject progress data (will be calculated from real data later)
-  const subjects = [
-    {
-      name: "Verbal Reasoning",
-      icon: "🧠",
-      progress: 25,
-      topicsMastered: 3,
-      totalTopics: 12,
-      color: "bg-violet-400",
-    },
-    {
-      name: "English",
-      icon: "📚",
-      progress: 40,
-      topicsMastered: 6,
-      totalTopics: 15,
-      color: "bg-sky-400",
-    },
-    {
-      name: "Maths",
-      icon: "🔢",
-      progress: 15,
-      topicsMastered: 2,
-      totalTopics: 14,
-      color: "bg-emerald-400",
-    },
+  // Calculate real subject progress from question attempts
+  const { data: topicProgress } = await supabase
+    .from("question_attempts")
+    .select(`
+      question_id,
+      questions!inner(subject, topic)
+    `)
+    .eq("child_id", selectedChild.id)
+
+  // Get all unique topics per subject from questions table
+  const { data: allQuestions } = await supabase
+    .from("questions")
+    .select("subject, topic")
+    .eq("is_published", true)
+    .not("topic", "is", null)
+
+  // Calculate topics mastered by subject
+  const topicsBySubject = new Map<string, Set<string>>()
+  const masteredTopicsBySubject = new Map<string, Set<string>>()
+
+  // Count all available topics
+  allQuestions?.forEach((q) => {
+    if (!topicsBySubject.has(q.subject)) {
+      topicsBySubject.set(q.subject, new Set())
+    }
+    topicsBySubject.get(q.subject)!.add(q.topic!)
+  })
+
+  // Count mastered topics (topics the child has practiced)
+  topicProgress?.forEach((attempt: any) => {
+    const subject = attempt.questions.subject
+    const topic = attempt.questions.topic
+    if (!masteredTopicsBySubject.has(subject)) {
+      masteredTopicsBySubject.set(subject, new Set())
+    }
+    if (topic) {
+      masteredTopicsBySubject.get(subject)!.add(topic)
+    }
+  })
+
+  // Build subjects array with real data
+  const subjectConfig = [
+    { name: "Verbal Reasoning", icon: "🧠", color: "bg-violet-400" },
+    { name: "English", icon: "📚", color: "bg-sky-400" },
+    { name: "Maths", icon: "🔢", color: "bg-emerald-400" },
   ]
+
+  const subjects = subjectConfig.map((config) => {
+    const totalTopics = topicsBySubject.get(config.name)?.size || 0
+    const topicsMastered = masteredTopicsBySubject.get(config.name)?.size || 0
+    const progress = totalTopics > 0 ? Math.round((topicsMastered / totalTopics) * 100) : 0
+
+    return {
+      ...config,
+      progress,
+      topicsMastered,
+      totalTopics,
+    }
+  })
 
   // Format sessions for RecentActivity component
   const formattedSessions = (recentSessions || []).map((session) => ({
