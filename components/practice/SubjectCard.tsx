@@ -52,33 +52,33 @@ export function SubjectCard({
 
   return (
     <Card
-      className="group cursor-pointer overflow-hidden transition-all hover:shadow-md"
+      className="group cursor-pointer border border-slate-100 bg-white transition-all hover:border-slate-200 hover:shadow-sm"
       onClick={onClick}
     >
-      <div className="p-6">
+      <div className="p-5">
         {/* Icon & Title */}
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-2xl">
+          <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-slate-50/80 text-xl">
             {icon}
           </div>
           <div className="flex-1">
-            <h3 className="font-semibold text-slate-900">{subject}</h3>
-            <p className="text-sm text-slate-600">
+            <h3 className="font-medium text-slate-800">{subject}</h3>
+            <p className="text-sm text-slate-500">
               {topicsMastered} of {totalTopics} topics
             </p>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-4 space-y-2">
-          <Progress value={progress} className={`h-2 ${color}`} />
-          <p className="text-xs text-slate-500">{progress}% complete</p>
+        <div className="mb-4 space-y-1.5">
+          <Progress value={progress} className={`h-1.5 ${color}`} />
+          <p className="text-xs text-slate-400">{progress}% complete</p>
         </div>
 
         {/* Action Button */}
         <Button
-          variant={hasStarted ? "default" : "outline"}
-          className="w-full"
+          variant="ghost"
+          className="w-full border border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-800"
           onClick={(e) => {
             e.stopPropagation()
             onClick()

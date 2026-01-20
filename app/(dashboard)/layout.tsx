@@ -29,12 +29,12 @@ import { MobileNav } from "@/components/dashboard/MobileNav"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
-  searchParams: { childId?: string }
+  searchParams?: { childId?: string }
 }
 
 export default async function DashboardLayout({
   children: childrenProp,
-  searchParams,
+  searchParams = {},
 }: DashboardLayoutProps) {
   // Require authentication
   const user = await requireAuth()
@@ -58,14 +58,19 @@ export default async function DashboardLayout({
   }
 
   // Determine selected child
-  // 1. From URL param if provided
+  // 1. From URL param if provided  
   // 2. Otherwise, first child in list
   let selectedChild = childrenData[0]
-  if (searchParams.childId) {
-    const childFromParam = childrenData.find((c) => c.id === searchParams.childId)
+  if (searchParams?.childId && childrenData.length > 0) {
+    const childFromParam = childrenData.find((c) => c.id === searchParams?.childId)
     if (childFromParam) {
       selectedChild = childFromParam
     }
+  }
+
+  // Additional safety check
+  if (!selectedChild) {
+    redirect("/setup")
   }
 
   // Fetch subscription tier (for header display)

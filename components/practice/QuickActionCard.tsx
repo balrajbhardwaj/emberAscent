@@ -10,17 +10,23 @@
  */
 "use client"
 
-import { LucideIcon } from "lucide-react"
+import { Zap, Target, Clock, LucideIcon } from "lucide-react"
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 interface QuickActionCardProps {
   title: string
   description: string
-  icon: LucideIcon
+  icon: string // Changed to string
   iconColor: string
   bgColor: string
   onClick: () => void
+}
+
+// Icon mapping
+const iconMap: Record<string, LucideIcon> = {
+  'zap': Zap,
+  'target': Target,
+  'clock': Clock,
 }
 
 /**
@@ -39,36 +45,33 @@ interface QuickActionCardProps {
 export function QuickActionCard({
   title,
   description,
-  icon: Icon,
+  icon,
   iconColor,
   bgColor,
   onClick,
 }: QuickActionCardProps) {
+  const IconComponent = iconMap[icon] || Zap // Fallback to Zap
   return (
     <Card
-      className={`group cursor-pointer overflow-hidden transition-all hover:scale-105 hover:shadow-lg ${bgColor}`}
+      className={`group cursor-pointer overflow-hidden border border-slate-100 transition-all hover:scale-[1.02] hover:shadow-md ${bgColor}`}
       onClick={onClick}
     >
       <div className="flex items-center gap-4 p-6">
         {/* Icon */}
-        <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/90 ${iconColor} shadow-sm`}>
-          <Icon className="h-8 w-8" />
+        <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/80 ${iconColor}`}>
+          <IconComponent className="h-7 w-7" />
         </div>
 
         {/* Content */}
         <div className="flex-1">
-          <h3 className="text-lg font-bold text-slate-900 sm:text-xl">{title}</h3>
-          <p className="mt-1 text-sm text-slate-600">{description}</p>
+          <h3 className="text-lg font-semibold text-slate-800">{title}</h3>
+          <p className="mt-0.5 text-sm text-slate-500">{description}</p>
         </div>
 
         {/* Arrow */}
-        <Button
-          variant="ghost"
-          size="sm"
-          className="hidden group-hover:flex sm:flex"
-        >
+        <span className="hidden text-sm font-medium text-slate-400 transition-colors group-hover:text-slate-600 sm:block">
           Start →
-        </Button>
+        </span>
       </div>
     </Card>
   )

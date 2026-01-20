@@ -19,11 +19,10 @@
  */
 
 import { Suspense } from "react"
-import { Zap, Target, Clock } from "lucide-react"
 import { createClient } from "@/lib/supabase/server"
 import { WelcomeCard } from "@/components/practice/WelcomeCard"
-import { QuickActionCard } from "@/components/practice/QuickActionCard"
-import { SubjectCard } from "@/components/practice/SubjectCard"
+import { QuickActionsSection } from "@/components/practice/QuickActionsSection"
+import { SubjectBrowser } from "@/components/practice/SubjectBrowser"
 import { RecentActivity } from "@/components/practice/RecentActivity"
 import { PracticeSkeleton } from "@/components/practice/PracticeSkeleton"
 
@@ -91,7 +90,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       progress: 25,
       topicsMastered: 3,
       totalTopics: 12,
-      color: "bg-purple-500",
+      color: "bg-violet-400",
     },
     {
       name: "English",
@@ -99,7 +98,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       progress: 40,
       topicsMastered: 6,
       totalTopics: 15,
-      color: "bg-blue-500",
+      color: "bg-sky-400",
     },
     {
       name: "Maths",
@@ -107,7 +106,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       progress: 15,
       topicsMastered: 2,
       totalTopics: 14,
-      color: "bg-green-500",
+      color: "bg-emerald-400",
     },
   ]
 
@@ -130,53 +129,10 @@ async function PracticeContent({ childId }: { childId?: string }) {
       />
 
       {/* Quick Actions */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <QuickActionCard
-          title="Quick Practice"
-          description="10 questions, mixed topics"
-          icon={Zap}
-          iconColor="text-yellow-600"
-          bgColor="bg-gradient-to-br from-yellow-50 to-amber-50"
-          onClick={() => console.log("Quick Practice clicked")}
-        />
-        <QuickActionCard
-          title="Focus Session"
-          description="25 questions, choose subject"
-          icon={Target}
-          iconColor="text-blue-600"
-          bgColor="bg-gradient-to-br from-blue-50 to-cyan-50"
-          onClick={() => console.log("Focus Session clicked")}
-        />
-        <QuickActionCard
-          title="Mock Test"
-          description="Timed exam simulation"
-          icon={Clock}
-          iconColor="text-purple-600"
-          bgColor="bg-gradient-to-br from-purple-50 to-pink-50"
-          onClick={() => console.log("Mock Test clicked")}
-        />
-      </div>
+      <QuickActionsSection childId={selectedChild.id} />
 
       {/* Subject Browser */}
-      <div>
-        <h2 className="mb-4 text-xl font-semibold text-slate-900">
-          Browse by Subject
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {subjects.map((subject) => (
-            <SubjectCard
-              key={subject.name}
-              subject={subject.name}
-              icon={subject.icon}
-              progress={subject.progress}
-              topicsMastered={subject.topicsMastered}
-              totalTopics={subject.totalTopics}
-              color={subject.color}
-              onClick={() => console.log(`${subject.name} clicked`)}
-            />
-          ))}
-        </div>
-      </div>
+      <SubjectBrowser subjects={subjects} childId={selectedChild.id} />
 
       {/* Recent Activity */}
       <RecentActivity sessions={formattedSessions} />

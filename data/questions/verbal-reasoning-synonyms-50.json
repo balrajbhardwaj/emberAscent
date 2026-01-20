@@ -1,0 +1,1252 @@
+[
+  {
+    "id": "vr-syn-001",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: RAPID",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "slow"},
+      {"id": "B", "text": "quick"},
+      {"id": "C", "text": "heavy"},
+      {"id": "D", "text": "bright"},
+      {"id": "E", "text": "quiet"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "RAPID means moving or happening quickly. Looking at each option: A) slow - opposite meaning, B) quick - same meaning as rapid ✓, C) heavy - relates to weight, D) bright - relates to light, E) quiet - relates to sound. The correct answer is B.",
+      "visual": "Think of a rapid river - the water moves QUICKLY. Quick and rapid both describe fast movement.",
+      "workedExample": "Similar question: ANCIENT means the same as OLD, because ancient describes something from a very long time ago."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-002",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ANCIENT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "new"},
+      {"id": "B", "text": "large"},
+      {"id": "C", "text": "old"},
+      {"id": "D", "text": "beautiful"},
+      {"id": "E", "text": "strong"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "ANCIENT means very old or from a long time ago. A) new - opposite meaning, B) large - about size, C) old - same meaning ✓, D) beautiful - about appearance, E) strong - about power. The correct answer is C.",
+      "visual": "Ancient Egypt, ancient ruins - these are all very OLD things from thousands of years ago.",
+      "workedExample": "The ancient castle was built 800 years ago. You could say: The OLD castle was built 800 years ago."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-003",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: PURCHASE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "sell"},
+      {"id": "B", "text": "buy"},
+      {"id": "C", "text": "rent"},
+      {"id": "D", "text": "borrow"},
+      {"id": "E", "text": "steal"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "PURCHASE means to buy something. A) sell - opposite action, B) buy - same meaning ✓, C) rent - temporary use, D) borrow - take temporarily, E) steal - take illegally. The correct answer is B.",
+      "visual": "When you purchase something at a shop, you BUY it by paying money.",
+      "workedExample": "I will purchase a new book = I will BUY a new book. Both mean exchanging money for something."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-004",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: WEALTHY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "poor"},
+      {"id": "B", "text": "healthy"},
+      {"id": "C", "text": "wise"},
+      {"id": "D", "text": "rich"},
+      {"id": "E", "text": "happy"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "WEALTHY means having a lot of money or possessions. A) poor - opposite meaning, B) healthy - about health, C) wise - about intelligence, D) rich - same meaning ✓, E) happy - about emotions. The correct answer is D.",
+      "visual": "A wealthy person is RICH - they have lots of money, expensive cars, and big houses.",
+      "workedExample": "The wealthy businessman = The RICH businessman. Both describe someone with lots of money."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-005",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ENORMOUS",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "tiny"},
+      {"id": "B", "text": "heavy"},
+      {"id": "C", "text": "huge"},
+      {"id": "D", "text": "round"},
+      {"id": "E", "text": "expensive"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "ENORMOUS means extremely large in size. A) tiny - opposite meaning, B) heavy - about weight, C) huge - same meaning ✓, D) round - about shape, E) expensive - about cost. The correct answer is C.",
+      "visual": "An enormous elephant is HUGE - much bigger than a normal elephant!",
+      "workedExample": "The enormous building = The HUGE building. Both describe something very, very large."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-006",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: BRAVE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "scared"},
+      {"id": "B", "text": "courageous"},
+      {"id": "C", "text": "kind"},
+      {"id": "D", "text": "clever"},
+      {"id": "E", "text": "lucky"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "BRAVE means showing courage in a dangerous or difficult situation. A) scared - opposite meaning, B) courageous - same meaning ✓, C) kind - about kindness, D) clever - about intelligence, E) lucky - about fortune. The correct answer is B.",
+      "visual": "A brave firefighter is COURAGEOUS - they face danger without fear.",
+      "workedExample": "The brave knight fought the dragon = The COURAGEOUS knight fought the dragon."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-007",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DIFFICULT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "easy"},
+      {"id": "B", "text": "important"},
+      {"id": "C", "text": "hard"},
+      {"id": "D", "text": "boring"},
+      {"id": "E", "text": "long"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "DIFFICULT means not easy, requiring effort or skill. A) easy - opposite meaning, B) important - about significance, C) hard - same meaning ✓, D) boring - about interest, E) long - about duration. The correct answer is C.",
+      "visual": "A difficult maths problem is HARD to solve - it takes lots of thinking and effort.",
+      "workedExample": "The difficult puzzle = The HARD puzzle. Both mean something that's not easy to complete."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-008",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: HAPPY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "sad"},
+      {"id": "B", "text": "angry"},
+      {"id": "C", "text": "joyful"},
+      {"id": "D", "text": "sleepy"},
+      {"id": "E", "text": "hungry"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "HAPPY means feeling or showing pleasure or contentment. A) sad - opposite meaning, B) angry - different emotion, C) joyful - same meaning ✓, D) sleepy - different feeling, E) hungry - physical state. The correct answer is C.",
+      "visual": "A happy child is JOYFUL - smiling, laughing, and full of joy!",
+      "workedExample": "She felt happy on her birthday = She felt JOYFUL on her birthday."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-009",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ANGRY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "calm"},
+      {"id": "B", "text": "furious"},
+      {"id": "C", "text": "confused"},
+      {"id": "D", "text": "tired"},
+      {"id": "E", "text": "worried"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "ANGRY means feeling or showing strong annoyance. A) calm - opposite meaning, B) furious - same meaning (very angry) ✓, C) confused - different feeling, D) tired - physical state, E) worried - different emotion. The correct answer is B.",
+      "visual": "When someone is angry, they are FURIOUS - red-faced and very upset!",
+      "workedExample": "He was angry about the mess = He was FURIOUS about the mess."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-010",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: BEAUTIFUL",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "ugly"},
+      {"id": "B", "text": "large"},
+      {"id": "C", "text": "lovely"},
+      {"id": "D", "text": "expensive"},
+      {"id": "E", "text": "rare"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "BEAUTIFUL means pleasing to look at, attractive. A) ugly - opposite meaning, B) large - about size, C) lovely - same meaning ✓, D) expensive - about cost, E) rare - about scarcity. The correct answer is C.",
+      "visual": "A beautiful sunset is LOVELY - it looks wonderful and makes you feel good!",
+      "workedExample": "The beautiful flowers = The LOVELY flowers. Both mean attractive to look at."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-011",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: CLEVER",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "stupid"},
+      {"id": "B", "text": "intelligent"},
+      {"id": "C", "text": "friendly"},
+      {"id": "D", "text": "tall"},
+      {"id": "E", "text": "loud"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "CLEVER means quick to understand and learn. A) stupid - opposite meaning, B) intelligent - same meaning ✓, C) friendly - about personality, D) tall - about height, E) loud - about volume. The correct answer is B.",
+      "visual": "A clever student is INTELLIGENT - they learn quickly and solve problems well.",
+      "workedExample": "She's a clever girl = She's an INTELLIGENT girl. Both mean smart and quick-thinking."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-012",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: FRIGHTENED",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "brave"},
+      {"id": "B", "text": "excited"},
+      {"id": "C", "text": "scared"},
+      {"id": "D", "text": "happy"},
+      {"id": "E", "text": "proud"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "FRIGHTENED means feeling fear or anxiety. A) brave - opposite meaning, B) excited - different emotion, C) scared - same meaning ✓, D) happy - different emotion, E) proud - different feeling. The correct answer is C.",
+      "visual": "A frightened cat is SCARED - it might hide or run away from danger.",
+      "workedExample": "The frightened child hid = The SCARED child hid. Both show fear."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-013",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: TINY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "huge"},
+      {"id": "B", "text": "small"},
+      {"id": "C", "text": "light"},
+      {"id": "D", "text": "soft"},
+      {"id": "E", "text": "quick"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "TINY means very small in size. A) huge - opposite meaning, B) small - same meaning ✓, C) light - about weight, D) soft - about texture, E) quick - about speed. The correct answer is B.",
+      "visual": "A tiny ant is very SMALL - you can barely see it!",
+      "workedExample": "The tiny baby mice = The SMALL baby mice. Both mean very little in size."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-014",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: STRONG",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "weak"},
+      {"id": "B", "text": "tall"},
+      {"id": "C", "text": "powerful"},
+      {"id": "D", "text": "loud"},
+      {"id": "E", "text": "fast"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "STRONG means having power or force. A) weak - opposite meaning, B) tall - about height, C) powerful - same meaning ✓, D) loud - about volume, E) fast - about speed. The correct answer is C.",
+      "visual": "A strong weightlifter is POWERFUL - able to lift very heavy objects!",
+      "workedExample": "The strong horse = The POWERFUL horse. Both mean having great strength."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-015",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: LOUD",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "quiet"},
+      {"id": "B", "text": "bright"},
+      {"id": "C", "text": "noisy"},
+      {"id": "D", "text": "high"},
+      {"id": "E", "text": "fast"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "LOUD means making a lot of noise. A) quiet - opposite meaning, B) bright - about light, C) noisy - same meaning ✓, D) high - about height or pitch, E) fast - about speed. The correct answer is C.",
+      "visual": "A loud concert is NOISY - you can hear it from far away!",
+      "workedExample": "The loud music = The NOISY music. Both mean producing a lot of sound."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-016",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: BEGIN",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "end"},
+      {"id": "B", "text": "start"},
+      {"id": "C", "text": "continue"},
+      {"id": "D", "text": "pause"},
+      {"id": "E", "text": "repeat"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "BEGIN means to start or commence something. A) end - opposite meaning, B) start - same meaning ✓, C) continue - keep going, D) pause - stop temporarily, E) repeat - do again. The correct answer is B.",
+      "visual": "When a race begins, it STARTS - the runners take off from the starting line!",
+      "workedExample": "Let's begin the lesson = Let's START the lesson. Both mean to commence."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-017",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: TIRED",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "energetic"},
+      {"id": "B", "text": "hungry"},
+      {"id": "C", "text": "exhausted"},
+      {"id": "D", "text": "cold"},
+      {"id": "E", "text": "worried"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "TIRED means needing rest or sleep. A) energetic - opposite meaning, B) hungry - different need, C) exhausted - same meaning (very tired) ✓, D) cold - different feeling, E) worried - different emotion. The correct answer is C.",
+      "visual": "After running a marathon, you feel tired or EXHAUSTED - you need to rest!",
+      "workedExample": "I'm so tired after work = I'm so EXHAUSTED after work. Both mean very weary."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-018",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: COLD",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "hot"},
+      {"id": "B", "text": "warm"},
+      {"id": "C", "text": "chilly"},
+      {"id": "D", "text": "wet"},
+      {"id": "E", "text": "dark"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "COLD means having a low temperature. A) hot - opposite meaning, B) warm - opposite meaning, C) chilly - same meaning ✓, D) wet - about moisture, E) dark - about light. The correct answer is C.",
+      "visual": "A cold winter day is CHILLY - you need to wear a coat to stay warm!",
+      "workedExample": "It's cold outside = It's CHILLY outside. Both mean low temperature."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-019",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: STRANGE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "normal"},
+      {"id": "B", "text": "odd"},
+      {"id": "C", "text": "simple"},
+      {"id": "D", "text": "boring"},
+      {"id": "E", "text": "clear"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "STRANGE means unusual or surprising. A) normal - opposite meaning, B) odd - same meaning ✓, C) simple - about complexity, D) boring - about interest, E) clear - about clarity. The correct answer is B.",
+      "visual": "A strange noise in the night is ODD - unusual and unexpected!",
+      "workedExample": "That's a strange coincidence = That's an ODD coincidence. Both mean unusual."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-020",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: FINISH",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "start"},
+      {"id": "B", "text": "complete"},
+      {"id": "C", "text": "begin"},
+      {"id": "D", "text": "pause"},
+      {"id": "E", "text": "continue"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "FINISH means to complete or end something. A) start - opposite meaning, B) complete - same meaning ✓, C) begin - opposite meaning, D) pause - stop temporarily, E) continue - keep going. The correct answer is B.",
+      "visual": "When you finish your homework, you COMPLETE it - all done!",
+      "workedExample": "I need to finish this book = I need to COMPLETE this book. Both mean to bring to an end."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-021",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: REPAIR",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "break"},
+      {"id": "B", "text": "fix"},
+      {"id": "C", "text": "destroy"},
+      {"id": "D", "text": "clean"},
+      {"id": "E", "text": "build"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "REPAIR means to fix something that is broken or damaged. A) break - opposite meaning, B) fix - same meaning ✓, C) destroy - opposite meaning, D) clean - different action, E) build - create new. The correct answer is B.",
+      "visual": "When you repair a broken toy, you FIX it so it works again!",
+      "workedExample": "Can you repair my bicycle? = Can you FIX my bicycle? Both mean to mend."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-022",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: CHOOSE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "reject"},
+      {"id": "B", "text": "select"},
+      {"id": "C", "text": "avoid"},
+      {"id": "D", "text": "ignore"},
+      {"id": "E", "text": "refuse"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "CHOOSE means to pick or select from options. A) reject - opposite meaning, B) select - same meaning ✓, C) avoid - stay away from, D) ignore - not pay attention, E) refuse - say no. The correct answer is B.",
+      "visual": "When you choose an ice cream flavour, you SELECT the one you want!",
+      "workedExample": "Choose your favourite colour = SELECT your favourite colour. Both mean to pick."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-023",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: QUIET",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "loud"},
+      {"id": "B", "text": "noisy"},
+      {"id": "C", "text": "silent"},
+      {"id": "D", "text": "bright"},
+      {"id": "E", "text": "busy"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "QUIET means making little or no noise. A) loud - opposite meaning, B) noisy - opposite meaning, C) silent - same meaning ✓, D) bright - about light, E) busy - about activity. The correct answer is C.",
+      "visual": "A quiet library is SILENT - everyone whispers or doesn't speak at all!",
+      "workedExample": "Please be quiet during the test = Please be SILENT during the test."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-024",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DIRTY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "clean"},
+      {"id": "B", "text": "filthy"},
+      {"id": "C", "text": "tidy"},
+      {"id": "D", "text": "fresh"},
+      {"id": "E", "text": "pure"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "DIRTY means covered with or containing dirt. A) clean - opposite meaning, B) filthy - same meaning (very dirty) ✓, C) tidy - about organization, D) fresh - opposite meaning, E) pure - opposite meaning. The correct answer is B.",
+      "visual": "After playing in the mud, your clothes are dirty or FILTHY - covered in dirt!",
+      "workedExample": "The dirty dishes need washing = The FILTHY dishes need washing. Both mean unclean."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-025",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: GLAD",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "sad"},
+      {"id": "B", "text": "pleased"},
+      {"id": "C", "text": "angry"},
+      {"id": "D", "text": "tired"},
+      {"id": "E", "text": "nervous"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "GLAD means feeling pleased or happy. A) sad - opposite meaning, B) pleased - same meaning ✓, C) angry - different emotion, D) tired - different feeling, E) nervous - different emotion. The correct answer is B.",
+      "visual": "I'm glad you came to my party = I'm PLEASED you came. Both show happiness!",
+      "workedExample": "She was glad to help = She was PLEASED to help. Both express positive feelings."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-026",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: SIMPLE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "difficult"},
+      {"id": "B", "text": "complex"},
+      {"id": "C", "text": "easy"},
+      {"id": "D", "text": "confusing"},
+      {"id": "E", "text": "impossible"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "SIMPLE means not complicated, easy to understand. A) difficult - opposite meaning, B) complex - opposite meaning, C) easy - same meaning ✓, D) confusing - opposite meaning, E) impossible - very difficult. The correct answer is C.",
+      "visual": "A simple puzzle is EASY - you can solve it quickly without much effort!",
+      "workedExample": "This is a simple question = This is an EASY question. Both mean not hard."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-027",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ANGRY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "happy"},
+      {"id": "B", "text": "mad"},
+      {"id": "C", "text": "peaceful"},
+      {"id": "D", "text": "gentle"},
+      {"id": "E", "text": "kind"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "ANGRY means feeling or showing annoyance. A) happy - opposite meaning, B) mad - same meaning (informal for angry) ✓, C) peaceful - opposite meaning, D) gentle - opposite meaning, E) kind - different quality. The correct answer is B.",
+      "visual": "When you're angry at something unfair, you're MAD - upset and annoyed!",
+      "workedExample": "Dad was angry about the mess = Dad was MAD about the mess. Both show frustration."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-028",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: SHOUT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "whisper"},
+      {"id": "B", "text": "yell"},
+      {"id": "C", "text": "murmur"},
+      {"id": "D", "text": "speak"},
+      {"id": "E", "text": "sing"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "SHOUT means to speak very loudly. A) whisper - opposite meaning, B) yell - same meaning ✓, C) murmur - speak quietly, D) speak - general term, E) sing - different action. The correct answer is B.",
+      "visual": "When you shout across a football field, you YELL loudly so others can hear!",
+      "workedExample": "Don't shout in the library = Don't YELL in the library. Both mean speak loudly."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-029",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: FAST",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "slow"},
+      {"id": "B", "text": "careful"},
+      {"id": "C", "text": "speedy"},
+      {"id": "D", "text": "late"},
+      {"id": "E", "text": "heavy"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "FAST means moving or able to move quickly. A) slow - opposite meaning, B) careful - about caution, C) speedy - same meaning ✓, D) late - about timing, E) heavy - about weight. The correct answer is C.",
+      "visual": "A fast cheetah is SPEEDY - it can run at incredible speeds!",
+      "workedExample": "The fast car won the race = The SPEEDY car won the race. Both mean quick."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-030",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: MEAN",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "kind"},
+      {"id": "B", "text": "generous"},
+      {"id": "C", "text": "unkind"},
+      {"id": "D", "text": "friendly"},
+      {"id": "E", "text": "helpful"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "MEAN (as an adjective) means unkind or nasty. A) kind - opposite meaning, B) generous - opposite meaning, C) unkind - same meaning ✓, D) friendly - opposite meaning, E) helpful - opposite meaning. The correct answer is C.",
+      "visual": "A mean person is UNKIND - they say hurtful things and don't care about others' feelings.",
+      "workedExample": "That was a mean comment = That was an UNKIND comment. Both describe nastiness."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-031",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DISCOVER",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "hide"},
+      {"id": "B", "text": "lose"},
+      {"id": "C", "text": "find"},
+      {"id": "D", "text": "forget"},
+      {"id": "E", "text": "cover"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "DISCOVER means to find something for the first time. A) hide - opposite meaning, B) lose - opposite meaning, C) find - same meaning ✓, D) forget - different concept, E) cover - opposite meaning. The correct answer is C.",
+      "visual": "When explorers discover new lands, they FIND places no one knew about before!",
+      "workedExample": "Scientists discover new species = Scientists FIND new species. Both mean to locate something new."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-032",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: EMPTY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "full"},
+      {"id": "B", "text": "vacant"},
+      {"id": "C", "text": "crowded"},
+      {"id": "D", "text": "heavy"},
+      {"id": "E", "text": "solid"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "EMPTY means containing nothing, not filled. A) full - opposite meaning, B) vacant - same meaning ✓, C) crowded - opposite meaning, D) heavy - about weight, E) solid - about substance. The correct answer is B.",
+      "visual": "An empty classroom is VACANT - no students or teachers are inside!",
+      "workedExample": "The empty bottle = The VACANT bottle. Both mean containing nothing."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-033",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DESTROY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "build"},
+      {"id": "B", "text": "create"},
+      {"id": "C", "text": "ruin"},
+      {"id": "D", "text": "repair"},
+      {"id": "E", "text": "fix"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "DESTROY means to damage something so badly it cannot be used. A) build - opposite meaning, B) create - opposite meaning, C) ruin - same meaning ✓, D) repair - opposite meaning, E) fix - opposite meaning. The correct answer is C.",
+      "visual": "A tornado can destroy buildings, completely RUINING them!",
+      "workedExample": "The fire destroyed the house = The fire RUINED the house. Both mean complete damage."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-034",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: IMPORTANT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "trivial"},
+      {"id": "B", "text": "significant"},
+      {"id": "C", "text": "minor"},
+      {"id": "D", "text": "worthless"},
+      {"id": "E", "text": "small"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "IMPORTANT means of great significance or value. A) trivial - opposite meaning, B) significant - same meaning ✓, C) minor - opposite meaning, D) worthless - opposite meaning, E) small - about size. The correct answer is B.",
+      "visual": "An important decision is SIGNIFICANT - it will affect many things!",
+      "workedExample": "This is an important meeting = This is a SIGNIFICANT meeting. Both mean valuable."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-035",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: FAKE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "real"},
+      {"id": "B", "text": "genuine"},
+      {"id": "C", "text": "false"},
+      {"id": "D", "text": "true"},
+      {"id": "E", "text": "authentic"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "FAKE means not genuine or real. A) real - opposite meaning, B) genuine - opposite meaning, C) false - same meaning ✓, D) true - opposite meaning, E) authentic - opposite meaning. The correct answer is C.",
+      "visual": "A fake diamond is FALSE - it looks real but it's actually made of glass!",
+      "workedExample": "That's a fake signature = That's a FALSE signature. Both mean not genuine."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-036",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: LAZY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "active"},
+      {"id": "B", "text": "energetic"},
+      {"id": "C", "text": "idle"},
+      {"id": "D", "text": "busy"},
+      {"id": "E", "text": "hardworking"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "LAZY means unwilling to work or use energy. A) active - opposite meaning, B) energetic - opposite meaning, C) idle - same meaning ✓, D) busy - opposite meaning, E) hardworking - opposite meaning. The correct answer is C.",
+      "visual": "A lazy cat lies around all day being IDLE - not doing any work!",
+      "workedExample": "He's too lazy to help = He's too IDLE to help. Both mean not wanting to work."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-037",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: FAMOUS",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "unknown"},
+      {"id": "B", "text": "ordinary"},
+      {"id": "C", "text": "well-known"},
+      {"id": "D", "text": "secret"},
+      {"id": "E", "text": "hidden"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "FAMOUS means known by many people. A) unknown - opposite meaning, B) ordinary - opposite meaning, C) well-known - same meaning ✓, D) secret - opposite meaning, E) hidden - opposite meaning. The correct answer is C.",
+      "visual": "A famous actor is WELL-KNOWN - everyone recognizes them!",
+      "workedExample": "She's a famous singer = She's a WELL-KNOWN singer. Both mean widely recognized."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-038",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ROUGH",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "smooth"},
+      {"id": "B", "text": "soft"},
+      {"id": "C", "text": "bumpy"},
+      {"id": "D", "text": "flat"},
+      {"id": "E", "text": "polished"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "ROUGH means having an uneven or irregular surface. A) smooth - opposite meaning, B) soft - different quality, C) bumpy - same meaning ✓, D) flat - opposite meaning, E) polished - opposite meaning. The correct answer is C.",
+      "visual": "A rough road is BUMPY - it has lots of uneven bits that shake the car!",
+      "workedExample": "The rough surface = The BUMPY surface. Both mean not smooth."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-039",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: THIN",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "thick"},
+      {"id": "B", "text": "fat"},
+      {"id": "C", "text": "slim"},
+      {"id": "D", "text": "wide"},
+      {"id": "E", "text": "heavy"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "THIN means having little thickness or fat. A) thick - opposite meaning, B) fat - opposite meaning, C) slim - same meaning ✓, D) wide - about width, E) heavy - about weight. The correct answer is C.",
+      "visual": "A thin pencil is SLIM - it has a small diameter and is easy to hold!",
+      "workedExample": "She's tall and thin = She's tall and SLIM. Both describe a slender figure."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-040",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: CLOSE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "far"},
+      {"id": "B", "text": "distant"},
+      {"id": "C", "text": "near"},
+      {"id": "D", "text": "remote"},
+      {"id": "E", "text": "away"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "CLOSE (when meaning distance) means not far away. A) far - opposite meaning, B) distant - opposite meaning, C) near - same meaning ✓, D) remote - opposite meaning, E) away - opposite meaning. The correct answer is C.",
+      "visual": "The shop is close to school - it's NEAR, just a short walk away!",
+      "workedExample": "Come close to me = Come NEAR to me. Both mean a short distance."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-041",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DEFEND",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "attack"},
+      {"id": "B", "text": "protect"},
+      {"id": "C", "text": "harm"},
+      {"id": "D", "text": "threaten"},
+      {"id": "E", "text": "damage"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "DEFEND means to protect from harm or danger. A) attack - opposite meaning, B) protect - same meaning ✓, C) harm - opposite meaning, D) threaten - opposite meaning, E) damage - opposite meaning. The correct answer is B.",
+      "visual": "Knights defend the castle by PROTECTING it from enemies!",
+      "workedExample": "Defend your friends = PROTECT your friends. Both mean to keep safe."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-042",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: POLITE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "rude"},
+      {"id": "B", "text": "courteous"},
+      {"id": "C", "text": "nasty"},
+      {"id": "D", "text": "mean"},
+      {"id": "E", "text": "impolite"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "POLITE means having good manners and showing respect. A) rude - opposite meaning, B) courteous - same meaning ✓, C) nasty - opposite meaning, D) mean - opposite meaning, E) impolite - opposite meaning. The correct answer is B.",
+      "visual": "A polite child is COURTEOUS - they say 'please' and 'thank you'!",
+      "workedExample": "He's always polite = He's always COURTEOUS. Both mean well-mannered."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-043",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: DAMP",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "dry"},
+      {"id": "B", "text": "moist"},
+      {"id": "C", "text": "arid"},
+      {"id": "D", "text": "parched"},
+      {"id": "E", "text": "dusty"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "DAMP means slightly wet. A) dry - opposite meaning, B) moist - same meaning ✓, C) arid - opposite meaning, D) parched - opposite meaning, E) dusty - about dust. The correct answer is B.",
+      "visual": "Damp grass after rain is MOIST - not soaking wet, but slightly wet!",
+      "workedExample": "The damp towel = The MOIST towel. Both mean a little wet."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-044",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: SWIFT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "slow"},
+      {"id": "B", "text": "lazy"},
+      {"id": "C", "text": "rapid"},
+      {"id": "D", "text": "gradual"},
+      {"id": "E", "text": "careful"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "SWIFT means happening quickly or moving fast. A) slow - opposite meaning, B) lazy - opposite quality, C) rapid - same meaning ✓, D) gradual - opposite meaning, E) careful - about caution. The correct answer is C.",
+      "visual": "A swift bird flies RAPIDLY through the sky - very fast!",
+      "workedExample": "A swift response = A RAPID response. Both mean quick and speedy."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-045",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: PROUD",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "ashamed"},
+      {"id": "B", "text": "humble"},
+      {"id": "C", "text": "satisfied"},
+      {"id": "D", "text": "embarrassed"},
+      {"id": "E", "text": "modest"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "PROUD means feeling pleased about achievements. A) ashamed - opposite meaning, B) humble - opposite quality, C) satisfied - similar meaning (pleased with yourself) ✓, D) embarrassed - opposite meaning, E) modest - opposite quality. The correct answer is C.",
+      "visual": "When you're proud of your work, you're SATISFIED - pleased with what you've done!",
+      "workedExample": "I'm proud of my painting = I'm SATISFIED with my painting. Both show positive feelings."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-046",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: REPLY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "question"},
+      {"id": "B", "text": "ask"},
+      {"id": "C", "text": "answer"},
+      {"id": "D", "text": "ignore"},
+      {"id": "E", "text": "wonder"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "REPLY means to respond or answer. A) question - opposite action, B) ask - opposite action, C) answer - same meaning ✓, D) ignore - opposite meaning, E) wonder - different action. The correct answer is C.",
+      "visual": "When you reply to a letter, you ANSWER it by writing back!",
+      "workedExample": "Please reply to my email = Please ANSWER my email. Both mean to respond."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-047",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: ENJOY",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "hate"},
+      {"id": "B", "text": "dislike"},
+      {"id": "C", "text": "appreciate"},
+      {"id": "D", "text": "despise"},
+      {"id": "E", "text": "avoid"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "ENJOY means to take pleasure in something. A) hate - opposite meaning, B) dislike - opposite meaning, C) appreciate - same meaning ✓, D) despise - opposite meaning, E) avoid - different action. The correct answer is C.",
+      "visual": "When you enjoy a good book, you APPRECIATE it - you find pleasure in reading!",
+      "workedExample": "I enjoy playing football = I APPRECIATE playing football. Both mean to like."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-048",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: GENTLE",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "rough"},
+      {"id": "B", "text": "harsh"},
+      {"id": "C", "text": "mild"},
+      {"id": "D", "text": "violent"},
+      {"id": "E", "text": "fierce"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "GENTLE means kind, tender, and careful. A) rough - opposite meaning, B) harsh - opposite meaning, C) mild - same meaning ✓, D) violent - opposite meaning, E) fierce - opposite meaning. The correct answer is C.",
+      "visual": "A gentle breeze is MILD - soft and pleasant, not strong or harsh!",
+      "workedExample": "She has a gentle touch = She has a MILD touch. Both mean soft and careful."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-049",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: HONEST",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "dishonest"},
+      {"id": "B", "text": "truthful"},
+      {"id": "C", "text": "lying"},
+      {"id": "D", "text": "deceitful"},
+      {"id": "E", "text": "sneaky"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "HONEST means telling the truth and not lying. A) dishonest - opposite meaning, B) truthful - same meaning ✓, C) lying - opposite meaning, D) deceitful - opposite meaning, E) sneaky - opposite quality. The correct answer is B.",
+      "visual": "An honest person is TRUTHFUL - they always tell the truth, even when it's difficult!",
+      "workedExample": "Give an honest answer = Give a TRUTHFUL answer. Both mean not lying."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  },
+  {
+    "id": "vr-syn-050",
+    "subject": "verbal_reasoning",
+    "topic": "Synonyms",
+    "subtopic": "Single Word Synonyms",
+    "questionText": "Find the word that means the same as: PERMIT",
+    "questionType": "synonym_single",
+    "options": [
+      {"id": "A", "text": "forbid"},
+      {"id": "B", "text": "allow"},
+      {"id": "C", "text": "prevent"},
+      {"id": "D", "text": "ban"},
+      {"id": "E", "text": "stop"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "PERMIT means to allow or give permission. A) forbid - opposite meaning, B) allow - same meaning ✓, C) prevent - opposite meaning, D) ban - opposite meaning, E) stop - opposite meaning. The correct answer is B.",
+      "visual": "When parents permit you to go out, they ALLOW you - they give permission!",
+      "workedExample": "I permit you to leave = I ALLOW you to leave. Both mean to give permission."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 English - Vocabulary - Y5",
+    "examBoard": "gl"
+  }
+]

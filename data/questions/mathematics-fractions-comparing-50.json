@@ -1,0 +1,1563 @@
+[
+  {
+    "id": "math-frac-comp-001",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is the largest: 1/4, 1/3, 1/2, 1/5, 1/6?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/4"},
+      {"id": "B", "text": "1/3"},
+      {"id": "C", "text": "1/2"},
+      {"id": "D", "text": "1/5"},
+      {"id": "E", "text": "1/6"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "When comparing fractions with the same numerator (1), the fraction with the smallest denominator is the largest. Since 2 < 3 < 4 < 5 < 6, we have 1/2 is the largest fraction.",
+      "visual": "Imagine cutting a pizza: 1/2 means 2 pieces (big slices), 1/6 means 6 pieces (small slices). Fewer pieces means each piece is bigger!",
+      "workedExample": "Compare 1/3 and 1/4: Since 3 < 4, we have 1/3 > 1/4. Think: 'thirds are bigger than quarters'."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare and order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.25, 0.333, 0.5, 0.2, 0.167],
+      "maxValue": 0.5,
+      "correctIndex": "C"
+    }
+  },
+  {
+    "id": "math-frac-comp-002",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is the smallest: 3/4, 2/3, 5/6, 7/8, 4/5?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "3/4"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "5/6"},
+      {"id": "D", "text": "7/8"},
+      {"id": "E", "text": "4/5"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 3/4 = 0.75, 2/3 ≈ 0.667, 5/6 ≈ 0.833, 7/8 = 0.875, 4/5 = 0.8. The smallest is 0.667, which is 2/3.",
+      "visual": "All fractions are close to 1. Find which is furthest from 1: 3/4 needs 1/4 more, 2/3 needs 1/3 more. Since 1/3 > 1/4, then 2/3 is smallest.",
+      "workedExample": "Compare 2/3 and 3/4 using cross-multiplication: 2×4 = 8, 3×3 = 9. Since 8 < 9, we have 2/3 < 3/4."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare and order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.75, 0.667, 0.833, 0.875, 0.8],
+      "minValue": 0.667,
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-003",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from smallest to largest: 1/2, 1/4, 3/4, 1/8",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/8, 1/4, 1/2, 3/4"},
+      {"id": "B", "text": "1/4, 1/8, 1/2, 3/4"},
+      {"id": "C", "text": "1/8, 1/2, 1/4, 3/4"},
+      {"id": "D", "text": "3/4, 1/2, 1/4, 1/8"},
+      {"id": "E", "text": "1/2, 1/4, 3/4, 1/8"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to eighths: 1/2 = 4/8, 1/4 = 2/8, 3/4 = 6/8, 1/8 = 1/8. Order: 1/8 < 2/8 < 4/8 < 6/8, which is 1/8, 1/4, 1/2, 3/4.",
+      "visual": "Think of a chocolate bar with 8 squares: 1/8 = 1 square, 1/4 = 2 squares, 1/2 = 4 squares, 3/4 = 6 squares.",
+      "workedExample": "Compare 1/4 and 3/4: same denominator, so compare numerators. 1 < 3, therefore 1/4 < 3/4."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"1/8": 0.125, "1/4": 0.25, "1/2": 0.5, "3/4": 0.75},
+      "orderedValues": [0.125, 0.25, 0.5, 0.75],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-004",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 2/3?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "4/9"},
+      {"id": "B", "text": "4/6"},
+      {"id": "C", "text": "3/6"},
+      {"id": "D", "text": "6/8"},
+      {"id": "E", "text": "8/9"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "To find equivalent fractions, multiply numerator and denominator by the same number: 2/3 = (2×2)/(3×2) = 4/6.",
+      "visual": "If you have 2 out of 3 equal parts, this is the same as having 4 out of 6 equal parts (each original part split in two).",
+      "workedExample": "Check: 2/3 = 2÷3 ≈ 0.667 and 4/6 = 4÷6 ≈ 0.667. They're equal!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "target": 0.667,
+      "values": [0.444, 0.667, 0.5, 0.75, 0.889],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-005",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which of these fractions is greater than 1/2?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/5"},
+      {"id": "B", "text": "3/7"},
+      {"id": "C", "text": "4/9"},
+      {"id": "D", "text": "5/8"},
+      {"id": "E", "text": "4/10"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "1/2 = 0.5. Check each: 2/5 = 0.4, 3/7 ≈ 0.43, 4/9 ≈ 0.44, 5/8 = 0.625, 4/10 = 0.4. Only 5/8 > 0.5.",
+      "visual": "Half of 8 is 4, so 5/8 means 5 parts when we need 4 for half. That's more than half!",
+      "workedExample": "For 5/8: is 5 more than half of 8? Half of 8 is 4, and 5 > 4, so yes, 5/8 > 1/2."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "threshold": 0.5,
+      "values": [0.4, 0.429, 0.444, 0.625, 0.4],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-006",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is closest to 1?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "7/8"},
+      {"id": "B", "text": "5/6"},
+      {"id": "C", "text": "9/10"},
+      {"id": "D", "text": "11/12"},
+      {"id": "E", "text": "3/4"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "Find distance from 1: 7/8 needs 1/8 (0.125), 5/6 needs 1/6 (0.167), 9/10 needs 1/10 (0.1), 11/12 needs 1/12 (0.083), 3/4 needs 1/4 (0.25). Smallest distance is 1/12.",
+      "visual": "Think how many parts are missing: 11/12 is missing just 1 part out of 12 (smallest gap), 3/4 is missing 1 part out of 4 (biggest gap).",
+      "workedExample": "Compare 11/12 and 9/10: 11/12 ≈ 0.917 and 9/10 = 0.9. Both close to 1, but 0.917 is closer."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare and order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "distance_from_target",
+      "target": 1.0,
+      "values": [0.875, 0.833, 0.9, 0.917, 0.75],
+      "distances": [0.125, 0.167, 0.1, 0.083, 0.25],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-007",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from largest to smallest: 2/3, 3/5, 5/6, 1/2",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "5/6, 2/3, 3/5, 1/2"},
+      {"id": "B", "text": "1/2, 3/5, 2/3, 5/6"},
+      {"id": "C", "text": "2/3, 5/6, 3/5, 1/2"},
+      {"id": "D", "text": "5/6, 3/5, 2/3, 1/2"},
+      {"id": "E", "text": "3/5, 2/3, 5/6, 1/2"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 2/3 ≈ 0.667, 3/5 = 0.6, 5/6 ≈ 0.833, 1/2 = 0.5. Order from largest: 0.833, 0.667, 0.6, 0.5 = 5/6, 2/3, 3/5, 1/2.",
+      "visual": "Think of a 30-slice pizza (common denominator): 5/6 = 25 slices, 2/3 = 20 slices, 3/5 = 18 slices, 1/2 = 15 slices.",
+      "workedExample": "Compare 2/3 and 3/5: cross-multiply: 2×5 = 10, 3×3 = 9. Since 10 > 9, we have 2/3 > 3/5."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering_descending",
+      "values": {"2/3": 0.667, "3/5": 0.6, "5/6": 0.833, "1/2": 0.5},
+      "orderedValues": [0.833, 0.667, 0.6, 0.5],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-008",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which two fractions are equivalent: 3/4, 6/8, 4/6, 5/8, 2/3?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "3/4 and 4/6"},
+      {"id": "B", "text": "3/4 and 6/8"},
+      {"id": "C", "text": "4/6 and 2/3"},
+      {"id": "D", "text": "5/8 and 2/3"},
+      {"id": "E", "text": "6/8 and 2/3"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "3/4 = (3×2)/(4×2) = 6/8. Multiply both numerator and denominator by 2 to get equivalent fraction.",
+      "visual": "3/4 means 3 parts out of 4. If you split each part in half, you get 6 parts out of 8 total parts - same amount!",
+      "workedExample": "Check: 3÷4 = 0.75 and 6÷8 = 0.75. Same decimal value means equivalent fractions."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "values": {"3/4": 0.75, "6/8": 0.75, "4/6": 0.667, "5/8": 0.625, "2/3": 0.667},
+      "equivalentPair": ["3/4", "6/8"],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-009",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is between 1/4 and 1/2?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/5"},
+      {"id": "B", "text": "1/3"},
+      {"id": "C", "text": "1/6"},
+      {"id": "D", "text": "2/3"},
+      {"id": "E", "text": "3/4"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "1/4 = 0.25 and 1/2 = 0.5. Check: 1/5 = 0.2 (too small), 1/3 ≈ 0.333 (between!), 1/6 ≈ 0.167 (too small), 2/3 ≈ 0.667 (too big), 3/4 = 0.75 (too big).",
+      "visual": "Imagine a number line from 0 to 1. Mark 1/4 (quarter way) and 1/2 (halfway). 1/3 (one-third) falls between these marks.",
+      "workedExample": "Compare: 1/4 < 1/3 because 4 > 3 (smaller denominator = bigger fraction). Also 1/3 < 1/2 because 3 > 2."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.25,
+      "upperBound": 0.5,
+      "values": [0.2, 0.333, 0.167, 0.667, 0.75],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-010",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is NOT equivalent to 1/2?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "2/4"},
+      {"id": "B", "text": "3/6"},
+      {"id": "C", "text": "4/8"},
+      {"id": "D", "text": "5/9"},
+      {"id": "E", "text": "6/12"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "1/2 = 0.5. Check each: 2/4 = 0.5 ✓, 3/6 = 0.5 ✓, 4/8 = 0.5 ✓, 5/9 ≈ 0.556 ✗, 6/12 = 0.5 ✓. Only 5/9 is not equivalent.",
+      "visual": "For 1/2, the numerator must be exactly half the denominator: 2 is half of 4, 3 is half of 6, etc. But 5 is not half of 9.",
+      "workedExample": "Check 5/9: half of 9 is 4.5, not 5. So 5/9 ≠ 1/2."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "non_equivalence_check",
+      "target": 0.5,
+      "values": [0.5, 0.5, 0.5, 0.556, 0.5],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-011",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is the correct order from smallest to largest: 1/6, 1/3, 1/2?",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/2, 1/3, 1/6"},
+      {"id": "B", "text": "1/3, 1/6, 1/2"},
+      {"id": "C", "text": "1/6, 1/3, 1/2"},
+      {"id": "D", "text": "1/6, 1/2, 1/3"},
+      {"id": "E", "text": "1/2, 1/6, 1/3"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "With same numerator (1), compare denominators: 6 > 3 > 2, so 1/6 < 1/3 < 1/2. Larger denominator means smaller fraction.",
+      "visual": "Cut a cake into 6 pieces vs 2 pieces. A sixth is smaller than a half because you're dividing into more pieces.",
+      "workedExample": "Convert to sixths: 1/6 = 1/6, 1/3 = 2/6, 1/2 = 3/6. Order: 1/6 < 2/6 < 3/6."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"1/6": 0.167, "1/3": 0.333, "1/2": 0.5},
+      "orderedValues": [0.167, 0.333, 0.5],
+      "correctIndex": "C"
+    }
+  },
+  {
+    "id": "math-frac-comp-012",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 3/5?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "5/10"},
+      {"id": "B", "text": "6/10"},
+      {"id": "C", "text": "9/12"},
+      {"id": "D", "text": "6/15"},
+      {"id": "E", "text": "9/20"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "3/5 = (3×2)/(5×2) = 6/10. Multiply both numerator and denominator by the same number.",
+      "visual": "3 out of 5 parts equals 6 out of 10 parts - imagine splitting each of the 5 parts into 2 smaller parts.",
+      "workedExample": "Check: 3÷5 = 0.6 and 6÷10 = 0.6. Same value!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "target": 0.6,
+      "values": [0.5, 0.6, 0.75, 0.4, 0.45],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-013",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is greater: 2/5 or 3/7?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/5"},
+      {"id": "B", "text": "3/7"},
+      {"id": "C", "text": "They are equal"},
+      {"id": "D", "text": "Cannot be determined"},
+      {"id": "E", "text": "Both are less than 1/2"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Cross-multiply: 2×7 = 14 and 3×5 = 15. Since 15 > 14, we have 3/7 > 2/5.",
+      "visual": "2/5 = 0.4 and 3/7 ≈ 0.429. 3/7 is slightly larger.",
+      "workedExample": "Compare to 1/2: 2/5 = 4/10 < 5/10, and 3/7 = 6/14 > 7/14. So 3/7 is closer to 1/2."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.4, 0.429],
+      "maxValue": 0.429,
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-014",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from smallest to largest: 5/8, 3/8, 7/8, 1/8",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/8, 3/8, 5/8, 7/8"},
+      {"id": "B", "text": "7/8, 5/8, 3/8, 1/8"},
+      {"id": "C", "text": "3/8, 1/8, 5/8, 7/8"},
+      {"id": "D", "text": "1/8, 5/8, 3/8, 7/8"},
+      {"id": "E", "text": "5/8, 3/8, 7/8, 1/8"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Same denominator (8), so just compare numerators: 1 < 3 < 5 < 7. Order: 1/8, 3/8, 5/8, 7/8.",
+      "visual": "Think of 8 equal chocolate squares. 1 square < 3 squares < 5 squares < 7 squares.",
+      "workedExample": "When fractions have the same denominator, the one with the smaller numerator is smaller: 1/8 < 3/8."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"5/8": 0.625, "3/8": 0.375, "7/8": 0.875, "1/8": 0.125},
+      "orderedValues": [0.125, 0.375, 0.625, 0.875],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-015",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is less than 2/3?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "7/9"},
+      {"id": "B", "text": "4/5"},
+      {"id": "C", "text": "3/4"},
+      {"id": "D", "text": "5/9"},
+      {"id": "E", "text": "5/6"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "2/3 ≈ 0.667. Check: 7/9 ≈ 0.778, 4/5 = 0.8, 3/4 = 0.75, 5/9 ≈ 0.556, 5/6 ≈ 0.833. Only 5/9 < 0.667.",
+      "visual": "2/3 means 6 out of 9 parts. 5/9 is only 5 parts, which is less than 6 parts.",
+      "workedExample": "Convert to ninths: 2/3 = 6/9. Compare with 5/9: 5 < 6, so 5/9 < 2/3."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "threshold": 0.667,
+      "values": [0.778, 0.8, 0.75, 0.556, 0.833],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-016",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 4/6?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "2/4"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "6/8"},
+      {"id": "D", "text": "3/5"},
+      {"id": "E", "text": "5/7"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Simplify 4/6 by dividing both by 2: 4÷2 = 2 and 6÷2 = 3, giving 2/3.",
+      "visual": "4 out of 6 parts is the same as 2 out of 3 parts - divide each group of 2 parts into 1.",
+      "workedExample": "Check: 4÷6 ≈ 0.667 and 2÷3 ≈ 0.667. Same value!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Simplify fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "target": 0.667,
+      "values": [0.5, 0.667, 0.75, 0.6, 0.714],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-017",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is the largest: 2/3, 3/4, 4/5, 5/6?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/3"},
+      {"id": "B", "text": "3/4"},
+      {"id": "C", "text": "4/5"},
+      {"id": "D", "text": "5/6"},
+      {"id": "E", "text": "They are all equal"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 2/3 ≈ 0.667, 3/4 = 0.75, 4/5 = 0.8, 5/6 ≈ 0.833. Largest is 0.833 = 5/6.",
+      "visual": "Each fraction is 1 part away from being whole: 2/3 needs 1/3, 3/4 needs 1/4, 4/5 needs 1/5, 5/6 needs 1/6. Smallest gap (1/6) means closest to 1.",
+      "workedExample": "Compare 4/5 and 5/6: cross-multiply: 4×6 = 24, 5×5 = 25. Since 25 > 24, we have 5/6 > 4/5."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.667, 0.75, 0.8, 0.833],
+      "maxValue": 0.833,
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-018",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from largest to smallest: 1/3, 2/5, 1/2, 3/10",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/2, 2/5, 1/3, 3/10"},
+      {"id": "B", "text": "3/10, 1/3, 2/5, 1/2"},
+      {"id": "C", "text": "1/2, 1/3, 2/5, 3/10"},
+      {"id": "D", "text": "2/5, 1/2, 1/3, 3/10"},
+      {"id": "E", "text": "1/3, 1/2, 2/5, 3/10"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 1/3 ≈ 0.333, 2/5 = 0.4, 1/2 = 0.5, 3/10 = 0.3. Order from largest: 0.5, 0.4, 0.333, 0.3.",
+      "visual": "Convert to tenths: 1/2 = 5/10, 2/5 = 4/10, 1/3 ≈ 3.3/10, 3/10 = 3/10. Order: 5, 4, 3.3, 3.",
+      "workedExample": "Compare 1/3 and 3/10: 1/3 = 10/30 and 3/10 = 9/30. Since 10 > 9, we have 1/3 > 3/10."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering_descending",
+      "values": {"1/3": 0.333, "2/5": 0.4, "1/2": 0.5, "3/10": 0.3},
+      "orderedValues": [0.5, 0.4, 0.333, 0.3],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-019",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is between 1/3 and 2/3?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/4"},
+      {"id": "B", "text": "1/2"},
+      {"id": "C", "text": "3/4"},
+      {"id": "D", "text": "5/6"},
+      {"id": "E", "text": "1/6"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "1/3 ≈ 0.333 and 2/3 ≈ 0.667. Check: 1/4 = 0.25 (too small), 1/2 = 0.5 (between!), 3/4 = 0.75 (too big).",
+      "visual": "1/3 is one-third of the way, 2/3 is two-thirds. 1/2 (halfway) is right in the middle!",
+      "workedExample": "Convert to sixths: 1/3 = 2/6, 1/2 = 3/6, 2/3 = 4/6. Check: 2 < 3 < 4 ✓"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.333,
+      "upperBound": 0.667,
+      "values": [0.25, 0.5, 0.75, 0.833, 0.167],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-020",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is NOT equivalent to 3/4?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "6/8"},
+      {"id": "B", "text": "9/12"},
+      {"id": "C", "text": "12/16"},
+      {"id": "D", "text": "9/16"},
+      {"id": "E", "text": "15/20"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "3/4 = 0.75. Check each: 6/8 = 0.75 ✓, 9/12 = 0.75 ✓, 12/16 = 0.75 ✓, 9/16 = 0.5625 ✗, 15/20 = 0.75 ✓.",
+      "visual": "For equivalence to 3/4, numerator must be 3/4 of denominator: 3/4 of 16 is 12, not 9.",
+      "workedExample": "Check 9/16: simplify by dividing by 9: can't reduce to 3/4. Calculate: 9÷16 = 0.5625 ≠ 0.75."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "non_equivalence_check",
+      "target": 0.75,
+      "values": [0.75, 0.75, 0.75, 0.5625, 0.75],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-021",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is closest to 1/2?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/5"},
+      {"id": "B", "text": "3/7"},
+      {"id": "C", "text": "4/9"},
+      {"id": "D", "text": "5/11"},
+      {"id": "E", "text": "3/8"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "1/2 = 0.5. Calculate distances: 2/5 = 0.4 (0.1 away), 3/7 ≈ 0.429 (0.071 away), 4/9 ≈ 0.444 (0.056 away), 5/11 ≈ 0.455 (0.045 away), 3/8 = 0.375 (0.125 away). Smallest distance is 5/11.",
+      "visual": "Half of 11 is 5.5, and 5 is very close to 5.5. This makes 5/11 nearly half.",
+      "workedExample": "Compare 5/11 to 1/2: 5/11 vs 5.5/11. Only 0.5 difference in numerator!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "distance_from_target",
+      "target": 0.5,
+      "values": [0.4, 0.429, 0.444, 0.455, 0.375],
+      "distances": [0.1, 0.071, 0.056, 0.045, 0.125],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-022",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is larger: 3/5 or 4/7?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "3/5"},
+      {"id": "B", "text": "4/7"},
+      {"id": "C", "text": "They are equal"},
+      {"id": "D", "text": "Cannot determine"},
+      {"id": "E", "text": "Both are equal to 1/2"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Cross-multiply: 3×7 = 21 and 4×5 = 20. Since 21 > 20, we have 3/5 > 4/7.",
+      "visual": "3/5 = 0.6 and 4/7 ≈ 0.571. 3/5 is slightly larger.",
+      "workedExample": "Convert to 35ths: 3/5 = 21/35 and 4/7 = 20/35. Since 21 > 20, we have 3/5 > 4/7."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.6, 0.571],
+      "maxValue": 0.6,
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-023",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from smallest to largest: 7/12, 2/3, 3/4, 5/6",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "7/12, 2/3, 3/4, 5/6"},
+      {"id": "B", "text": "2/3, 7/12, 3/4, 5/6"},
+      {"id": "C", "text": "5/6, 3/4, 2/3, 7/12"},
+      {"id": "D", "text": "7/12, 3/4, 2/3, 5/6"},
+      {"id": "E", "text": "2/3, 3/4, 7/12, 5/6"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to twelfths: 7/12 = 7/12, 2/3 = 8/12, 3/4 = 9/12, 5/6 = 10/12. Order: 7/12 < 8/12 < 9/12 < 10/12.",
+      "visual": "Think of a clock (12 hours): 7/12, 8/12, 9/12, 10/12 - increasing by 1 twelfth each time.",
+      "workedExample": "Convert to decimals: 7/12 ≈ 0.583, 2/3 ≈ 0.667, 3/4 = 0.75, 5/6 ≈ 0.833. Ordered!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"7/12": 0.583, "2/3": 0.667, "3/4": 0.75, "5/6": 0.833},
+      "orderedValues": [0.583, 0.667, 0.75, 0.833],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-024",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 5/10?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "1/5"},
+      {"id": "B", "text": "2/5"},
+      {"id": "C", "text": "1/2"},
+      {"id": "D", "text": "2/4"},
+      {"id": "E", "text": "Both C and D"}
+    ],
+    "correctAnswer": "E",
+    "explanations": {
+      "stepByStep": "Simplify 5/10: divide both by 5 to get 1/2. Also, 2/4 simplified equals 1/2. So both C and D are equivalent!",
+      "visual": "5 out of 10 parts = half. 1 out of 2 parts = half. 2 out of 4 parts = half. All the same!",
+      "workedExample": "Check: 5÷10 = 0.5, 1÷2 = 0.5, 2÷4 = 0.5. All equal!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "multiple_equivalence_check",
+      "target": 0.5,
+      "values": [0.2, 0.4, 0.5, 0.5, "both"],
+      "correctIndex": "E"
+    }
+  },
+  {
+    "id": "math-frac-comp-025",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is greater than 3/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/3"},
+      {"id": "B", "text": "4/5"},
+      {"id": "C", "text": "7/10"},
+      {"id": "D", "text": "3/5"},
+      {"id": "E", "text": "5/8"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "3/4 = 0.75. Check: 2/3 ≈ 0.667, 4/5 = 0.8, 7/10 = 0.7, 3/5 = 0.6, 5/8 = 0.625. Only 4/5 > 0.75.",
+      "visual": "3/4 is three-quarters. 4/5 is four-fifths, which is closer to a whole (only 1/5 away vs 1/4 away).",
+      "workedExample": "Compare distances from 1: 3/4 needs 1/4 (0.25), 4/5 needs 1/5 (0.2). Since 0.2 < 0.25, 4/5 is larger."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "threshold": 0.75,
+      "values": [0.667, 0.8, 0.7, 0.6, 0.625],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-026",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is the smallest: 1/2, 3/8, 5/8, 3/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/2"},
+      {"id": "B", "text": "3/8"},
+      {"id": "C", "text": "5/8"},
+      {"id": "D", "text": "3/4"},
+      {"id": "E", "text": "All are equal"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Convert to eighths: 1/2 = 4/8, 3/8 = 3/8, 5/8 = 5/8, 3/4 = 6/8. Smallest is 3/8.",
+      "visual": "Think of 8 equal parts: 3 parts < 4 parts < 5 parts < 6 parts.",
+      "workedExample": "Convert to decimals: 1/2 = 0.5, 3/8 = 0.375, 5/8 = 0.625, 3/4 = 0.75. Smallest is 0.375."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.5, 0.375, 0.625, 0.75],
+      "minValue": 0.375,
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-027",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which two fractions from this list are equivalent: 2/5, 4/10, 3/6, 5/8?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "2/5 and 4/10"},
+      {"id": "B", "text": "2/5 and 3/6"},
+      {"id": "C", "text": "4/10 and 3/6"},
+      {"id": "D", "text": "3/6 and 5/8"},
+      {"id": "E", "text": "None are equivalent"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "2/5 = (2×2)/(5×2) = 4/10. Same fraction, just doubled.",
+      "visual": "2 out of 5 parts equals 4 out of 10 parts - each part split in two.",
+      "workedExample": "Check: 2÷5 = 0.4 and 4÷10 = 0.4. Equivalent!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "values": {"2/5": 0.4, "4/10": 0.4, "3/6": 0.5, "5/8": 0.625},
+      "equivalentPair": ["2/5", "4/10"],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-028",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from largest to smallest: 4/5, 7/10, 3/4, 9/10",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "9/10, 4/5, 3/4, 7/10"},
+      {"id": "B", "text": "4/5, 9/10, 7/10, 3/4"},
+      {"id": "C", "text": "7/10, 3/4, 4/5, 9/10"},
+      {"id": "D", "text": "9/10, 7/10, 4/5, 3/4"},
+      {"id": "E", "text": "3/4, 7/10, 4/5, 9/10"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to tenths: 4/5 = 8/10, 7/10 = 7/10, 3/4 = 7.5/10, 9/10 = 9/10. Order from largest: 9/10, 8/10, 7.5/10, 7/10.",
+      "visual": "As decimals: 9/10 = 0.9, 4/5 = 0.8, 3/4 = 0.75, 7/10 = 0.7. Descending order.",
+      "workedExample": "Compare 4/5 and 3/4: cross-multiply: 4×4 = 16, 3×5 = 15. Since 16 > 15, 4/5 > 3/4."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering_descending",
+      "values": {"4/5": 0.8, "7/10": 0.7, "3/4": 0.75, "9/10": 0.9},
+      "orderedValues": [0.9, 0.8, 0.75, 0.7],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-029",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is between 1/2 and 3/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/3"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "1/4"},
+      {"id": "D", "text": "4/5"},
+      {"id": "E", "text": "1/5"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "1/2 = 0.5 and 3/4 = 0.75. Check: 1/3 ≈ 0.333 (too small), 2/3 ≈ 0.667 (between!), 4/5 = 0.8 (too big).",
+      "visual": "On a number line from 0 to 1: 1/2 is at 0.5, 3/4 at 0.75. 2/3 at 0.667 falls between them.",
+      "workedExample": "Convert to twelfths: 1/2 = 6/12, 2/3 = 8/12, 3/4 = 9/12. Check: 6 < 8 < 9 ✓"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.5,
+      "upperBound": 0.75,
+      "values": [0.333, 0.667, 0.25, 0.8, 0.2],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-030",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 6/9?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "3/4"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "3/5"},
+      {"id": "D", "text": "4/6"},
+      {"id": "E", "text": "Both B and D"}
+    ],
+    "correctAnswer": "E",
+    "explanations": {
+      "stepByStep": "Simplify 6/9: divide both by 3 to get 2/3. Also, 4/6 simplified (divide by 2) equals 2/3. Both are equivalent!",
+      "visual": "6 out of 9 parts = 2 out of 3 parts (group in threes). 4 out of 6 parts = 2 out of 3 parts (group in twos).",
+      "workedExample": "Check: 6÷9 ≈ 0.667, 2÷3 ≈ 0.667, 4÷6 ≈ 0.667. All equal!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Simplify fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "multiple_equivalence_check",
+      "target": 0.667,
+      "values": [0.75, 0.667, 0.6, 0.667, "both"],
+      "correctIndex": "E"
+    }
+  },
+  {
+    "id": "math-frac-comp-031",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is smaller: 5/12 or 3/8?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "5/12"},
+      {"id": "B", "text": "3/8"},
+      {"id": "C", "text": "They are equal"},
+      {"id": "D", "text": "Both are equal to 1/2"},
+      {"id": "E", "text": "Cannot determine"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Convert to 24ths: 5/12 = 10/24 and 3/8 = 9/24. Since 9 < 10, we have 3/8 < 5/12.",
+      "visual": "5/12 ≈ 0.417 and 3/8 = 0.375. 0.375 is smaller.",
+      "workedExample": "Cross-multiply: 5×8 = 40 and 3×12 = 36. Since 36 < 40, we have 3/8 < 5/12."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.417, 0.375],
+      "minValue": 0.375,
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-032",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Order these fractions from smallest to largest: 2/7, 3/7, 1/7, 5/7",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/7, 2/7, 3/7, 5/7"},
+      {"id": "B", "text": "5/7, 3/7, 2/7, 1/7"},
+      {"id": "C", "text": "2/7, 1/7, 3/7, 5/7"},
+      {"id": "D", "text": "1/7, 3/7, 2/7, 5/7"},
+      {"id": "E", "text": "3/7, 2/7, 1/7, 5/7"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Same denominator (7), so just order numerators: 1 < 2 < 3 < 5. Order: 1/7, 2/7, 3/7, 5/7.",
+      "visual": "Think of 7 equal chocolate pieces. 1 piece < 2 pieces < 3 pieces < 5 pieces.",
+      "workedExample": "When denominators are the same, smaller numerator means smaller fraction: 1/7 is the smallest."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"2/7": 0.286, "3/7": 0.429, "1/7": 0.143, "5/7": 0.714},
+      "orderedValues": [0.143, 0.286, 0.429, 0.714],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-033",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is less than 1/2 but greater than 1/3?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/4"},
+      {"id": "B", "text": "2/5"},
+      {"id": "C", "text": "3/5"},
+      {"id": "D", "text": "1/5"},
+      {"id": "E", "text": "2/3"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "1/3 ≈ 0.333 and 1/2 = 0.5. Check: 2/5 = 0.4. Is 0.333 < 0.4 < 0.5? Yes!",
+      "visual": "Convert to 30ths: 1/3 = 10/30, 2/5 = 12/30, 1/2 = 15/30. Check: 10 < 12 < 15 ✓",
+      "workedExample": "Compare 2/5 to 1/2: 2/5 = 4/10 and 1/2 = 5/10. Since 4 < 5, 2/5 < 1/2 ✓"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.333,
+      "upperBound": 0.5,
+      "values": [0.25, 0.4, 0.6, 0.2, 0.667],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-034",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is NOT equivalent to 2/5?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "4/10"},
+      {"id": "B", "text": "6/15"},
+      {"id": "C", "text": "8/20"},
+      {"id": "D", "text": "8/15"},
+      {"id": "E", "text": "10/25"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "2/5 = 0.4. Check: 4/10 = 0.4 ✓, 6/15 = 0.4 ✓, 8/20 = 0.4 ✓, 8/15 ≈ 0.533 ✗, 10/25 = 0.4 ✓.",
+      "visual": "For 2/5, numerator is 2/5 of denominator: 2/5 of 15 is 6, not 8.",
+      "workedExample": "Check 8/15: simplify by dividing by common factors. 8 and 15 have no common factors except 1, so can't reduce to 2/5."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "non_equivalence_check",
+      "target": 0.4,
+      "values": [0.4, 0.4, 0.4, 0.533, 0.4],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-035",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is the largest: 5/9, 4/7, 7/12, 3/5?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "5/9"},
+      {"id": "B", "text": "4/7"},
+      {"id": "C", "text": "7/12"},
+      {"id": "D", "text": "3/5"},
+      {"id": "E", "text": "They are all equal"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 5/9 ≈ 0.556, 4/7 ≈ 0.571, 7/12 ≈ 0.583, 3/5 = 0.6. Largest is 0.6.",
+      "visual": "All are close to 1/2 (0.5). 3/5 = 0.6 is furthest above 0.5.",
+      "workedExample": "Compare 3/5 and 7/12: cross-multiply: 3×12 = 36, 7×5 = 35. Since 36 > 35, 3/5 > 7/12."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.556, 0.571, 0.583, 0.6],
+      "maxValue": 0.6,
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-036",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from largest to smallest: 1/4, 2/8, 3/12, 1/2",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/2, 1/4, 2/8, 3/12"},
+      {"id": "B", "text": "3/12, 2/8, 1/4, 1/2"},
+      {"id": "C", "text": "1/2, 3/12, 2/8, 1/4"},
+      {"id": "D", "text": "All are equal"},
+      {"id": "E", "text": "1/4, 2/8, 3/12, 1/2"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Simplify: 1/4 = 1/4, 2/8 = 1/4, 3/12 = 1/4. So 1/4, 2/8, and 3/12 are all equal! Only 1/2 is larger.",
+      "visual": "1/4, 2/8, and 3/12 are all equivalent to one-quarter. 1/2 (half) is twice as big.",
+      "workedExample": "Check: 1/4 = 0.25, 2/8 = 0.25, 3/12 = 0.25, 1/2 = 0.5. Order: 0.5, then three 0.25s."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering_descending",
+      "values": {"1/4": 0.25, "2/8": 0.25, "3/12": 0.25, "1/2": 0.5},
+      "orderedValues": [0.5, 0.25, 0.25, 0.25],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-037",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is closest to 1/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/9"},
+      {"id": "B", "text": "3/11"},
+      {"id": "C", "text": "1/5"},
+      {"id": "D", "text": "2/7"},
+      {"id": "E", "text": "3/10"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "1/4 = 0.25. Calculate distances: 2/9 ≈ 0.222 (0.028 away), 3/11 ≈ 0.273 (0.023 away), 1/5 = 0.2 (0.05 away), 2/7 ≈ 0.286 (0.036 away), 3/10 = 0.3 (0.05 away). Smallest distance is 3/11.",
+      "visual": "Quarter of 11 is 2.75, and 3 is very close to 2.75.",
+      "workedExample": "Compare 3/11 to 1/4: 3/11 ≈ 0.273 vs 0.25. Difference is only 0.023!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "distance_from_target",
+      "target": 0.25,
+      "values": [0.222, 0.273, 0.2, 0.286, 0.3],
+      "distances": [0.028, 0.023, 0.05, 0.036, 0.05],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-038",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 8/12?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "1/2"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "3/4"},
+      {"id": "D", "text": "4/5"},
+      {"id": "E", "text": "5/6"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Simplify 8/12: divide both by 4 to get 2/3.",
+      "visual": "8 out of 12 parts = 2 out of 3 parts (group in fours).",
+      "workedExample": "Check: 8÷12 ≈ 0.667 and 2÷3 ≈ 0.667. Equivalent!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Simplify fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "target": 0.667,
+      "values": [0.5, 0.667, 0.75, 0.8, 0.833],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-039",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is greater: 7/8 or 5/6?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "7/8"},
+      {"id": "B", "text": "5/6"},
+      {"id": "C", "text": "They are equal"},
+      {"id": "D", "text": "Both equal 3/4"},
+      {"id": "E", "text": "Cannot determine"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Cross-multiply: 7×6 = 42 and 5×8 = 40. Since 42 > 40, we have 7/8 > 5/6.",
+      "visual": "7/8 = 0.875 and 5/6 ≈ 0.833. 7/8 is slightly larger.",
+      "workedExample": "Convert to 24ths: 7/8 = 21/24 and 5/6 = 20/24. Since 21 > 20, 7/8 > 5/6."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.875, 0.833],
+      "maxValue": 0.875,
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-040",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Order these fractions from smallest to largest: 3/10, 2/5, 1/2, 7/10",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "3/10, 2/5, 1/2, 7/10"},
+      {"id": "B", "text": "7/10, 1/2, 2/5, 3/10"},
+      {"id": "C", "text": "2/5, 3/10, 1/2, 7/10"},
+      {"id": "D", "text": "3/10, 1/2, 2/5, 7/10"},
+      {"id": "E", "text": "1/2, 3/10, 2/5, 7/10"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to tenths: 3/10 = 3/10, 2/5 = 4/10, 1/2 = 5/10, 7/10 = 7/10. Order: 3 < 4 < 5 < 7.",
+      "visual": "Think of a 10-square chocolate bar: 3 squares < 4 squares < 5 squares < 7 squares.",
+      "workedExample": "As decimals: 3/10 = 0.3, 2/5 = 0.4, 1/2 = 0.5, 7/10 = 0.7. Already in order!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering",
+      "values": {"3/10": 0.3, "2/5": 0.4, "1/2": 0.5, "7/10": 0.7},
+      "orderedValues": [0.3, 0.4, 0.5, 0.7],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-041",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is between 2/5 and 3/5?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/2"},
+      {"id": "B", "text": "1/3"},
+      {"id": "C", "text": "2/3"},
+      {"id": "D", "text": "3/4"},
+      {"id": "E", "text": "1/4"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "2/5 = 0.4 and 3/5 = 0.6. Check: 1/2 = 0.5. Is 0.4 < 0.5 < 0.6? Yes!",
+      "visual": "Convert to tenths: 2/5 = 4/10, 1/2 = 5/10, 3/5 = 6/10. Check: 4 < 5 < 6 ✓",
+      "workedExample": "1/2 is exactly halfway between 2/5 and 3/5: (2/5 + 3/5) ÷ 2 = 5/10 = 1/2."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.4,
+      "upperBound": 0.6,
+      "values": [0.5, 0.333, 0.667, 0.75, 0.25],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-042",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which two fractions are equivalent: 3/9, 1/3, 4/12, 2/5?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "3/9 and 1/3"},
+      {"id": "B", "text": "3/9 and 4/12"},
+      {"id": "C", "text": "1/3 and 4/12"},
+      {"id": "D", "text": "All three: 3/9, 1/3, and 4/12"},
+      {"id": "E", "text": "None are equivalent"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "Simplify: 3/9 = 1/3 (divide by 3), 4/12 = 1/3 (divide by 4). All three equal 1/3!",
+      "visual": "3 out of 9 = 1 out of 3 (group in threes). 4 out of 12 = 1 out of 3 (group in fours).",
+      "workedExample": "Check: 3÷9 ≈ 0.333, 1÷3 ≈ 0.333, 4÷12 ≈ 0.333. All equal!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "multiple_equivalence_check",
+      "target": 0.333,
+      "values": {"3/9": 0.333, "1/3": 0.333, "4/12": 0.333, "2/5": 0.4},
+      "equivalentSet": ["3/9", "1/3", "4/12"],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-043",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is the smallest: 2/3, 5/8, 7/12, 3/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "2/3"},
+      {"id": "B", "text": "5/8"},
+      {"id": "C", "text": "7/12"},
+      {"id": "D", "text": "3/4"},
+      {"id": "E", "text": "All are equal"}
+    ],
+    "correctAnswer": "C",
+    "explanations": {
+      "stepByStep": "Convert to decimals: 2/3 ≈ 0.667, 5/8 = 0.625, 7/12 ≈ 0.583, 3/4 = 0.75. Smallest is 0.583.",
+      "visual": "Convert to 24ths: 2/3 = 16/24, 5/8 = 15/24, 7/12 = 14/24, 3/4 = 18/24. Smallest is 14/24.",
+      "workedExample": "Compare 7/12 and 5/8: cross-multiply: 7×8 = 56, 5×12 = 60. Since 56 < 60, 7/12 < 5/8."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.667, 0.625, 0.583, 0.75],
+      "minValue": 0.583,
+      "correctIndex": "C"
+    }
+  },
+  {
+    "id": "math-frac-comp-044",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Put these fractions in order from largest to smallest: 5/12, 1/3, 1/4, 1/2",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "1/2, 5/12, 1/3, 1/4"},
+      {"id": "B", "text": "1/4, 1/3, 5/12, 1/2"},
+      {"id": "C", "text": "5/12, 1/2, 1/3, 1/4"},
+      {"id": "D", "text": "1/2, 1/3, 5/12, 1/4"},
+      {"id": "E", "text": "1/3, 5/12, 1/2, 1/4"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Convert to twelfths: 5/12 = 5/12, 1/3 = 4/12, 1/4 = 3/12, 1/2 = 6/12. Order from largest: 6, 5, 4, 3.",
+      "visual": "As decimals: 1/2 = 0.5, 5/12 ≈ 0.417, 1/3 ≈ 0.333, 1/4 = 0.25. Descending order.",
+      "workedExample": "Compare 5/12 and 1/3: 5/12 vs 4/12. Since 5 > 4, 5/12 > 1/3."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Order fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_ordering_descending",
+      "values": {"5/12": 0.417, "1/3": 0.333, "1/4": 0.25, "1/2": 0.5},
+      "orderedValues": [0.5, 0.417, 0.333, 0.25],
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-045",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is greater than 3/5 but less than 4/5?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "1/2"},
+      {"id": "B", "text": "2/3"},
+      {"id": "C", "text": "5/6"},
+      {"id": "D", "text": "7/10"},
+      {"id": "E", "text": "1/4"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "3/5 = 0.6 and 4/5 = 0.8. Check: 1/2 = 0.5 (too small), 2/3 ≈ 0.667 (too small), 5/6 ≈ 0.833 (too big), 7/10 = 0.7 (perfect!), 1/4 = 0.25 (too small).",
+      "visual": "Convert to tenths: 3/5 = 6/10, 7/10 = 7/10, 4/5 = 8/10. Check: 6 < 7 < 8 ✓",
+      "workedExample": "7/10 = 0.7. Is 0.6 < 0.7 < 0.8? Yes!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "range_check",
+      "lowerBound": 0.6,
+      "upperBound": 0.8,
+      "values": [0.5, 0.667, 0.833, 0.7, 0.25],
+      "correctIndex": "D"
+    }
+  },
+  {
+    "id": "math-frac-comp-046",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is equivalent to 9/12?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "2/3"},
+      {"id": "B", "text": "3/4"},
+      {"id": "C", "text": "4/5"},
+      {"id": "D", "text": "5/6"},
+      {"id": "E", "text": "7/8"}
+    ],
+    "correctAnswer": "B",
+    "explanations": {
+      "stepByStep": "Simplify 9/12: divide both by 3 to get 3/4.",
+      "visual": "9 out of 12 parts = 3 out of 4 parts (group in threes).",
+      "workedExample": "Check: 9÷12 = 0.75 and 3÷4 = 0.75. Equivalent!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Simplify fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "equivalence_check",
+      "target": 0.75,
+      "values": [0.667, 0.75, 0.8, 0.833, 0.875],
+      "correctIndex": "B"
+    }
+  },
+  {
+    "id": "math-frac-comp-047",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which is smaller: 4/9 or 5/11?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "4/9"},
+      {"id": "B", "text": "5/11"},
+      {"id": "C", "text": "They are equal"},
+      {"id": "D", "text": "Both equal 1/2"},
+      {"id": "E", "text": "Cannot determine"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "4/9 ≈ 0.444 and 5/11 ≈ 0.455. 4/9 is smaller.",
+      "visual": "Cross-multiply: 4×11 = 44 and 5×9 = 45. Since 44 < 45, we have 4/9 < 5/11.",
+      "workedExample": "Compare to 1/2: 4/9 = 8/18 < 9/18 and 5/11 = 10/22 > 11/22. Both close but 4/9 is further below half."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "decimal_comparison",
+      "values": [0.444, 0.455],
+      "minValue": 0.444,
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-048",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Order these fractions from smallest to largest: 4/6, 2/3, 8/12, 10/15",
+    "questionType": "ordering_fractions",
+    "options": [
+      {"id": "A", "text": "All are equal"},
+      {"id": "B", "text": "4/6, 2/3, 8/12, 10/15"},
+      {"id": "C", "text": "10/15, 8/12, 2/3, 4/6"},
+      {"id": "D", "text": "4/6, 8/12, 10/15, 2/3"},
+      {"id": "E", "text": "2/3, 4/6, 8/12, 10/15"}
+    ],
+    "correctAnswer": "A",
+    "explanations": {
+      "stepByStep": "Simplify all: 4/6 = 2/3, 2/3 = 2/3, 8/12 = 2/3, 10/15 = 2/3. All four fractions are equivalent!",
+      "visual": "All simplify to 2 out of 3 parts. They're the same amount!",
+      "workedExample": "Check: 4÷6 ≈ 0.667, 2÷3 ≈ 0.667, 8÷12 ≈ 0.667, 10÷15 ≈ 0.667. All equal!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "all_equal_check",
+      "values": {"4/6": 0.667, "2/3": 0.667, "8/12": 0.667, "10/15": 0.667},
+      "commonValue": 0.667,
+      "correctIndex": "A"
+    }
+  },
+  {
+    "id": "math-frac-comp-049",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is closest to 3/4?",
+    "questionType": "fraction_comparison",
+    "options": [
+      {"id": "A", "text": "7/10"},
+      {"id": "B", "text": "4/5"},
+      {"id": "C", "text": "2/3"},
+      {"id": "D", "text": "5/6"},
+      {"id": "E", "text": "7/9"}
+    ],
+    "correctAnswer": "E",
+    "explanations": {
+      "stepByStep": "3/4 = 0.75. Calculate distances: 7/10 = 0.7 (0.05 away), 4/5 = 0.8 (0.05 away), 2/3 ≈ 0.667 (0.083 away), 5/6 ≈ 0.833 (0.083 away), 7/9 ≈ 0.778 (0.028 away). Smallest distance is 7/9.",
+      "visual": "3/4 = 0.75. 7/9 ≈ 0.778 is very close, difference is only 0.028!",
+      "workedExample": "Convert to 36ths: 3/4 = 27/36 and 7/9 = 28/36. Only 1 thirty-sixth apart!"
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Compare fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "distance_from_target",
+      "target": 0.75,
+      "values": [0.7, 0.8, 0.667, 0.833, 0.778],
+      "distances": [0.05, 0.05, 0.083, 0.083, 0.028],
+      "correctIndex": "E"
+    }
+  },
+  {
+    "id": "math-frac-comp-050",
+    "subject": "mathematics",
+    "topic": "Fractions",
+    "subtopic": "Comparing Fractions",
+    "questionText": "Which fraction is NOT equivalent to 5/6?",
+    "questionType": "equivalent_fractions",
+    "options": [
+      {"id": "A", "text": "10/12"},
+      {"id": "B", "text": "15/18"},
+      {"id": "C", "text": "20/24"},
+      {"id": "D", "text": "25/36"},
+      {"id": "E", "text": "30/36"}
+    ],
+    "correctAnswer": "D",
+    "explanations": {
+      "stepByStep": "5/6 ≈ 0.833. Check: 10/12 ≈ 0.833 ✓, 15/18 ≈ 0.833 ✓, 20/24 ≈ 0.833 ✓, 25/36 ≈ 0.694 ✗, 30/36 ≈ 0.833 ✓.",
+      "visual": "For 5/6, numerator should be 5/6 of denominator: 5/6 of 36 is 30, not 25.",
+      "workedExample": "Simplify 25/36: no common factors except 1. Can't reduce to 5/6. Check: 25÷36 ≈ 0.694 ≠ 0.833."
+    },
+    "difficulty": "standard",
+    "yearGroup": 5,
+    "curriculumReference": "KS2 Maths - Fractions - Equivalent fractions",
+    "examBoard": "gl",
+    "computationalVerification": {
+      "method": "non_equivalence_check",
+      "target": 0.833,
+      "values": [0.833, 0.833, 0.833, 0.694, 0.833],
+      "correctIndex": "D"
+    }
+  }
+]
