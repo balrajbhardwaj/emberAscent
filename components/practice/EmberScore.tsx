@@ -1,15 +1,15 @@
 /**
- * Ember Score Display Component
+ * Ascent Trust Level Display Component
  * 
- * Displays the Ember Score (0-100) showing content quality and trust level.
+ * Displays the Ascent Trust Level (0-100) showing content quality and reliability.
  * 
  * Features:
- * - Compact view with flame icons based on score tier
+ * - Compact view with dot indicators based on trust tier
  * - Expandable to show detailed breakdown
- * - Three score tiers: Verified (90-100), Confident (75-89), Draft (60-74)
+ * - Three tiers: Expert (90-100), Reviewed (75-89), Standard (60-74)
  * - Clickable to open transparency modal
  * 
- * Score Breakdown:
+ * Trust Breakdown:
  * - Curriculum alignment percentage
  * - Expert verification status
  * - Community rating
@@ -20,7 +20,7 @@
 "use client"
 
 import { useState } from "react"
-import { Flame, Info } from "lucide-react"
+import { Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Popover,
@@ -38,19 +38,35 @@ interface EmberScoreBreakdown {
   curriculumReference: string
 }
 
-interface EmberScoreProps {
+interface AscentTrustLevelProps {
   score: number
   breakdown: EmberScoreBreakdown
   showDetails?: boolean
   size?: "sm" | "md" | "lg"
 }
 
+// Dot indicator component
+function TrustDots({ filled, total, color }: { filled: number; total: number; color: string }) {
+  return (
+    <div className="flex items-center gap-0.5">
+      {Array.from({ length: total }).map((_, i) => (
+        <div
+          key={i}
+          className={`h-1.5 w-1.5 rounded-full transition-all ${
+            i < filled ? color : "bg-slate-300"
+          }`}
+        />
+      ))}
+    </div>
+  )
+}
+
 /**
- * Ember Score Badge
+ * Ascent Trust Level Badge
  * 
- * Shows content quality score with flame icons and optional detailed breakdown.
+ * Shows content quality score with dot indicators and optional detailed breakdown.
  * 
- * @param score - Ember Score value (0-100)
+ * @param score - Trust Level value (0-100)
  * @param breakdown - Detailed score breakdown information
  * @param showDetails - Whether to show expandable details (default: false)
  * @param size - Badge size variant (sm, md, lg)
@@ -60,18 +76,24 @@ export function EmberScore({
   breakdown,
   showDetails = false,
   size = "md",
-}: EmberScoreProps) {
+}: AscentTrustLevelProps) {
   const [showInfoModal, setShowInfoModal] = useState(false)
 
-  // Determine score tier
-  const tier = score >= 90 ? "verified" : score >= 75 ? "confident" : "draft"
-  const flames = score >= 90 ? 3 : score >= 75 ? 2 : 1
-  const tierLabel = tier === "verified" ? "Verified" : tier === "confident" ? "Confident" : "Draft"
+  // Determine trust tier
+  const tier = score >= 90 ? "expert" : score >= 75 ? "reviewed" : "standard"
+  const dots = score >= 90 ? 3 : score >= 75 ? 2 : 1
+  const tierLabel = tier === "expert" ? "Expert" : tier === "reviewed" ? "Reviewed" : "Standard"
   
   const tierColors = {
-    verified: "text-green-600 bg-green-50 border-green-200",
-    confident: "text-amber-600 bg-amber-50 border-amber-200",
-    draft: "text-slate-600 bg-slate-50 border-slate-200",
+    expert: "text-green-600 bg-green-50 border-green-200",
+    reviewed: "text-amber-600 bg-amber-50 border-amber-200",
+    standard: "text-slate-600 bg-slate-50 border-slate-200",
+  }
+
+  const dotColors = {
+    expert: "bg-green-500",
+    reviewed: "bg-amber-500",
+    standard: "bg-slate-500",
   }
 
   const sizes = {
@@ -86,11 +108,9 @@ export function EmberScore({
       <Popover>
         <PopoverTrigger asChild>
           <button
-            className={`inline-flex items-center gap-1.5 rounded-full border font-medium transition-all hover:scale-105 ${tierColors[tier]} ${sizes[size]}`}
+            className={`inline-flex items-center gap-2 rounded-full border font-medium transition-all hover:scale-105 ${tierColors[tier]} ${sizes[size]}`}
           >
-            {Array.from({ length: flames }).map((_, i) => (
-              <Flame key={i} className="h-3.5 w-3.5 fill-current" />
-            ))}
+            <TrustDots filled={dots} total={3} color={dotColors[tier]} />
             <span>{score}</span>
           </button>
         </PopoverTrigger>
@@ -98,7 +118,7 @@ export function EmberScore({
           <div className="space-y-3">
             <div className="space-y-1">
               <p className="text-sm font-semibold text-slate-900">
-                Ember Score: {score} ({tierLabel})
+                Ascent Trust Level: {score} ({tierLabel})
               </p>
               <p className="text-xs text-slate-600">
                 This score shows content quality and trustworthiness
@@ -141,10 +161,8 @@ export function EmberScore({
   return (
     <>
       <div className={`flex items-center gap-2 ${sizes[size]}`}>
-        <div className={`flex items-center gap-1 rounded-full border px-3 py-1.5 ${tierColors[tier]}`}>
-          {Array.from({ length: flames }).map((_, i) => (
-            <Flame key={i} className="h-4 w-4 fill-current" />
-          ))}
+        <div className={`flex items-center gap-2 rounded-full border px-3 py-1.5 ${tierColors[tier]}`}>
+          <TrustDots filled={dots} total={3} color={dotColors[tier]} />
           <span className="font-semibold">{score}</span>
           <span className="text-xs opacity-75">{tierLabel}</span>
         </div>

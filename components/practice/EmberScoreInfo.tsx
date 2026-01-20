@@ -1,10 +1,10 @@
 /**
- * Ember Score Information Modal
+ * Ascent Trust Level Information Modal
  * 
  * Displays detailed transparency information about question quality and provenance.
  * 
  * Features:
- * - Explains Ember Score meaning and calculation
+ * - Explains Ascent Trust Level meaning and calculation
  * - Shows specific question's creation process
  * - Displays curriculum alignment details
  * - Links to quality standards documentation
@@ -33,12 +33,31 @@ interface EmberScoreInfoProps {
   onClose: () => void
 }
 
+// Dot indicator component for modal
+function TrustDots({ filled, total, color, size = "md" }: { filled: number; total: number; color: string; size?: "sm" | "md" }) {
+  const dotSize = size === "sm" ? "h-2 w-2" : "h-2.5 w-2.5"
+  const gapSize = size === "sm" ? "gap-1" : "gap-1.5"
+  
+  return (
+    <div className={`flex items-center ${gapSize}`}>
+      {Array.from({ length: total }).map((_, i) => (
+        <div
+          key={i}
+          className={`${dotSize} rounded-full transition-all ${
+            i < filled ? color : "bg-slate-300"
+          }`}
+        />
+      ))}
+    </div>
+  )
+}
+
 /**
- * Ember Score Information Modal
+ * Ascent Trust Level Information Modal
  * 
  * Full-screen dialog explaining the question's quality score and provenance.
  * 
- * @param score - Ember Score value (0-100)
+ * @param score - Trust Level value (0-100)
  * @param breakdown - Detailed score breakdown and metadata
  * @param onClose - Handler to close the modal
  */
@@ -47,16 +66,31 @@ export function EmberScoreInfo({
   breakdown,
   onClose,
 }: EmberScoreInfoProps) {
+  // Determine tier for visual styling
+  const tier = score >= 90 ? "expert" : score >= 75 ? "reviewed" : "standard"
+  const dots = score >= 90 ? 3 : score >= 75 ? 2 : 1
+  const tierLabel = tier === "expert" ? "Expert Verified" : tier === "reviewed" ? "Reviewed" : "Standard"
+  
+  const dotColors = {
+    expert: "bg-green-500",
+    reviewed: "bg-amber-500",
+    standard: "bg-slate-500",
+  }
+
   return (
     <Dialog open onOpenChange={onClose}>
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
         <div className="space-y-6">
           {/* Header */}
           <div className="flex items-start justify-between">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                Ember Score: {score}
-              </h2>
+            <div className="space-y-2">
+              <div className="flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-slate-900">
+                  Ascent Trust Level: {score}
+                </h2>
+                <TrustDots filled={dots} total={3} color={dotColors[tier]} size="md" />
+              </div>
+              <Badge variant="secondary">{tierLabel}</Badge>
               <p className="mt-1 text-sm text-slate-600">
                 Trust and quality rating for this question
               </p>
@@ -66,21 +100,48 @@ export function EmberScoreInfo({
             </Button>
           </div>
 
-          {/* What is Ember Score */}
+          {/* What is Ascent Trust Level */}
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-slate-900">
-              What is Ember Score?
+              What is Ascent Trust Level?
             </h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              The Ember Score is our transparency rating (0-100) that shows how much we
+              The Ascent Trust Level is our transparency rating (0-100) that shows how much we
               trust this question's quality, accuracy, and curriculum alignment. Higher
               scores mean more verification and review.
             </p>
+            
+            <div className="space-y-2 text-sm text-slate-700">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1">
+                  <div className="h-2 w-2 rounded-full bg-green-500" />
+                  <div className="h-2 w-2 rounded-full bg-green-500" />
+                  <div className="h-2 w-2 rounded-full bg-green-500" />
+                </div>
+                <span className="font-medium">90-100: Expert Verified</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1">
+                  <div className="h-2 w-2 rounded-full bg-amber-500" />
+                  <div className="h-2 w-2 rounded-full bg-amber-500" />
+                  <div className="h-2 w-2 rounded-full bg-slate-300" />
+                </div>
+                <span className="font-medium">75-89: Reviewed</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1">
+                  <div className="h-2 w-2 rounded-full bg-slate-500" />
+                  <div className="h-2 w-2 rounded-full bg-slate-300" />
+                  <div className="h-2 w-2 rounded-full bg-slate-300" />
+                </div>
+                <span className="font-medium">60-74: Standard</span>
+              </div>
+            </div>
           </div>
 
           {/* Score Breakdown */}
           <div className="space-y-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
-            <h3 className="font-semibold text-slate-900">Score Breakdown</h3>
+            <h3 className="font-semibold text-slate-900">Trust Level Breakdown</h3>
             
             <div className="space-y-3">
               <div className="flex items-center gap-3">
