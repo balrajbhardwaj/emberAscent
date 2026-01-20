@@ -70,12 +70,13 @@ async function PracticeContent({ childId }: { childId?: string }) {
     ? children.find((c) => c.id === childId) || children[0]
     : children[0]
 
-  // Fetch recent practice sessions
+  // Fetch recent practice sessions (only completed ones for Recent Activity)
   const { data: recentSessions } = await supabase
     .from("practice_sessions")
     .select("*")
     .eq("child_id", selectedChild.id)
-    .order("created_at", { ascending: false })
+    .not("completed_at", "is", null)
+    .order("completed_at", { ascending: false })
     .limit(3)
 
   // Calculate today's question count from attempts

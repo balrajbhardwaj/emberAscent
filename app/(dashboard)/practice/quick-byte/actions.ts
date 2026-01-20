@@ -137,12 +137,14 @@ export async function completeQuickByteSession(sessionId: string): Promise<boole
       .select("is_correct")
       .eq("session_id", sessionId)
     
+    const totalCount = attempts?.length || 0
     const correctCount = attempts?.filter((a) => a.is_correct).length || 0
     
     const { error } = await supabase
       .from("practice_sessions")
       .update({
         completed_at: new Date().toISOString(),
+        total_questions: totalCount,
         correct_answers: correctCount,
       })
       .eq("id", sessionId)
