@@ -56,53 +56,53 @@ export default function HowQuestionsAreMadePage() {
             </p>
           </div>
 
-          {/* Handshake Animation */}
+          {/* Trust Shield Building Animation */}
           <div className="flex justify-center mb-16">
-            <div className="relative w-80 h-56 flex items-center justify-center">
-              {/* Glow effect behind hands */}
-              <div className="absolute inset-0 bg-gradient-radial from-blue-100/50 via-transparent to-transparent rounded-full blur-xl" />
+            <div className="relative flex items-center justify-center">
+              {/* Shield SVG */}
+              <svg viewBox="0 0 100 120" className="w-48 h-56">
+                {/* Shield outline */}
+                <path
+                  d="M50 5 L90 20 L90 55 Q90 90 50 115 Q10 90 10 55 L10 20 Z"
+                  fill="none"
+                  stroke="#cbd5e1"
+                  strokeWidth="2"
+                  strokeDasharray="4 2"
+                  className="animate-pulse"
+                />
+                
+                {/* Bottom piece - Draft (Grey) */}
+                <path
+                  d="M50 115 Q10 90 10 55 L10 50 L50 95 L90 50 L90 55 Q90 90 50 115"
+                  className="fill-slate-400 animate-shield-bottom"
+                />
+                
+                {/* Middle piece - Confident (Green) */}
+                <path
+                  d="M10 50 L10 35 L50 65 L90 35 L90 50 L50 95 Z"
+                  className="fill-green-500 animate-shield-middle"
+                />
+                
+                {/* Top piece - Verified (Blue) */}
+                <path
+                  d="M50 5 L90 20 L90 35 L50 65 L10 35 L10 20 Z"
+                  className="fill-blue-500 animate-shield-top"
+                />
+                
+                {/* Checkmark */}
+                <path
+                  d="M35 55 L45 65 L65 45"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="animate-checkmark"
+                />
+              </svg>
               
-              {/* Left Hand */}
-              <div className="absolute left-0 animate-hand-left">
-                <svg 
-                  viewBox="0 0 120 100" 
-                  className="w-40 h-32 text-amber-100 drop-shadow-lg"
-                  style={{ transform: 'scaleX(-1)' }}
-                >
-                  {/* Hand shape */}
-                  <path 
-                    d="M20,70 Q10,65 15,50 L25,30 Q30,20 40,25 L45,30 Q50,20 60,25 L62,32 Q68,22 78,28 L78,38 Q88,32 92,42 L90,55 Q95,70 85,80 L40,85 Q20,85 20,70 Z"
-                    fill="currentColor"
-                    stroke="#d97706"
-                    strokeWidth="2"
-                  />
-                  {/* Wrist/Arm */}
-                  <rect x="5" y="65" width="25" height="35" rx="3" fill="#3b82f6" stroke="#2563eb" strokeWidth="2" />
-                </svg>
-              </div>
-
-              {/* Right Hand */}
-              <div className="absolute right-0 animate-hand-right">
-                <svg 
-                  viewBox="0 0 120 100" 
-                  className="w-40 h-32 text-amber-100 drop-shadow-lg"
-                >
-                  {/* Hand shape */}
-                  <path 
-                    d="M20,70 Q10,65 15,50 L25,30 Q30,20 40,25 L45,30 Q50,20 60,25 L62,32 Q68,22 78,28 L78,38 Q88,32 92,42 L90,55 Q95,70 85,80 L40,85 Q20,85 20,70 Z"
-                    fill="currentColor"
-                    stroke="#d97706"
-                    strokeWidth="2"
-                  />
-                  {/* Wrist/Arm */}
-                  <rect x="5" y="65" width="25" height="35" rx="3" fill="#22c55e" stroke="#16a34a" strokeWidth="2" />
-                </svg>
-              </div>
-
-              {/* Trust Sparkle */}
-              <div className="absolute z-10 animate-sparkle-trust">
-                <Sparkles className="w-8 h-8 text-yellow-500" />
-              </div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-blue-400/20 blur-2xl rounded-full animate-shield-glow" />
             </div>
           </div>
 

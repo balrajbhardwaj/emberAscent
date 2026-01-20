@@ -157,4 +157,128 @@
   .animate-sparkle-trust {
     animation: sparkle-trust 3s ease-in-out infinite;
   }
+
+  /* ========== Option 1: Trust Shield Building ========== */
+  @keyframes shield-bottom {
+    0%, 10% { opacity: 0; transform: translateY(20px); }
+    20%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shield-middle {
+    0%, 30% { opacity: 0; transform: translateY(20px); }
+    45%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shield-top {
+    0%, 55% { opacity: 0; transform: translateY(20px); }
+    70%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes checkmark-draw {
+    0%, 75% { stroke-dasharray: 0 100; opacity: 0; }
+    80% { opacity: 1; }
+    100% { stroke-dasharray: 100 0; opacity: 1; }
+  }
+
+  @keyframes shield-glow {
+    0%, 70% { opacity: 0; transform: scale(0.8); }
+    85%, 100% { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-shield-bottom {
+    animation: shield-bottom 4s ease-out infinite;
+  }
+
+  .animate-shield-middle {
+    animation: shield-middle 4s ease-out infinite;
+  }
+
+  .animate-shield-top {
+    animation: shield-top 4s ease-out infinite;
+  }
+
+  .animate-checkmark {
+    animation: checkmark-draw 4s ease-out infinite;
+    stroke-dasharray: 0 100;
+  }
+
+  .animate-shield-glow {
+    animation: shield-glow 4s ease-out infinite;
+  }
+
+  /* ========== Option 6: Ember Flame Growing ========== */
+  @keyframes flame-inner {
+    0%, 5% { opacity: 0.3; transform: scaleY(0.3) translateY(30px); }
+    15%, 100% { opacity: 1; transform: scaleY(1) translateY(0); }
+  }
+
+  @keyframes flame-middle {
+    0%, 25% { opacity: 0; transform: scaleY(0.3) translateY(20px); }
+    45%, 100% { opacity: 1; transform: scaleY(1) translateY(0); }
+  }
+
+  @keyframes flame-outer {
+    0%, 50% { opacity: 0; transform: scaleY(0.3) translateY(15px); }
+    75%, 100% { opacity: 1; transform: scaleY(1) translateY(0); }
+  }
+
+  @keyframes ember-core {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  @keyframes ember-glow {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  @keyframes dot-appear-1 {
+    0%, 10% { opacity: 0; transform: scale(0); }
+    20%, 100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes dot-appear-2 {
+    0%, 40% { opacity: 0; transform: scale(0); }
+    55%, 100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes dot-appear-3 {
+    0%, 70% { opacity: 0; transform: scale(0); }
+    85%, 100% { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-flame-inner {
+    animation: flame-inner 4s ease-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-flame-middle {
+    animation: flame-middle 4s ease-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-flame-outer {
+    animation: flame-outer 4s ease-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-ember-core {
+    animation: ember-core 2s ease-in-out infinite;
+  }
+
+  .animate-ember-glow {
+    animation: ember-glow 3s ease-in-out infinite;
+  }
+
+  .animate-dot-1 {
+    animation: dot-appear-1 4s ease-out infinite;
+  }
+
+  .animate-dot-2 {
+    animation: dot-appear-2 4s ease-out infinite;
+  }
+
+  .animate-dot-3 {
+    animation: dot-appear-3 4s ease-out infinite;
+  }
 }
