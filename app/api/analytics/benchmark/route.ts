@@ -73,12 +73,12 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // Get child's performance
+    // Get child's performance with subject from joined questions table
+    // The subject field is on the questions table, not question_attempts
     const { data: childPerformance } = await supabase
       .from('question_attempts')
-      .select('subject, is_correct')
+      .select('is_correct, questions(subject)')
       .eq('child_id', childId)
-      .gte('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString())
 
     // Get aggregate stats for comparison (simplified for demo)
     // In production, this would be a materialized view or pre-computed stats
@@ -92,7 +92,8 @@ export async function GET(request: NextRequest) {
     
     if (childPerformance) {
       childPerformance.forEach((attempt: any) => {
-        const subject = attempt.subject || 'unknown'
+        // Subject comes from the joined questions table
+        const subject = attempt.questions?.subject || 'unknown'
         if (!subjectAccuracy[subject]) {
           subjectAccuracy[subject] = { correct: 0, total: 0 }
         }

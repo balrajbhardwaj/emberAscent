@@ -43,21 +43,34 @@ async function getActiveChild(): Promise<string | null> {
     redirect("/login")
   }
 
-  const { data: child } = await supabase
+  // Get the most recently created active child (or first one)
+  const { data: children } = await supabase
     .from("children")
     .select("id")
     .eq("parent_id", user.id)
     .eq("is_active", true)
-    .single()
+    .order("created_at", { ascending: false })
+    .limit(1)
 
-  return child?.id || null
+  return children?.[0]?.id || null
 }
 
 /**
  * Progress Dashboard Page
  */
-export default async function ProgressPage() {
-  const childId = await getActiveChild()
+export default async function ProgressPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ childId?: string }>
+}) {
+  const params = await searchParams
+  
+  // Use childId from URL if provided, otherwise get first active child
+  let childId = params.childId
+  
+  if (!childId) {
+    childId = await getActiveChild()
+  }
 
   if (!childId) {
     return (

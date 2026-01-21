@@ -36,11 +36,12 @@ import { hasCompletedQuickByteToday } from "./quick-byte/actions"
 export default async function PracticePage({
   searchParams,
 }: {
-  searchParams: { childId?: string }
+  searchParams: Promise<{ childId?: string }>
 }) {
+  const params = await searchParams
   return (
     <Suspense fallback={<PracticeSkeleton />}>
-      <PracticeContent childId={searchParams.childId} />
+      <PracticeContent childId={params.childId} />
     </Suspense>
   )
 }

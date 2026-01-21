@@ -142,10 +142,10 @@ export function Sidebar() {
           </div>
 
           {/* Add Child Button */}
-          <Link href="/settings/children/new">
+          <Link href="/settings/children/new" className="block">
             <Button
               variant="outline"
-              className="w-full border-slate-200 hover:bg-slate-50"
+              className="w-full border-slate-200 bg-white hover:bg-orange-50 hover:border-orange-300 hover:text-orange-700 transition-all duration-200"
             >
               <UserPlus className="mr-2 h-4 w-4" />
               Add Child

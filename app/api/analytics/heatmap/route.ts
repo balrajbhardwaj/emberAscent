@@ -77,10 +77,8 @@ export async function GET(request: NextRequest) {
 
     // Fetch heatmap data
     const data = await getWeaknessHeatmap(childId)
-    console.log('[Heatmap API] Data fetched:', JSON.stringify(data, null, 2))
 
     if (!data) {
-      console.log('[Heatmap API] No data returned')
       return NextResponse.json({
         data: null,
         message: 'No practice data available yet'

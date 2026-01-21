@@ -66,9 +66,9 @@ export function WeeklyChart({ data, isLoading = false }: WeeklyChartProps) {
       </div>
 
       {/* Chart */}
-      <div className="relative">
+      <div className="relative pl-10">
         {/* Y-axis labels */}
-        <div className="absolute -left-8 top-0 bottom-8 flex flex-col justify-between text-xs text-slate-500">
+        <div className="absolute left-0 top-0 bottom-8 w-8 flex flex-col justify-between text-xs text-slate-500 text-right pr-2">
           <span>{maxQuestions}</span>
           <span>{Math.round(maxQuestions / 2)}</span>
           <span>0</span>

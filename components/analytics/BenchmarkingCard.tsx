@@ -107,24 +107,52 @@ export function BenchmarkingCard({ childId }: BenchmarkingCardProps) {
     )
   }
 
-  // Mock data for demo if no real data
-  const data: BenchmarkData = benchmark || {
-    childId,
-    calculatedAt: new Date(),
-    overallPercentile: 72,
-    subjectPercentiles: [
-      { subject: 'verbal_reasoning', percentile: 78, averageScore: 65, childScore: 72 },
-      { subject: 'english', percentile: 68, averageScore: 62, childScore: 68 },
-      { subject: 'mathematics', percentile: 71, averageScore: 58, childScore: 64 }
-    ],
-    comparisonGroup: {
-      description: 'Year 5 students on Ember Ascent',
-      totalStudents: 1247,
-      minDataPoints: 50,
-      isStatisticallySignificant: true
-    }
+  // Check if child has enough data for meaningful comparison
+  // Must have data AND at least one subject with practice attempts (childScore > 0)
+  const hasEnoughData = benchmark && 
+    benchmark.subjectPercentiles && 
+    Array.isArray(benchmark.subjectPercentiles) &&
+    benchmark.subjectPercentiles.length > 0 &&
+    benchmark.subjectPercentiles.some(s => (s.childScore || 0) > 0)
+
+  // If no practice data, show encouraging message
+  if (!hasEnoughData) {
+    return (
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-slate-600" />
+                Compared to Others
+                <Badge className="bg-purple-100 text-purple-700 text-xs">
+                  Summit
+                </Badge>
+              </CardTitle>
+              <CardDescription>
+                Anonymized percentile rankings
+              </CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-8">
+            <div className="mx-auto w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+              <TrendingUp className="h-8 w-8 text-slate-400" />
+            </div>
+            <h3 className="font-semibold text-slate-900 mb-2">
+              Start Practicing to See Rankings
+            </h3>
+            <p className="text-sm text-slate-600 max-w-xs mx-auto">
+              Complete some practice sessions to see how you compare with other learners in your year group.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    )
   }
 
+  const data = benchmark!
   const overallDesc = getPercentileDescription(data.overallPercentile)
 
   return (

@@ -3,6 +3,7 @@
  * 
  * Top navigation bar for the dashboard with:
  * - Child selector dropdown (switch between children)
+ * - Live digital clock with seconds
  * - Current streak display with flame icon
  * - Parent account menu (profile, subscription, sign out)
  * 
@@ -12,7 +13,58 @@
  */
 "use client"
 
-import { Flame, Settings, CreditCard, LogOut } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Flame, Settings, CreditCard, LogOut, Clock } from "lucide-react"
+
+/**
+ * Live Digital Clock Component
+ * Updates every second showing HH:MM:SS format
+ */
+function LiveClock() {
+  const [time, setTime] = useState<string>("")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    
+    const updateTime = () => {
+      const now = new Date()
+      setTime(now.toLocaleTimeString('en-GB', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: false 
+      }))
+    }
+
+    updateTime() // Initial call
+    const interval = setInterval(updateTime, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="hidden sm:flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-1.5 min-w-[100px]">
+        <Clock className="h-4 w-4 text-slate-500" />
+        <span className="text-sm font-mono font-medium text-slate-600">--:--:--</span>
+      </div>
+    )
+  }
+
+  // Split time into hours:minutes and seconds
+  const [hhmm, ss] = time ? [time.slice(0, 5), time.slice(6)] : ['--:--', '--']
+
+  return (
+    <div className="hidden sm:flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-1.5">
+      <Clock className="h-4 w-4 text-slate-500" />
+      <span className="text-sm font-mono font-bold text-slate-700 tabular-nums">
+        {hhmm}<span className="text-blue-500">:{ss}</span>
+      </span>
+    </div>
+  )
+}
 import { useRouter } from "next/navigation"
 import { signOut } from "@/app/(auth)/actions"
 import { useDashboard } from "@/contexts/DashboardContext"
@@ -63,8 +115,11 @@ export function Header({ currentStreak = 0, subscriptionTier = "free" }: HeaderP
           <ChildSelector />
         </div>
 
-        {/* Right: Streak & Account Menu */}
+        {/* Right: Clock, Streak & Account Menu */}
         <div className="flex items-center gap-3">
+          {/* Live Clock */}
+          <LiveClock />
+
           {/* Streak Display */}
           {currentStreak > 0 && (
             <div className="hidden sm:flex items-center gap-1.5 rounded-lg bg-orange-50 px-3 py-1.5">

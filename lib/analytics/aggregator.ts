@@ -106,16 +106,12 @@ export async function getChildAnalytics(
     p_end_date: formatDateForSQL(range.endDate)
   })
 
-  console.log('[Analytics] RPC response:', JSON.stringify(data, null, 2))
-  console.log('[Analytics] RPC error:', error)
-
   if (error) {
     console.error('Error fetching child analytics:', error)
     return null
   }
 
   if (!data) {
-    console.log('[Analytics] No data returned from RPC')
     return null
   }
 
@@ -128,7 +124,6 @@ export async function getChildAnalytics(
 
   // Transform the data to match our types
   const result = transformAnalyticsData(data, childId, child?.name || 'Child', range)
-  console.log('[Analytics] Transformed totalPracticeMinutes:', result.summary.totalPracticeMinutes)
   return result
 }
 
@@ -303,21 +298,16 @@ export async function getWeaknessHeatmap(
     p_child_id: childId
   })
 
-  console.log('[Heatmap] Raw RPC response:', JSON.stringify(data, null, 2))
-  console.log('[Heatmap] RPC error:', error)
-
   if (error) {
     console.error('Error fetching heatmap data:', error)
     return null
   }
 
   if (!data) {
-    console.log('[Heatmap] No data returned from RPC')
     return null
   }
 
   const transformed = transformHeatmapData(data)
-  console.log('[Heatmap] Transformed data cells count:', transformed.cells.length)
   return transformed
 }
 
@@ -327,14 +317,10 @@ export async function getWeaknessHeatmap(
  * Each item has: subject, topic, attempts, correct, accuracy, status
  */
 function transformHeatmapData(raw: Record<string, unknown>): WeaknessHeatmapData {
-  console.log('[Heatmap Transform] Raw keys:', Object.keys(raw))
-  
   // Handle actual structure: { heatmapData: [...] }
   const heatmapData = raw.heatmapData as Record<string, unknown>[] || 
                       raw.topics as Record<string, unknown>[] || 
                       []
-  
-  console.log('[Heatmap Transform] heatmapData length:', heatmapData?.length)
   
   if (!heatmapData || heatmapData.length === 0) {
     return {

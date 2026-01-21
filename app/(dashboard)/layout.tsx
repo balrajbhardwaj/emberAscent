@@ -56,7 +56,7 @@ export default async function DashboardLayout({
   }
 
   // Determine selected child - default to first child
-  // Child selection is managed by DashboardContext on client-side
+  // The actual URL-based selection is handled by DashboardContext on the client
   const selectedChild = childrenData[0]
 
   // Additional safety check

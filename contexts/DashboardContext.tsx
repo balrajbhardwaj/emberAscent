@@ -14,8 +14,8 @@
  */
 "use client"
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react"
-import { useRouter } from "next/navigation"
+import { createContext, useContext, useState, useCallback, ReactNode, useEffect } from "react"
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
 import type { User } from "@supabase/supabase-js"
 
 // Dashboard context state
@@ -64,17 +64,34 @@ export function DashboardProvider({
   children: childrenProp,
 }: DashboardProviderProps) {
   const router = useRouter()
-  const [selectedChild, setSelectedChildState] = useState<Child | null>(
-    initialSelectedChild || initialChildren[0] || null
-  )
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  
+  // Get childId from URL, or use initial selected child, or fall back to first child
+  const childIdFromUrl = searchParams.get('childId')
+  const initialChild = childIdFromUrl 
+    ? initialChildren.find(c => c.id === childIdFromUrl) || initialSelectedChild || initialChildren[0]
+    : initialSelectedChild || initialChildren[0]
+  
+  const [selectedChild, setSelectedChildState] = useState<Child | null>(initialChild || null)
   const [childrenList] = useState<Child[]>(initialChildren)
   const [isLoading, setIsLoading] = useState(false)
 
+  // Sync state when URL childId changes (e.g., browser back/forward)
+  useEffect(() => {
+    if (childIdFromUrl) {
+      const childFromUrl = initialChildren.find(c => c.id === childIdFromUrl)
+      if (childFromUrl && childFromUrl.id !== selectedChild?.id) {
+        setSelectedChildState(childFromUrl)
+      }
+    }
+  }, [childIdFromUrl, initialChildren, selectedChild?.id])
+
   const setSelectedChild = useCallback((child: Child) => {
     setSelectedChildState(child)
-    // Update URL with selected child ID
-    router.push(`?childId=${child.id}`, { scroll: false })
-  }, [router])
+    // Update URL with selected child ID, preserving current pathname
+    router.push(`${pathname}?childId=${child.id}`, { scroll: false })
+  }, [router, pathname])
 
   const refetchChildren = useCallback(async () => {
     setIsLoading(true)
