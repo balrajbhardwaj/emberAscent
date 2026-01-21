@@ -25,6 +25,7 @@ export interface SessionQuestion {
   topic: string | null
   difficulty: string
   emberScore: number
+  curriculumReference: string | null
   options: Array<{
     id: string
     text: string

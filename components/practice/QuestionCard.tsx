@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { EmberScore } from "./EmberScore"
+import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
 import { cn } from "@/lib/utils"
 
 interface QuestionOption {
@@ -131,6 +132,14 @@ export function QuestionCard({
               score={question.emberScore}
               breakdown={question.emberScoreBreakdown}
               size="sm"
+            />
+          )}
+
+          {/* Curriculum Reference */}
+          {question.emberScoreBreakdown?.curriculumReference && (
+            <CurriculumBadge 
+              code={question.emberScoreBreakdown.curriculumReference}
+              showTooltip
             />
           )}
 

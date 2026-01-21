@@ -18,6 +18,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
 import { EmberScore } from "@/components/practice/EmberScore"
+import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
 
 interface QuestionOption {
   id: string
@@ -286,10 +287,28 @@ export default function PracticeSessionPage() {
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between mb-2">
-            <Badge variant="secondary" className="capitalize">
-              {currentQuestion.subject}
-            </Badge>
-            <EmberScore score={currentQuestion.ember_score} />
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" className="capitalize">
+                {currentQuestion.subject}
+              </Badge>
+              {currentQuestion.curriculum_reference && (
+                <CurriculumBadge 
+                  code={currentQuestion.curriculum_reference}
+                  showTooltip
+                />
+              )}
+            </div>
+            <EmberScore 
+              score={currentQuestion.ember_score} 
+              breakdown={{
+                curriculumAlignment: currentQuestion.curriculum_reference ? 100 : 0,
+                expertVerified: false,
+                communityRating: 0,
+                generatedBy: "AI Generated",
+                reviewedBy: "",
+                curriculumReference: currentQuestion.curriculum_reference || "",
+              }}
+            />
           </div>
           <CardTitle className="text-xl leading-relaxed">
             {currentQuestion.question_text}

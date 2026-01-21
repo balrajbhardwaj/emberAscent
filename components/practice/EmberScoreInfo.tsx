@@ -145,17 +145,20 @@ export function EmberScoreInfo({
             
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <BookOpen className="h-5 w-5 text-blue-600" />
+                <BookOpen className={`h-5 w-5 ${breakdown.curriculumAlignment > 0 ? 'text-emerald-600' : 'text-slate-400'}`} />
                 <div className="flex-1">
                   <p className="text-sm font-medium text-slate-900">
-                    Curriculum Alignment
+                    Curriculum Aligned
                   </p>
                   <p className="text-xs text-slate-600">
-                    {breakdown.curriculumReference}
+                    {breakdown.curriculumReference || "Not linked to National Curriculum"}
                   </p>
                 </div>
-                <Badge variant="secondary">
-                  {breakdown.curriculumAlignment}%
+                <Badge 
+                  variant={breakdown.curriculumAlignment > 0 ? "default" : "secondary"}
+                  className={breakdown.curriculumAlignment > 0 ? "bg-emerald-600 hover:bg-emerald-700" : ""}
+                >
+                  {breakdown.curriculumAlignment > 0 ? "Yes ✓" : "No"}
                 </Badge>
               </div>
 

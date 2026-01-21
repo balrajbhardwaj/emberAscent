@@ -110,14 +110,15 @@ export async function createSession(
       topic: q.topic,
       difficulty: q.difficulty,
       emberScore: q.ember_score,
+      curriculumReference: q.curriculum_reference,
       options: q.options.map((opt) => ({
         id: opt.id,
-        text: opt.option_text,
+        text: opt.text,
       })),
-      correctAnswerId: q.options.find((opt) => opt.is_correct)?.id || "",
+      correctAnswerId: q.correct_answer,
       explanations: {
         stepByStep: q.explanations.step_by_step,
-        visual: q.explanations.visual_analogy,
+        visual: q.explanations.visual,
         example: q.explanations.worked_example,
       },
     }))

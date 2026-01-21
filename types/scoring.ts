@@ -36,6 +36,10 @@ export interface QuestionForScoring {
   reviewStatus: ReviewStatus
   errorReports: Array<{ id: string; report_type: string; status: string; created_at: string }>
   communityStats: CommunityStats
+  /** Whether this question is linked to curriculum_objectives table */
+  curriculumAligned?: boolean
+  /** Whether the curriculum alignment has been validated by an expert */
+  alignmentValidated?: boolean
 }
 
 export interface CommunityStats {

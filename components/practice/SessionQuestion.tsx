@@ -160,12 +160,12 @@ export function SessionQuestion({
               subject: question.subject,
               emberScore: question.emberScore ?? 75, // Fallback to 75
               emberScoreBreakdown: {
-                curriculumAlignment: 85,
-                expertVerified: true,
-                communityRating: 4.5,
-                generatedBy: "System",
-                reviewedBy: "Expert",
-                curriculumReference: question.topic || "",
+                curriculumAlignment: question.curriculumReference ? 30 : 0,
+                expertVerified: false,
+                communityRating: 0,
+                generatedBy: "AI",
+                reviewedBy: "",
+                curriculumReference: question.curriculumReference || "",
               },
               options: question.options.map((opt, idx) => ({
                 id: opt.id,

@@ -10,8 +10,10 @@
  * 
  * Score Components (Week 2 weights):
  * 1. Curriculum Alignment (40% weight)
- *    - Has valid NC reference: +40
- *    - Has partial reference: +20
+ *    - Has valid NC reference format: +20
+ *    - Has partial/informal reference: +10
+ *    - Linked to curriculum_objectives table: +10
+ *    - Alignment validated by expert: +10
  *    - No reference: 0
  * 
  * 2. Expert Verification (40% weight)
@@ -59,7 +61,11 @@ import type {
  */
 export function calculateEmberScore(question: QuestionForScoring): EmberScoreResult {
   const breakdown: EmberScoreBreakdown = {
-    curriculumAlignment: calculateCurriculumScore(question.curriculumReference),
+    curriculumAlignment: calculateCurriculumScore(
+      question.curriculumReference,
+      question.curriculumAligned,
+      question.alignmentValidated
+    ),
     expertVerification: calculateExpertScore(question.reviewStatus),
     communityFeedback: calculateCommunityScore(question.communityStats || {
       helpfulCount: 0,
@@ -83,24 +89,44 @@ export function calculateEmberScore(question: QuestionForScoring): EmberScoreRes
 /**
  * Calculate curriculum alignment score (0-40 points)
  * 
+ * Scoring breakdown:
+ * - Has valid NC reference string: 20 points base
+ * - Linked to curriculum_objectives table: +10 points
+ * - Alignment validated by expert: +10 points
+ * 
  * @param curriculumReference - National Curriculum reference string
+ * @param curriculumAligned - Whether linked to curriculum_objectives table
+ * @param alignmentValidated - Whether the alignment has been validated
  * @returns Score from 0 to 40
  */
-function calculateCurriculumScore(curriculumReference?: string | null): number {
-  if (!curriculumReference || curriculumReference.trim() === '') {
-    return 0
+function calculateCurriculumScore(
+  curriculumReference?: string | null,
+  curriculumAligned?: boolean,
+  alignmentValidated?: boolean
+): number {
+  let score = 0
+
+  // Base score for having a curriculum reference
+  if (curriculumReference && curriculumReference.trim() !== '') {
+    // Check if it's a valid-looking curriculum reference
+    // Valid format examples: "KS2 English Y5", "Y6 Maths Number", "Y5-MATH-F-03", etc.
+    const validPattern = /^(KS[1-4]|Y[3-6]|Year [3-6])/i
+    const isValid = validPattern.test(curriculumReference)
+    
+    score += isValid ? 20 : 10 // 20 for valid format, 10 for any reference
   }
 
-  // Check if it's a valid-looking curriculum reference
-  // Valid format examples: "KS2 English Y5", "Y6 Maths Number", etc.
-  const validPattern = /^(KS[1-4]|Y[3-6]|Year [3-6])/i
-  const isValid = validPattern.test(curriculumReference)
-
-  if (isValid) {
-    return 40 // Full points for valid NC reference
-  } else {
-    return 20 // Partial points for some reference provided
+  // Bonus for being linked to curriculum_objectives table
+  if (curriculumAligned) {
+    score += 10
   }
+
+  // Bonus for validated alignment
+  if (alignmentValidated) {
+    score += 10
+  }
+
+  return Math.min(40, score) // Cap at 40
 }
 
 /**

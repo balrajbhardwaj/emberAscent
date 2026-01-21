@@ -29,14 +29,15 @@ export interface SelectedQuestion {
   topic: string | null
   difficulty: string
   ember_score: number
+  curriculum_reference: string | null
+  correct_answer: string
   options: Array<{
     id: string
-    option_text: string
-    is_correct: boolean
+    text: string
   }>
   explanations: {
     step_by_step: string
-    visual_analogy: string | null
+    visual: string | null
     worked_example: string | null
   }
 }
@@ -58,7 +59,7 @@ export async function selectQuestions(
 ): Promise<SelectedQuestion[]> {
   const supabase = await createClient()
 
-  // Base query
+  // Base query - questions table has options and explanations as JSONB columns
   let query = supabase
     .from("questions")
     .select(`
@@ -68,16 +69,10 @@ export async function selectQuestions(
       topic,
       difficulty,
       ember_score,
-      options:question_options(
-        id,
-        option_text,
-        is_correct
-      ),
-      explanations:question_explanations(
-        step_by_step,
-        visual_analogy,
-        worked_example
-      )
+      curriculum_reference,
+      correct_answer,
+      options,
+      explanations
     `)
     .eq("is_published", true)
 
@@ -194,22 +189,41 @@ export async function selectQuestions(
   const final = selected.sort(() => Math.random() - 0.5).slice(0, criteria.count)
 
   // Transform to expected format
-  return final.map((q) => ({
-    id: q.id,
-    question_text: q.question_text,
-    subject: q.subject,
-    topic: q.topic,
-    difficulty: q.difficulty,
-    ember_score: q.ember_score ?? 75, // Default to 75 if not set
-    options: Array.isArray(q.options) ? q.options : [],
-    explanations: Array.isArray(q.explanations) && q.explanations[0]
-      ? q.explanations[0]
+  return final.map((q) => {
+    // Parse options - stored as JSONB array with {id, text} format
+    const options = Array.isArray(q.options) 
+      ? q.options.map((opt: any) => ({
+          id: opt.id,
+          text: opt.text,
+        }))
+      : []
+
+    // Parse explanations - stored as JSONB object
+    const explanations = q.explanations && typeof q.explanations === 'object'
+      ? {
+          step_by_step: (q.explanations as any).step_by_step || "Explanation not available.",
+          visual: (q.explanations as any).visual || null,
+          worked_example: (q.explanations as any).worked_example || null,
+        }
       : {
           step_by_step: "Explanation not available.",
-          visual_analogy: null,
+          visual: null,
           worked_example: null,
-        },
-  }))
+        }
+
+    return {
+      id: q.id,
+      question_text: q.question_text,
+      subject: q.subject,
+      topic: q.topic,
+      difficulty: q.difficulty,
+      ember_score: q.ember_score ?? 75,
+      curriculum_reference: q.curriculum_reference || null,
+      correct_answer: q.correct_answer,
+      options,
+      explanations,
+    }
+  })
 }
 
 /**
