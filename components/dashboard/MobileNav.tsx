@@ -17,8 +17,9 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { PlayCircle, BarChart, Bookmark, Settings } from "lucide-react"
+import { usePathname, useSearchParams } from "next/navigation"
+import { PlayCircle, BarChart, Bookmark, Settings, Sparkles } from "lucide-react"
+import { useDashboard } from "@/contexts/DashboardContext"
 import { cn } from "@/lib/utils"
 
 // Navigation items (same as sidebar but icons only)
@@ -32,6 +33,11 @@ const navItems = [
     href: "/progress",
     label: "Progress",
     icon: BarChart,
+  },
+  {
+    href: "/analytics",
+    label: "Analytics",
+    icon: Sparkles,
   },
   {
     href: "/bookmarks",
@@ -53,6 +59,17 @@ const navItems = [
  */
 export function MobileNav() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const { selectedChild } = useDashboard()
+  
+  // Build URL with childId if available
+  const getHref = (basePath: string) => {
+    const childId = searchParams.get('childId') || selectedChild?.id
+    if (childId) {
+      return `${basePath}?childId=${childId}`
+    }
+    return basePath
+  }
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white lg:hidden">
@@ -64,7 +81,7 @@ export function MobileNav() {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              href={getHref(item.href)}
               className={cn(
                 "flex flex-col items-center gap-1 rounded-lg px-4 py-2 transition-colors",
                 isActive ? "text-orange-600" : "text-slate-600"

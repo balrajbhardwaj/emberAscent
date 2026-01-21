@@ -15,10 +15,10 @@
 import { useEffect, useState } from "react"
 import { SessionProgress } from "./SessionProgress"
 import { QuestionCard } from "./QuestionCard"
-import { ExplanationPanel } from "./ExplanationPanel"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Eye } from "lucide-react"
 import { SessionQuestion as SessionQuestionType } from "@/hooks/usePracticeSession"
+import { CheckCircle2, XCircle } from "lucide-react"
 
 interface SessionQuestionProps {
   question: SessionQuestionType
@@ -180,28 +180,76 @@ export function SessionQuestion({
             isLoading={false}
           />
 
-          {/* Controls */}
+          {/* Result Banner + Next Button (immediately after answering) */}
           {isAnswered && (
-            <div className="flex flex-col sm:flex-row gap-3">
-              {/* Show/Hide Explanation Button */}
-              <Button
-                variant="outline"
-                onClick={() => setShowExplanation((prev) => !prev)}
-                className="flex items-center gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                {showExplanation ? "Hide" : "Show"} Explanation
-              </Button>
-
-              {/* Next Question Button */}
+            <div className={`rounded-lg p-4 flex items-center justify-between gap-4 ${
+              selectedAnswer === question.correctAnswerId 
+                ? 'bg-green-50 border border-green-200' 
+                : 'bg-red-50 border border-red-200'
+            }`}>
+              <div className="flex items-center gap-3">
+                {selectedAnswer === question.correctAnswerId ? (
+                  <>
+                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+                    <span className="font-semibold text-green-800">Correct!</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="h-6 w-6 text-red-600" />
+                    <span className="font-semibold text-red-800">Incorrect</span>
+                  </>
+                )}
+              </div>
               <Button
                 size="lg"
                 onClick={onNext}
-                className="flex-1 sm:flex-none flex items-center gap-2"
+                className="flex items-center gap-2"
               >
                 {questionNumber === totalQuestions ? "Finish" : "Next Question"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
+            </div>
+          )}
+
+          {/* Explanation Toggle (below result) */}
+          {isAnswered && (
+            <Button
+              variant="outline"
+              onClick={() => setShowExplanation((prev) => !prev)}
+              className="w-full flex items-center justify-center gap-2"
+            >
+              <Eye className="h-4 w-4" />
+              {showExplanation ? "Hide" : "Show"} Explanation
+            </Button>
+          )}
+
+          {/* Inline Explanation (expandable) */}
+          {isAnswered && showExplanation && (
+            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 space-y-3">
+              <div className="flex items-center gap-2 text-blue-800">
+                <span className="text-lg">💡</span>
+                <h4 className="font-semibold">Explanation</h4>
+              </div>
+              <div className="space-y-4 text-slate-700">
+                {question.explanations.stepByStep && (
+                  <div>
+                    <p className="text-sm font-medium text-slate-600 mb-1">Step by Step:</p>
+                    <p className="text-sm whitespace-pre-wrap">{question.explanations.stepByStep}</p>
+                  </div>
+                )}
+                {question.explanations.example && (
+                  <div>
+                    <p className="text-sm font-medium text-slate-600 mb-1">Worked Example:</p>
+                    <p className="text-sm whitespace-pre-wrap">{question.explanations.example}</p>
+                  </div>
+                )}
+                {question.explanations.visual && (
+                  <div>
+                    <p className="text-sm font-medium text-slate-600 mb-1">Visual Aid:</p>
+                    <p className="text-sm whitespace-pre-wrap">{question.explanations.visual}</p>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
@@ -218,19 +266,6 @@ export function SessionQuestion({
           )}
         </div>
       </div>
-
-      {/* Explanation Panel */}
-      {isAnswered && (
-        <ExplanationPanel
-          explanations={{
-            stepByStep: question.explanations.stepByStep,
-            visual: question.explanations.visual || "No visual explanation available.",
-            example: question.explanations.example || "No worked example available.",
-          }}
-          isVisible={showExplanation}
-          onClose={() => setShowExplanation(false)}
-        />
-      )}
     </div>
   )
 }

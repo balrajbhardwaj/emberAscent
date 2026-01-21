@@ -343,9 +343,53 @@ export default function PracticeSessionPage() {
             })}
           </div>
 
-          {/* Explanation Panel */}
-          {showExplanation && currentQuestion.explanations && (
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+          {/* Result feedback + Next Button (MOVED UP - appears immediately after options) */}
+          {hasSubmitted && (
+            <div className={`mt-4 p-4 rounded-lg flex items-center justify-between ${
+              selectedAnswer === currentQuestion.correct_answer
+                ? 'bg-green-100 border border-green-200'
+                : 'bg-red-100 border border-red-200'
+            }`}>
+              <div className="flex items-center space-x-2">
+                {selectedAnswer === currentQuestion.correct_answer ? (
+                  <>
+                    <CheckCircle className="h-5 w-5 text-green-700" />
+                    <span className="font-semibold text-green-800">Correct!</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="h-5 w-5 text-red-700" />
+                    <span className="font-semibold text-red-800">
+                      Incorrect. The correct answer is {currentQuestion.correct_answer}.
+                    </span>
+                  </>
+                )}
+              </div>
+              <Button
+                onClick={handleNextQuestion}
+                size="lg"
+              >
+                {currentQuestionIndex === questions.length - 1 ? 'Finish Session' : 'Next Question'}
+              </Button>
+            </div>
+          )}
+
+          {/* Submit Answer button (only before submission) */}
+          {!hasSubmitted && (
+            <div className="flex justify-end pt-4">
+              <Button
+                onClick={handleSubmitAnswer}
+                disabled={!selectedAnswer}
+                size="lg"
+              >
+                Submit Answer
+              </Button>
+            </div>
+          )}
+
+          {/* Explanation Panel (NOW BELOW the result - optional viewing) */}
+          {hasSubmitted && currentQuestion.explanations && (
+            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
               <div className="flex items-start space-x-3">
                 <Lightbulb className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
                 <div className="space-y-3">
@@ -375,49 +419,6 @@ export default function PracticeSessionPage() {
               </div>
             </div>
           )}
-
-          {/* Result feedback */}
-          {hasSubmitted && (
-            <div className={`mt-4 p-3 rounded-lg flex items-center space-x-2 ${
-              selectedAnswer === currentQuestion.correct_answer
-                ? 'bg-green-100 text-green-800'
-                : 'bg-red-100 text-red-800'
-            }`}>
-              {selectedAnswer === currentQuestion.correct_answer ? (
-                <>
-                  <CheckCircle className="h-5 w-5" />
-                  <span className="font-medium">Correct!</span>
-                </>
-              ) : (
-                <>
-                  <XCircle className="h-5 w-5" />
-                  <span className="font-medium">
-                    Incorrect. The correct answer is {currentQuestion.correct_answer}.
-                  </span>
-                </>
-              )}
-            </div>
-          )}
-
-          {/* Action Buttons */}
-          <div className="flex justify-end pt-6 space-x-3">
-            {!hasSubmitted ? (
-              <Button
-                onClick={handleSubmitAnswer}
-                disabled={!selectedAnswer}
-                size="lg"
-              >
-                Submit Answer
-              </Button>
-            ) : (
-              <Button
-                onClick={handleNextQuestion}
-                size="lg"
-              >
-                {currentQuestionIndex === questions.length - 1 ? 'Finish Session' : 'Next Question'}
-              </Button>
-            )}
-          </div>
         </CardContent>
       </Card>
     </div>

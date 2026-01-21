@@ -53,7 +53,8 @@ const SESSION_CONFIG = {
  * Activity Timeline Item
  */
 function TimelineItem({ session }: { session: Session }) {
-  const config = SESSION_CONFIG[session.sessionType]
+  // Get session config with fallback for unknown types
+  const config = SESSION_CONFIG[session.sessionType] || SESSION_CONFIG.quick
   const Icon = config.icon
   const percentage = Math.round((session.score / 100) * 100)
 

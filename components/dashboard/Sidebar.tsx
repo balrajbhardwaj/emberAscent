@@ -17,8 +17,8 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { PlayCircle, BarChart, Bookmark, Settings, UserPlus, Flame } from "lucide-react"
+import { usePathname, useSearchParams } from "next/navigation"
+import { PlayCircle, BarChart, Bookmark, Settings, UserPlus, Flame, Sparkles } from "lucide-react"
 import { useDashboard } from "@/contexts/DashboardContext"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -47,6 +47,12 @@ const navItems = [
     icon: BarChart,
   },
   {
+    href: "/analytics",
+    label: "Analytics",
+    icon: Sparkles,
+    premium: true,
+  },
+  {
     href: "/bookmarks",
     label: "Bookmarks",
     icon: Bookmark,
@@ -66,7 +72,17 @@ const navItems = [
  */
 export function Sidebar() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
   const { selectedChild } = useDashboard()
+  
+  // Build URL with childId if available
+  const getHref = (basePath: string) => {
+    const childId = searchParams.get('childId') || selectedChild?.id
+    if (childId) {
+      return `${basePath}?childId=${childId}`
+    }
+    return basePath
+  }
 
   return (
     <aside className="hidden lg:flex h-screen w-64 flex-col border-r border-slate-200 bg-white">
@@ -83,11 +99,12 @@ export function Sidebar() {
         {navItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + "/")
           const Icon = item.icon
+          const isPremium = (item as any).premium
 
           return (
             <Link
               key={item.href}
-              href={item.href}
+              href={getHref(item.href)}
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 isActive
@@ -95,8 +112,13 @@ export function Sidebar() {
                   : "text-slate-700 hover:bg-slate-50"
               )}
             >
-              <Icon className={cn("h-5 w-5", isActive && "text-orange-600")} />
+              <Icon className={cn("h-5 w-5", isActive && "text-orange-600", isPremium && "text-amber-500")} />
               {item.label}
+              {isPremium && (
+                <span className="ml-auto text-xs font-normal bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">
+                  Pro
+                </span>
+              )}
             </Link>
           )
         })}

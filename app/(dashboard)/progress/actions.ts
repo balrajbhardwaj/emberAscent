@@ -73,15 +73,11 @@ export async function getOverviewStats(childId: string): Promise<OverviewStats |
     const correctAnswers = allAttempts?.filter((a) => a.is_correct).length || 0
     const overallAccuracy = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0
 
-    // Calculate current streak
-    const { data: sessions } = await supabase
-      .from("practice_sessions")
-      .select("started_at")
-      .eq("child_id", childId)
-      .eq("status", "completed")
-      .order("started_at", { ascending: false })
-
-    const currentStreak = calculateStreak(sessions?.map((s) => s.started_at) || [])
+    // Calculate current streak (use question_attempts dates since sessions may not have status)
+    const uniqueDates = [...new Set(
+      allAttempts?.map(a => new Date(a.created_at).toDateString()) || []
+    )]
+    const currentStreak = calculateStreakFromDates(uniqueDates)
 
     // Get this week's questions
     const weekStart = new Date()
@@ -108,20 +104,15 @@ export async function getOverviewStats(childId: string): Promise<OverviewStats |
 }
 
 /**
- * Calculate practice streak from session dates
+ * Calculate practice streak from date strings
  * 
- * @param dates - Array of session start dates (ISO strings)
+ * @param dateStrings - Array of date strings (from toDateString())
  * @returns Current streak in days
  */
-function calculateStreak(dates: string[]): number {
-  if (dates.length === 0) return 0
+function calculateStreakFromDates(dateStrings: string[]): number {
+  if (dateStrings.length === 0) return 0
 
-  // Group sessions by day
-  const uniqueDays = new Set(
-    dates.map((date) => new Date(date).toDateString())
-  )
-
-  const sortedDays = Array.from(uniqueDays)
+  const sortedDays = [...new Set(dateStrings)]
     .map((day) => new Date(day))
     .sort((a, b) => b.getTime() - a.getTime())
 
@@ -131,7 +122,7 @@ function calculateStreak(dates: string[]): number {
   const yesterday = new Date(today)
   yesterday.setDate(yesterday.getDate() - 1)
 
-  const mostRecentDay = sortedDays[0]
+  const mostRecentDay = new Date(sortedDays[0])
   mostRecentDay.setHours(0, 0, 0, 0)
 
   if (mostRecentDay < yesterday) {
@@ -162,6 +153,13 @@ function calculateStreak(dates: string[]): number {
   return streak
 }
 
+// Map display names to database subject values
+const subjectDbMap: Record<string, string> = {
+  "Verbal Reasoning": "verbal_reasoning",
+  "English": "english", 
+  "Mathematics": "mathematics"
+}
+
 /**
  * Get subject-specific statistics with trends
  * 
@@ -182,12 +180,13 @@ export async function getSubjectStats(childId: string): Promise<SubjectStats[]> 
     thisWeekStart.setDate(thisWeekStart.getDate() - 7)
 
     for (const subject of subjects) {
-      // Get all attempts for this subject
+      const dbSubject = subjectDbMap[subject]
+      // Get all attempts for this subject (using database subject name)
       const { data: attempts } = await supabase
         .from("question_attempts")
         .select("is_correct, created_at, questions!inner(subject)")
         .eq("child_id", childId)
-        .eq("questions.subject", subject)
+        .eq("questions.subject", dbSubject)
 
       const questionsAttempted = attempts?.length || 0
       const correctAnswers = attempts?.filter((a) => a.is_correct).length || 0
@@ -240,46 +239,53 @@ export async function getSubjectStats(childId: string): Promise<SubjectStats[]> 
  * @param limit - Number of sessions to fetch
  * @returns Recent sessions array
  */
+// Map database subject values to display names
+const subjectDisplayMap: Record<string, string> = {
+  "verbal_reasoning": "Verbal Reasoning",
+  "english": "English", 
+  "mathematics": "Mathematics"
+}
+
+/**
+ * Get recent practice sessions
+ * 
+ * @param childId - Child identifier
+ * @param limit - Number of sessions to return
+ * @returns Recent sessions array
+ */
 export async function getRecentSessions(childId: string, limit: number = 10): Promise<RecentSession[]> {
   try {
     const supabase = await createClient()
 
+    // Get sessions (without status filter since column may not exist)
     const { data: sessions } = await supabase
       .from("practice_sessions")
       .select(`
         id,
         session_type,
         started_at,
-        score,
-        questions_answered,
-        total_questions,
-        question_attempts!inner(
-          questions!inner(subject)
-        )
+        correct_answers,
+        total_questions
       `)
       .eq("child_id", childId)
-      .eq("status", "completed")
+      .not("started_at", "is", null)
       .order("started_at", { ascending: false })
       .limit(limit)
 
     if (!sessions) return []
 
     return sessions.map((session: any) => {
-      // Get most common subject from this session's questions
-      const subjects = session.question_attempts?.map((a: any) => a.questions?.subject).filter(Boolean) || []
-      const subjectCounts: Record<string, number> = {}
-      subjects.forEach((s: string) => {
-        subjectCounts[s] = (subjectCounts[s] || 0) + 1
-      })
-      const mostCommonSubject = Object.entries(subjectCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null
+      const score = session.total_questions > 0 
+        ? Math.round((session.correct_answers / session.total_questions) * 100)
+        : 0
 
       return {
         id: session.id,
         date: session.started_at,
         sessionType: session.session_type,
-        subject: mostCommonSubject,
-        score: session.score || 0,
-        questionsAnswered: session.questions_answered || 0,
+        subject: session.subject ? subjectDisplayMap[session.subject] || session.subject : null,
+        score,
+        questionsAnswered: session.correct_answers || 0,
         totalQuestions: session.total_questions || 0,
       }
     })
@@ -393,7 +399,7 @@ export async function getWeakAreas(childId: string, limit: number = 3): Promise<
       .filter(([_, stats]) => stats.total >= 5) // Minimum 5 attempts
       .map(([topic, stats]) => ({
         topic,
-        subject: stats.subject,
+        subject: subjectDisplayMap[stats.subject] || stats.subject,
         accuracy: Math.round((stats.correct / stats.total) * 100),
         questionsAttempted: stats.total,
       }))

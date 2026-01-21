@@ -235,17 +235,6 @@ export function QuestionCard({
             )
           })}
         </div>
-
-        {/* Show Explanation Button (appears after answering) */}
-        {showResult && (
-          <div className="pt-2">
-            <p className="text-sm text-slate-600">
-              {localSelectedAnswer === question.correctAnswerId
-                ? "🎉 Great job! Want to see how to solve this?"
-                : "Don't worry! Let's learn the right approach."}
-            </p>
-          </div>
-        )}
       </div>
     </Card>
   )
