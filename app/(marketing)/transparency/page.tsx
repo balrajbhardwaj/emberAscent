@@ -9,9 +9,8 @@
 
 import { Metadata } from "next"
 import Link from "next/link"
-import { Shield, Lock, Eye, Heart, ArrowLeft, Home } from "lucide-react"
+import { Shield, Lock, Eye, Heart } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata: Metadata = {

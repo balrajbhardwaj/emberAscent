@@ -13,7 +13,7 @@
  */
 "use client"
 
-import { X, CheckCircle, Users, BookOpen, Sparkles } from "lucide-react"
+import { X, CheckCircle, Users, BookOpen } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"

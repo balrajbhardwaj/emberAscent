@@ -8,7 +8,7 @@
  */
 
 import Link from "next/link"
-import { ArrowLeft, Sparkles, Target, AlertTriangle, TrendingUp, CheckCircle } from "lucide-react"
+import { Sparkles, Target, AlertTriangle, TrendingUp, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"

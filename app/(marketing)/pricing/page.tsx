@@ -8,7 +8,7 @@
  */
 
 import Link from "next/link"
-import { Check, Info, Sparkles, BookOpen, BarChart3, Target, TrendingUp } from "lucide-react"
+import { Check, Info, BookOpen, BarChart3, Target, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
