@@ -236,7 +236,7 @@ export async function getSubjectStats(childId: string): Promise<SubjectStats[]> 
  * Get recent practice sessions
  * 
  * @param childId - Child identifier
- * @param limit - Number of sessions to fetch
+ * @param limit - Number of sessions to fetch (default 10, use 5 for free tier)
  * @returns Recent sessions array
  */
 // Map database subject values to display names

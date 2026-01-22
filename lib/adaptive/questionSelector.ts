@@ -117,52 +117,62 @@ async function getCandidateQuestions(
   const supabase = await createClient()
   const { topicId, excludeQuestionIds = [] } = criteria
   
-  // Query questions with attempt history
-  const { data: questions, error } = await supabase
+  // Query questions with recent attempt history from child_question_history
+  let query = supabase
     .from('questions')
     .select(`
       id,
       difficulty,
-      topic_id,
-      subtopic_name,
-      question_attempts!left(
-        attempted_at,
-        is_correct
-      )
+      topic,
+      subtopic
     `)
-    .eq('topic_id', topicId)
     .eq('is_published', true)
-    .not('id', 'in', `(${excludeQuestionIds.join(',')})`)
-    .order('created_at', { ascending: false })
+  
+  // Only filter by topic if not 'general' (which means all topics)
+  if (topicId && topicId !== 'general') {
+    query = query.ilike('topic', `%${topicId}%`)
+  }
+  
+  if (excludeQuestionIds.length > 0) {
+    query = query.not('id', 'in', `(${excludeQuestionIds.join(',')})`)
+  }
+  
+  const { data: questions, error } = await query.order('created_at', { ascending: false })
   
   if (error || !questions) {
     console.error('Error fetching candidate questions:', error)
     return []
   }
   
+  // Get recent attempts for these questions from child_question_history
+  const questionIds = questions.map(q => q.id)
+  const { data: recentAttempts } = await supabase
+    .from('child_question_history')
+    .select('question_id, attempted_at')
+    .eq('child_id', criteria.childId)
+    .in('question_id', questionIds)
+    .order('attempted_at', { ascending: false })
+  
+  // Create a map of question_id -> last attempt date
+  const attemptMap = new Map<string, Date>()
+  recentAttempts?.forEach(attempt => {
+    if (!attemptMap.has(attempt.question_id)) {
+      attemptMap.set(attempt.question_id, new Date(attempt.attempted_at))
+    }
+  })
+  
   // Transform to ScoredQuestion format
   return questions.map(q => ({
     questionId: q.id,
     score: 0, // Will be calculated later
     difficulty: q.difficulty as DifficultyLevel,
-    topicId: q.topic_id,
-    subtopicName: q.subtopic_name,
-    lastAttemptedAt: getLastAttemptDate(q.question_attempts),
+    topicId: q.topic || topicId,
+    subtopicName: q.subtopic || null,
+    lastAttemptedAt: attemptMap.get(q.id) || null,
   }))
 }
 
-/**
- * Extract last attempt date from attempts array
- */
-function getLastAttemptDate(attempts: any[]): Date | null {
-  if (!attempts || attempts.length === 0) return null
-  
-  const dates = attempts
-    .map(a => new Date(a.attempted_at))
-    .sort((a, b) => b.getTime() - a.getTime())
-  
-  return dates[0] || null
-}
+
 
 /**
  * Score all candidate questions using weighted criteria
@@ -317,24 +327,22 @@ async function getChildWeakAreas(
 ): Promise<Map<string, number>> {
   const supabase = await createClient()
   
-  const { data: attempts } = await supabase
-    .from('question_attempts')
-    .select(`
-      questions!inner(subtopic_name),
-      is_correct
-    `)
+  // Get attempts from child_question_history
+  const { data: history } = await supabase
+    .from('child_question_history')
+    .select('subtopic_name, is_correct')
     .eq('child_id', childId)
-    .eq('questions.topic_id', topicId)
+    .ilike('topic_id', `%${topicId}%`)
   
-  if (!attempts || attempts.length === 0) {
+  if (!history || history.length === 0) {
     return new Map()
   }
   
   // Group by subtopic and calculate accuracy
   const subtopicStats = new Map<string, { correct: number; total: number }>()
   
-  attempts.forEach((attempt: any) => {
-    const subtopic = attempt.questions?.subtopic_name
+  history.forEach((attempt: any) => {
+    const subtopic = attempt.subtopic_name
     if (!subtopic) return
     
     const stats = subtopicStats.get(subtopic) || { correct: 0, total: 0 }
@@ -368,22 +376,21 @@ async function getSubtopicAttemptCounts(
 ): Promise<Map<string, number>> {
   const supabase = await createClient()
   
-  const { data: attempts } = await supabase
-    .from('question_attempts')
-    .select(`
-      questions!inner(subtopic_name)
-    `)
+  // Get attempts from child_question_history
+  const { data: history } = await supabase
+    .from('child_question_history')
+    .select('subtopic_name')
     .eq('child_id', childId)
-    .eq('questions.topic_id', topicId)
+    .ilike('topic_id', `%${topicId}%`)
   
-  if (!attempts || attempts.length === 0) {
+  if (!history || history.length === 0) {
     return new Map()
   }
   
   // Count attempts per subtopic
   const counts = new Map<string, number>()
-  attempts.forEach((attempt: any) => {
-    const subtopic = attempt.questions?.subtopic_name
+  history.forEach((attempt: any) => {
+    const subtopic = attempt.subtopic_name
     if (!subtopic) return
     
     counts.set(subtopic, (counts.get(subtopic) || 0) + 1)

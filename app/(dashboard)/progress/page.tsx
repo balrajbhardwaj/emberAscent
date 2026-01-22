@@ -86,16 +86,7 @@ export default async function ProgressPage({
     )
   }
 
-  // Fetch all data in parallel
-  const [overviewStats, subjectStats, recentSessions, dailyActivity, weakAreas] = await Promise.all([
-    getOverviewStats(childId),
-    getSubjectStats(childId),
-    getRecentSessions(childId, 10),
-    getDailyActivity(childId),
-    getWeakAreas(childId, 3),
-  ])
-
-  // Check subscription tier for upgrade banner
+  // Check subscription tier for feature limits
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   
@@ -108,6 +99,18 @@ export default async function ProgressPage({
     .select('subscription_tier')
     .eq('id', user.id)
     .single()
+  
+  const isAscent = profile?.subscription_tier === 'ascent'
+  const recentSessionsLimit = isAscent ? 10 : 5 // Free: 5 sessions, Ascent: 10 sessions
+
+  // Fetch all data in parallel
+  const [overviewStats, subjectStats, recentSessions, dailyActivity, weakAreas] = await Promise.all([
+    getOverviewStats(childId),
+    getSubjectStats(childId),
+    getRecentSessions(childId, recentSessionsLimit),
+    getDailyActivity(childId),
+    getWeakAreas(childId, 3),
+  ])
   
   const isFreeTier = !profile?.subscription_tier || profile.subscription_tier === 'free'
 
@@ -200,7 +203,7 @@ export default async function ProgressPage({
         </div>
 
         {/* Recent Activity Timeline */}
-        <ActivityTimeline sessions={recentSessions} />
+        <ActivityTimeline sessions={recentSessions} isAscent={isAscent} />
 
         {/* Encouragement Footer */}
         {overviewStats && overviewStats.totalQuestions > 0 && (

@@ -29,6 +29,7 @@ interface Session {
 interface ActivityTimelineProps {
   sessions: Session[]
   isLoading?: boolean
+  isAscent?: boolean
 }
 
 const SESSION_CONFIG = {
@@ -124,8 +125,9 @@ function TimelineItem({ session }: { session: Session }) {
  * 
  * @param sessions - Array of recent sessions
  * @param isLoading - Loading state
+ * @param isAscent - Whether user has Ascent subscription
  */
-export function ActivityTimeline({ sessions, isLoading = false }: ActivityTimelineProps) {
+export function ActivityTimeline({ sessions, isLoading = false, isAscent = false }: ActivityTimelineProps) {
   if (isLoading) {
     return (
       <Card className="p-6">
@@ -174,7 +176,9 @@ export function ActivityTimeline({ sessions, isLoading = false }: ActivityTimeli
     <Card className="p-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold text-slate-900">Recent Activity</h2>
-        <p className="text-sm text-slate-600 mt-1">Your last {sessions.length} practice sessions</p>
+        <p className="text-sm text-slate-600 mt-1">
+          Your last {sessions.length} practice session{sessions.length !== 1 ? 's' : ''}
+        </p>
       </div>
 
       <div className="space-y-0">
@@ -192,13 +196,23 @@ export function ActivityTimeline({ sessions, isLoading = false }: ActivityTimeli
         ))}
       </div>
 
-      {sessions.length >= 10 && (
-        <Button variant="outline" className="w-full mt-4" asChild>
-          <Link href="/progress/history">
-            View Full History
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+      {/* Upgrade prompt for free tier users */}
+      {!isAscent && sessions.length >= 5 && (
+        <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-yellow-50 border border-orange-200 rounded-lg">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <h3 className="font-semibold text-slate-900 mb-1">Want to see your full history?</h3>
+              <p className="text-sm text-slate-700">
+                Upgrade to Ascent to view all your practice sessions and unlock advanced analytics.
+              </p>
+            </div>
+            <Button asChild size="sm">
+              <Link href="/pricing">
+                Upgrade
+              </Link>
+            </Button>
+          </div>
+        </div>
       )}
     </Card>
   )
