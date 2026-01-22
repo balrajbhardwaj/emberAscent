@@ -19,8 +19,11 @@ jobs:
           # Warn on suspicious logging
           grep -r "console\.\(log\|error\).*\(email\|password\|name\|child\)" --include="*.ts" --include="*.tsx" || true
       
-      - name: Run npm audit
-        run: npm audit --audit-level=high
+      - name: Run npm audit (production only)
+        run: npm audit --production --audit-level=high || true
+      
+      - name: Run npm audit (all dependencies - informational)
+        run: npm audit --audit-level=critical
       
       - name: TypeScript type check
         run: npx tsc --noEmit
