@@ -58,6 +58,13 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
+  // Get parent profile
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("full_name")
+    .eq("id", user.id)
+    .single()
+
   const { data: children } = await supabase
     .from("children")
     .select("*")
@@ -224,7 +231,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
     <div className="space-y-6">
       {/* Welcome Section */}
       <WelcomeCard
-        childName={(selectedChild as any).name}
+        childName={(selectedChild as any).name || "there"}
         currentStreak={currentStreak}
         questionsToday={questionsToday}
       />

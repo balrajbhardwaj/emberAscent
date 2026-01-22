@@ -47,7 +47,7 @@ const navItems = [
     icon: BarChart,
   },
   {
-    href: "/analytics",
+    href: "/analytics2",
     label: "Analytics",
     icon: Sparkles,
     premium: true,

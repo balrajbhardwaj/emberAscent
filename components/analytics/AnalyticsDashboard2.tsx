@@ -1,15 +1,14 @@
 /**
- * Analytics Dashboard v2 - Storytelling Layout
+ * Analytics Dashboard - Learning Journey
  * 
- * A new experimental layout for the analytics dashboard that presents
- * data in a narrative flow, making it easier for parents to understand
- * their child's learning journey.
+ * A comprehensive analytics dashboard that presents data in a clear,
+ * actionable format to help parents support their child's exam preparation.
  * 
  * Layout Sections:
  * 1. Header: Title, Date Range, Refresh, Help
  * 2. Executive Summary: High-level KPIs at a glance
- * 3. Learning Health Check: Risk indicators (KRIs)
- * 4. Deep Dive: Readiness Score + Weakness Heatmap
+ * 3. Learning Health Check: Practice habit optimization
+ * 4. Deep Dive: Readiness Score + Areas of Improvement
  * 5. Details: Tabbed performance tables
  * 6. Action Plan: Recommendations + Benchmarking
  * 
@@ -217,9 +216,9 @@ function LearningHealthCheckCard({
 }) {
   // Determine risk level for each metric
   const getRiskLevel = (value: number) => {
-    if (value < 5) return { level: 'healthy', color: 'text-emerald-600', bg: 'bg-emerald-50', label: 'Healthy' }
-    if (value <= 15) return { level: 'warning', color: 'text-amber-600', bg: 'bg-amber-50', label: 'Needs Attention' }
-    return { level: 'critical', color: 'text-red-600', bg: 'bg-red-50', label: 'Critical' }
+    if (value < 5) return { level: 'healthy', color: 'text-emerald-600', bg: 'bg-emerald-50', barBg: 'bg-emerald-500', label: 'Healthy' }
+    if (value <= 15) return { level: 'warning', color: 'text-amber-600', bg: 'bg-amber-50', barBg: 'bg-amber-500', label: 'Needs Attention' }
+    return { level: 'critical', color: 'text-red-600', bg: 'bg-red-50', barBg: 'bg-red-500', label: 'Critical' }
   }
 
   const rushRisk = getRiskLevel(rushFactor)
@@ -232,15 +231,9 @@ function LearningHealthCheckCard({
     <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="flex items-center gap-2">
-              <Target className="h-5 w-5 text-emerald-600" />
-              Learning Health Check
-            </CardTitle>
-            <CardDescription>
-              Behavioral indicators that may affect exam performance
-            </CardDescription>
-          </div>
+          <CardDescription className="text-base">
+            Build strong practice habits to maximize exam readiness
+          </CardDescription>
           {isAllHealthy && (
             <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
               All Clear
@@ -277,8 +270,11 @@ function LearningHealthCheckCard({
               <span>25%+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              <div className={`absolute top-0 left-0 h-full rounded-full ${rushRisk.color.replace('text-', 'bg-')}`} 
-                   style={{ width: `${Math.min(100, (rushFactor / 25) * 100)}%` }} />
+              {/* @ts-expect-error Dynamic width requires inline style */}
+              <div 
+                className={`absolute top-0 left-0 h-full rounded-full ${rushRisk.barBg}`} 
+                style={{ width: `${Math.min(100, (rushFactor / 25) * 100)}%` }}
+              />
             </div>
           </div>
         </div>
@@ -310,8 +306,11 @@ function LearningHealthCheckCard({
               <span>25%+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              <div className={`absolute top-0 left-0 h-full rounded-full ${fatigueRisk.color.replace('text-', 'bg-')}`} 
-                   style={{ width: `${Math.min(100, (fatigueDropOff / 25) * 100)}%` }} />
+              {/* @ts-expect-error Dynamic width requires inline style */}
+              <div 
+                className={`absolute top-0 left-0 h-full rounded-full ${fatigueRisk.barBg}`} 
+                style={{ width: `${Math.min(100, (fatigueDropOff / 25) * 100)}%` }}
+              />
             </div>
           </div>
         </div>
@@ -343,8 +342,11 @@ function LearningHealthCheckCard({
               <span>10+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              <div className={`absolute top-0 left-0 h-full rounded-full ${stagnantRisk.color.replace('text-', 'bg-')}`} 
-                   style={{ width: `${Math.min(100, (stagnantTopics / 10) * 100)}%` }} />
+              {/* @ts-expect-error Dynamic width requires inline style */}
+              <div 
+                className={`absolute top-0 left-0 h-full rounded-full ${stagnantRisk.barBg}`} 
+                style={{ width: `${Math.min(100, (stagnantTopics / 10) * 100)}%` }}
+              />
             </div>
           </div>
         </div>
@@ -354,7 +356,7 @@ function LearningHealthCheckCard({
 }
 
 /**
- * Weakness Heatmap - Matrix view showing topic performance by subject
+ * Areas of Improvement - Matrix view showing topic performance by subject
  */
 function WeaknessHeatmapCard({ data }: { data: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }> }) {
   // Group data by topic and subject
@@ -405,13 +407,13 @@ function WeaknessHeatmapCard({ data }: { data: Array<{ topic: string; scores: nu
     return (
       <Card className="h-full">
         <CardHeader>
-          <CardTitle className="text-lg">Weakness Heatmap</CardTitle>
-          <CardDescription>Topic performance across subjects - click any cell to practice</CardDescription>
+          <CardTitle className="text-lg">Areas of Improvement</CardTitle>
+          <CardDescription>Track your progress and identify opportunities to grow</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
             <p className="text-slate-500">No performance data yet</p>
-            <p className="text-sm text-slate-400 mt-2">Complete some practice questions to see your weaknesses</p>
+            <p className="text-sm text-slate-400 mt-2">Complete some practice questions to see your progress</p>
           </div>
         </CardContent>
       </Card>
@@ -421,11 +423,8 @@ function WeaknessHeatmapCard({ data }: { data: Array<{ topic: string; scores: nu
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle className="text-lg flex items-center gap-2">
-          Weakness Heatmap
-          <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-700">Ascent Feature</Badge>
-        </CardTitle>
-        <CardDescription>Topic performance across subjects - click any cell to practice</CardDescription>
+        <CardTitle className="text-lg">Areas of Improvement</CardTitle>
+        <CardDescription>Track your progress and identify opportunities to grow</CardDescription>
       </CardHeader>
       <CardContent>
         {/* Legend */}
@@ -714,6 +713,7 @@ function BenchmarkingCardComponent({ benchmarking }: {
                   <span className="font-medium">Top {100 - item.percentile}%</span>
                 </div>
                 <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
+                  {/* @ts-expect-error Dynamic width requires inline style */}
                   <div
                     className="absolute top-0 left-0 h-full bg-blue-500 rounded-full"
                     style={{ width: `${item.percentile}%` }}
@@ -729,9 +729,9 @@ function BenchmarkingCardComponent({ benchmarking }: {
 }
 
 /**
- * Analytics Dashboard v2 - Main Component
+ * Analytics Dashboard - Main Component
  * 
- * Orchestrates the storytelling layout with all sections.
+ * Orchestrates the comprehensive analytics layout with all sections.
  * 
  * @param childId - The UUID of the child to show analytics for
  * @param childName - The display name of the child
@@ -794,26 +794,29 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
     try {
       const apiDateRange = getApiDateRange(dateRange)
       
+      // Map date range to days for learning health API
+      const daysMap: Record<string, number> = {
+        "7d": 7,
+        "30d": 30,
+        "90d": 90,
+        "all": 365
+      }
+      const days = daysMap[dateRange] || 30
+      
       // Fetch all data in parallel
-      const [comprehensiveRes, readinessRes, heatmapRes, benchmarkRes] = await Promise.all([
+      const [comprehensiveRes, readinessRes, heatmapRes, benchmarkRes, learningHealthRes] = await Promise.all([
         fetch(`/api/analytics/comprehensive?childId=${childId}&range=${apiDateRange}`),
         fetch(`/api/analytics/readiness?childId=${childId}`),
         fetch(`/api/analytics/heatmap?childId=${childId}`),
         fetch(`/api/analytics/benchmark?childId=${childId}`).catch(() => null),
+        fetch(`/api/analytics/learning-health?childId=${childId}&days=${days}`),
       ])
 
       const comprehensive = comprehensiveRes.ok ? await comprehensiveRes.json() : null
       const readiness = readinessRes.ok ? await readinessRes.json() : null
       const heatmap = heatmapRes.ok ? await heatmapRes.json() : null
       const benchmark = benchmarkRes?.ok ? await benchmarkRes.json() : null
-
-      // Debug logging
-      console.log('[Analytics2] comprehensive:', comprehensive)
-      console.log('[Analytics2] comprehensive.summary:', comprehensive?.summary)
-      console.log('[Analytics2] comprehensive.summary.totalQuestionsAnswered:', comprehensive?.summary?.totalQuestionsAnswered)
-      console.log('[Analytics2] comprehensive.subjectBreakdown:', comprehensive?.subjectBreakdown)
-      console.log('[Analytics2] readiness:', readiness)
-      console.log('[Analytics2] heatmap:', heatmap)
+      const learningHealth = learningHealthRes.ok ? await learningHealthRes.json() : null
 
       // Transform heatmap data for the grid view
       // The heatmap API returns: { data: { subjects: [], topics: [], cells: [] } }
@@ -873,37 +876,11 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         })
       }
 
-      // Calculate KRIs (Risk Indicators) from comprehensive data
-      // 1. Rush Factor: Percentage of questions answered too quickly
-      //    If average time per question < 10 seconds, that's rushing
-      //    Calculate: (totalPracticeMinutes * 60) / totalQuestionsAnswered = avg seconds per question
-      const totalMinutes = comprehensive?.summary?.totalPracticeMinutes || 0
-      const totalQuestions = comprehensive?.summary?.totalQuestionsAnswered || 1
-      const avgSecondsPerQuestion = (totalMinutes * 60) / totalQuestions
-      // Rush factor: if avg < 30 seconds, calculate percentage below threshold
-      // Score 0-25%: lower avg time = higher rush factor
-      const rushFactor = avgSecondsPerQuestion < 30 
-        ? Math.round(Math.max(0, (30 - avgSecondsPerQuestion) / 30 * 25))
-        : 0
-
-      // 2. Fatigue Drop-off: Compare accuracy of recent sessions
-      //    Look at dailyActivity - if later sessions have lower accuracy
-      const dailyActivity = comprehensive?.dailyActivity || []
-      let fatigueDropOff = 0
-      if (dailyActivity.length >= 2) {
-        const recentAccuracy = dailyActivity[0]?.accuracy || 0
-        const previousAccuracy = dailyActivity[1]?.accuracy || 0
-        // If accuracy dropped, calculate the drop percentage
-        if (previousAccuracy > recentAccuracy) {
-          fatigueDropOff = Math.round(previousAccuracy - recentAccuracy)
-        }
-      }
-
-      // 3. Stagnant Topics: Count topics with needs_practice or no improvement
-      const topicBreakdown = comprehensive?.topicBreakdown || []
-      const stagnantTopics = topicBreakdown.filter((t: any) => 
-        t.masteryLevel === 'needs_practice' || t.trend === 'down'
-      ).length
+      // Calculate KRIs (Risk Indicators) from learning health API
+      // Use the dedicated API instead of calculating from comprehensive data
+      const rushFactor = learningHealth?.data?.rushFactor || 0
+      const fatigueDropOff = learningHealth?.data?.fatigueDropOff || 0
+      const stagnantTopics = learningHealth?.data?.stagnantTopics || 0
 
       // Extract trend values (trend can be an object or a number)
       const readinessTrend = typeof readiness?.data?.trend === 'object' 
@@ -931,9 +908,9 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           totalQuestions: comprehensive?.summary?.totalQuestionsAnswered || comprehensive?.summary?.totalQuestions || comprehensive?.totalAttempts || 0,
         },
         risks: {
-          rushFactor: Math.round(rushFactor * 100),
-          fatigueDropOff: Math.round(fatigueDropOff * 100),
-          stagnantTopics,
+          rushFactor: Math.round(rushFactor),
+          fatigueDropOff: Math.round(fatigueDropOff),
+          stagnantTopics: Math.round(stagnantTopics),
         },
         readiness: {
           score: readiness?.data?.overallScore || readiness?.data?.score || 0,
@@ -1026,9 +1003,6 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           <h1 className="text-2xl font-bold text-slate-900">
             {childName}'s Learning Journey
           </h1>
-          <p className="text-slate-500 mt-1">
-            Analytics Dashboard v2 • Storytelling Layout
-          </p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -1108,7 +1082,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         <SectionHeader
           icon={Target}
           title="Learning Health Check"
-          description="Behavioral indicators that may affect performance"
+          description="Optimize practice habits for better exam preparation"
         />
         <LearningHealthCheckCard
           rushFactor={analyticsData.risks.rushFactor}
@@ -1122,7 +1096,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         <SectionHeader
           icon={BarChart3}
           title="Deep Dive"
-          description="Detailed analysis of strengths and weaknesses"
+          description="Celebrate strengths and identify areas of improvement"
         />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ReadinessScoreCard

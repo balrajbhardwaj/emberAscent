@@ -45,6 +45,8 @@ export interface SessionState {
   questions: SessionQuestion[]
   currentIndex: number
   answers: Record<string, string> // questionId -> answerId
+  questionStartTimes: Record<string, number> // questionId -> timestamp (ms)
+  questionTimings: Record<string, number> // questionId -> seconds taken
   startedAt: Date
   timeElapsed: number // seconds
   timeLimit?: number // seconds (for mock tests)
@@ -87,6 +89,25 @@ export function usePracticeSession(
   const [session, setSession] = useState<SessionState | null>(initialSession)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Track start time when question changes
+  useEffect(() => {
+    if (!session || !currentQuestion || session.isComplete) return
+    
+    // Mark start time if not already tracked
+    if (!session.questionStartTimes[currentQuestion.id]) {
+      setSession((prev) => {
+        if (!prev) return prev
+        return {
+          ...prev,
+          questionStartTimes: {
+            ...prev.questionStartTimes,
+            [currentQuestion.id]: Date.now()
+          }
+        }
+      })
+    }
+  }, [session?.currentIndex, currentQuestion?.id])
 
   // Timer effect for session time tracking
   useEffect(() => {
@@ -144,8 +165,9 @@ export function usePracticeSession(
   const submitAnswer = useCallback(async (answerId: string) => {
     if (!session || !currentQuestion) return
 
-    // Track start time if not already tracking
-    const questionStartTime = Date.now()
+    // Calculate actual time spent on this question
+    const questionStartTime = session.questionStartTimes[currentQuestion.id] || Date.now()
+    const timeSpent = Math.max(1, Math.floor((Date.now() - questionStartTime) / 1000))
 
     setSession((prev) => {
       if (!prev) return prev
@@ -156,6 +178,10 @@ export function usePracticeSession(
           ...prev.answers,
           [currentQuestion.id]: answerId,
         },
+        questionTimings: {
+          ...prev.questionTimings,
+          [currentQuestion.id]: timeSpent
+        }
       }
     })
 
@@ -163,16 +189,13 @@ export function usePracticeSession(
     try {
       const { submitAttempt } = await import("@/app/(dashboard)/practice/[sessionType]/actions")
       
-      // Calculate time spent (use a simple estimate for now)
-      const timeSpent = Math.floor((Date.now() - questionStartTime) / 1000)
-      
       await submitAttempt(
         session.sessionId,
         session.childId,
         currentQuestion.id,
         answerId,
         currentQuestion.correctAnswerId,
-        timeSpent || 1 // Minimum 1 second
+        timeSpent
       )
     } catch (error) {
       console.error("Error submitting attempt:", error)

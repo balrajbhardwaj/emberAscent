@@ -190,14 +190,14 @@ export function AnalyticsHelp({ variant = "button" }: AnalyticsHelpProps) {
               <h3 className="font-semibold text-slate-900">Key Risk Indicators</h3>
             </div>
             <p className="text-sm text-slate-600">
-              These metrics flag potential issues that may affect performance if not addressed.
+              These metrics help identify opportunities to optimize practice habits for better results.
             </p>
 
             <div className="space-y-3">
               <MetricCard
                 icon={AlertTriangle}
                 title="Rush Factor"
-                description="Percentage of questions answered in under 10 seconds. High rush factor often indicates guessing rather than thinking through problems."
+                description="Percentage of questions answered in under 10 seconds. Taking time to think through problems leads to better accuracy and understanding."
                 example="15% rush factor is concerning — encourage taking more time."
                 color="bg-amber-500"
               />
@@ -231,19 +231,19 @@ export function AnalyticsHelp({ variant = "button" }: AnalyticsHelpProps) {
               <h3 className="font-semibold text-slate-900">Color Coding Guide</h3>
             </div>
             <p className="text-sm text-slate-600">
-              The weakness heatmap uses colors to quickly identify areas needing attention.
+              The performance heatmap uses colors to celebrate strengths and identify areas of improvement.
             </p>
 
             <div className="space-y-3 text-sm">
               <ColorLegend
                 color="bg-emerald-500"
                 label="Green (80%+)"
-                meaning="Strong mastery, maintain with occasional review"
+                meaning="Strong mastery—keep up the great work!"
               />
               <ColorLegend
                 color="bg-amber-500"
                 label="Yellow (60-79%)"
-                meaning="Developing, needs more practice"
+                meaning="Good progress—opportunity to strengthen further"
               />
               <ColorLegend
                 color="bg-red-500"

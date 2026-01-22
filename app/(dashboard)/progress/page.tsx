@@ -19,6 +19,7 @@ import { SubjectProgress } from "@/components/progress/SubjectProgress"
 import { ActivityTimeline } from "@/components/progress/ActivityTimeline"
 import { WeeklyChart } from "@/components/progress/WeeklyChart"
 import { WeakAreasCard } from "@/components/progress/WeakAreasCard"
+import { AnalyticsUpgradeBanner } from "@/components/common/AnalyticsUpgradeBanner"
 import {
   getOverviewStats,
   getSubjectStats,
@@ -94,6 +95,17 @@ export default async function ProgressPage({
     getWeakAreas(childId, 3),
   ])
 
+  // Check subscription tier for upgrade banner
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('subscription_tier')
+    .eq('id', user!.id)
+    .single()
+  
+  const isFreeTier = !profile?.subscription_tier || profile.subscription_tier === 'free'
+
   // Subject colors and icons
   const subjectConfig = [
     { name: "Verbal Reasoning", color: "purple" as const, icon: "🧠" },
@@ -132,7 +144,15 @@ export default async function ProgressPage({
             icon="TrendingUp"
             label="This Week"
             value={overviewStats?.weeklyQuestions || 0}
-            subtext="questions"
+            Upgrade Banner for Free Users */}
+        {isFreeTier && overviewStats && overviewStats.totalQuestions >= 20 && (
+          <AnalyticsUpgradeBanner
+            message="Want deeper insights into learning patterns?"
+            insight="Ascent shows you if your child is rushing, experiencing fatigue, or has topics that haven't improved in weeks."
+          />
+        )}
+
+        {/* subtext="questions"
             color="purple"
           />
           <OverviewCard

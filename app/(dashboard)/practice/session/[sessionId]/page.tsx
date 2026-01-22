@@ -69,6 +69,8 @@ export default function PracticeSessionPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')
   const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [questionStartTimes, setQuestionStartTimes] = useState<Record<string, number>>({})
+  const [questionTimings, setQuestionTimings] = useState<Record<string, number>>({})
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [showExplanation, setShowExplanation] = useState(false)
@@ -78,6 +80,19 @@ export default function PracticeSessionPage() {
     if (!sessionId) return
     loadSession()
   }, [sessionId])
+
+  // Track start time for current question
+  useEffect(() => {
+    if (questions.length > 0 && currentQuestionIndex < questions.length) {
+      const currentQuestion = questions[currentQuestionIndex]
+      if (!questionStartTimes[currentQuestion.id]) {
+        setQuestionStartTimes(prev => ({
+          ...prev,
+          [currentQuestion.id]: Date.now()
+        }))
+      }
+    }
+  }, [currentQuestionIndex, questions])
 
   // Timer effect
   useEffect(() => {
@@ -157,9 +172,16 @@ export default function PracticeSessionPage() {
     if (!selectedAnswer || hasSubmitted) return
 
     const currentQuestion = questions[currentQuestionIndex]
+    const startTime = questionStartTimes[currentQuestion.id] || Date.now()
+    const timeSpent = Math.max(1, Math.floor((Date.now() - startTime) / 1000))
+    
     setAnswers(prev => ({
       ...prev,
       [currentQuestion.id]: selectedAnswer
+    }))
+    setQuestionTimings(prev => ({
+      ...prev,
+      [currentQuestion.id]: timeSpent
     }))
     setHasSubmitted(true)
     setShowExplanation(true)
@@ -203,7 +225,7 @@ export default function PracticeSessionPage() {
         child_id: (session as any).child_id,
         selected_answer: answers[question.id] || '',
         is_correct: answers[question.id] === (question as any).correct_answer,
-        time_taken_seconds: 30 // TODO: Track actual time spent per question
+        time_taken_seconds: questionTimings[question.id] || 30 // Use tracked time or default
       }))
 
       await (supabase

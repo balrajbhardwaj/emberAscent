@@ -131,6 +131,8 @@ export async function createSession(
       questions,
       currentIndex: 0,
       answers: {},
+      questionStartTimes: {},
+      questionTimings: {},
       startedAt: new Date((sessionData as any).started_at),
       timeElapsed: 0,
       timeLimit: sessionType === "mock" ? 45 * 60 : undefined, // 45 minutes for mock

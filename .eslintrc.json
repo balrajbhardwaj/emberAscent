@@ -11,6 +11,8 @@
         "varsIgnorePattern": "^_"
       }
     ],
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-css-tags": "off",
+    "react/forbid-dom-props": "off"
   }
 }

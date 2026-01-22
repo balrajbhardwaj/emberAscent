@@ -247,14 +247,6 @@ export default async function Analytics2Page({
 
   return (
     <div className="container py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Version Badge */}
-      <div className="mb-6">
-        <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-          <Sparkles className="h-3 w-3 mr-1" />
-          Analytics v2 Beta
-        </Badge>
-      </div>
-
       {/* Render based on state */}
       {!children || children.length === 0 ? (
         <NoChildSelected />
