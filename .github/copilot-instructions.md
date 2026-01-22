@@ -3,6 +3,12 @@
 ## Project Overview
 Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning content for all children, paid analytics for parents who want deeper insights.
 
+## Critical Reference Documents
+**IMPORTANT**: Before implementing any feature, review these documents for security and architecture guidance:
+- `architecture-guidelines.md` - Production architecture patterns, security requirements, and compliance rules (UK GDPR, ICO Children's Code, PCI DSS)
+- `SECURITY_AUDIT_REPORT.md` - Known security issues and remediation guidance
+- `commit_policy.md` - Version control standards, commit message format, and compliance requirements
+
 ## Tech Stack
 - Framework: Next.js 14 (App Router)
 - Language: TypeScript (strict mode)
@@ -22,6 +28,9 @@ Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning conte
 - All TypeScript variables: camelCase
 - Include proper error handling with try/catch
 - Add loading skeletons for async data
+- **SECURITY**: Never expose internal error messages to client - see `architecture-guidelines.md` section 7
+- **SECURITY**: Validate all API inputs with Zod schemas - see `architecture-guidelines.md` section 6
+- **SECURITY**: Never log PII (emails, names, child data) - see `architecture-guidelines.md` section 7.2
 
 ## File Structure
 /app - Next.js app router pages
@@ -39,6 +48,25 @@ Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning conte
 - Foreign keys follow pattern: {table_name}_id
 - Enable RLS on all tables
 - Parent can only access their own children's data
+- **SECURITY**: RLS must be enabled on EVERY user data table - see `architecture-guidelines.md` section 3.3
+- **SECURITY**: Use parameterized queries only (Supabase default) - see `architecture-guidelines.md` section 6.2
+
+## Database Migrations & Queries
+- **NEVER** execute SQL migrations via npm, psql, or terminal commands
+- **ALWAYS** provide SQL migration files and ask user to run them
+- User will execute migrations in Supabase Dashboard SQL Editor
+- Process:
+  1. Create migration file in `supabase/migrations/`
+  2. Ask user: "Please run this migration in Supabase Dashboard SQL Editor"
+  3. Provide link: `https://supabase.com/dashboard/project/cmujulpwvmfvpyypcfaa/sql/new`
+  4. Wait for user to confirm execution and provide output
+  5. Continue based on user's feedback
+- **NEVER** use:
+  - `psql` commands
+  - `npm run` database scripts
+  - `supabase` CLI commands (user may not have installed)
+  - Direct database connections via connection strings
+- For verification queries, ask user to run in SQL Editor and paste results
 
 ## UI/UX Standards
 - Mobile-first responsive design
@@ -53,6 +81,8 @@ Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning conte
 - Ember Score displayed on all questions (0-100)
 - Three difficulty levels: Foundation, Standard, Challenge
 - Target year groups: Year 4-5 (ages 8-10)
+- **DATA PROTECTION**: Children's platform subject to ICO Children's Code - see `architecture-guidelines.md` section 5
+- **DATA MINIMIZATION**: Collect only child first name, year group, exam type - NO surnames, DOB, school names - see `architecture-guidelines.md` section 2
 - Free tier: unlimited questions, basic progress
 - Paid tier (Ascent): analytics dashboard, insights
 
@@ -140,13 +170,41 @@ Each major directory should have a README:
 - /supabase/migrations/README.md - Migration guide
 
 ### Commit Messages
-Follow conventional commits:
-- `feat:` New feature
-- `fix:` Bug fix
+**MUST follow the detailed commit policy in `commit_policy.md`**
+
+Quick reference (see full policy for details):
+- `feat(scope):` New feature for users
+- `fix(scope):` Bug fix for users
+- `security(scope):` Security improvements (CRITICAL - special requirements apply)
 - `docs:` Documentation only
 - `style:` Formatting, no code change
 - `refactor:` Code restructuring
-- `test:` Adding tests
+- `perf:` Performance improvements
+- `test:` Adding/updating tests
 - `chore:` Maintenance tasks
 
-Example: `feat: add child profile setup flow with avatar picker`
+**Required scopes for feat/fix/security:** auth, child, quiz, content, analytics, payment, rls, api, ui, db
+
+**Security commits MUST:**
+- Use `security` type (not `fix`)
+- Include affected data types in body
+- Reference CVE/advisory if applicable
+- Never include sensitive data
+
+Examples:
+- `feat(quiz): add timer mode`
+- `security(rls): enforce parent_id check on child_profiles`
+- `fix(auth): resolve session expiry issue`
+
+## Security & Compliance Checklist
+Before submitting code, verify:
+- [ ] API routes check `auth.getUser()` before data access
+- [ ] No PII in console.log statements
+- [ ] Error responses don't expose internal details
+- [ ] All user inputs validated with Zod schemas
+- [ ] RLS policies enabled on new user data tables
+- [ ] No hardcoded secrets or API keys
+- [ ] Child data limited to first name, year group, exam type only
+- [ ] Commit messages follow `commit_policy.md` format and requirements
+
+**For detailed guidance, always reference `architecture-guidelines.md` and `commit_policy.md`**
