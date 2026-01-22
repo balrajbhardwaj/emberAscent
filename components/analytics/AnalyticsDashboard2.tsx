@@ -960,6 +960,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
       })
 
       // Transform heatmap data for the grid view
+      // Note: Keep subject in original lowercase format for lookup matching
       const transformedHeatmap: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }> = []
       if (heatmap?.cells && Array.isArray(heatmap.cells)) {
         heatmap.cells.forEach((cell: any) => {
@@ -967,9 +968,9 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           transformedHeatmap.push({ 
             topic: cell.topic || 'Unknown', 
             scores: [accuracy, accuracy, accuracy],
-            masteryLevel: cell.masteryLevel,
-            needsFocus: cell.needsFocus,
-            subject: formatSubjectName(cell.subject || ''),
+            masteryLevel: cell.mastery_level || cell.masteryLevel,
+            needsFocus: cell.needs_focus || cell.needsFocus,
+            subject: cell.subject || '', // Keep original lowercase for lookup
           })
         })
       }
