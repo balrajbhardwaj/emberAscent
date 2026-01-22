@@ -25,11 +25,31 @@ import { formatDistanceToNow } from "date-fns"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
-import { 
-  getQuestionProvenance, 
-  formatEventDescription,
-  type ProvenanceEvent 
-} from "@/lib/provenance/tracker"
+
+// Type definitions moved here to avoid server imports
+type ProvenanceEventType =
+  | 'created'
+  | 'modified'
+  | 'reviewed'
+  | 'published'
+  | 'unpublished'
+  | 'score_changed'
+  | 'error_reported'
+  | 'error_resolved'
+  | 'feedback_received'
+
+type ActorType = 'system' | 'admin' | 'expert' | 'ai' | 'user'
+
+interface ProvenanceEvent {
+  id: string
+  questionId: string
+  eventType: ProvenanceEventType
+  eventData: Record<string, any>
+  actorId?: string
+  actorName?: string
+  actorType: ActorType
+  occurredAt: Date
+}
 
 interface ProvenanceTimelineProps {
   questionId: string
@@ -60,8 +80,12 @@ export function ProvenanceTimeline({ questionId, className }: ProvenanceTimeline
       setError(null)
 
       try {
-        const timeline = await getQuestionProvenance(questionId)
-        setEvents(timeline)
+        const response = await fetch(`/api/questions/${questionId}/provenance`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch provenance')
+        }
+        const data = await response.json()
+        setEvents(data.timeline || [])
       } catch (err) {
         console.error('Error fetching provenance:', err)
         setError('Failed to load timeline')
@@ -250,6 +274,49 @@ function getEventStyle(eventType: string) {
     color: 'text-slate-600',
     bgColor: 'bg-slate-50',
     borderColor: 'border-slate-200',
+  }
+}
+
+/**
+ * Format event data for display
+ */
+function formatEventDescription(event: ProvenanceEvent): string {
+  const data = event.eventData
+
+  switch (event.eventType) {
+    case 'created':
+      return `Question created for ${data.subject || 'unknown subject'} - ${data.topic || 'general topic'}`
+    
+    case 'reviewed':
+      return `Review status changed to ${data.new_status || 'reviewed'}`
+    
+    case 'published':
+      return data.reason === 'score_below_threshold' 
+        ? 'Published after meeting quality threshold'
+        : 'Published and made available to learners'
+    
+    case 'unpublished':
+      return data.reason === 'score_below_threshold'
+        ? 'Unpublished - score fell below minimum threshold'
+        : 'Unpublished for review'
+    
+    case 'score_changed':
+      return `Ember Score changed from ${data.old_score} (${data.old_tier}) to ${data.new_score} (${data.new_tier})`
+    
+    case 'error_reported':
+      return `Error reported: ${data.report_type || 'general issue'}`
+    
+    case 'error_resolved':
+      return `Error ${data.resolution || 'resolved'}: ${data.report_type || 'issue'}`
+    
+    case 'feedback_received':
+      return `Feedback received: ${data.type || 'general feedback'}`
+    
+    case 'modified':
+      return `Question content updated`
+    
+    default:
+      return `Event: ${event.eventType}`
   }
 }
 

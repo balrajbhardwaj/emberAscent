@@ -12,6 +12,7 @@ import { Check, Info, Sparkles, BookOpen, BarChart3, Target, TrendingUp } from "
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata = {
   title: "Pricing & Features | Ember Ascent",
@@ -131,25 +132,7 @@ function UseCaseCard({
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header */}
-      <div className="border-b bg-white">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
-              <Sparkles className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-xl font-bold text-slate-900">Ember Ascent</span>
-          </Link>
-          <div className="flex gap-3">
-            <Link href="/login">
-              <Button variant="ghost">Sign In</Button>
-            </Link>
-            <Link href="/signup">
-              <Button>Get Started Free</Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <MarketingNav />
 
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16 text-center">

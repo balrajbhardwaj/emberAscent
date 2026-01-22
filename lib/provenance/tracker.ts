@@ -161,7 +161,7 @@ export async function logReview(
  */
 export async function logEdit(
   questionId: string,
-  editorId: string,
+  _editorId: string,
   changes: Record<string, any>
 ): Promise<string | null> {
   const supabase = await createClient()

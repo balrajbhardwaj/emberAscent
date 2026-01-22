@@ -12,6 +12,7 @@ import { ArrowLeft, Sparkles, Target, AlertTriangle, TrendingUp, CheckCircle } f
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata = {
   title: "Why Analytics Matters | Ember Ascent",
@@ -69,18 +70,7 @@ function ScenarioComparison({
 export default function WhyAnalyticsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header */}
-      <div className="border-b bg-white">
-        <div className="container mx-auto px-4 py-4">
-          <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Pricing
-          </Link>
-        </div>
-      </div>
+      <MarketingNav />
 
       {/* Hero */}
       <div className="container mx-auto px-4 py-16">

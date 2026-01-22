@@ -270,9 +270,8 @@ function LearningHealthCheckCard({
               <span>25%+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              {/* @ts-expect-error Dynamic width requires inline style */}
-              <div 
-                className={`absolute top-0 left-0 h-full rounded-full ${rushRisk.barBg}`} 
+              <div
+                className={`absolute top-0 left-0 h-full rounded-full ${rushRisk.barBg}`}
                 style={{ width: `${Math.min(100, (rushFactor / 25) * 100)}%` }}
               />
             </div>
@@ -306,9 +305,8 @@ function LearningHealthCheckCard({
               <span>25%+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              {/* @ts-expect-error Dynamic width requires inline style */}
-              <div 
-                className={`absolute top-0 left-0 h-full rounded-full ${fatigueRisk.barBg}`} 
+              <div
+                className={`absolute top-0 left-0 h-full rounded-full ${fatigueRisk.barBg}`}
                 style={{ width: `${Math.min(100, (fatigueDropOff / 25) * 100)}%` }}
               />
             </div>
@@ -342,9 +340,8 @@ function LearningHealthCheckCard({
               <span>10+</span>
             </div>
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-              {/* @ts-expect-error Dynamic width requires inline style */}
-              <div 
-                className={`absolute top-0 left-0 h-full rounded-full ${stagnantRisk.barBg}`} 
+              <div
+                className={`absolute top-0 left-0 h-full rounded-full ${stagnantRisk.barBg}`}
                 style={{ width: `${Math.min(100, (stagnantTopics / 10) * 100)}%` }}
               />
             </div>
@@ -713,7 +710,6 @@ function BenchmarkingCardComponent({ benchmarking }: {
                   <span className="font-medium">Top {100 - item.percentile}%</span>
                 </div>
                 <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
-                  {/* @ts-expect-error Dynamic width requires inline style */}
                   <div
                     className="absolute top-0 left-0 h-full bg-blue-500 rounded-full"
                     style={{ width: `${item.percentile}%` }}

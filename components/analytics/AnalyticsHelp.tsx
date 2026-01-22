@@ -17,12 +17,10 @@ import { useState } from "react"
 import {
   HelpCircle,
   Target,
-  TrendingUp,
   Zap,
   AlertTriangle,
   Battery,
   BookOpen,
-  X,
   ChevronRight,
   Gauge,
   Activity,

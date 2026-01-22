@@ -67,7 +67,7 @@ export default async function ProgressPage({
   const params = await searchParams
   
   // Use childId from URL if provided, otherwise get first active child
-  let childId = params.childId
+  let childId: string | null = params.childId ?? null
   
   if (!childId) {
     childId = await getActiveChild()
@@ -98,10 +98,15 @@ export default async function ProgressPage({
   // Check subscription tier for upgrade banner
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
+  
+  if (!user) {
+    redirect("/login")
+  }
+  
   const { data: profile } = await supabase
     .from('profiles')
     .select('subscription_tier')
-    .eq('id', user!.id)
+    .eq('id', user.id)
     .single()
   
   const isFreeTier = !profile?.subscription_tier || profile.subscription_tier === 'free'
@@ -144,15 +149,7 @@ export default async function ProgressPage({
             icon="TrendingUp"
             label="This Week"
             value={overviewStats?.weeklyQuestions || 0}
-            Upgrade Banner for Free Users */}
-        {isFreeTier && overviewStats && overviewStats.totalQuestions >= 20 && (
-          <AnalyticsUpgradeBanner
-            message="Want deeper insights into learning patterns?"
-            insight="Ascent shows you if your child is rushing, experiencing fatigue, or has topics that haven't improved in weeks."
-          />
-        )}
-
-        {/* subtext="questions"
+            subtext="questions"
             color="purple"
           />
           <OverviewCard
@@ -162,6 +159,14 @@ export default async function ProgressPage({
             color="green"
           />
         </div>
+
+        {/* Upgrade Banner for Free Users */}
+        {isFreeTier && overviewStats && overviewStats.totalQuestions >= 20 && (
+          <AnalyticsUpgradeBanner
+            message="Want deeper insights into learning patterns?"
+            insight="Ascent shows you if your child is rushing, experiencing fatigue, or has topics that haven't improved in weeks."
+          />
+        )}
 
         {/* Subject Progress */}
         <div>

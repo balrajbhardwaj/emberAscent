@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge"
 import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
 import { EmberScore } from "@/components/practice/EmberScore"
 import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
+import { ProvenancePanel } from "@/components/ember-score/ProvenancePanel"
 
 interface QuestionOption {
   id: string
@@ -73,8 +74,8 @@ export default function PracticeSessionPage() {
   const [questionTimings, setQuestionTimings] = useState<Record<string, number>>({})
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [showExplanation, setShowExplanation] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [showProvenancePanel, setShowProvenancePanel] = useState(false)
 
   useEffect(() => {
     if (!sessionId) return
@@ -184,7 +185,6 @@ export default function PracticeSessionPage() {
       [currentQuestion.id]: timeSpent
     }))
     setHasSubmitted(true)
-    setShowExplanation(true)
   }
 
   function handleNextQuestion() {
@@ -192,7 +192,6 @@ export default function PracticeSessionPage() {
       setCurrentQuestionIndex(prev => prev + 1)
       setSelectedAnswer('')
       setHasSubmitted(false)
-      setShowExplanation(false)
     } else {
       handleFinishSession()
     }
@@ -321,7 +320,10 @@ export default function PracticeSessionPage() {
               )}
             </div>
             <EmberScore 
-              score={currentQuestion.ember_score} 
+              score={currentQuestion.ember_score}
+              questionId={currentQuestion.id}
+              showDetails={true}
+              onOpenProvenance={() => setShowProvenancePanel(true)}
               breakdown={{
                 curriculumAlignment: currentQuestion.curriculum_reference ? 100 : 0,
                 expertVerified: false,
@@ -462,6 +464,20 @@ export default function PracticeSessionPage() {
           )}
         </CardContent>
       </Card>
+
+      {/* Provenance Panel - Non-obstructive slide-in */}
+      <ProvenancePanel
+        isOpen={showProvenancePanel}
+        onClose={() => setShowProvenancePanel(false)}
+        questionId={currentQuestion.id}
+        questionData={{
+          subject: currentQuestion.subject,
+          topic: currentQuestion.topic || 'General',
+          emberScore: currentQuestion.ember_score,
+          curriculumReference: currentQuestion.curriculum_reference || undefined,
+          createdAt: new Date(currentQuestion.created_at),
+        }}
+      />
     </div>
   )
 }

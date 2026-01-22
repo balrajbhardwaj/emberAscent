@@ -41,9 +41,11 @@ interface EmberScoreBreakdown {
 
 interface AscentTrustLevelProps {
   score: number
+  questionId?: string
   breakdown?: EmberScoreBreakdown
   showDetails?: boolean
   size?: "sm" | "md" | "lg"
+  onOpenProvenance?: () => void
 }
 
 // Default breakdown when not provided
@@ -84,9 +86,11 @@ function TrustDots({ filled, total, color }: { filled: number; total: number; co
  */
 export function EmberScore({
   score,
+  questionId,
   breakdown = defaultBreakdown,
   showDetails = false,
   size = "md",
+  onOpenProvenance,
 }: AscentTrustLevelProps) {
   const [showInfoModal, setShowInfoModal] = useState(false)
 
@@ -175,28 +179,33 @@ export function EmberScore({
     )
   }
 
-  // Expanded view with modal
+  // Expanded view with modal or panel trigger
   return (
     <>
       <div className={`flex items-center gap-2 ${sizes[size]}`}>
-        <div className={`flex items-center gap-2 rounded-full border px-3 py-1.5 ${tierColors[tier]}`}>
+        <button 
+          onClick={onOpenProvenance || (() => setShowInfoModal(true))}
+          className={`group relative flex items-center gap-2 rounded-full border px-3 py-1.5 transition-all hover:scale-105 hover:shadow-md ${tierColors[tier]}`}
+          title="Click to see how this question was made"
+        >
           <TrustDots filled={dots} total={3} color={dotColors[tier]} />
           <span className="font-semibold">{score}</span>
           <span className="text-xs opacity-75">{tierLabel}</span>
-        </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setShowInfoModal(true)}
-        >
-          <Info className="h-4 w-4" />
-        </Button>
+          
+          {/* Hover hint */}
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <div className="bg-slate-900 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
+              See question history
+            </div>
+          </div>
+        </button>
       </div>
 
-      {showInfoModal && (
+      {showInfoModal && questionId && !onOpenProvenance && (
         <EmberScoreInfo
           score={score}
           breakdown={breakdown}
+          questionId={questionId}
           onClose={() => setShowInfoModal(false)}
         />
       )}

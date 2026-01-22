@@ -12,6 +12,7 @@ import Link from "next/link"
 import { Scale, ExternalLink, FileText, BookOpen, Bot, Users } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata: Metadata = {
   title: "Content Attribution | Ember Ascent",
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 
 export default function AttributionPage() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <MarketingNav />
+      
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Content Attribution</h1>
         <p className="text-lg text-muted-foreground">
@@ -275,6 +279,7 @@ export default function AttributionPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )

@@ -17,6 +17,7 @@ import Link from "next/link"
 import { Shield, CheckCircle, Users, BookOpen, ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata: Metadata = {
   title: "How Questions Are Made | Ember Ascent",
@@ -26,6 +27,8 @@ export const metadata: Metadata = {
 export default function HowQuestionsAreMadePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/30 to-green-50/20">
+      <MarketingNav />
+      
       {/* Hero Section with Handshake Animation */}
       <section className="relative overflow-hidden py-20 px-4">
         {/* Background Pattern - Transparency Grid */}

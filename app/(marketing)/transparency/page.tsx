@@ -9,8 +9,10 @@
 
 import { Metadata } from "next"
 import Link from "next/link"
-import { Shield, Lock, Eye, Heart } from "lucide-react"
+import { Shield, Lock, Eye, Heart, ArrowLeft, Home } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { MarketingNav } from "@/components/common/MarketingNav"
 
 export const metadata: Metadata = {
   title: "Our Commitment to You | Ember Ascent",
@@ -19,9 +21,12 @@ export const metadata: Metadata = {
 
 export default function TransparencyPage() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Our Commitment to You</h1>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <MarketingNav />
+
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">Our Commitment to You</h1>
         <p className="text-lg text-muted-foreground">
           The promises we make to every family using Ember Ascent.
         </p>
@@ -211,6 +216,7 @@ export default function TransparencyPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )

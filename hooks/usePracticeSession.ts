@@ -90,10 +90,15 @@ export function usePracticeSession(
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  // Derive current question from session state
+  const currentQuestion = session
+    ? session.questions[session.currentIndex] || null
+    : null
+
   // Track start time when question changes
   useEffect(() => {
     if (!session || !currentQuestion || session.isComplete) return
-    
+
     // Mark start time if not already tracked
     if (!session.questionStartTimes[currentQuestion.id]) {
       setSession((prev) => {
@@ -139,10 +144,6 @@ export function usePracticeSession(
       localStorage.setItem(`session_${session.sessionId}`, JSON.stringify(session))
     }
   }, [session])
-
-  const currentQuestion = session
-    ? session.questions[session.currentIndex] || null
-    : null
 
   const isAnswered = session
     ? currentQuestion?.id ? Boolean(session.answers[currentQuestion.id]) : false
