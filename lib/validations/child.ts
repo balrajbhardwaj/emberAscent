@@ -6,7 +6,7 @@
  * 
  * Validations:
  * - Name: 2-50 characters
- * - Year group: Must be 4, 5, or 6 (UK education system)
+ * - Year group: Must be 3, 4, 5, or 6 (UK education system)
  * - Target school: Optional, max 100 characters
  * - Avatar: Optional string identifier
  * 
@@ -15,7 +15,7 @@
 import { z } from "zod"
 
 // Year group validation
-export const yearGroupSchema = z.number().int().min(4).max(6)
+export const yearGroupSchema = z.number().int().min(3).max(6)
 
 // Child setup schema
 export const childSetupSchema = z.object({

@@ -61,7 +61,7 @@ export interface PracticeConfig {
   subject?: 'verbal_reasoning' | 'english' | 'mathematics';
   topic?: string;
   difficulty?: 'foundation' | 'standard' | 'challenge';
-  year_group?: 4 | 5 | 6;
+  year_group?: 3 | 4 | 5 | 6;
   question_count?: number;
 }
 
@@ -137,7 +137,7 @@ export interface FeatureAccess {
 // Form types
 export interface ChildFormData {
   name: string;
-  year_group: 4 | 5 | 6;
+  year_group: 3 | 4 | 5 | 6;
   target_school?: string;
 }
 

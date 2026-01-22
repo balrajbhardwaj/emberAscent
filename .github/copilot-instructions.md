@@ -78,13 +78,25 @@ Ember Ascent is a freemium UK 11+ exam preparation platform. Free learning conte
 
 ## Ember Ascent Specific
 - Questions tagged with curriculum references (NC objectives)
-- Ember Score displayed on all questions (0-100)
+- Ember Score displayed on all questions (60-100, enforced by constraint)
 - Three difficulty levels: Foundation, Standard, Challenge
-- Target year groups: Year 4-5 (ages 8-10)
+- **Year groups supported**: Year 3, Year 4, Year 5, Year 6 (ages 7-11)
+  - Year 3 import complete (10,000 questions)
+  - Year 4-6 import templates available in scripts/
 - **DATA PROTECTION**: Children's platform subject to ICO Children's Code - see `architecture-guidelines.md` section 5
 - **DATA MINIMIZATION**: Collect only child first name, year group, exam type - NO surnames, DOB, school names - see `architecture-guidelines.md` section 2
 - Free tier: unlimited questions, basic progress
 - Paid tier (Ascent): analytics dashboard, insights
+
+## Question Import Guidelines
+- **Import templates**: Use scripts/import-y{N}-questions.ts for year group N
+- **JSON structure**: See docs/Y3_IMPORT_GUIDE.md for expected format
+- **Required fields**: question_id (external_id), subject, topic, difficulty, year_group, question_text, options (exactly 5), correct_option, explanations
+- **Batch size**: 50 questions per batch to avoid timeouts
+- **Ember scores**: Calculate after import with `SELECT * FROM update_all_ember_scores();` (no query limit)
+- **Verification**: Use scripts/verify-y{N}-import.ts to check distribution
+- **Deduplication**: external_id provides unique constraint for reimports
+- **System profile**: Use a0000000-0000-0000-0000-000000000001 for bulk imports
 
 ## Documentation Standards
 

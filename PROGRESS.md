@@ -242,16 +242,58 @@
 - Supabase CLI
 - ESLint + Prettier
 
+## Year 3 Question Import (January 22, 2026)
+
+### Database Preparation
+- ✅ Created Migration 017: Year 3 infrastructure
+  - Added Year 3 support (year_group: 3-6)
+  - External ID column with unique index for deduplication
+  - System profile (a0000000-...) for bulk imports
+  - Ember score calculation functions
+  - Default values (exam_board='generic', ember_score=60)
+
+### Import Scripts
+- ✅ Built Y3 import script (import-y3-questions.ts)
+  - JSON parsing with multiple structure support
+  - Batch processing (50 questions per batch)
+  - Options transformation (5 required options)
+  - Explanations JSONB formatting
+  - Duplicate detection and error handling
+
+- ✅ Created verification script (verify-y3-import.ts)
+  - Count by subject and difficulty
+  - Ember score distribution
+  - Sample question validation
+
+### Import Results
+- ✅ **10,000 questions imported successfully**
+  - Mathematics: 5,000 (Foundation: 1,669, Standard: 1,667, Challenge: 1,664)
+  - English: 5,000 (Foundation: 1,668, Standard: 1,667, Challenge: 1,665)
+- ✅ All questions scored (ember_score: 60-68)
+- ✅ External IDs for all questions (deduplication ready)
+
+### Bug Fixes
+- ✅ Fixed Migration 018: Ember score calculation
+  - Enforced minimum score of 60 (constraint requirement)
+  - Fixed ambiguous column references in update function
+  - Updated score breakdown components
+
+### Templates Created
+- ✅ Year 4 import templates (import-y4-questions.ts, verify-y4-import.ts)
+- ✅ Comprehensive import guide (docs/Y3_IMPORT_GUIDE.md)
+- ✅ Updated database schema documentation
+
 ## Project Metrics
 
 ### Code Statistics
-- Total files: 115+
-- Lines of code: 17,000+
+- Total files: 125+
+- Lines of code: 19,500+
 - Components: 30+
 - Database tables: 6
-- Migration files: 8
+- Migration files: 18
 - Session types: 4 (quick, focus, mock, quick_byte)
 - API routes: 5 (adaptive, analytics, reports, learning-health)
+- **Questions in database**: 10,000+ (Year 3 complete)
 
 ### Build Information
 - Build time: ~15s

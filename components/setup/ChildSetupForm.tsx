@@ -113,6 +113,7 @@ export function ChildSetupForm() {
           {...register("yearGroup")}
         >
           <option value="">Select year group</option>
+          <option value="3">Year 3 (Age 7-8)</option>
           <option value="4">Year 4 (Age 8-9)</option>
           <option value="5">Year 5 (Age 9-10)</option>
           <option value="6">Year 6 (Age 10-11)</option>

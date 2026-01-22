@@ -108,7 +108,7 @@ export interface Child {
   id: string;
   parent_id: string;
   name: string;
-  year_group: 4 | 5 | 6 | null;
+  year_group: 3 | 4 | 5 | 6 | null;
   target_school: string | null;
   avatar_url: string | null;
   is_active: boolean;
@@ -127,7 +127,7 @@ export interface Question {
   correct_answer: string;
   explanations: QuestionExplanations;
   difficulty: Difficulty;
-  year_group: 4 | 5 | 6 | null;
+  year_group: 3 | 4 | 5 | 6 | null;
   curriculum_reference: string | null;
   exam_board: ExamBoard;
   review_status: 'reviewed' | 'spot_checked' | 'ai_only';

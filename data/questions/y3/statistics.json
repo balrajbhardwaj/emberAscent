@@ -1,0 +1,5211 @@
+{
+  "batch_info": {
+    "subject": "Mathematics",
+    "year_group": "Year 3",
+    "batch_name": "Statistics",
+    "total_questions": 200,
+    "generated_at": "2026-01-22T10:00:00Z"
+  },
+  "questions": [
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00001",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 12 apples, 3 oranges, 10 bananas, 6 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "45",
+      "options": {
+        "a": "40",
+        "b": "41",
+        "c": "43",
+        "d": "45",
+        "e": "42"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 12 + 3 + 10 + 6 + 14 = 45."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00002",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 11 children chose apples, 6 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00003",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 4, Oranges 3, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "2",
+        "b": "3",
+        "c": "1",
+        "d": "6",
+        "e": "4"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 6 - 3 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00004",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 2 oranges, 3 bananas, 8 grapes and 3 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "21",
+      "options": {
+        "a": "20",
+        "b": "17",
+        "c": "21",
+        "d": "18",
+        "e": "16"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 2 + 3 + 8 + 3 = 21."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00005",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 14, Bananas 4. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "11",
+      "options": {
+        "a": "6",
+        "b": "7",
+        "c": "9",
+        "d": "11",
+        "e": "10"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 3 = 11."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00006",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 10 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00007",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 4 chose oranges, 15 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00008",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 8 chose oranges, 8 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00009",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 2 chose oranges, 12 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00010",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 11, Oranges 8, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "8",
+        "b": "3",
+        "c": "6",
+        "d": "5",
+        "e": "4"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 3 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00011",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 8 oranges, 4 bananas, 6 grapes and 10 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "32",
+      "options": {
+        "a": "35",
+        "b": "33",
+        "c": "36",
+        "d": "32",
+        "e": "34"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 8 + 4 + 6 + 10 = 32."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00012",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 5 children chose apples, 11 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00013",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 5 chose oranges, 7 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 7 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00014",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 10 apples, 4 oranges, 7 bananas, 12 grapes and 6 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "39",
+      "options": {
+        "a": "36",
+        "b": "39",
+        "c": "35",
+        "d": "34",
+        "e": "37"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 10 + 4 + 7 + 12 + 6 = 39."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00015",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 14 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00016",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 8 oranges, 4 bananas, 5 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "44",
+        "b": "46",
+        "c": "42",
+        "d": "43",
+        "e": "41"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 8 + 4 + 5 + 14 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00017",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 12 children chose apples, 15 chose oranges, 8 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00018",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 13, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "1",
+        "b": "3",
+        "c": "4",
+        "d": "5",
+        "e": "2"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 12 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00019",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 15, Bananas 11. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "5",
+        "b": "2",
+        "c": "4",
+        "d": "3",
+        "e": "7"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 8 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00020",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 12 apples, 13 oranges, 9 bananas, 5 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "53",
+      "options": {
+        "a": "51",
+        "b": "50",
+        "c": "53",
+        "d": "49",
+        "e": "48"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 12 + 13 + 9 + 5 + 14 = 53."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00021",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 7, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "4",
+      "options": {
+        "a": "1",
+        "b": "7",
+        "c": "3",
+        "d": "5",
+        "e": "4"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 7 - 3 = 4."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00022",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 13 apples, 12 oranges, 2 bananas, 14 grapes and 3 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "44",
+      "options": {
+        "a": "40",
+        "b": "42",
+        "c": "39",
+        "d": "41",
+        "e": "44"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 13 + 12 + 2 + 14 + 3 = 44."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00023",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 7, Bananas 15. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "6",
+        "b": "5",
+        "c": "8",
+        "d": "3",
+        "e": "4"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 7 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00024",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 9 chose oranges, 9 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 9 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00025",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 5 chose oranges, 3 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 5 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00026",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 4 oranges, 14 bananas, 14 grapes and 11 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "58",
+      "options": {
+        "a": "67",
+        "b": "64",
+        "c": "65",
+        "d": "66",
+        "e": "58"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 4 + 14 + 14 + 11 = 58."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00027",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 2 apples, 11 oranges, 6 bananas, 11 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "44",
+      "options": {
+        "a": "44",
+        "b": "39",
+        "c": "41",
+        "d": "42",
+        "e": "40"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 2 + 11 + 6 + 11 + 14 = 44."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00028",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 13 children chose apples, 15 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00029",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 8 apples, 12 oranges, 7 bananas, 13 grapes and 2 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "42",
+      "options": {
+        "a": "42",
+        "b": "39",
+        "c": "38",
+        "d": "40",
+        "e": "41"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 8 + 12 + 7 + 13 + 2 = 42."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00030",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 6, Oranges 14, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "7",
+        "b": "3",
+        "c": "5",
+        "d": "8",
+        "e": "4"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 6 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00031",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 11 apples, 3 oranges, 7 bananas, 10 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "45",
+      "options": {
+        "a": "41",
+        "b": "40",
+        "c": "45",
+        "d": "42",
+        "e": "43"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 11 + 3 + 7 + 10 + 14 = 45."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00032",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 4, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "10",
+      "options": {
+        "a": "7",
+        "b": "6",
+        "c": "8",
+        "d": "10",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 4 = 10."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00033",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 5, Oranges 8, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "2",
+        "b": "4",
+        "c": "5",
+        "d": "1",
+        "e": "3"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 8 - 5 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00034",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 10 oranges, 13 bananas, 2 grapes and 6 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "45",
+      "options": {
+        "a": "41",
+        "b": "40",
+        "c": "42",
+        "d": "45",
+        "e": "43"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 10 + 13 + 2 + 6 = 45."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00035",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 8 chose oranges, 12 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00036",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 15 children chose apples, 5 chose oranges, 4 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00037",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 11, Oranges 11, Bananas 13. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "2",
+      "options": {
+        "a": "2",
+        "b": "3",
+        "c": "5",
+        "d": "4",
+        "e": "1"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 11 = 2."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00038",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 7 oranges, 11 bananas, 11 grapes and 8 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "41",
+      "options": {
+        "a": "36",
+        "b": "39",
+        "c": "41",
+        "d": "38",
+        "e": "37"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 7 + 11 + 11 + 8 = 41."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00039",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 11 children chose apples, 14 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00040",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 13 apples, 7 oranges, 5 bananas, 2 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "42",
+      "options": {
+        "a": "37",
+        "b": "38",
+        "c": "39",
+        "d": "42",
+        "e": "40"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 13 + 7 + 5 + 2 + 15 = 42."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00041",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 10 apples, 2 oranges, 3 bananas, 2 grapes and 4 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "21",
+      "options": {
+        "a": "16",
+        "b": "18",
+        "c": "19",
+        "d": "17",
+        "e": "21"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 10 + 2 + 3 + 2 + 4 = 21."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00042",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 8 apples, 14 oranges, 10 bananas, 3 grapes and 11 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "43",
+        "b": "41",
+        "c": "44",
+        "d": "46",
+        "e": "42"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 8 + 14 + 10 + 3 + 11 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00043",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 3, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "12",
+      "options": {
+        "a": "10",
+        "b": "12",
+        "c": "9",
+        "d": "8",
+        "e": "7"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 3 = 12."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00044",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 8 chose oranges, 6 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 9 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00045",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 2, Oranges 8, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "1",
+        "b": "6",
+        "c": "2",
+        "d": "3",
+        "e": "4"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 8 - 2 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00046",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 7 chose oranges, 6 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 7 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00047",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 14 children chose apples, 4 chose oranges, 11 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00048",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 7 chose oranges, 15 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00049",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 4 chose oranges, 11 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00050",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 2, Oranges 10, Bananas 11. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "5",
+        "b": "8",
+        "c": "7",
+        "d": "4",
+        "e": "9"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 2 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00051",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 8 oranges, 5 bananas, 15 grapes and 10 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "43",
+      "options": {
+        "a": "41",
+        "b": "39",
+        "c": "43",
+        "d": "38",
+        "e": "40"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 8 + 5 + 15 + 10 = 43."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00052",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 13, Oranges 9, Bananas 2. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "11",
+      "options": {
+        "a": "11",
+        "b": "8",
+        "c": "9",
+        "d": "7",
+        "e": "6"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 2 = 11."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00053",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 9 apples, 10 oranges, 10 bananas, 10 grapes and 9 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "48",
+      "options": {
+        "a": "45",
+        "b": "48",
+        "c": "43",
+        "d": "44",
+        "e": "46"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 9 + 10 + 10 + 10 + 9 = 48."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00054",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 11 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00055",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 15, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "4",
+        "b": "2",
+        "c": "3",
+        "d": "7",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 8 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00056",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 11, Bananas 9. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "2",
+        "b": "3",
+        "c": "6",
+        "d": "1",
+        "e": "4"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 9 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00057",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 14, Bananas 2. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "12",
+      "options": {
+        "a": "9",
+        "b": "8",
+        "c": "7",
+        "d": "12",
+        "e": "11"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 2 = 12."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00058",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 11 apples, 5 oranges, 2 bananas, 5 grapes and 13 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "36",
+      "options": {
+        "a": "33",
+        "b": "36",
+        "c": "32",
+        "d": "35",
+        "e": "34"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 11 + 5 + 2 + 5 + 13 = 36."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00059",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 2 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00060",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 11, Oranges 11, Bananas 2. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "9",
+        "b": "6",
+        "c": "5",
+        "d": "4",
+        "e": "7"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 2 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00061",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 15 chose oranges, 7 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00062",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 15 oranges, 6 bananas, 4 grapes and 4 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "43",
+      "options": {
+        "a": "39",
+        "b": "41",
+        "c": "43",
+        "d": "40",
+        "e": "38"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 15 + 6 + 4 + 4 = 43."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00063",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 12 apples, 2 oranges, 6 bananas, 12 grapes and 2 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "34",
+      "options": {
+        "a": "34",
+        "b": "32",
+        "c": "33",
+        "d": "36",
+        "e": "35"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 12 + 2 + 6 + 12 + 2 = 34."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00064",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 6, Oranges 2, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "10",
+      "options": {
+        "a": "9",
+        "b": "6",
+        "c": "5",
+        "d": "10",
+        "e": "7"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 2 = 10."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00065",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 12 children chose apples, 9 chose oranges, 11 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00066",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 6, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "7",
+        "b": "6",
+        "c": "3",
+        "d": "2",
+        "e": "5"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 10 - 3 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00067",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 12, Oranges 4, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "6",
+        "b": "4",
+        "c": "3",
+        "d": "5",
+        "e": "8"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 4 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00068",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 6 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00069",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 3 oranges, 5 bananas, 14 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "40",
+      "options": {
+        "a": "35",
+        "b": "36",
+        "c": "37",
+        "d": "38",
+        "e": "40"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 3 + 5 + 14 + 14 = 40."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00070",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 5 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 5 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00071",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 14 chose oranges, 9 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00072",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 9 apples, 4 oranges, 7 bananas, 11 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "45",
+        "b": "43",
+        "c": "46",
+        "d": "41",
+        "e": "44"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 9 + 4 + 7 + 11 + 15 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00073",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 3, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "2",
+        "b": "1",
+        "c": "5",
+        "d": "3",
+        "e": "4"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 6 - 3 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00074",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 5 chose oranges, 13 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00075",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 13 oranges, 12 bananas, 14 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "51",
+      "options": {
+        "a": "51",
+        "b": "47",
+        "c": "48",
+        "d": "49",
+        "e": "46"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 13 + 12 + 14 + 7 = 51."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00076",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 12 oranges, 2 bananas, 11 grapes and 13 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "43",
+      "options": {
+        "a": "39",
+        "b": "38",
+        "c": "43",
+        "d": "40",
+        "e": "41"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 12 + 2 + 11 + 13 = 43."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00077",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 9 oranges, 2 bananas, 7 grapes and 3 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "26",
+      "options": {
+        "a": "26",
+        "b": "32",
+        "c": "33",
+        "d": "35",
+        "e": "34"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 9 + 2 + 7 + 3 = 26."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00078",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 11 apples, 7 oranges, 3 bananas, 7 grapes and 11 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "39",
+      "options": {
+        "a": "37",
+        "b": "34",
+        "c": "36",
+        "d": "39",
+        "e": "38"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 11 + 7 + 3 + 7 + 11 = 39."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00079",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 15, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "3",
+        "b": "4",
+        "c": "5",
+        "d": "2",
+        "e": "7"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 8 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00080",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 11 children chose apples, 10 chose oranges, 2 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00081",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 10, Oranges 11, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "6",
+        "b": "4",
+        "c": "3",
+        "d": "8",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 3 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00082",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 10 chose oranges, 13 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00083",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 13, Oranges 14, Bananas 13. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "1",
+      "options": {
+        "a": "5",
+        "b": "2",
+        "c": "3",
+        "d": "4",
+        "e": "1"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 13 = 1."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00084",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 7 oranges, 9 bananas, 11 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "39",
+      "options": {
+        "a": "34",
+        "b": "40",
+        "c": "37",
+        "d": "36",
+        "e": "39"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 7 + 9 + 11 + 7 = 39."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00085",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 7 oranges, 10 bananas, 6 grapes and 3 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "40",
+      "options": {
+        "a": "36",
+        "b": "40",
+        "c": "38",
+        "d": "37",
+        "e": "35"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 7 + 10 + 6 + 3 = 40."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00086",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 13 oranges, 7 bananas, 2 grapes and 10 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "46",
+        "b": "42",
+        "c": "44",
+        "d": "45",
+        "e": "43"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 13 + 7 + 2 + 10 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00087",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 9, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "1",
+      "options": {
+        "a": "4",
+        "b": "1",
+        "c": "3",
+        "d": "5",
+        "e": "2"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 8 = 1."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00088",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 14, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "9",
+        "b": "5",
+        "c": "8",
+        "d": "6",
+        "e": "3"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 7 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00089",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 13 oranges, 10 bananas, 14 grapes and 10 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "51",
+      "options": {
+        "a": "49",
+        "b": "46",
+        "c": "47",
+        "d": "50",
+        "e": "51"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 13 + 10 + 14 + 10 = 51."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00090",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 12 apples, 11 oranges, 2 bananas, 11 grapes and 11 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "47",
+      "options": {
+        "a": "43",
+        "b": "46",
+        "c": "47",
+        "d": "42",
+        "e": "45"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 12 + 11 + 2 + 11 + 11 = 47."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00091",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 13, Bananas 9. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "5",
+      "options": {
+        "a": "2",
+        "b": "5",
+        "c": "3",
+        "d": "4",
+        "e": "1"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 8 = 5."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00092",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 13 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00093",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 8 apples, 10 oranges, 4 bananas, 13 grapes and 9 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "44",
+      "options": {
+        "a": "39",
+        "b": "41",
+        "c": "40",
+        "d": "43",
+        "e": "44"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 8 + 10 + 4 + 13 + 9 = 44."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00094",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 3 apples, 15 oranges, 9 bananas, 10 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "44",
+      "options": {
+        "a": "44",
+        "b": "41",
+        "c": "40",
+        "d": "39",
+        "e": "42"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 3 + 15 + 9 + 10 + 7 = 44."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00095",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 5 chose oranges, 2 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00096",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 10 oranges, 10 bananas, 2 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "51",
+      "options": {
+        "a": "51",
+        "b": "48",
+        "c": "46",
+        "d": "49",
+        "e": "47"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 10 + 10 + 2 + 15 = 51."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00097",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 6 chose oranges, 15 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00098",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 4, Bananas 2. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "13",
+      "options": {
+        "a": "8",
+        "b": "9",
+        "c": "11",
+        "d": "10",
+        "e": "13"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 2 = 13."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00099",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 11 children chose apples, 14 chose oranges, 3 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00100",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 11, Bananas 4. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "7",
+        "b": "3",
+        "c": "8",
+        "d": "6",
+        "e": "4"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 3 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00101",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 9, Oranges 10, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "5",
+        "b": "4",
+        "c": "3",
+        "d": "1",
+        "e": "6"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 9 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00102",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 6 chose oranges, 12 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00103",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 2 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00104",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 2 apples, 13 oranges, 8 bananas, 9 grapes and 2 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "34",
+      "options": {
+        "a": "36",
+        "b": "34",
+        "c": "33",
+        "d": "32",
+        "e": "35"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 2 + 13 + 8 + 9 + 2 = 34."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00105",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 14 chose oranges, 13 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00106",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 7 apples, 2 oranges, 5 bananas, 7 grapes and 5 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "26",
+      "options": {
+        "a": "32",
+        "b": "33",
+        "c": "35",
+        "d": "26",
+        "e": "34"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 7 + 2 + 5 + 7 + 5 = 26."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00107",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 9 oranges, 2 bananas, 2 grapes and 14 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "32",
+      "options": {
+        "a": "35",
+        "b": "36",
+        "c": "33",
+        "d": "34",
+        "e": "32"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 9 + 2 + 2 + 14 = 32."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00108",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 6, Oranges 6, Bananas 9. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "5",
+        "b": "3",
+        "c": "1",
+        "d": "2",
+        "e": "4"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 6 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00109",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 14 children chose apples, 14 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00110",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 6, Oranges 4, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "4",
+        "b": "1",
+        "c": "2",
+        "d": "3",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 7 - 4 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00111",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 10 chose oranges, 4 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00112",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 14 oranges, 5 bananas, 8 grapes and 13 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "55",
+      "options": {
+        "a": "52",
+        "b": "64",
+        "c": "50",
+        "d": "65",
+        "e": "55"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 14 + 5 + 8 + 13 = 55."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00113",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 10, Oranges 2, Bananas 11. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "7",
+        "b": "9",
+        "c": "4",
+        "d": "8",
+        "e": "6"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 11 - 2 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00114",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 11, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "4",
+      "options": {
+        "a": "3",
+        "b": "5",
+        "c": "1",
+        "d": "4",
+        "e": "2"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 10 = 4."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00115",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 11 apples, 7 oranges, 6 bananas, 6 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "37",
+      "options": {
+        "a": "38",
+        "b": "37",
+        "c": "33",
+        "d": "36",
+        "e": "34"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 11 + 7 + 6 + 6 + 7 = 37."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00116",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 8, Bananas 15. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "3",
+        "b": "4",
+        "c": "5",
+        "d": "7",
+        "e": "2"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 8 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00117",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 7 oranges, 15 bananas, 13 grapes and 6 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "45",
+      "options": {
+        "a": "40",
+        "b": "43",
+        "c": "41",
+        "d": "42",
+        "e": "45"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 7 + 15 + 13 + 6 = 45."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00118",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 14 children chose apples, 14 chose oranges, 6 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00119",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 4, Oranges 14, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "10",
+      "options": {
+        "a": "6",
+        "b": "8",
+        "c": "9",
+        "d": "5",
+        "e": "10"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 4 = 10."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00120",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 3, Bananas 15. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "12",
+      "options": {
+        "a": "8",
+        "b": "12",
+        "c": "7",
+        "d": "10",
+        "e": "9"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 3 = 12."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00121",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 6 chose oranges, 9 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 9 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00122",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 11 children chose apples, 6 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00123",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 12, Oranges 9, Bananas 14. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "5",
+      "options": {
+        "a": "6",
+        "b": "5",
+        "c": "1",
+        "d": "2",
+        "e": "4"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 9 = 5."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00124",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 10 chose oranges, 8 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00125",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 7, Oranges 7, Bananas 9. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "2",
+      "options": {
+        "a": "4",
+        "b": "5",
+        "c": "7",
+        "d": "2",
+        "e": "3"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 7 = 2."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00126",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 13 children chose apples, 2 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00127",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 13 chose oranges, 8 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00128",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 9 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 9 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00129",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 13, Oranges 10, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "2",
+        "b": "4",
+        "c": "1",
+        "d": "3",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 10 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00130",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 5 apples, 7 oranges, 12 bananas, 15 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "54",
+      "options": {
+        "a": "54",
+        "b": "51",
+        "c": "49",
+        "d": "52",
+        "e": "64"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 5 + 7 + 12 + 15 + 15 = 54."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00131",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 10 apples, 14 oranges, 6 bananas, 15 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "52",
+      "options": {
+        "a": "52",
+        "b": "50",
+        "c": "48",
+        "d": "49",
+        "e": "47"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 10 + 14 + 6 + 15 + 7 = 52."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00132",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 10, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "4",
+        "b": "5",
+        "c": "3",
+        "d": "2",
+        "e": "7"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 10 - 3 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00133",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 15, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "12",
+      "options": {
+        "a": "10",
+        "b": "9",
+        "c": "11",
+        "d": "8",
+        "e": "12"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 3 = 12."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00134",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 9, Bananas 4. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "2",
+        "b": "5",
+        "c": "1",
+        "d": "6",
+        "e": "4"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 3 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00135",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 9 children chose apples, 12 chose oranges, 15 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00136",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 15 chose oranges, 13 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00137",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 6 chose oranges, 13 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00138",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 15 oranges, 12 bananas, 12 grapes and 7 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "61",
+      "options": {
+        "a": "61",
+        "b": "66",
+        "c": "67",
+        "d": "64",
+        "e": "65"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 15 + 12 + 12 + 7 = 61."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00139",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 12 apples, 13 oranges, 8 bananas, 5 grapes and 8 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "46",
+        "b": "42",
+        "c": "45",
+        "d": "41",
+        "e": "43"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 12 + 13 + 8 + 5 + 8 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00140",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 15, Oranges 15, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "5",
+      "options": {
+        "a": "3",
+        "b": "5",
+        "c": "1",
+        "d": "4",
+        "e": "2"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 15 - 10 = 5."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00141",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 5, Oranges 9, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "7",
+        "b": "4",
+        "c": "5",
+        "d": "3",
+        "e": "2"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 5 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00142",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 3 chose oranges, 9 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00143",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 5 oranges, 8 bananas, 10 grapes and 9 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "47",
+      "options": {
+        "a": "43",
+        "b": "47",
+        "c": "44",
+        "d": "45",
+        "e": "42"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 5 + 8 + 10 + 9 = 47."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00144",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 12 oranges, 13 bananas, 13 grapes and 5 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "58",
+      "options": {
+        "a": "67",
+        "b": "68",
+        "c": "58",
+        "d": "65",
+        "e": "64"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 12 + 13 + 13 + 5 = 58."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00145",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 9 apples, 7 oranges, 2 bananas, 11 grapes and 6 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "35",
+      "options": {
+        "a": "33",
+        "b": "32",
+        "c": "37",
+        "d": "35",
+        "e": "36"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 9 + 7 + 2 + 11 + 6 = 35."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00146",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 13 chose oranges, 9 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00147",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 14 children chose apples, 10 chose oranges, 7 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00148",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 9, Oranges 7, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "4",
+        "b": "2",
+        "c": "5",
+        "d": "3",
+        "e": "1"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 6 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00149",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 3 oranges, 3 bananas, 13 grapes and 6 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "39",
+      "options": {
+        "a": "39",
+        "b": "37",
+        "c": "38",
+        "d": "36",
+        "e": "34"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 3 + 3 + 13 + 6 = 39."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00150",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 12 children chose apples, 11 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00151",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 12, Oranges 8, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "4",
+      "options": {
+        "a": "4",
+        "b": "5",
+        "c": "6",
+        "d": "3",
+        "e": "2"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 8 = 4."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00152",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 8 chose oranges, 8 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00153",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 9 chose oranges, 2 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 9 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00154",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 4 apples, 13 oranges, 5 bananas, 11 grapes and 5 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "38",
+      "options": {
+        "a": "36",
+        "b": "35",
+        "c": "34",
+        "d": "37",
+        "e": "38"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 4 + 13 + 5 + 11 + 5 = 38."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00155",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 13, Oranges 10, Bananas 4. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "7",
+        "b": "4",
+        "c": "5",
+        "d": "8",
+        "e": "9"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 4 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00156",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 8 apples, 4 oranges, 7 bananas, 10 grapes and 5 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "34",
+      "options": {
+        "a": "36",
+        "b": "33",
+        "c": "34",
+        "d": "32",
+        "e": "35"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 8 + 4 + 7 + 10 + 5 = 34."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00157",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 5 children chose apples, 15 chose oranges, 14 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00158",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 10, Oranges 9, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "4",
+      "options": {
+        "a": "4",
+        "b": "2",
+        "c": "1",
+        "d": "7",
+        "e": "5"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 10 - 6 = 4."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00159",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 7, Oranges 7, Bananas 6. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "1",
+      "options": {
+        "a": "5",
+        "b": "1",
+        "c": "3",
+        "d": "2",
+        "e": "4"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 7 - 6 = 1."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00160",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 7, Oranges 13, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "5",
+        "b": "6",
+        "c": "4",
+        "d": "1",
+        "e": "3"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 7 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00161",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 2 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00162",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 14 children chose apples, 7 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 14 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00163",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 3 children chose apples, 6 chose oranges, 2 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 6 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00164",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 9 apples, 6 oranges, 2 bananas, 6 grapes and 13 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "36",
+      "options": {
+        "a": "35",
+        "b": "36",
+        "c": "33",
+        "d": "32",
+        "e": "34"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 9 + 6 + 2 + 6 + 13 = 36."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00165",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 12, Oranges 3, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "9",
+        "b": "5",
+        "c": "4",
+        "d": "7",
+        "e": "8"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 3 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00166",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 15 chose oranges, 4 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00167",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 6 apples, 14 oranges, 14 bananas, 12 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "61",
+      "options": {
+        "a": "67",
+        "b": "66",
+        "c": "64",
+        "d": "61",
+        "e": "65"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 6 + 14 + 14 + 12 + 15 = 61."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00168",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 5, Oranges 13, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "3",
+        "b": "5",
+        "c": "8",
+        "d": "6",
+        "e": "4"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 5 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00169",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 9 apples, 13 oranges, 8 bananas, 14 grapes and 5 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "49",
+      "options": {
+        "a": "49",
+        "b": "44",
+        "c": "45",
+        "d": "47",
+        "e": "46"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 9 + 13 + 8 + 14 + 5 = 49."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00170",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 10 children chose apples, 11 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00171",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 10 apples, 3 oranges, 3 bananas, 4 grapes and 12 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "32",
+      "options": {
+        "a": "34",
+        "b": "32",
+        "c": "36",
+        "d": "37",
+        "e": "33"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 10 + 3 + 3 + 4 + 12 = 32."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00172",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 6, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "2",
+      "options": {
+        "a": "2",
+        "b": "3",
+        "c": "1",
+        "d": "4",
+        "e": "5"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 8 - 6 = 2."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00173",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 6, Oranges 9, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "1",
+        "b": "3",
+        "c": "4",
+        "d": "5",
+        "e": "2"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 6 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00174",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 11 oranges, 12 bananas, 12 grapes and 2 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "51",
+      "options": {
+        "a": "46",
+        "b": "51",
+        "c": "50",
+        "d": "49",
+        "e": "47"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 11 + 12 + 12 + 2 = 51."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-F-Y3-00175",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 14 oranges, 15 bananas, 15 grapes and 15 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "74",
+      "options": {
+        "a": "71",
+        "b": "74",
+        "c": "70",
+        "d": "72",
+        "e": "69"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 14 + 15 + 15 + 15 = 74."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00176",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 12 children chose apples, 7 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 12 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00177",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 14 apples, 8 oranges, 5 bananas, 6 grapes and 8 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "41",
+      "options": {
+        "a": "36",
+        "b": "38",
+        "c": "39",
+        "d": "41",
+        "e": "37"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 14 + 8 + 5 + 6 + 8 = 41."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00178",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 4, Bananas 7. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "10",
+      "options": {
+        "a": "5",
+        "b": "9",
+        "c": "10",
+        "d": "6",
+        "e": "8"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 4 = 10."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00179",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 4 children chose apples, 13 chose oranges, 3 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "oranges",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00180",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 4, Bananas 12. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "10",
+      "options": {
+        "a": "6",
+        "b": "10",
+        "c": "8",
+        "d": "5",
+        "e": "9"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 4 = 10."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00181",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 13 children chose apples, 5 chose oranges, 5 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "apples",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 13 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00182",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 8, Oranges 5, Bananas 5. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "3",
+      "options": {
+        "a": "3",
+        "b": "5",
+        "c": "2",
+        "d": "4",
+        "e": "1"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 8 - 5 = 3."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-C-Y3-00183",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 10 apples, 10 oranges, 13 bananas, 13 grapes and 10 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "56",
+      "options": {
+        "a": "65",
+        "b": "64",
+        "c": "56",
+        "d": "66",
+        "e": "51"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 10 + 10 + 13 + 13 + 10 = 56."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00184",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 9, Oranges 3, Bananas 2. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "2",
+        "b": "4",
+        "c": "7",
+        "d": "3",
+        "e": "5"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 2 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00185",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 6 oranges, 14 bananas, 8 grapes and 3 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "46",
+      "options": {
+        "a": "44",
+        "b": "46",
+        "c": "43",
+        "d": "42",
+        "e": "41"
+      },
+      "correct_option": "b",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 6 + 14 + 8 + 3 = 46."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00186",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 5 children chose apples, 5 chose oranges, 10 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00187",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 2, Oranges 14, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "12",
+      "options": {
+        "a": "12",
+        "b": "10",
+        "c": "11",
+        "d": "9",
+        "e": "7"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 2 = 12."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00188",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 15 oranges, 13 bananas, 5 grapes and 9 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "57",
+      "options": {
+        "a": "65",
+        "b": "66",
+        "c": "64",
+        "d": "52",
+        "e": "57"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 15 + 13 + 5 + 9 = 57."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00189",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 14, Oranges 8, Bananas 14. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "2",
+        "b": "1",
+        "c": "3",
+        "d": "6",
+        "e": "5"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 8 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00190",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 7 children chose apples, 14 chose oranges, 15 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 15 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00191",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 4, Oranges 4, Bananas 10. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "5",
+        "b": "2",
+        "c": "4",
+        "d": "6",
+        "e": "1"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 10 - 4 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00192",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 2 children chose apples, 5 chose oranges, 11 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00193",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 7, Oranges 5, Bananas 13. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "8",
+      "options": {
+        "a": "3",
+        "b": "6",
+        "c": "4",
+        "d": "8",
+        "e": "7"
+      },
+      "correct_option": "d",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 13 - 5 = 8."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-S-Y3-00194",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 12, Oranges 5, Bananas 3. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "9",
+      "options": {
+        "a": "4",
+        "b": "6",
+        "c": "8",
+        "d": "7",
+        "e": "9"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 12 - 3 = 9."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-C-Y3-00195",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 13, Oranges 14, Bananas 8. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "6",
+      "options": {
+        "a": "4",
+        "b": "2",
+        "c": "1",
+        "d": "3",
+        "e": "6"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 14 - 8 = 6."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-diff-F-Y3-00196",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "A pictogram shows: Apples 3, Oranges 2, Bananas 9. What is the difference between the most and least popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "7",
+      "options": {
+        "a": "2",
+        "b": "4",
+        "c": "7",
+        "d": "5",
+        "e": "3"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Difference = 9 - 2 = 7."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-S-Y3-00197",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 5 chose oranges, 11 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "bananas",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "c",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 11 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-C-Y3-00198",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Challenge",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 8 children chose apples, 8 chose oranges, 7 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "pears",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 8 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-most-F-Y3-00199",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Foundation",
+      "year_group": "Year 3",
+      "question_text": "In a survey, 6 children chose apples, 10 chose oranges, 7 chose bananas. Which fruit was most popular?",
+      "question_type": "multiple_choice",
+      "computed_answer": "grapes",
+      "options": {
+        "a": "apples",
+        "b": "oranges",
+        "c": "bananas",
+        "d": "grapes",
+        "e": "pears"
+      },
+      "correct_option": "a",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Compare the values. 10 is the highest."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    },
+    {
+      "question_id": "MATH-STA-tota-S-Y3-00200",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Data Interpretation",
+      "difficulty": "Standard",
+      "year_group": "Year 3",
+      "question_text": "A fruit bowl has 15 apples, 4 oranges, 4 bananas, 2 grapes and 8 pears. How many pieces of fruit in total?",
+      "question_type": "multiple_choice",
+      "computed_answer": "33",
+      "options": {
+        "a": "34",
+        "b": "37",
+        "c": "32",
+        "d": "36",
+        "e": "33"
+      },
+      "correct_option": "e",
+      "verification": {
+        "verification_status": "VERIFIED"
+      },
+      "explanations": {
+        "step_by_step": "Total = 15 + 4 + 4 + 2 + 8 = 33."
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics"
+    }
+  ]
+}
