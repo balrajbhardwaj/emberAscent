@@ -14,6 +14,7 @@
 
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
+import { handleApiError, AuthError, NotFoundError } from "@/lib/errors/apiErrors"
 
 /**
  * GET /api/analytics/learning-health
@@ -53,10 +54,7 @@ export async function GET(request: NextRequest) {
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      )
+      throw new AuthError()
     }
 
     // Verify parent owns this child
@@ -68,10 +66,7 @@ export async function GET(request: NextRequest) {
       .single()
 
     if (childError || !child) {
-      return NextResponse.json(
-        { error: "Child not found or access denied" },
-        { status: 404 }
-      )
+      throw new NotFoundError("Child profile not found")
     }
 
     // Call the database function to get all metrics at once
@@ -111,13 +106,6 @@ export async function GET(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error("[Learning Health API] Unexpected error:", error)
-    return NextResponse.json(
-      { 
-        error: "Internal server error",
-        details: error instanceof Error ? error.message : String(error)
-      },
-      { status: 500 }
-    )
+    return handleApiError(error, { endpoint: '/api/analytics/learning-health' })
   }
 }

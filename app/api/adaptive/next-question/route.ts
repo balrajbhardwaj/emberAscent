@@ -19,6 +19,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { selectNextQuestion } from '@/lib/adaptive/questionSelector'
 import type { DifficultyLevel } from '@/types/adaptive'
+import { handleApiError, AppError } from '@/lib/errors/apiErrors'
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic'
@@ -41,24 +42,29 @@ export async function GET(request: NextRequest) {
     const supabase = await createClient()
     
     // Get current performance tracker
-    const { data: tracker, error: trackerError } = await supabase
+    const { data: trackerData, error: trackerError } = await supabase
       .rpc('get_child_performance_tracker', {
         p_child_id: childId,
         p_topic_id: topicId,
       })
-      .single()
     
     if (trackerError) {
-      console.error('Error fetching performance tracker:', trackerError)
-      return NextResponse.json(
-        { error: 'Failed to fetch performance data' },
-        { status: 500 }
+      console.error('[ADAPTIVE_API] Performance tracker error:', trackerError.code)
+      throw new AppError(
+        'Unable to fetch learning progress. Please try again.',
+        'TRACKER_FETCH_FAILED',
+        500
       )
     }
     
-    // Get current difficulty or default to foundation
+    // RPC returns an array, get first item or create default
+    const tracker = Array.isArray(trackerData) && trackerData.length > 0 
+      ? trackerData[0] 
+      : null
+    
+    // Get current difficulty or default to standard
     const currentDifficulty: DifficultyLevel = 
-      ((tracker as any)?.current_difficulty as DifficultyLevel) || 'foundation'
+      (tracker?.current_difficulty as DifficultyLevel) || 'standard'
     
     // Get questions already attempted in this session (to exclude)
     const excludeQuestionIds: string[] = []
@@ -112,16 +118,12 @@ export async function GET(request: NextRequest) {
       question,
       adaptiveInfo: {
         currentDifficulty,
-        recentAccuracy: (tracker as any)?.recent_accuracy || 0,
-        totalAttempts: (tracker as any)?.total_questions_in_topic || 0,
-        currentStreak: (tracker as any)?.current_streak || 0,
+        recentAccuracy: tracker?.recent_accuracy || 0,
+        totalAttempts: tracker?.total_questions_in_topic || 0,
+        currentStreak: tracker?.current_streak || 0,
       },
     })
   } catch (error) {
-    console.error('Adaptive question selection error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    return handleApiError(error, { endpoint: '/api/adaptive/next-question' })
   }
 }
