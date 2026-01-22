@@ -4,6 +4,9 @@
  * Active practice session where users answer questions.
  * Handles question flow, timing, and progress tracking.
  * 
+ * Features adaptive difficulty for quick/focus sessions.
+ * Uses fixed difficulty distribution for mock tests.
+ * 
  * @module app/(dashboard)/practice/session/[sessionId]/page
  */
 
@@ -20,6 +23,9 @@ import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
 import { EmberScore } from "@/components/practice/EmberScore"
 import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
 import { ProvenancePanel } from "@/components/ember-score/ProvenancePanel"
+import { useAdaptiveSession, getDifficultyDisplay } from "@/hooks/useAdaptiveSession"
+import { useToast } from "@/hooks/use-toast"
+import type { DifficultyLevel } from "@/types/adaptive"
 
 interface QuestionOption {
   id: string
@@ -64,45 +70,75 @@ export default function PracticeSessionPage() {
   const router = useRouter()
   const params = useParams()
   const sessionId = params?.sessionId as string
+  const { toast } = useToast()
 
   const [session, setSession] = useState<PracticeSession | null>(null)
-  const [questions, setQuestions] = useState<Question[]>([])
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const [childId, setChildId] = useState<string>('')
+  const [topicId, setTopicId] = useState<string>('')
+  
+  // For mock tests: pre-load all questions
+  const [mockQuestions, setMockQuestions] = useState<Question[]>([])
+  const [currentMockIndex, setCurrentMockIndex] = useState(0)
+  
+  // Common state
+  const [questionsAnswered, setQuestionsAnswered] = useState(0)
+  const [correctCount, setCorrectCount] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')
-  const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [questionStartTimes, setQuestionStartTimes] = useState<Record<string, number>>({})
-  const [questionTimings, setQuestionTimings] = useState<Record<string, number>>({})
+  const [questionStartTime, setQuestionStartTime] = useState<number>(Date.now())
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [showProvenancePanel, setShowProvenancePanel] = useState(false)
+  
+  // Adaptive session hook (for quick/focus sessions)
+  const isAdaptiveSession = session?.session_type === 'quick' || session?.session_type === 'focus'
+  const {
+    currentQuestion: adaptiveQuestion,
+    adaptiveInfo,
+    isLoading: isLoadingQuestion,
+    fetchNextQuestion,
+    submitAnswer: submitAdaptiveAnswer,
+    isExhausted
+  } = useAdaptiveSession({
+    childId: childId,
+    topicId: topicId,
+    sessionId: sessionId,
+    onDifficultyAdjust: (adjustment) => {
+      if (adjustment.shouldAdjust) {
+        const diffDisplay = getDifficultyDisplay(adjustment.recommendedDifficulty as DifficultyLevel)
+        toast({
+          title: "Difficulty Adjusted! " + diffDisplay.icon,
+          description: adjustment.adjustmentReason,
+          duration: 4000,
+        })
+      }
+    }
+  })
+  
+  // Current question (either adaptive or mock)
+  const currentQuestion = isAdaptiveSession 
+    ? adaptiveQuestion 
+    : mockQuestions[currentMockIndex]
 
   useEffect(() => {
     if (!sessionId) return
     loadSession()
   }, [sessionId])
 
-  // Track start time for current question
+  // Start question timing when question loads
   useEffect(() => {
-    if (questions.length > 0 && currentQuestionIndex < questions.length) {
-      const currentQuestion = questions[currentQuestionIndex]
-      if (!questionStartTimes[currentQuestion.id]) {
-        setQuestionStartTimes(prev => ({
-          ...prev,
-          [currentQuestion.id]: Date.now()
-        }))
-      }
+    if (currentQuestion && !hasSubmitted) {
+      setQuestionStartTime(Date.now())
     }
-  }, [currentQuestionIndex, questions])
+  }, [currentQuestion, hasSubmitted])
 
-  // Timer effect
+  // Timer effect for timed sessions
   useEffect(() => {
     if (timeRemaining === null || timeRemaining <= 0) return
 
     const timer = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev === null || prev <= 1) {
-          // Time's up - auto-submit
           handleFinishSession()
           return 0
         }
@@ -131,69 +167,167 @@ export default function PracticeSessionPage() {
       }
 
       setSession(sessionData as any)
+      setChildId(sessionData.child_id)
       
-      // Note: Timer and question list would need to be stored in a separate table
-      // or as metadata. For now, load random questions based on subject
-      
-      // Load questions based on session parameters
-      let query = supabase
-        .from('questions')
-        .select('*')
-        .eq('is_published', true)
-        .limit((sessionData as any).total_questions)
-      
-      if ((sessionData as any).subject && (sessionData as any).subject !== 'mixed') {
-        query = query.ilike('subject', `%${(sessionData as any).subject}%`)
+      // Get topic ID if specified
+      if (sessionData.topic) {
+        setTopicId(sessionData.topic)
+      } else if (sessionData.subject) {
+        // Use subject as topic for now (may need refinement)
+        setTopicId(sessionData.subject)
+      } else {
+        setTopicId('general')
       }
-
-      const { data: questionsData, error: questionsError } = await query
-
-      if (questionsError) {
-        console.error('Error loading questions:', questionsError)
-        return
+      
+      // For mock tests: pre-load all questions with fixed distribution
+      if (sessionData.session_type === 'mock') {
+        await loadMockQuestions(supabase, sessionData)
       }
-
-      // Shuffle and limit questions
-      const shuffled = (questionsData || []).sort(() => Math.random() - 0.5)
-      setQuestions(shuffled.slice(0, (sessionData as any).total_questions) as Question[])
+      // For adaptive sessions: fetch first question
+      else if (sessionData.session_type === 'quick' || sessionData.session_type === 'focus') {
+        // Will be handled by useAdaptiveSession hook
+        setIsLoading(false)
+      } else {
+        // Fallback for other session types
+        setIsLoading(false)
+      }
+      
     } catch (error) {
       console.error('Failed to load session:', error)
       router.push('/practice')
+    }
+  }
+  
+  async function loadMockQuestions(supabase: any, sessionData: any) {
+    try {
+      const totalQuestions = sessionData.total_questions || 20
+      
+      // Mock test distribution: 25% foundation, 50% standard, 25% challenge
+      const foundationCount = Math.round(totalQuestions * 0.25)
+      const challengeCount = Math.round(totalQuestions * 0.25)
+      const standardCount = totalQuestions - foundationCount - challengeCount
+      
+      const loadedQuestions: Question[] = []
+      
+      // Load each difficulty level
+      for (const { difficulty, count } of [
+        { difficulty: 'foundation', count: foundationCount },
+        { difficulty: 'standard', count: standardCount },
+        { difficulty: 'challenge', count: challengeCount }
+      ]) {
+        let query = supabase
+          .from('questions')
+          .select('*')
+          .eq('is_published', true)
+          .eq('difficulty', difficulty)
+          .limit(count * 2) // Get extra for randomization
+        
+        if (sessionData.subject && sessionData.subject !== 'mixed') {
+          query = query.ilike('subject', `%${sessionData.subject}%`)
+        }
+        
+        if (sessionData.topic) {
+          query = query.ilike('topic', `%${sessionData.topic}%`)
+        }
+        
+        const { data, error } = await query
+        
+        if (error) {
+          console.error(`Error loading ${difficulty} questions:`, error)
+          continue
+        }
+        
+        // Shuffle and take required count
+        const shuffled = (data || []).sort(() => Math.random() - 0.5)
+        loadedQuestions.push(...shuffled.slice(0, count) as Question[])
+      }
+      
+      // Final shuffle to mix difficulties
+      const finalQuestions = loadedQuestions.sort(() => Math.random() - 0.5)
+      setMockQuestions(finalQuestions)
+      
+      // Set timer for mock tests (e.g., 40 minutes for 20 questions)
+      const timeLimit = totalQuestions * 120 // 2 minutes per question
+      setTimeRemaining(timeLimit)
+      
+    } catch (error) {
+      console.error('Failed to load mock questions:', error)
     } finally {
       setIsLoading(false)
     }
   }
+  
+  // Fetch first adaptive question when ready
+  useEffect(() => {
+    if (isAdaptiveSession && childId && topicId && !isLoading) {
+      fetchNextQuestion()
+    }
+  }, [isAdaptiveSession, childId, topicId, isLoading])
 
   function handleAnswerSelect(answerId: string) {
     if (hasSubmitted) return
     setSelectedAnswer(answerId)
   }
 
-  function handleSubmitAnswer() {
-    if (!selectedAnswer || hasSubmitted) return
+  async function handleSubmitAnswer() {
+    if (!selectedAnswer || hasSubmitted || !currentQuestion) return
 
-    const currentQuestion = questions[currentQuestionIndex]
-    const startTime = questionStartTimes[currentQuestion.id] || Date.now()
-    const timeSpent = Math.max(1, Math.floor((Date.now() - startTime) / 1000))
+    const timeSpent = Math.max(1, Math.floor((Date.now() - questionStartTime) / 1000))
+    const isCorrect = selectedAnswer === currentQuestion.correct_answer
     
-    setAnswers(prev => ({
-      ...prev,
-      [currentQuestion.id]: selectedAnswer
-    }))
-    setQuestionTimings(prev => ({
-      ...prev,
-      [currentQuestion.id]: timeSpent
-    }))
+    if (isCorrect) {
+      setCorrectCount(prev => prev + 1)
+    }
+    
+    setQuestionsAnswered(prev => prev + 1)
     setHasSubmitted(true)
+
+    // Record attempt in database
+    try {
+      const supabase = createClient()
+      await supabase
+        .from('question_attempts')
+        .insert({
+          session_id: sessionId,
+          question_id: currentQuestion.id,
+          child_id: childId,
+          selected_answer: selectedAnswer,
+          is_correct: isCorrect,
+          time_taken_seconds: timeSpent,
+        })
+      
+      // For adaptive sessions: submit to adaptive system
+      if (isAdaptiveSession) {
+        await submitAdaptiveAnswer(currentQuestion.id, isCorrect, timeSpent)
+      }
+    } catch (error) {
+      console.error('Error recording attempt:', error)
+    }
   }
 
   function handleNextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1)
-      setSelectedAnswer('')
-      setHasSubmitted(false)
-    } else {
+    if (!session) return
+    
+    setSelectedAnswer('')
+    setHasSubmitted(false)
+    
+    // Check if session is complete
+    if (questionsAnswered >= session.total_questions) {
       handleFinishSession()
+      return
+    }
+    
+    // Load next question based on session type
+    if (isAdaptiveSession) {
+      // Fetch next adaptive question
+      fetchNextQuestion()
+    } else {
+      // Move to next mock question
+      if (currentMockIndex < mockQuestions.length - 1) {
+        setCurrentMockIndex(prev => prev + 1)
+      } else {
+        handleFinishSession()
+      }
     }
   }
 
@@ -202,40 +336,26 @@ export default function PracticeSessionPage() {
 
     try {
       const supabase = createClient()
-      
-      // Calculate results
-      const correctAnswers = questions.filter(q => 
-        answers[q.id] === q.correct_answer
-      ).length
 
       // Update session
-      await (supabase
-        .from('practice_sessions') as any)
+      await supabase
+        .from('practice_sessions')
         .update({
-          correct_answers: correctAnswers,
+          correct_answers: correctCount,
           completed_at: new Date().toISOString()
         })
         .eq('id', sessionId)
-
-      // Create question attempts
-      const attempts = questions.map(question => ({
-        session_id: sessionId,
-        question_id: question.id,
-        child_id: (session as any).child_id,
-        selected_answer: answers[question.id] || '',
-        is_correct: answers[question.id] === (question as any).correct_answer,
-        time_taken_seconds: questionTimings[question.id] || 30 // Use tracked time or default
-      }))
-
-      await (supabase
-        .from('question_attempts') as any)
-        .insert(attempts)
 
       // Navigate to results
       router.push(`/practice/session/${sessionId}/results`)
       
     } catch (error) {
       console.error('Error finishing session:', error)
+      toast({
+        title: "Error",
+        description: "Failed to save session. Please try again.",
+        variant: "destructive"
+      })
     }
   }
 
@@ -245,7 +365,7 @@ export default function PracticeSessionPage() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  if (isLoading) {
+  if (isLoading || (isAdaptiveSession && isLoadingQuestion && !currentQuestion)) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center">
@@ -256,10 +376,14 @@ export default function PracticeSessionPage() {
     )
   }
 
-  if (!session || questions.length === 0) {
+  if (!session || !currentQuestion) {
     return (
       <div className="text-center py-12">
-        <p className="text-slate-600 mb-4">Session not found or no questions available.</p>
+        <p className="text-slate-600 mb-4">
+          {isExhausted 
+            ? "No more questions available. Great work!" 
+            : "Session not found or no questions available."}
+        </p>
         <Button onClick={() => router.push('/practice')}>
           Return to Practice
         </Button>
@@ -267,8 +391,9 @@ export default function PracticeSessionPage() {
     )
   }
 
-  const currentQuestion = questions[currentQuestionIndex]
-  const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100
+  const progressPercentage = session.total_questions > 0
+    ? (questionsAnswered / session.total_questions) * 100
+    : 0
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -295,7 +420,7 @@ export default function PracticeSessionPage() {
       <div className="space-y-2">
         <div className="flex items-center justify-between text-sm">
           <span className="text-slate-600">
-            Question {currentQuestionIndex + 1} of {questions.length}
+            Question {questionsAnswered + 1} of {session.total_questions}
           </span>
           <span className="text-slate-900 font-medium">
             {Math.round(progressPercentage)}% Complete
@@ -303,6 +428,18 @@ export default function PracticeSessionPage() {
         </div>
         <Progress value={progressPercentage} className="h-2" />
       </div>
+      
+      {/* Adaptive Difficulty Indicator */}
+      {isAdaptiveSession && adaptiveInfo && (
+        <div className="flex items-center gap-2 text-sm">
+          <Badge variant="outline" className={getDifficultyDisplay(adaptiveInfo.currentDifficulty).color}>
+            {getDifficultyDisplay(adaptiveInfo.currentDifficulty).icon} {getDifficultyDisplay(adaptiveInfo.currentDifficulty).name}
+          </Badge>
+          <span className="text-slate-600">
+            Recent: {Math.round(adaptiveInfo.recentAccuracy * 100)}% • Streak: {adaptiveInfo.currentStreak}
+          </span>
+        </div>
+      )}
 
       {/* Question Card */}
       <Card>
@@ -412,7 +549,7 @@ export default function PracticeSessionPage() {
                 onClick={handleNextQuestion}
                 size="lg"
               >
-                {currentQuestionIndex === questions.length - 1 ? 'Finish Session' : 'Next Question'}
+                {questionsAnswered >= session.total_questions - 1 ? 'Finish Session' : 'Next Question'}
               </Button>
             </div>
           )}

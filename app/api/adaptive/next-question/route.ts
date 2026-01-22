@@ -20,6 +20,9 @@ import { createClient } from '@/lib/supabase/server'
 import { selectNextQuestion } from '@/lib/adaptive/questionSelector'
 import type { DifficultyLevel } from '@/types/adaptive'
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
