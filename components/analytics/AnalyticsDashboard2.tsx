@@ -16,7 +16,7 @@
  */
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import {
   RefreshCw,
   Calendar,
@@ -30,7 +30,6 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -214,18 +213,31 @@ function LearningHealthCheckCard({
   fatigueDropOff: number
   stagnantTopics: number
 }) {
-  // Determine risk level for each metric
-  const getRiskLevel = (value: number) => {
-    if (value < 5) return { level: 'healthy', color: 'text-emerald-600', bg: 'bg-emerald-50', barBg: 'bg-emerald-500', label: 'Healthy' }
-    if (value <= 15) return { level: 'warning', color: 'text-amber-600', bg: 'bg-amber-50', barBg: 'bg-amber-500', label: 'Needs Attention' }
-    return { level: 'critical', color: 'text-red-600', bg: 'bg-red-50', barBg: 'bg-red-500', label: 'Critical' }
+  // Determine risk level for percentage metrics (rush, fatigue)
+  const getPercentageRiskLevel = (value: number) => {
+    if (value === 0) return { level: 'no-data', color: 'text-slate-400', bg: 'bg-slate-50', barBg: 'bg-slate-300', label: 'No Data' }
+    if (value < 10) return { level: 'healthy', color: 'text-emerald-600', bg: 'bg-emerald-50', barBg: 'bg-emerald-500', label: 'Healthy' }
+    if (value <= 20) return { level: 'warning', color: 'text-amber-600', bg: 'bg-amber-50', barBg: 'bg-amber-500', label: 'Monitor' }
+    return { level: 'critical', color: 'text-red-600', bg: 'bg-red-50', barBg: 'bg-red-500', label: 'Action Needed' }
   }
 
-  const rushRisk = getRiskLevel(rushFactor)
-  const fatigueRisk = getRiskLevel(fatigueDropOff)
-  const stagnantRisk = getRiskLevel(stagnantTopics)
+  // Determine risk level for count metrics (stagnant topics)
+  const getCountRiskLevel = (value: number) => {
+    if (value === 0) return { level: 'healthy', color: 'text-emerald-600', bg: 'bg-emerald-50', barBg: 'bg-emerald-500', label: 'Healthy' }
+    if (value <= 2) return { level: 'warning', color: 'text-amber-600', bg: 'bg-amber-50', barBg: 'bg-amber-500', label: 'Needs Attention' }
+    if (value <= 5) return { level: 'critical', color: 'text-orange-600', bg: 'bg-orange-50', barBg: 'bg-orange-500', label: 'High Priority' }
+    return { level: 'severe', color: 'text-red-600', bg: 'bg-red-50', barBg: 'bg-red-500', label: 'Critical' }
+  }
 
-  const isAllHealthy = rushRisk.level === 'healthy' && fatigueRisk.level === 'healthy' && stagnantRisk.level === 'healthy'
+  const rushRisk = getPercentageRiskLevel(rushFactor);
+  const fatigueRisk = getPercentageRiskLevel(fatigueDropOff);
+  const stagnantRisk = getCountRiskLevel(stagnantTopics);
+  
+  const allHealthy = (
+    rushRisk.level === "healthy" &&
+    fatigueRisk.level === "healthy" &&
+    stagnantRisk.level === "healthy"
+  );
 
   return (
     <Card>
@@ -234,7 +246,7 @@ function LearningHealthCheckCard({
           <CardDescription className="text-base">
             Build strong practice habits to maximize exam readiness
           </CardDescription>
-          {isAllHealthy && (
+          {allHealthy && (
             <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
               All Clear
             </Badge>
@@ -252,7 +264,7 @@ function LearningHealthCheckCard({
               </div>
               <div>
                 <h4 className="font-medium text-slate-900">Rush Factor</h4>
-                <p className="text-xs text-slate-500">Questions answered in under 10 seconds</p>
+                <p className="text-xs text-slate-500">% of sessions with avg &lt; 15 sec per question</p>
               </div>
             </div>
             <div className="text-right">
@@ -272,7 +284,7 @@ function LearningHealthCheckCard({
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
               <div
                 className={`absolute top-0 left-0 h-full rounded-full ${rushRisk.barBg}`}
-                style={{ width: `${Math.min(100, (rushFactor / 25) * 100)}%` }}
+                style={{ width: `${Math.min(100, (rushFactor / 30) * 100)}%` }}
               />
             </div>
           </div>
@@ -287,7 +299,7 @@ function LearningHealthCheckCard({
               </div>
               <div>
                 <h4 className="font-medium text-slate-900">Fatigue Drop-off</h4>
-                <p className="text-xs text-slate-500">Accuracy decline during sessions</p>
+                <p className="text-xs text-slate-500">Avg accuracy decline: 1st half vs 2nd half</p>
               </div>
             </div>
             <div className="text-right">
@@ -307,7 +319,7 @@ function LearningHealthCheckCard({
             <div className="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
               <div
                 className={`absolute top-0 left-0 h-full rounded-full ${fatigueRisk.barBg}`}
-                style={{ width: `${Math.min(100, (fatigueDropOff / 25) * 100)}%` }}
+                style={{ width: `${Math.min(100, (fatigueDropOff / 30) * 100)}%` }}
               />
             </div>
           </div>
@@ -501,79 +513,189 @@ function WeaknessHeatmapCard({ data }: { data: Array<{ topic: string; scores: nu
 }
 
 /**
- * Performance Tables with real data
+ * Performance Breakdown - More intuitive visual design with topic details
  */
 function PerformanceTablesCard({ 
   subjectPerformance, 
-  difficultyPerformance 
+  difficultyPerformance,
+  heatmapData
 }: { 
   subjectPerformance: Array<{ subject: string; questions: number; accuracy: number }>
   difficultyPerformance: Array<{ level: string; count: number; accuracy: number }>
+  heatmapData: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }>
 }) {
+  const [expandedSubject, setExpandedSubject] = React.useState<string | null>(null)
+
+  // Get color based on accuracy
+  const getAccuracyColor = (accuracy: number) => {
+    if (accuracy >= 80) return { bg: 'bg-emerald-50', text: 'text-emerald-700', bar: 'bg-emerald-500', border: 'border-emerald-200' }
+    if (accuracy >= 60) return { bg: 'bg-amber-50', text: 'text-amber-700', bar: 'bg-amber-500', border: 'border-amber-200' }
+    return { bg: 'bg-red-50', text: 'text-red-700', bar: 'bg-red-500', border: 'border-red-200' }
+  }
+
+  // Calculate totals - need to check both arrays for total questions
+  const totalQuestions = subjectPerformance.reduce((sum, s) => sum + s.questions, 0)
+  const totalFromDifficulty = difficultyPerformance.reduce((sum, d) => sum + d.count, 0)
+  const actualTotal = Math.max(totalQuestions, totalFromDifficulty)
+  
+  const overallAccuracy = actualTotal > 0 && subjectPerformance.length > 0
+    ? Math.round(subjectPerformance.reduce((sum, s) => sum + (s.accuracy * s.questions), 0) / totalQuestions)
+    : 0
+
+  // Group topics by subject
+  const topicsBySubject = heatmapData.reduce((acc, topic) => {
+    const subject = topic.subject || 'Unknown'
+    if (!acc[subject]) acc[subject] = []
+    acc[subject].push(topic)
+    return acc
+  }, {} as Record<string, typeof heatmapData>)
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-lg">Detailed Performance</CardTitle>
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle className="text-lg">Performance Breakdown</CardTitle>
+            <CardDescription>Questions answered and accuracy by subject and difficulty</CardDescription>
+          </div>
+          <div className="text-right">
+            <p className="text-2xl font-bold text-slate-900">{overallAccuracy}%</p>
+            <p className="text-xs text-slate-500">Overall</p>
+          </div>
+        </div>
       </CardHeader>
       <CardContent>
-        <Tabs defaultValue="subject">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="subject">By Subject</TabsTrigger>
-            <TabsTrigger value="topic">By Topic</TabsTrigger>
-            <TabsTrigger value="difficulty">By Difficulty</TabsTrigger>
-          </TabsList>
-          <TabsContent value="subject" className="space-y-4 mt-4">
+        {/* Side-by-side layout: Subject on left, Difficulty on right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* By Subject Section */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">By Subject</h3>
             {subjectPerformance.length > 0 ? (
-              subjectPerformance.map((item) => (
-                <div key={item.subject} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                  <span className="font-medium">{item.subject}</span>
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-slate-600">{item.questions} questions</span>
-                    <Badge 
-                      variant="secondary"
-                      className={item.accuracy >= 80 ? "bg-emerald-100" : item.accuracy >= 60 ? "bg-amber-100" : "bg-red-100"}
-                    >
-                      {Math.round(item.accuracy)}%
-                    </Badge>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="text-sm text-slate-500 text-center py-8">
-                No subject data available yet
-              </p>
-            )}
-          </TabsContent>
-          <TabsContent value="topic" className="mt-4">
-            <p className="text-sm text-slate-500 text-center py-8">
-              Select a subject to view topic breakdown
-            </p>
-          </TabsContent>
-          <TabsContent value="difficulty" className="mt-4">
-            <div className="space-y-3">
-              {difficultyPerformance.length > 0 ? (
-                difficultyPerformance.map((d) => (
-                  <div key={d.level} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                    <span className="font-medium">{d.level}</span>
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-slate-600">{d.count} questions</span>
-                      <Badge 
-                        variant="secondary"
-                        className={d.accuracy >= 80 ? "bg-emerald-100" : d.accuracy >= 60 ? "bg-amber-100" : "bg-red-100"}
+              <div className="space-y-3">
+                {subjectPerformance.map((item) => {
+                  const colors = getAccuracyColor(item.accuracy)
+                  const percentage = actualTotal > 0 ? (item.questions / actualTotal) * 100 : 0
+                  const subjectTopics = topicsBySubject[item.subject] || []
+                  const isExpanded = expandedSubject === item.subject
+                  
+                  return (
+                    <div key={item.subject}>
+                      <div 
+                        className={`border ${colors.border} rounded-lg p-4 ${colors.bg} cursor-pointer hover:shadow-sm transition-shadow`}
+                        onClick={() => setExpandedSubject(isExpanded ? null : item.subject)}
                       >
-                        {Math.round(d.accuracy)}%
-                      </Badge>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-slate-900">{item.subject}</span>
+                            {subjectTopics.length > 0 && (
+                              <Badge variant="outline" className="text-xs">
+                                {subjectTopics.length} topics
+                              </Badge>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm text-slate-600">{item.questions} questions</span>
+                            <span className={`text-lg font-bold ${colors.text}`}>
+                              {Math.round(item.accuracy)}%
+                            </span>
+                          </div>
+                        </div>
+                        {/* Visual bar showing accuracy */}
+                        <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
+                          <div 
+                            className={`h-full ${colors.bar} transition-all duration-500`}
+                            style={{ width: `${Math.min(100, item.accuracy)}%` }}
+                          />
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-xs text-slate-500">
+                            {percentage.toFixed(1)}% of total questions
+                          </span>
+                          <span className="text-xs text-slate-500">
+                            Target: 80%
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Topic breakdown (collapsible) */}
+                      {isExpanded && subjectTopics.length > 0 && (
+                        <div className="mt-2 ml-4 space-y-2 border-l-2 border-slate-200 pl-4">
+                          {subjectTopics.map((topic, idx) => {
+                            const topicColors = getAccuracyColor(topic.scores[0])
+                            return (
+                              <div key={idx} className="text-sm">
+                                <div className="flex items-center justify-between mb-1">
+                                  <span className="text-slate-700">{topic.topic}</span>
+                                  <span className={`font-semibold ${topicColors.text}`}>
+                                    {Math.round(topic.scores[0])}%
+                                  </span>
+                                </div>
+                                <div className="relative h-1 bg-slate-200 rounded-full overflow-hidden">
+                                  <div 
+                                    className={`h-full ${topicColors.bar}`}
+                                    style={{ width: `${Math.min(100, topic.scores[0])}%` }}
+                                  />
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-500 text-center py-8">
-                  No difficulty data available yet
-                </p>
-              )}
-            </div>
-          </TabsContent>
-        </Tabs>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="text-center py-8 bg-slate-50 rounded-lg border border-dashed border-slate-300">
+                <BookOpen className="h-8 w-8 text-slate-400 mx-auto mb-2" />
+                <p className="text-sm text-slate-500">No subject data yet</p>
+                <p className="text-xs text-slate-400 mt-1">Complete some questions to see your breakdown</p>
+              </div>
+            )}
+          </div>
+
+          {/* By Difficulty Section */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-700 mb-3">By Difficulty</h3>
+            {difficultyPerformance.length > 0 ? (
+              <div className="space-y-3">
+                {difficultyPerformance.map((d) => {
+                  const colors = getAccuracyColor(d.accuracy)
+                  const difficultyIcon = d.level === 'Foundation' ? '●' : d.level === 'Standard' ? '●●' : '●●●'
+                  
+                  return (
+                    <div key={d.level} className={`border ${colors.border} rounded-lg p-4 ${colors.bg}`}>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-xs ${colors.text} font-mono`}>{difficultyIcon}</span>
+                          <span className="font-medium text-slate-900">{d.level}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-slate-600">{d.count} questions</span>
+                          <span className={`text-lg font-bold ${colors.text}`}>
+                            {Math.round(d.accuracy)}%
+                          </span>
+                        </div>
+                      </div>
+                      <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full ${colors.bar} transition-all duration-500`}
+                          style={{ width: `${Math.min(100, d.accuracy)}%` }}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="text-center py-8 bg-slate-50 rounded-lg border border-dashed border-slate-300">
+                <Target className="h-8 w-8 text-slate-400 mx-auto mb-2" />
+                <p className="text-sm text-slate-500">No difficulty data yet</p>
+                <p className="text-xs text-slate-400 mt-1">Answer questions to see difficulty breakdown</p>
+              </div>
+            )}
+          </div>
+        </div>
       </CardContent>
     </Card>
   )
@@ -782,15 +904,16 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
     }
   }
 
-  // Fetch all analytics data
-  const fetchAnalytics = async () => {
+  // Fetch all analytics data from consolidated endpoint
+  // Wrapped in useCallback to ensure stable function reference for useEffect
+  const fetchAnalytics = useCallback(async (signal?: AbortSignal) => {
     setIsLoading(true)
     setError(null)
 
     try {
       const apiDateRange = getApiDateRange(dateRange)
       
-      // Map date range to days for learning health API
+      // Map date range to days for learning health calculation
       const daysMap: Record<string, number> = {
         "7d": 7,
         "30d": 30,
@@ -799,55 +922,66 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
       }
       const days = daysMap[dateRange] || 30
       
-      // Fetch all data in parallel
-      const [comprehensiveRes, readinessRes, heatmapRes, benchmarkRes, learningHealthRes] = await Promise.all([
-        fetch(`/api/analytics/comprehensive?childId=${childId}&range=${apiDateRange}`),
-        fetch(`/api/analytics/readiness?childId=${childId}`),
-        fetch(`/api/analytics/heatmap?childId=${childId}`),
-        fetch(`/api/analytics/benchmark?childId=${childId}`).catch(() => null),
-        fetch(`/api/analytics/learning-health?childId=${childId}&days=${days}`),
-      ])
+      // Single API call to consolidated endpoint
+      const response = await fetch(
+        `/api/analytics/dashboard?childId=${childId}&range=${apiDateRange}&days=${days}`,
+        { signal }
+      )
 
-      const comprehensive = comprehensiveRes.ok ? await comprehensiveRes.json() : null
-      const readiness = readinessRes.ok ? await readinessRes.json() : null
-      const heatmap = heatmapRes.ok ? await heatmapRes.json() : null
-      const benchmark = benchmarkRes?.ok ? await benchmarkRes.json() : null
-      const learningHealth = learningHealthRes.ok ? await learningHealthRes.json() : null
+      if (!response.ok) {
+        throw new Error('Failed to fetch analytics data')
+      }
+
+      const result = await response.json()
+      
+      console.log('[Analytics Dashboard] API Response:', {
+        success: result.success,
+        hasData: !!result.data,
+        dataKeys: result.data ? Object.keys(result.data) : [],
+      })
+      
+      if (!result.success || !result.data) {
+        console.error('[Analytics Dashboard] Invalid response format:', result)
+        throw new Error('Invalid response format')
+      }
+
+      const { comprehensive, readiness, heatmap, benchmark, learningHealth } = result.data
+      
+      console.log('[Analytics Dashboard] Data extracted:', {
+        comprehensive: comprehensive ? {
+          totalQuestions: comprehensive.summary?.totalQuestionsAnswered,
+          accuracy: comprehensive.summary?.overallAccuracy,
+          subjects: comprehensive.subjectBreakdown?.length,
+        } : null,
+        readiness: readiness ? { score: readiness.overallScore } : null,
+        heatmap: heatmap ? { cells: heatmap.cells?.length } : null,
+        learningHealth: learningHealth || null,
+        benchmark: benchmark ? 'present' : 'null',
+      })
 
       // Transform heatmap data for the grid view
-      // The heatmap API returns: { data: { subjects: [], topics: [], cells: [] } }
-      // Each cell has: { subject, topic, accuracy, totalQuestions, masteryLevel, needsFocus }
       const transformedHeatmap: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }> = []
-      if (heatmap?.data?.cells && Array.isArray(heatmap.data.cells)) {
-        heatmap.data.cells.forEach((cell: any) => {
+      if (heatmap?.cells && Array.isArray(heatmap.cells)) {
+        heatmap.cells.forEach((cell: any) => {
           const accuracy = cell.accuracy || 0
           transformedHeatmap.push({ 
             topic: cell.topic || 'Unknown', 
             scores: [accuracy, accuracy, accuracy],
             masteryLevel: cell.masteryLevel,
             needsFocus: cell.needsFocus,
-            subject: cell.subject, // Include subject for matrix view
+            subject: formatSubjectName(cell.subject || ''),
           })
         })
       }
 
       // Extract subject performance from comprehensive data
-      // The API returns subjectBreakdown as an array, not an object
       const subjectPerformance: Array<{ subject: string; questions: number; accuracy: number }> = []
       if (comprehensive?.subjectBreakdown && Array.isArray(comprehensive.subjectBreakdown)) {
         comprehensive.subjectBreakdown.forEach((item: any) => {
           subjectPerformance.push({
-            subject: formatSubjectName(item.subject || item.subjectLabel || ''),
-            questions: item.totalQuestions || item.totalAttempts || 0,
+            subject: formatSubjectName(item.subject || ''),
+            questions: item.total || 0,
             accuracy: item.accuracy || 0,
-          })
-        })
-      } else if (comprehensive?.subjectBreakdown && typeof comprehensive.subjectBreakdown === 'object') {
-        Object.entries(comprehensive.subjectBreakdown).forEach(([subject, data]: [string, any]) => {
-          subjectPerformance.push({
-            subject: formatSubjectName(subject),
-            questions: data.totalQuestions || data.totalAttempts || 0,
-            accuracy: data.accuracy || 0,
           })
         })
       }
@@ -857,69 +991,53 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
       if (comprehensive?.difficultyBreakdown && Array.isArray(comprehensive.difficultyBreakdown)) {
         comprehensive.difficultyBreakdown.forEach((item: any) => {
           difficultyPerformance.push({
-            level: (item.difficulty || item.level || '').charAt(0).toUpperCase() + (item.difficulty || item.level || '').slice(1),
-            count: item.totalQuestions || item.totalAttempts || item.count || 0,
+            level: (item.difficulty || '').charAt(0).toUpperCase() + (item.difficulty || '').slice(1),
+            count: item.total || 0,
             accuracy: item.accuracy || 0,
-          })
-        })
-      } else if (comprehensive?.difficultyBreakdown && typeof comprehensive.difficultyBreakdown === 'object') {
-        Object.entries(comprehensive.difficultyBreakdown).forEach(([level, data]: [string, any]) => {
-          difficultyPerformance.push({
-            level: level.charAt(0).toUpperCase() + level.slice(1),
-            count: data.totalQuestions || data.totalAttempts || 0,
-            accuracy: data.accuracy || 0,
           })
         })
       }
 
-      // Calculate KRIs (Risk Indicators) from learning health API
-      // Use the dedicated API instead of calculating from comprehensive data
-      const rushFactor = learningHealth?.data?.rushFactor || 0
-      const fatigueDropOff = learningHealth?.data?.fatigueDropOff || 0
-      const stagnantTopics = learningHealth?.data?.stagnantTopics || 0
+      // Extract KRIs (Risk Indicators) from learning health data
+      const rushFactor = learningHealth?.rushFactor || 0
+      const fatigueDropOff = learningHealth?.fatigueDropOff || 0
+      const stagnantTopics = learningHealth?.stagnantTopics || 0
 
-      // Extract trend values (trend can be an object or a number)
-      const readinessTrend = typeof readiness?.data?.trend === 'object' 
-        ? readiness?.data?.trend?.changePercentage || 0 
-        : (readiness?.data?.trend || 0)
-      const ascentTrend = typeof comprehensive?.ascentScoreTrend === 'object'
-        ? comprehensive?.ascentScoreTrend?.changePercentage || 0
-        : (comprehensive?.ascentScoreTrend || 0)
-      const velocityTrend = typeof comprehensive?.velocityTrend === 'object'
-        ? comprehensive?.velocityTrend?.changePercentage || 0
-        : (comprehensive?.velocityTrend || 0)
+      console.log('[Analytics Dashboard] Setting state with:', {
+        kpis: {
+          readinessScore: readiness?.overallScore || 0,
+          ascentScore: comprehensive?.summary?.overallAccuracy || 0,
+          velocity: comprehensive?.summary?.totalQuestionsAnswered || 0,
+          totalQuestions: comprehensive?.summary?.totalQuestionsAnswered || 0,
+        },
+        risks: { rushFactor, fatigueDropOff, stagnantTopics },
+        subjectCount: subjectPerformance.length,
+        difficultyCount: difficultyPerformance.length,
+        heatmapCount: transformedHeatmap.length,
+      })
 
       setAnalyticsData({
         kpis: {
-          // Readiness comes from readiness API
-          readinessScore: readiness?.data?.overallScore || readiness?.data?.score || 0,
-          readinessTrend: Number(readinessTrend) || 0,
-          // Ascent score - use overall accuracy as proxy if not available
-          ascentScore: comprehensive?.ascentScore || comprehensive?.summary?.overallAccuracy || Math.round(comprehensive?.summary?.accuracy || 0),
-          ascentTrend: Number(ascentTrend) || 0,
-          // Velocity - questions answered in period
-          velocity: comprehensive?.summary?.totalQuestionsAnswered || comprehensive?.summary?.totalQuestions || 0,
-          velocityTrend: Number(velocityTrend) || 0,
-          // Total questions
-          totalQuestions: comprehensive?.summary?.totalQuestionsAnswered || comprehensive?.summary?.totalQuestions || comprehensive?.totalAttempts || 0,
+          readinessScore: readiness?.overallScore || 0,
+          readinessTrend: 0, // TODO: Calculate trends in dashboard API
+          ascentScore: comprehensive?.summary?.overallAccuracy || 0,
+          ascentTrend: 0, // TODO: Calculate trends in dashboard API
+          velocity: comprehensive?.summary?.totalQuestionsAnswered || 0,
+          velocityTrend: 0, // TODO: Calculate trends in dashboard API
+          totalQuestions: comprehensive?.summary?.totalQuestionsAnswered || 0,
         },
         risks: {
-          rushFactor: Math.round(rushFactor),
-          fatigueDropOff: Math.round(fatigueDropOff),
-          stagnantTopics: Math.round(stagnantTopics),
+          rushFactor,
+          fatigueDropOff,
+          stagnantTopics,
         },
         readiness: {
-          score: readiness?.data?.overallScore || readiness?.data?.score || 0,
+          score: readiness?.overallScore || 0,
           breakdown: {
-            accuracy: readiness?.data?.components?.accuracyScore 
-              ? (readiness.data.components.accuracyScore / 40) * 100  // Convert from 40 max to percentage
-              : (comprehensive?.summary?.overallAccuracy || comprehensive?.summary?.accuracy || 0),
-            coverage: readiness?.data?.components?.coverageScore
-              ? (readiness.data.components.coverageScore / 20) * 100  // Convert from 20 max to percentage
-              : 0,
-            consistency: readiness?.data?.components?.consistencyScore
-              ? (readiness.data.components.consistencyScore / 15) * 100  // Convert from 15 max to percentage
-              : 0,
+            // Database returns pre-calculated percentages - no calculations needed
+            accuracy: readiness?.breakdown?.accuracy || 0,
+            coverage: readiness?.breakdown?.coverage || 0,
+            consistency: readiness?.breakdown?.consistency || 0,
           },
         },
         heatmapData: transformedHeatmap.length > 0 ? transformedHeatmap : [
@@ -933,20 +1051,31 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         } : null,
       })
 
-    } catch (err) {
+    } catch (err: any) {
+      // Don't set error if request was aborted (component unmounted)
+      if (err.name === 'AbortError') {
+        return
+      }
       console.error("Error fetching analytics:", err)
       setError("Failed to load analytics data")
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [childId, dateRange]) // Dependencies: refetch when child or date range changes
 
   // Fetch on mount and when childId or dateRange changes
+  // Uses AbortController to prevent duplicate calls from React Strict Mode
   useEffect(() => {
+    const abortController = new AbortController()
+    
     if (childId) {
-      fetchAnalytics()
+      fetchAnalytics(abortController.signal)
     }
-  }, [childId, dateRange])
+    
+    return () => {
+      abortController.abort() // Cancel pending request on unmount
+    }
+  }, [childId, dateRange, fetchAnalytics]) // Include fetchAnalytics in dependencies
 
   const handleRefresh = async () => {
     setIsRefreshing(true)
@@ -1113,6 +1242,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         <PerformanceTablesCard 
           subjectPerformance={analyticsData.subjectPerformance}
           difficultyPerformance={analyticsData.difficultyPerformance}
+          heatmapData={analyticsData.heatmapData}
         />
       </section>
 

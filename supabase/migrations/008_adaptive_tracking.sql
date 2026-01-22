@@ -1,4 +1,4 @@
--- Migration 013: Adaptive Difficulty Tracking
+-- Migration 008: Adaptive Difficulty Tracking
 -- 
 -- Creates infrastructure for tracking adaptive difficulty performance
 -- and question selection history per child and topic.
@@ -12,7 +12,7 @@
 -- - get_child_performance_tracker(): Gets current tracker state
 -- - get_topic_mastery_level(): Calculates mastery based on performance
 --
--- Created: 2026-01-22
+-- Created: 2026-01-20
 -- Author: Ember Ascent Development Team
 
 -- Enable UUID generation
@@ -76,10 +76,10 @@ CREATE TABLE IF NOT EXISTS child_topic_performance (
 );
 
 -- Indexes for performance
-CREATE INDEX IF NOT EXISTS idx_topic_performance_child ON child_topic_performance(child_id);
-CREATE INDEX IF NOT EXISTS idx_topic_performance_topic ON child_topic_performance(topic_id);
-CREATE INDEX IF NOT EXISTS idx_topic_performance_difficulty ON child_topic_performance(current_difficulty);
-CREATE INDEX IF NOT EXISTS idx_topic_performance_last_attempted ON child_topic_performance(last_attempted_at DESC);
+CREATE INDEX idx_topic_performance_child ON child_topic_performance(child_id);
+CREATE INDEX idx_topic_performance_topic ON child_topic_performance(topic_id);
+CREATE INDEX idx_topic_performance_difficulty ON child_topic_performance(current_difficulty);
+CREATE INDEX idx_topic_performance_last_attempted ON child_topic_performance(last_attempted_at DESC);
 
 -- ============================================================================
 -- TABLE: child_question_history
@@ -115,12 +115,12 @@ CREATE TABLE IF NOT EXISTS child_question_history (
 );
 
 -- Indexes for performance
-CREATE INDEX IF NOT EXISTS idx_question_history_child ON child_question_history(child_id);
-CREATE INDEX IF NOT EXISTS idx_question_history_question ON child_question_history(question_id);
-CREATE INDEX IF NOT EXISTS idx_question_history_session ON child_question_history(session_id);
-CREATE INDEX IF NOT EXISTS idx_question_history_attempted ON child_question_history(attempted_at DESC);
-CREATE INDEX IF NOT EXISTS idx_question_history_topic ON child_question_history(topic_id);
-CREATE INDEX IF NOT EXISTS idx_question_history_child_topic ON child_question_history(child_id, topic_id);
+CREATE INDEX idx_question_history_child ON child_question_history(child_id);
+CREATE INDEX idx_question_history_question ON child_question_history(question_id);
+CREATE INDEX idx_question_history_session ON child_question_history(session_id);
+CREATE INDEX idx_question_history_attempted ON child_question_history(attempted_at DESC);
+CREATE INDEX idx_question_history_topic ON child_question_history(topic_id);
+CREATE INDEX idx_question_history_child_topic ON child_question_history(child_id, topic_id);
 
 -- ============================================================================
 -- FUNCTION: update_topic_performance
@@ -286,8 +286,8 @@ CREATE OR REPLACE FUNCTION get_child_performance_tracker(
   p_topic_id TEXT
 )
 RETURNS TABLE(
-  tracker_child_id UUID,
-  tracker_topic_id TEXT,
+  child_id UUID,
+  topic_id TEXT,
   current_difficulty TEXT,
   recent_correct INTEGER,
   recent_incorrect INTEGER,
@@ -392,13 +392,6 @@ $$;
 -- Enable RLS
 ALTER TABLE child_topic_performance ENABLE ROW LEVEL SECURITY;
 ALTER TABLE child_question_history ENABLE ROW LEVEL SECURITY;
-
--- Drop existing policies if they exist
-DROP POLICY IF EXISTS "Parents can view their children's performance" ON child_topic_performance;
-DROP POLICY IF EXISTS "System can insert performance records" ON child_topic_performance;
-DROP POLICY IF EXISTS "System can update performance records" ON child_topic_performance;
-DROP POLICY IF EXISTS "Parents can view their children's history" ON child_question_history;
-DROP POLICY IF EXISTS "System can insert history records" ON child_question_history;
 
 -- child_topic_performance policies
 CREATE POLICY "Parents can view their children's performance"

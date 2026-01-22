@@ -1,0 +1,26 @@
+# .github/workflows/security-check.yml
+name: Security Checks
+
+on: [push, pull_request]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for secrets in code
+        run: |
+          # Fail if potential secrets found
+          grep -r "sk_live_\|sk_test_\|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" --include="*.ts" --include="*.tsx" --include="*.js" && exit 1 || exit 0
+      
+      - name: Check for console.log with PII patterns
+        run: |
+          # Warn on suspicious logging
+          grep -r "console\.\(log\|error\).*\(email\|password\|name\|child\)" --include="*.ts" --include="*.tsx" || true
+      
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+      
+      - name: TypeScript type check
+        run: npx tsc --noEmit

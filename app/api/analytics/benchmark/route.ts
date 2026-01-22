@@ -56,7 +56,7 @@ export async function GET(request: NextRequest) {
     )
   }
 
-  // Check subscription tier - Summit only
+  // Check subscription tier - Ascent or Summit
   const { data: profile } = await supabase
     .from('profiles')
     .select('subscription_tier')
@@ -65,9 +65,9 @@ export async function GET(request: NextRequest) {
 
   const subscriptionTier = (profile as any)?.subscription_tier || 'free'
   
-  if (subscriptionTier !== 'summit') {
+  if (subscriptionTier !== 'ascent' && subscriptionTier !== 'summit') {
     return NextResponse.json(
-      { error: 'Summit subscription required', tier: subscriptionTier },
+      { error: 'Premium subscription required for benchmarking', tier: subscriptionTier },
       { status: 403 }
     )
   }
