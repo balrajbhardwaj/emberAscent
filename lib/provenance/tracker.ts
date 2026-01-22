@@ -90,6 +90,140 @@ export async function logProvenanceEvent(
 }
 
 /**
+ * Log question creation event
+ * 
+ * @param questionId - Question ID
+ * @param generatorInfo - Information about how question was generated
+ * @returns Event ID or null if failed
+ * 
+ * @example
+ * ```ts
+ * await logCreation('q123', {
+ *   generator: 'claude-sonnet-4',
+ *   prompt_version: '1.2',
+ *   subject: 'Maths',
+ *   topic: 'Fractions'
+ * })
+ * ```
+ */
+export async function logCreation(
+  questionId: string,
+  generatorInfo: Record<string, any>
+): Promise<string | null> {
+  return logProvenanceEvent(questionId, 'created', generatorInfo, 'ai')
+}
+
+/**
+ * Log question review event
+ * 
+ * @param questionId - Question ID
+ * @param reviewerInfo - Reviewer details
+ * @param outcome - Review outcome ('approved', 'needs_revision', 'rejected')
+ * @returns Event ID or null if failed
+ * 
+ * @example
+ * ```ts
+ * await logReview('q123', {
+ *   reviewer_name: 'Emily Carter',
+ *   reviewer_id: 'r456'
+ * }, 'approved')
+ * ```
+ */
+export async function logReview(
+  questionId: string,
+  reviewerInfo: { reviewer_name: string; reviewer_id?: string },
+  outcome: 'approved' | 'needs_revision' | 'rejected'
+): Promise<string | null> {
+  return logProvenanceEvent(
+    questionId,
+    'reviewed',
+    { ...reviewerInfo, outcome },
+    'expert'
+  )
+}
+
+/**
+ * Log question edit event
+ * 
+ * @param questionId - Question ID
+ * @param editorId - ID of user who made the edit
+ * @param changes - Object describing what changed
+ * @returns Event ID or null if failed
+ * 
+ * @example
+ * ```ts
+ * await logEdit('q123', 'admin-123', {
+ *   field: 'question_text',
+ *   old_value: 'What is 2+2?',
+ *   new_value: 'What is the sum of 2 and 2?'
+ * })
+ * ```
+ */
+export async function logEdit(
+  questionId: string,
+  editorId: string,
+  changes: Record<string, any>
+): Promise<string | null> {
+  const supabase = await createClient()
+  
+  // First log the event with actor_id
+  const { data, error } = await supabase.rpc('log_provenance_event', {
+    p_question_id: questionId,
+    p_event_type: 'modified',
+    p_event_data: changes,
+    p_actor_type: 'admin',
+  })
+
+  if (error) {
+    console.error('Failed to log edit event:', error)
+    return null
+  }
+
+  return data
+}
+
+/**
+ * Log Ember Score change event
+ * 
+ * @param questionId - Question ID
+ * @param oldScore - Previous score
+ * @param newScore - New score
+ * @param reason - Reason for change (e.g., 'after_review', 'community_feedback')
+ * @returns Event ID or null if failed
+ * 
+ * @example
+ * ```ts
+ * await logScoreUpdate('q123', 72, 94, 'after_review')
+ * ```
+ */
+export async function logScoreUpdate(
+  questionId: string,
+  oldScore: number,
+  newScore: number,
+  reason: string
+): Promise<string | null> {
+  // Determine tier for old and new scores
+  const getScoreTier = (score: number) => {
+    if (score >= 90) return 'verified'
+    if (score >= 75) return 'confident'
+    return 'draft'
+  }
+
+  return logProvenanceEvent(
+    questionId,
+    'score_changed',
+    {
+      old_score: oldScore,
+      new_score: newScore,
+      old_tier: getScoreTier(oldScore),
+      new_tier: getScoreTier(newScore),
+      reason,
+    },
+    'system'
+  )
+}
+
+/**
  * Get provenance timeline for a question
  * 
  * @param questionId - Question ID

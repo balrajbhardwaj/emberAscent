@@ -28,6 +28,9 @@ import { RecentActivity } from "@/components/practice/RecentActivity"
 import { PracticeSkeleton } from "@/components/practice/PracticeSkeleton"
 import { hasCompletedQuickByteToday } from "./quick-byte/actions"
 
+// Force dynamic rendering to respect childId param changes
+export const dynamic = 'force-dynamic'
+
 /**
  * Practice Home Page
  * 
@@ -70,10 +73,11 @@ async function PracticeContent({ childId }: { childId?: string }) {
     .select("*")
     .eq("parent_id", user.id)
     .eq("is_active", true)
+    .order("created_at", { ascending: false })
 
   if (!children || children.length === 0) return null
 
-  // Determine selected child
+  // Determine selected child - match by ID from URL parameter
   const selectedChild = childId
     ? children.find((c: any) => c.id === childId) || children[0]
     : children[0]
@@ -231,7 +235,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
     <div className="space-y-6">
       {/* Welcome Section */}
       <WelcomeCard
-        childName={(selectedChild as any).name || "there"}
+        childName={selectedChild.name}
         currentStreak={currentStreak}
         questionsToday={questionsToday}
       />

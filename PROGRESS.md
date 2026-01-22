@@ -114,6 +114,91 @@
 - ✅ Score badge hidden when viewing completed state from previous day
 - ✅ Completion message: "Well done! 🎉 Come back tomorrow for more."
 
+---
+
+## Day 5 - January 21, 2026
+
+### Analytics Dashboard v2 (Production)
+- ✅ Transitioned all navigation to `/analytics2` route
+- ✅ Removed beta badge - dashboard is now production-ready
+- ✅ Implemented positive, strengths-based tone:
+  - Changed "weaknesses" to "areas of improvement"
+  - Reframed all negative language to be constructive
+  - Updated chart titles and labels for encouragement
+- ✅ Fixed bar chart backgrounds in custom questions component
+- ✅ Added context-aware help modal for each section
+- ✅ Created analytics upgrade banner for free tier users
+- ✅ Updated analytics preview on progress page
+
+### Marketing Pages
+- ✅ Created `/pricing` page with tiered feature comparison
+  - Free tier: Unlimited practice, basic progress tracking
+  - Ascent tier: Advanced analytics, learning health check, detailed insights
+  - Clear value proposition with feature grid
+- ✅ Created `/why-analytics` explainer page
+  - Explains parent analytics features
+  - Shows sample insights and benefits
+  - Links to pricing page
+- ✅ Simplified `/transparency` page
+  - Reduced from 407 to ~200 lines
+  - Clearer sections and less repetition
+  - Improved readability
+
+### Practice Experience Improvements
+- ✅ Fixed greeting bug - now shows child's name correctly
+- ✅ Implemented question time tracking:
+  - Added `questionStartTimes` state to track when each question starts
+  - Added `questionTimings` array to store per-question durations
+  - Sends timing data to backend for rush factor calculations
+- ✅ Improved session data persistence and error handling
+- ✅ Added `dynamic = 'force-dynamic'` to practice page to fix child switching bug
+
+### Learning Health Backend
+- ✅ Created `/api/analytics/learning-health` endpoint
+- ✅ Implemented three health indicators:
+  - **Rush Factor**: Detects rapid guessing based on time spent per question
+  - **Fatigue Analysis**: Identifies performance drops in later questions
+  - **Stagnant Topics**: Highlights topics with no improvement over time
+- ✅ Created 4 database migrations for health check functions:
+  - `get_practice_data_with_timing()` - Fetches sessions with question timings
+  - `calculate_rush_factor()` - Determines if student is rushing
+  - `detect_fatigue_pattern()` - Identifies fatigue in sessions
+  - `find_stagnant_topics()` - Finds topics without progress
+
+### Testing Infrastructure
+- ✅ Created test users for both tiers:
+  - Free tier: `test-free@example.com` / `testpassword123`
+  - Premium tier: `test-premium@example.com` / `testpassword123`
+- ✅ Created debugging scripts:
+  - `check-practice-data.js` - Verify practice sessions
+  - `check-sessions.js` - Inspect session structure
+  - `check-subjects.js` - Validate subject data
+  - `cleanup-duplicates.sql` - Remove duplicate records
+  - `confirm-test-user.sql` - Verify test user setup
+  - `debug-dashboard.sql` - Dashboard data debugging
+  - `validate-progress.sql` - Progress tracking validation
+
+---
+
+## Day 6 - January 22, 2026
+
+### Question Provenance System Completion
+- ✅ Added convenience logging functions to `/lib/provenance/tracker.ts`:
+  - `logCreation()` - Log question creation with generator info
+  - `logReview()` - Log expert review events with outcome
+  - `logEdit()` - Log question modifications with change details
+  - `logScoreUpdate()` - Log Ember Score changes with reason
+- ✅ Integrated `ProvenanceTimeline` component into `EmberScoreDetail` modal
+  - Shows complete question history with visual timeline
+  - Displays all lifecycle events (creation, reviews, score changes, errors)
+  - Icons and colors for each event type
+  - Expandable details with timestamps
+- ✅ Updated question metadata interface to include question ID for provenance lookup
+- ✅ Enhanced provenance section with "Complete Question History" sub-section
+- ✅ Full transparency system now operational
+
+---
+
 ## Current State
 
 ### Completed Features
@@ -125,13 +210,18 @@
 6. **Practice Landing Page** - Welcome, Quick Actions, Subject Browser, Recent Activity
 7. **Quick Byte Feature** - Daily bite-sized learning with 4 questions
 8. **Progress Tracking** - Session history and answer persistence
+9. **Analytics Dashboard v2** - Production-ready parent insights with positive tone
+10. **Marketing Pages** - Pricing, why-analytics, simplified transparency
+11. **Time Tracking** - Question-level timing for rush factor detection
+12. **Learning Health API** - Rush, fatigue, and stagnation detection
 
 ### Next Steps
-1. **Full Practice Sessions** - Complete question flow for focus/mock modes
-2. **Session Results** - Detailed results page with review
-3. **Child Management** - Add, edit, delete child profiles
-4. **Analytics Dashboard** - Parent insights (Ascent tier)
+1. **Learning Health UI** - Display health indicators in dashboard
+2. **Full Practice Sessions** - Complete question flow for focus/mock modes
+3. **Session Results** - Detailed results page with review
+4. **Child Management** - Add, edit, delete child profiles
 5. **Content Management** - Admin interface for questions
+6. **Payments Integration** - Stripe setup for Ascent tier
 
 ## Technology Stack
 
@@ -155,12 +245,13 @@
 ## Project Metrics
 
 ### Code Statistics
-- Total files: 90+
-- Lines of code: 15,000+
-- Components: 25+
+- Total files: 115+
+- Lines of code: 17,000+
+- Components: 30+
 - Database tables: 6
-- Migration files: 4
+- Migration files: 8
 - Session types: 4 (quick, focus, mock, quick_byte)
+- API routes: 5 (adaptive, analytics, reports, learning-health)
 
 ### Build Information
 - Build time: ~15s

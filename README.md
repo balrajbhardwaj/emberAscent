@@ -4,11 +4,19 @@ UK 11+ exam preparation platform for Year 4-5 students.
 
 ## Features
 
-- 🎯 Free practice questions aligned with National Curriculum
+### For Children (Free)
+- 🎯 Unlimited practice questions aligned with National Curriculum
 - 📊 Ember Score (0-100) for difficulty assessment
-- 📈 Progress tracking for students
 - 💡 Three difficulty levels: Foundation, Standard, Challenge
-- 👨‍👩‍👧 Parent analytics dashboard (paid tier)
+- ⚡ Quick Byte - Daily 4-question mini-session
+- 📈 Basic progress tracking
+
+### For Parents (Ascent Tier - Paid)
+- 📊 Advanced analytics dashboard with detailed insights
+- 🏥 Learning Health Check - Detects rushing, fatigue, stagnant topics
+- 📈 Growth tracking across subjects and difficulty levels
+- 🎯 Performance heatmaps and benchmarking
+- 📉 Detailed session analysis with time tracking
 
 ## Tech Stack
 
@@ -57,16 +65,33 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```
 /app                  # Next.js app router pages
-  /(auth)            # Authentication pages (login, signup)
+  /(auth)            # Authentication pages (login, signup, setup)
   /(dashboard)       # Protected dashboard pages
+    /practice        # Practice sessions with time tracking
+    /progress        # Progress overview
+    /analytics2      # Advanced analytics (Ascent tier)
+    /bookmarks       # Saved questions
+    /settings        # User settings
+  /(marketing)       # Public marketing pages (pricing, transparency)
   /api               # API routes
+    /adaptive        # Adaptive difficulty system
+    /analytics       # Analytics endpoints (learning-health)
+    /reports         # Report generation
 /components          # React components
   /ui                # shadcn/ui components
+  /analytics         # Analytics dashboard components
+  /practice          # Practice session components
+  /progress          # Progress tracking components
 /hooks               # Custom React hooks
 /lib                 # Utility functions
   /supabase          # Supabase client configuration
+  /scoring           # Ember Score calculations
+  /analytics         # Analytics data processing
+  /adaptive          # Adaptive learning algorithms
 /types               # TypeScript type definitions
 /supabase            # Supabase migrations and config
+  /migrations        # Database schema migrations
+/scripts             # Maintenance and testing scripts
 ```
 
 ## Development
