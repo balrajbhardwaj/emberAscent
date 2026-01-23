@@ -103,14 +103,14 @@ export async function selectQuestions(
     return []
   }
 
-  // Get child's recent attempts to avoid repeats
+  // Get child's recent attempts to avoid repeats - increased limit for better coverage
   const { data: recentAttempts } = await supabase
     .from("question_attempts")
     .select("question_id")
     .eq("child_id", criteria.childId)
     .gte("created_at", new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()) // Last 7 days
     .order("created_at", { ascending: false })
-    .limit(50)
+    .limit(200) // Increased from 50 to 200 for better coverage
 
   const recentQuestionIds = new Set(
     recentAttempts?.map((a) => a.question_id) || []
@@ -139,9 +139,14 @@ export async function selectQuestions(
       : 0.5
 
   // Determine difficulty distribution based on performance
+  // For new users (no attempts), default to standard-heavy mix
+  const hasAttempts = performanceData && performanceData.length > 0
   let difficultyWeights: Record<string, number>
   
-  if (recentCorrectRate > 0.8) {
+  if (!hasAttempts) {
+    // New user - start with mostly standard difficulty
+    difficultyWeights = { foundation: 0.2, standard: 0.6, challenge: 0.2 }
+  } else if (recentCorrectRate > 0.8) {
     // Performing well - more challenging questions
     difficultyWeights = { foundation: 0.2, standard: 0.3, challenge: 0.5 }
   } else if (recentCorrectRate > 0.6) {
@@ -152,41 +157,113 @@ export async function selectQuestions(
     difficultyWeights = { foundation: 0.5, standard: 0.4, challenge: 0.1 }
   }
 
-  // Group questions by difficulty
+  // Group questions by difficulty AND subject for balanced distribution
   const byDifficulty: Record<string, typeof availableQuestions> = {
     foundation: [],
     standard: [],
     challenge: [],
   }
 
+  const bySubject: Record<string, typeof availableQuestions> = {
+    mathematics: [],
+    english: [],
+  }
+
   availableQuestions.forEach((q) => {
     if (byDifficulty[q.difficulty]) {
       byDifficulty[q.difficulty].push(q)
     }
+    const subjectKey = q.subject.toLowerCase()
+    if (bySubject[subjectKey]) {
+      bySubject[subjectKey].push(q)
+    }
   })
 
-  // Select questions according to difficulty distribution
+  // Track selected question IDs AND question texts to ensure uniqueness
+  // This prevents both ID duplicates and content duplicates (same question text)
+  const selectedIds = new Set<string>()
+  const selectedTexts = new Set<string>()
   const selected: typeof availableQuestions = []
 
-  Object.entries(difficultyWeights).forEach(([difficulty, weight]) => {
-    const targetCount = Math.round(criteria.count * weight)
-    const pool = byDifficulty[difficulty] || []
-    
-    // Shuffle and take
-    const shuffled = pool.sort(() => Math.random() - 0.5)
-    selected.push(...shuffled.slice(0, targetCount))
-  })
+  /**
+   * Helper to add unique questions from a pool
+   * Ensures both ID and question_text are unique
+   */
+  const addUniqueQuestions = (pool: typeof availableQuestions, count: number) => {
+    // Filter out already selected IDs AND duplicate question texts
+    const available = pool.filter(q => 
+      !selectedIds.has(q.id) && !selectedTexts.has(q.question_text.toLowerCase().trim())
+    )
+    const shuffled = available.sort(() => Math.random() - 0.5)
+    const toAdd = shuffled.slice(0, count)
+    toAdd.forEach(q => {
+      selectedIds.add(q.id)
+      selectedTexts.add(q.question_text.toLowerCase().trim())
+      selected.push(q)
+    })
+    return toAdd.length
+  }
 
-  // If we don't have enough, fill with random questions
+  // If no subject filter specified, balance between maths and english
+  if (!criteria.subject) {
+    // For mixed sessions, distribute evenly across subjects first
+    const mathsQuestions = bySubject.mathematics || []
+    const englishQuestions = bySubject.english || []
+    
+    const mathsCount = Math.ceil(criteria.count / 2)
+    const englishCount = Math.floor(criteria.count / 2)
+
+    // Select from maths - prefer standard difficulty for new users
+    const mathsByDifficulty: Record<string, typeof availableQuestions> = {
+      foundation: mathsQuestions.filter(q => q.difficulty === 'foundation'),
+      standard: mathsQuestions.filter(q => q.difficulty === 'standard'),
+      challenge: mathsQuestions.filter(q => q.difficulty === 'challenge'),
+    }
+
+    // Select from english - prefer standard difficulty for new users
+    const englishByDifficulty: Record<string, typeof availableQuestions> = {
+      foundation: englishQuestions.filter(q => q.difficulty === 'foundation'),
+      standard: englishQuestions.filter(q => q.difficulty === 'standard'),
+      challenge: englishQuestions.filter(q => q.difficulty === 'challenge'),
+    }
+
+    // Apply difficulty weights per subject
+    Object.entries(difficultyWeights).forEach(([difficulty, weight]) => {
+      const mathsTarget = Math.round(mathsCount * weight)
+      const englishTarget = Math.round(englishCount * weight)
+      
+      addUniqueQuestions(mathsByDifficulty[difficulty] || [], mathsTarget)
+      addUniqueQuestions(englishByDifficulty[difficulty] || [], englishTarget)
+    })
+  } else {
+    // Single subject mode - apply difficulty weights
+    Object.entries(difficultyWeights).forEach(([difficulty, weight]) => {
+      const targetCount = Math.round(criteria.count * weight)
+      const pool = byDifficulty[difficulty] || []
+      addUniqueQuestions(pool, targetCount)
+    })
+  }
+
+  // If we don't have enough, fill with random UNIQUE questions
   if (selected.length < criteria.count) {
     const remaining = availableQuestions
-      .filter((q) => !selected.includes(q))
+      .filter((q) => !selectedIds.has(q.id) && !selectedTexts.has(q.question_text.toLowerCase().trim()))
       .sort(() => Math.random() - 0.5)
-    selected.push(...remaining.slice(0, criteria.count - selected.length))
+    addUniqueQuestions(remaining, criteria.count - selected.length)
   }
 
   // Shuffle final selection and trim to exact count
-  const final = selected.sort(() => Math.random() - 0.5).slice(0, criteria.count)
+  // Ensure no duplicates by ID and question_text in final array
+  const seenTexts = new Set<string>()
+  const final = selected
+    .filter((q) => {
+      const textKey = q.question_text.toLowerCase().trim()
+      if (seenTexts.has(textKey)) return false
+      seenTexts.add(textKey)
+      return true
+    })
+    .sort(() => Math.random() - 0.5)
+    .slice(0, criteria.count)
 
   // Transform to expected format
   return final.map((q) => {

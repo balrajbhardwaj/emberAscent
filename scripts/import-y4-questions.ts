@@ -288,7 +288,7 @@ async function importY4Questions() {
 
   // Verify Supabase connection
   try {
-    const { data, error } = await supabase.from('profiles').select('id').limit(1)
+    const { error } = await supabase.from('profiles').select('id').limit(1)
     if (error) throw error
     console.log(`✅ Connected to Supabase: ${supabaseUrl.substring(0, 30)}...`)
     console.log(`✅ Using service role key\n`)

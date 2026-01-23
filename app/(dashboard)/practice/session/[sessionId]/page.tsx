@@ -2,18 +2,19 @@
  * Practice Session Page
  * 
  * Active practice session where users answer questions.
- * Handles question flow, timing, and progress tracking.
  * 
- * Features adaptive difficulty for quick/focus sessions.
- * Uses fixed difficulty distribution for mock tests.
+ * Logic:
+ * 1. New session: Load 10x questions via API for coverage, track used questions, mix subjects
+ * 2. Retry (Practice Again): Load same questions from previous session
+ * 3. Questions are pre-loaded and served from pool to ensure uniqueness
  * 
  * @module app/(dashboard)/practice/session/[sessionId]/page
  */
 
 "use client"
 
-import { useEffect, useState } from "react"
-import { useRouter, useParams } from "next/navigation"
+import { useEffect, useState, useRef, useCallback } from "react"
+import { useRouter, useParams, useSearchParams } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -23,9 +24,7 @@ import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
 import { EmberScore } from "@/components/practice/EmberScore"
 import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
 import { ProvenancePanel } from "@/components/ember-score/ProvenancePanel"
-import { useAdaptiveSession, getDifficultyDisplay } from "@/hooks/useAdaptiveSession"
 import { useToast } from "@/hooks/use-toast"
-import type { DifficultyLevel } from "@/types/adaptive"
 
 interface QuestionOption {
   id: string
@@ -42,15 +41,12 @@ interface Question {
   correct_answer: string
   explanations: {
     step_by_step: string
-    visual: string
-    worked_example: string
+    visual: string | null
+    worked_example: string | null
   } | null
   ember_score: number
   year_group: number | null
   curriculum_reference: string | null
-  is_published: boolean
-  created_at: string
-  created_by: string | null
 }
 
 interface PracticeSession {
@@ -63,24 +59,28 @@ interface PracticeSession {
   started_at: string
   completed_at: string | null
   correct_answers: number
-  created_at: string
 }
 
 export default function PracticeSessionPage() {
   const router = useRouter()
   const params = useParams()
+  const searchParams = useSearchParams()
   const sessionId = params?.sessionId as string
+  const retryFromSession = searchParams?.get('retry') // 'true' if retry mode
   const { toast } = useToast()
 
+  // Session and child state
   const [session, setSession] = useState<PracticeSession | null>(null)
   const [childId, setChildId] = useState<string>('')
-  const [topicId, setTopicId] = useState<string>('')
   
-  // For mock tests: pre-load all questions
-  const [mockQuestions, setMockQuestions] = useState<Question[]>([])
-  const [currentMockIndex, setCurrentMockIndex] = useState(0)
+  // Question pool and tracking
+  const [questionPool, setQuestionPool] = useState<Question[]>([])
+  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<string>>(new Set())
+  const [usedQuestionTexts, setUsedQuestionTexts] = useState<Set<string>>(new Set())
+  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null)
+  const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]) // Questions shown in this session
   
-  // Common state
+  // Progress state
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
   const [correctCount, setCorrectCount] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')
@@ -90,47 +90,231 @@ export default function PracticeSessionPage() {
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [showProvenancePanel, setShowProvenancePanel] = useState(false)
   
-  // Adaptive session hook (for quick/focus sessions)
-  const isAdaptiveSession = session?.session_type === 'quick' || session?.session_type === 'focus'
-  const {
-    currentQuestion: adaptiveQuestion,
-    adaptiveInfo,
-    isLoading: isLoadingQuestion,
-    fetchNextQuestion,
-    submitAnswer: submitAdaptiveAnswer,
-    isExhausted
-  } = useAdaptiveSession({
-    childId: childId,
-    topicId: topicId,
-    sessionId: sessionId,
-    onDifficultyAdjust: (adjustment) => {
-      if (adjustment.shouldAdjust) {
-        const diffDisplay = getDifficultyDisplay(adjustment.recommendedDifficulty as DifficultyLevel)
-        toast({
-          title: "Difficulty Adjusted! " + diffDisplay.icon,
-          description: adjustment.adjustmentReason,
-          duration: 4000,
-        })
-      }
-    }
-  })
-  
-  // Current question (either adaptive or mock)
-  const currentQuestion = isAdaptiveSession 
-    ? adaptiveQuestion 
-    : mockQuestions[currentMockIndex]
+  // Track last subject to alternate
+  const lastSubjectRef = useRef<string>('')
+  const hasLoadedRef = useRef<boolean>(false)
 
+  /**
+   * Pick next question from pool ensuring:
+   * - Not already used (by ID or question_text)
+   * - Alternates subjects when possible (maths -> english -> maths)
+   */
+  const pickNextQuestion = useCallback((
+    pool: Question[],
+    usedIds: Set<string>,
+    usedTexts: Set<string>,
+    lastSubject: string
+  ): Question | null => {
+    // Filter to available questions (not used by ID or text)
+    const available = pool.filter(q => 
+      !usedIds.has(q.id) && 
+      !usedTexts.has(q.question_text.toLowerCase().trim())
+    )
+    
+    if (available.length === 0) return null
+    
+    // Try to alternate subjects
+    const preferredSubject = lastSubject.toLowerCase() === 'mathematics' ? 'english' : 'mathematics'
+    const preferredQuestions = available.filter(q => q.subject.toLowerCase() === preferredSubject)
+    
+    // Pick from preferred subject if available, otherwise any available
+    const candidates = preferredQuestions.length > 0 ? preferredQuestions : available
+    
+    // Shuffle and pick first
+    const shuffled = [...candidates].sort(() => Math.random() - 0.5)
+    return shuffled[0]
+  }, [])
+
+  /**
+   * Load fresh questions from API for a new session
+   * Loads 10x the needed count for coverage
+   */
+  const loadFreshQuestions = useCallback(async (sessionData: PracticeSession) => {
+    try {
+      const totalNeeded = sessionData.total_questions || 10
+      const poolSize = totalNeeded * 10 // Load 10x for coverage
+      
+      const params = new URLSearchParams({
+        childId: sessionData.child_id,
+        sessionType: sessionData.session_type,
+        count: poolSize.toString(),
+      })
+      
+      if (sessionData.subject && sessionData.subject !== 'mixed') {
+        params.append('subject', sessionData.subject)
+      }
+      
+      const response = await fetch(`/api/practice/session-questions?${params}`)
+      const data = await response.json()
+      
+      if (!response.ok || !data.questions || data.questions.length === 0) {
+        console.error('No questions available:', data.error)
+        toast({
+          title: "Error",
+          description: "No questions available. Please try again later.",
+          variant: "destructive"
+        })
+        router.push('/practice')
+        return
+      }
+      
+      // Transform API response to Question format
+      const questions: Question[] = data.questions.map((q: any) => ({
+        id: q.id,
+        question_text: q.question_text,
+        subject: q.subject,
+        topic: q.topic,
+        difficulty: q.difficulty,
+        options: q.options,
+        correct_answer: q.correct_answer,
+        explanations: q.explanations,
+        ember_score: q.ember_score,
+        year_group: null,
+        curriculum_reference: q.curriculum_reference,
+      }))
+      
+      setQuestionPool(questions)
+      
+      // Pick first question with subject balancing
+      const firstQuestion = pickNextQuestion(questions, new Set(), new Set(), '')
+      if (firstQuestion) {
+        setCurrentQuestion(firstQuestion)
+        setSessionQuestions([firstQuestion])
+        setUsedQuestionIds(new Set([firstQuestion.id]))
+        setUsedQuestionTexts(new Set([firstQuestion.question_text.toLowerCase().trim()]))
+        lastSubjectRef.current = firstQuestion.subject.toLowerCase()
+        setQuestionStartTime(Date.now())
+      }
+      
+      // Set timer for mock tests - fixed 60 minutes
+      if (sessionData.session_type === 'mock') {
+        const timeLimit = 60 * 60 // 60 minutes fixed
+        setTimeRemaining(timeLimit)
+      }
+      
+    } catch (error) {
+      console.error('Failed to load fresh questions:', error)
+      toast({
+        title: "Error",
+        description: "Failed to load questions. Please try again.",
+        variant: "destructive"
+      })
+      router.push('/practice')
+    } finally {
+      setIsLoading(false)
+    }
+  }, [router, toast, pickNextQuestion])
+
+  /**
+   * Load the same questions from the previous session for retry
+   */
+  const loadRetryQuestions = useCallback(async (supabase: any, sessionData: PracticeSession) => {
+    try {
+      // Get question IDs from previous attempts in this session
+      const { data: attempts, error: attemptsError } = await supabase
+        .from('question_attempts')
+        .select('question_id')
+        .eq('session_id', sessionId)
+        .order('created_at', { ascending: true })
+
+      if (attemptsError || !attempts || attempts.length === 0) {
+        console.error('No previous attempts found for retry:', attemptsError)
+        // Fall back to new questions
+        await loadFreshQuestions(sessionData)
+        return
+      }
+
+      // Get unique question IDs preserving order
+      const questionIds = Array.from(new Set<string>(attempts.map((a: any) => a.question_id)))
+
+      // Load full question data
+      const { data: questions, error: questionsError } = await supabase
+        .from('questions')
+        .select('*')
+        .in('id', questionIds)
+
+      if (questionsError || !questions || questions.length === 0) {
+        console.error('Error loading retry questions:', questionsError)
+        await loadFreshQuestions(sessionData)
+        return
+      }
+
+      // Sort questions to match original order
+      const orderedQuestions = questionIds
+        .map((id: string) => questions.find((q: any) => q.id === id))
+        .filter(Boolean) as Question[]
+
+      // Set up the session with these questions
+      setSessionQuestions(orderedQuestions)
+      setQuestionPool(orderedQuestions)
+      setCurrentQuestion(orderedQuestions[0])
+      setQuestionStartTime(Date.now())
+      
+      // Mark all as used (they will be shown in order)
+      const usedIds = new Set(orderedQuestions.map(q => q.id))
+      const usedTexts = new Set(orderedQuestions.map(q => q.question_text.toLowerCase().trim()))
+      setUsedQuestionIds(usedIds)
+      setUsedQuestionTexts(usedTexts)
+      
+      toast({
+        title: "Practice Again",
+        description: `Retrying ${orderedQuestions.length} questions from your previous session.`,
+        duration: 3000,
+      })
+      
+    } catch (error) {
+      console.error('Failed to load retry questions:', error)
+      await loadFreshQuestions(sessionData)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [sessionId, loadFreshQuestions, toast])
+
+  /**
+   * Load session details and questions
+   */
+  const loadSession = useCallback(async () => {
+    if (hasLoadedRef.current) return
+    hasLoadedRef.current = true
+    
+    try {
+      const supabase = createClient()
+      
+      // Load session details
+      const { data: sessionData, error: sessionError } = await supabase
+        .from('practice_sessions')
+        .select('*')
+        .eq('id', sessionId)
+        .single()
+
+      if (sessionError || !sessionData) {
+        console.error('Session not found:', sessionError)
+        router.push('/practice')
+        return
+      }
+
+      setSession(sessionData as PracticeSession)
+      setChildId(sessionData.child_id)
+      
+      // Check if this is a retry - load from the session we're retrying
+      if (retryFromSession === 'true') {
+        await loadRetryQuestions(supabase, sessionData as PracticeSession)
+      } else {
+        // New session - load fresh questions from API
+        await loadFreshQuestions(sessionData as PracticeSession)
+      }
+      
+    } catch (error) {
+      console.error('Failed to load session:', error)
+      router.push('/practice')
+    }
+  }, [sessionId, retryFromSession, router, loadFreshQuestions, loadRetryQuestions])
+
+  // Load session on mount
   useEffect(() => {
     if (!sessionId) return
     loadSession()
-  }, [sessionId])
-
-  // Start question timing when question loads
-  useEffect(() => {
-    if (currentQuestion && !hasSubmitted) {
-      setQuestionStartTime(Date.now())
-    }
-  }, [currentQuestion, hasSubmitted])
+  }, [sessionId, loadSession])
 
   // Timer effect for timed sessions
   useEffect(() => {
@@ -148,121 +332,6 @@ export default function PracticeSessionPage() {
 
     return () => clearInterval(timer)
   }, [timeRemaining])
-
-  async function loadSession() {
-    try {
-      const supabase = createClient()
-      
-      // Load session details
-      const { data: sessionData, error: sessionError } = await supabase
-        .from('practice_sessions')
-        .select('*')
-        .eq('id', sessionId)
-        .single()
-
-      if (sessionError || !sessionData) {
-        console.error('Session not found:', sessionError)
-        router.push('/practice')
-        return
-      }
-
-      setSession(sessionData as any)
-      setChildId(sessionData.child_id)
-      
-      // Get topic ID if specified
-      if (sessionData.topic) {
-        setTopicId(sessionData.topic)
-      } else if (sessionData.subject) {
-        // Use subject as topic for now (may need refinement)
-        setTopicId(sessionData.subject)
-      } else {
-        setTopicId('general')
-      }
-      
-      // For mock tests: pre-load all questions with fixed distribution
-      if (sessionData.session_type === 'mock') {
-        await loadMockQuestions(supabase, sessionData)
-      }
-      // For adaptive sessions: fetch first question
-      else if (sessionData.session_type === 'quick' || sessionData.session_type === 'focus') {
-        // Will be handled by useAdaptiveSession hook
-        setIsLoading(false)
-      } else {
-        // Fallback for other session types
-        setIsLoading(false)
-      }
-      
-    } catch (error) {
-      console.error('Failed to load session:', error)
-      router.push('/practice')
-    }
-  }
-  
-  async function loadMockQuestions(supabase: any, sessionData: any) {
-    try {
-      const totalQuestions = sessionData.total_questions || 20
-      
-      // Mock test distribution: 25% foundation, 50% standard, 25% challenge
-      const foundationCount = Math.round(totalQuestions * 0.25)
-      const challengeCount = Math.round(totalQuestions * 0.25)
-      const standardCount = totalQuestions - foundationCount - challengeCount
-      
-      const loadedQuestions: Question[] = []
-      
-      // Load each difficulty level
-      for (const { difficulty, count } of [
-        { difficulty: 'foundation', count: foundationCount },
-        { difficulty: 'standard', count: standardCount },
-        { difficulty: 'challenge', count: challengeCount }
-      ]) {
-        let query = supabase
-          .from('questions')
-          .select('*')
-          .eq('is_published', true)
-          .eq('difficulty', difficulty)
-          .limit(count * 2) // Get extra for randomization
-        
-        if (sessionData.subject && sessionData.subject !== 'mixed') {
-          query = query.ilike('subject', `%${sessionData.subject}%`)
-        }
-        
-        if (sessionData.topic) {
-          query = query.ilike('topic', `%${sessionData.topic}%`)
-        }
-        
-        const { data, error } = await query
-        
-        if (error) {
-          console.error(`Error loading ${difficulty} questions:`, error)
-          continue
-        }
-        
-        // Shuffle and take required count
-        const shuffled = (data || []).sort(() => Math.random() - 0.5)
-        loadedQuestions.push(...shuffled.slice(0, count) as Question[])
-      }
-      
-      // Final shuffle to mix difficulties
-      const finalQuestions = loadedQuestions.sort(() => Math.random() - 0.5)
-      setMockQuestions(finalQuestions)
-      
-      // Set timer for mock tests (e.g., 40 minutes for 20 questions)
-      const timeLimit = totalQuestions * 120 // 2 minutes per question
-      setTimeRemaining(timeLimit)
-      
-    } catch (error) {
-      console.error('Failed to load mock questions:', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-  
-  // Fetch first adaptive question when ready
-  useEffect(() => {
-    if (isAdaptiveSession && childId && topicId && !isLoading) {
-      fetchNextQuestion()
-    }
-  }, [isAdaptiveSession, childId, topicId, isLoading])
 
   function handleAnswerSelect(answerId: string) {
     if (hasSubmitted) return
@@ -295,11 +364,6 @@ export default function PracticeSessionPage() {
           is_correct: isCorrect,
           time_taken_seconds: timeSpent,
         })
-      
-      // For adaptive sessions: submit to adaptive system
-      if (isAdaptiveSession) {
-        await submitAdaptiveAnswer(currentQuestion.id, isCorrect, timeSpent)
-      }
     } catch (error) {
       console.error('Error recording attempt:', error)
     }
@@ -317,17 +381,37 @@ export default function PracticeSessionPage() {
       return
     }
     
-    // Load next question based on session type
-    if (isAdaptiveSession) {
-      // Fetch next adaptive question
-      fetchNextQuestion()
-    } else {
-      // Move to next mock question
-      if (currentMockIndex < mockQuestions.length - 1) {
-        setCurrentMockIndex(prev => prev + 1)
+    // For retry mode, questions are in fixed order
+    if (retryFromSession === 'true') {
+      const nextIndex = questionsAnswered
+      if (nextIndex < sessionQuestions.length) {
+        setCurrentQuestion(sessionQuestions[nextIndex])
+        setQuestionStartTime(Date.now())
       } else {
         handleFinishSession()
       }
+      return
+    }
+    
+    // For new session, pick next from pool
+    const nextQuestion = pickNextQuestion(
+      questionPool,
+      usedQuestionIds,
+      usedQuestionTexts,
+      lastSubjectRef.current
+    )
+    
+    if (nextQuestion) {
+      setCurrentQuestion(nextQuestion)
+      setSessionQuestions(prev => [...prev, nextQuestion])
+      setUsedQuestionIds(prev => new Set([...prev, nextQuestion.id]))
+      setUsedQuestionTexts(prev => new Set([...prev, nextQuestion.question_text.toLowerCase().trim()]))
+      lastSubjectRef.current = nextQuestion.subject.toLowerCase()
+      setQuestionStartTime(Date.now())
+    } else {
+      // No more questions available - this shouldn't happen with 10x pool
+      console.warn('Question pool exhausted')
+      handleFinishSession()
     }
   }
 
@@ -365,7 +449,8 @@ export default function PracticeSessionPage() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  if (isLoading || (isAdaptiveSession && isLoadingQuestion && !currentQuestion)) {
+  // Loading state
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center">
@@ -376,13 +461,12 @@ export default function PracticeSessionPage() {
     )
   }
 
+  // No session or question
   if (!session || !currentQuestion) {
     return (
       <div className="text-center py-12">
         <p className="text-slate-600 mb-4">
-          {isExhausted 
-            ? "No more questions available. Great work!" 
-            : "Session not found or no questions available."}
+          Session not found or no questions available.
         </p>
         <Button onClick={() => router.push('/practice')}>
           Return to Practice
@@ -403,7 +487,10 @@ export default function PracticeSessionPage() {
           <h1 className="text-2xl font-bold text-slate-900">
             {session.session_type.charAt(0).toUpperCase() + session.session_type.slice(1)} Practice
           </h1>
-          <p className="text-slate-600 capitalize">{session.subject}</p>
+          <p className="text-slate-600 capitalize">
+            {session.subject || 'Mixed Subjects'}
+            {retryFromSession === 'true' && ' (Retry)'}
+          </p>
         </div>
         
         {timeRemaining !== null && (
@@ -429,26 +516,24 @@ export default function PracticeSessionPage() {
         <Progress value={progressPercentage} className="h-2" />
       </div>
       
-      {/* Adaptive Difficulty Indicator */}
-      {isAdaptiveSession && adaptiveInfo && (
-        <div className="flex items-center gap-2 text-sm">
-          <Badge variant="outline" className={getDifficultyDisplay(adaptiveInfo.currentDifficulty).color}>
-            {getDifficultyDisplay(adaptiveInfo.currentDifficulty).icon} {getDifficultyDisplay(adaptiveInfo.currentDifficulty).name}
-          </Badge>
-          <span className="text-slate-600">
-            Recent: {Math.round(adaptiveInfo.recentAccuracy * 100)}% • Streak: {adaptiveInfo.currentStreak}
-          </span>
-        </div>
-      )}
+      {/* Subject indicator */}
+      <div className="flex items-center gap-2 text-sm">
+        <Badge variant="outline" className="capitalize">
+          {currentQuestion.subject}
+        </Badge>
+        <Badge variant="secondary" className="capitalize">
+          {currentQuestion.difficulty}
+        </Badge>
+        {currentQuestion.topic && (
+          <span className="text-slate-600">• {currentQuestion.topic}</span>
+        )}
+      </div>
 
       {/* Question Card */}
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <Badge variant="secondary" className="capitalize">
-                {currentQuestion.subject}
-              </Badge>
               {currentQuestion.curriculum_reference && (
                 <CurriculumBadge 
                   code={currentQuestion.curriculum_reference}
@@ -523,7 +608,7 @@ export default function PracticeSessionPage() {
             })}
           </div>
 
-          {/* Result feedback + Next Button (MOVED UP - appears immediately after options) */}
+          {/* Result feedback + Next Button */}
           {hasSubmitted && (
             <div className={`mt-4 p-4 rounded-lg flex items-center justify-between ${
               selectedAnswer === currentQuestion.correct_answer
@@ -554,7 +639,7 @@ export default function PracticeSessionPage() {
             </div>
           )}
 
-          {/* Submit Answer button (only before submission) */}
+          {/* Submit Answer button */}
           {!hasSubmitted && (
             <div className="flex justify-end pt-4">
               <Button
@@ -567,7 +652,7 @@ export default function PracticeSessionPage() {
             </div>
           )}
 
-          {/* Explanation Panel (NOW BELOW the result - optional viewing) */}
+          {/* Explanation Panel */}
           {hasSubmitted && currentQuestion.explanations && (
             <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
               <div className="flex items-start space-x-3">
@@ -602,7 +687,7 @@ export default function PracticeSessionPage() {
         </CardContent>
       </Card>
 
-      {/* Provenance Panel - Non-obstructive slide-in */}
+      {/* Provenance Panel */}
       <ProvenancePanel
         isOpen={showProvenancePanel}
         onClose={() => setShowProvenancePanel(false)}
@@ -612,7 +697,7 @@ export default function PracticeSessionPage() {
           topic: currentQuestion.topic || 'General',
           emberScore: currentQuestion.ember_score,
           curriculumReference: currentQuestion.curriculum_reference || undefined,
-          createdAt: new Date(currentQuestion.created_at),
+          createdAt: new Date(),
         }}
       />
     </div>

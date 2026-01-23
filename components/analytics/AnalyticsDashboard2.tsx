@@ -934,30 +934,12 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
 
       const result = await response.json()
       
-      console.log('[Analytics Dashboard] API Response:', {
-        success: result.success,
-        hasData: !!result.data,
-        dataKeys: result.data ? Object.keys(result.data) : [],
-      })
-      
       if (!result.success || !result.data) {
         console.error('[Analytics Dashboard] Invalid response format:', result)
         throw new Error('Invalid response format')
       }
 
       const { comprehensive, readiness, heatmap, benchmark, learningHealth } = result.data
-      
-      console.log('[Analytics Dashboard] Data extracted:', {
-        comprehensive: comprehensive ? {
-          totalQuestions: comprehensive.summary?.totalQuestionsAnswered,
-          accuracy: comprehensive.summary?.overallAccuracy,
-          subjects: comprehensive.subjectBreakdown?.length,
-        } : null,
-        readiness: readiness ? { score: readiness.overallScore } : null,
-        heatmap: heatmap ? { cells: heatmap.cells?.length } : null,
-        learningHealth: learningHealth || null,
-        benchmark: benchmark ? 'present' : 'null',
-      })
 
       // Transform heatmap data for the grid view
       // Note: Keep subject in original lowercase format for lookup matching
@@ -1003,19 +985,6 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
       const rushFactor = learningHealth?.rushFactor || 0
       const fatigueDropOff = learningHealth?.fatigueDropOff || 0
       const stagnantTopics = learningHealth?.stagnantTopics || 0
-
-      console.log('[Analytics Dashboard] Setting state with:', {
-        kpis: {
-          readinessScore: readiness?.overallScore || 0,
-          ascentScore: comprehensive?.summary?.overallAccuracy || 0,
-          velocity: comprehensive?.summary?.totalQuestionsAnswered || 0,
-          totalQuestions: comprehensive?.summary?.totalQuestionsAnswered || 0,
-        },
-        risks: { rushFactor, fatigueDropOff, stagnantTopics },
-        subjectCount: subjectPerformance.length,
-        difficultyCount: difficultyPerformance.length,
-        heatmapCount: transformedHeatmap.length,
-      })
 
       setAnalyticsData({
         kpis: {

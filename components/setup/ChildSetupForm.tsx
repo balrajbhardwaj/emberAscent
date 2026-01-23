@@ -19,7 +19,7 @@ const childSetupSchema = z.object({
     .string()
     .min(2, "Name must be at least 2 characters")
     .max(50, "Name must be less than 50 characters"),
-  yearGroup: z.string().refine((val) => ["4", "5", "6"].includes(val), {
+  yearGroup: z.string().refine((val) => ["3", "4", "5", "6"].includes(val), {
     message: "Please select a year group",
   }),
   targetSchool: z.string().max(100).optional(),
