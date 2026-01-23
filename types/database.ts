@@ -100,6 +100,9 @@ export interface Profile {
   subscription_status: SubscriptionStatus;
   stripe_customer_id: string | null;
   stripe_subscription_id: string | null;
+  subscription_period_start: string | null;
+  subscription_period_end: string | null;
+  cancel_at_period_end: boolean | null;
   created_at: string;
   updated_at: string;
 }
@@ -232,7 +235,7 @@ export type ErrorReportInsert = Omit<
 // =============================================================================
 
 export type ProfileUpdate = Partial<
-  Omit<ProfileInsert, 'id' | 'email'>
+  Omit<Profile, 'id' | 'email' | 'created_at'>
 >;
 
 export type ChildUpdate = Partial<ChildInsert>;
