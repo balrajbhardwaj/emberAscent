@@ -8,7 +8,7 @@
  */
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -29,7 +29,9 @@ import {
   Play,
   CheckCircle2,
   Sparkles,
-  RefreshCw
+  RefreshCw,
+  Flame,
+  ArrowRight
 } from 'lucide-react'
 import type { StudyPlan, PlannedActivity } from '@/types/analytics'
 import { cn } from '@/lib/utils'
@@ -48,30 +50,42 @@ export function StudyPlanDisplay({ childId, onActivityStart }: StudyPlanProps) {
   const [plan, setPlan] = useState<StudyPlan | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [expandedDays, setExpandedDays] = useState<Set<string>>(new Set())
+  const [isRefetching, setIsRefetching] = useState(false)
 
   // Fetch study plan
-  useEffect(() => {
-    async function fetchPlan() {
-      setIsLoading(true)
+  const fetchPlan = useCallback(
+    async (options?: { background?: boolean }) => {
+      if (options?.background) {
+        setIsRefetching(true)
+      } else {
+        setIsLoading(true)
+      }
+
       try {
         const response = await fetch(`/api/analytics/study-plan?childId=${childId}`)
         if (response.ok) {
           const data = await response.json()
           setPlan(data)
-          
-          // Auto-expand today
+
           const today = new Date().toISOString().split('T')[0]
           setExpandedDays(new Set([today]))
         }
       } catch (error) {
         console.error('Error fetching study plan:', error)
       } finally {
-        setIsLoading(false)
+        if (options?.background) {
+          setIsRefetching(false)
+        } else {
+          setIsLoading(false)
+        }
       }
-    }
+    },
+    [childId]
+  )
 
+  useEffect(() => {
     fetchPlan()
-  }, [childId])
+  }, [fetchPlan])
 
   // Toggle day expansion
   const toggleDay = (dateString: string) => {
@@ -149,6 +163,57 @@ export function StudyPlanDisplay({ childId, onActivityStart }: StudyPlanProps) {
     )
   }
 
+  const weekAnchor = plan.weekOf ? new Date(plan.weekOf) : new Date(plan.weekStart)
+  const calendarDays = Array.from({ length: 7 }, (_, offset) => {
+    const currentDate = new Date(weekAnchor)
+    currentDate.setDate(weekAnchor.getDate() + offset)
+    const dayPlan = plan.dailyPlans.find(
+      (day) => new Date(day.date).toDateString() === currentDate.toDateString()
+    )
+    const completedCount = dayPlan ? dayPlan.activities.filter((a) => a.completed).length : 0
+    const totalActivities = dayPlan?.activities.length ?? 0
+
+    return {
+      date: currentDate,
+      plan: dayPlan,
+      completedCount,
+      totalActivities,
+      isRestDay: !dayPlan || totalActivities === 0,
+      isToday: isToday(currentDate)
+    }
+  })
+
+  const calendarRangeLabel = calendarDays.length
+    ? `${calendarDays[0].date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short'
+      })} - ${calendarDays[calendarDays.length - 1].date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short'
+      })}`
+    : ''
+
+  const todayPlan = plan.dailyPlans.find((day) => isToday(new Date(day.date)))
+  const nextActivity =
+    todayPlan?.activities.find((activity) => !activity.completed) ?? todayPlan?.activities[0]
+  const planStreak = plan.dailyPlans.filter(
+    (day) => day.activities.length > 0 && day.activities.every((activity) => activity.completed)
+  ).length
+  const focusAreas = plan.focusAreas.slice(0, 3)
+
+  const findActivityForTopic = (topic: string): PlannedActivity | undefined => {
+    for (const dayPlan of plan.dailyPlans) {
+      const match = dayPlan.activities.find((activity) => activity.topic === topic)
+      if (match) return match
+    }
+    return undefined
+  }
+
+  const handleStartActivity = (activity?: PlannedActivity) => {
+    if (!activity) return
+    onActivityStart?.(activity)
+  }
+
   const progress = calculateProgress()
 
   return (
@@ -170,140 +235,284 @@ export function StudyPlanDisplay({ childId, onActivityStart }: StudyPlanProps) {
               })}
             </CardDescription>
           </div>
-          <Button variant="outline" size="sm" className="gap-1">
-            <RefreshCw className="h-3 w-3" />
-            Regenerate
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-1"
+              onClick={() => fetchPlan({ background: true })}
+              disabled={isRefetching}
+            >
+              <RefreshCw className={cn('h-3 w-3', isRefetching && 'animate-spin')} />
+              {isRefetching ? 'Refreshing' : 'Regenerate'}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="gap-1"
+              onClick={() => fetchPlan({ background: true })}
+              disabled={isRefetching}
+            >
+              <Sparkles className="h-3 w-3 text-amber-500" />
+              Adjust plan
+            </Button>
+          </div>
         </div>
       </CardHeader>
 
       <CardContent className="space-y-6">
-        {/* Progress Overview */}
-        <div className="p-4 bg-slate-50 rounded-lg">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-slate-700">Weekly Progress</span>
-            <span className="text-sm text-slate-600">
-              {progress.completed} of {progress.total} activities
-            </span>
+        {/* Progress overview */}
+        <div className="p-4 bg-slate-50 rounded-lg space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Weekly progress</p>
+              <p className="text-xs text-slate-500">
+                {progress.completed} of {progress.total} activities complete
+              </p>
+            </div>
+            <span className="text-sm font-semibold text-slate-900">{progress.percentage}%</span>
           </div>
           <Progress value={progress.percentage} className="h-2" />
-          <div className="flex items-center gap-4 mt-3 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
             <span className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              ~{plan.estimatedTotalMinutes} min total
+              ~{plan.totalRecommendedMinutes} min total
             </span>
             <span className="flex items-center gap-1">
               <Target className="h-3 w-3" />
-              {plan.weeklyFocusAreas.length} focus areas
+              {plan.focusAreas.length} focus areas
+            </span>
+            <span className="flex items-center gap-1">
+              <Flame className="h-3 w-3 text-orange-500" />
+              {planStreak} day streak
             </span>
           </div>
+          <p className="text-xs text-slate-500 leading-relaxed">{plan.reasoning}</p>
         </div>
 
-        {/* Daily Plans */}
-        <div className="space-y-3">
-          {plan.dailyPlans.map((day) => {
-            const dateString = new Date(day.date).toISOString().split('T')[0]
-            const isExpanded = expandedDays.has(dateString)
-            const dayIsToday = isToday(new Date(day.date))
-            const completedActivities = day.activities.filter(a => a.completed).length
-            const allComplete = completedActivities === day.activities.length && day.activities.length > 0
-
-            return (
-              <Collapsible
-                key={dateString}
-                open={isExpanded}
-                onOpenChange={() => toggleDay(dateString)}
+        {/* Calendar overview */}
+        <section className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h4 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-slate-500" />
+              Calendar overview
+            </h4>
+            <span className="text-xs text-slate-500">{calendarRangeLabel}</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2">
+            {calendarDays.map((day) => (
+              <div
+                key={day.date.toISOString()}
+                className={cn(
+                  'rounded-xl border p-3 text-center space-y-1',
+                  day.isToday && 'border-orange-300 bg-orange-50',
+                  day.plan && day.totalActivities > 0 && day.completedCount === day.totalActivities && 'border-green-300 bg-green-50',
+                  day.isRestDay && 'border-dashed opacity-60'
+                )}
               >
-                <div className={cn(
-                  'rounded-lg border transition-colors',
-                  dayIsToday ? 'border-orange-200 bg-orange-50/50' : 'border-slate-200',
-                  allComplete && 'border-green-200 bg-green-50/50'
-                )}>
-                  <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left">
-                    <div className="flex items-center gap-3">
-                      <div className={cn(
-                        'w-10 h-10 rounded-lg flex items-center justify-center text-sm font-semibold',
-                        dayIsToday 
-                          ? 'bg-orange-100 text-orange-700'
-                          : allComplete
-                          ? 'bg-green-100 text-green-700'
-                          : 'bg-slate-100 text-slate-600'
-                      )}>
-                        {new Date(day.date).getDate()}
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium text-slate-900">
-                            {day.dayOfWeek}
+                <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
+                  {day.date.toLocaleDateString('en-GB', { weekday: 'short' })}
+                </p>
+                <p className="text-lg font-semibold text-slate-900">{day.date.getDate()}</p>
+                <p className="text-xs text-slate-500">
+                  {day.isRestDay ? 'Rest day' : `${day.completedCount}/${day.totalActivities} done`}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+          {/* Daily plans */}
+          <section className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-semibold text-slate-900">Daily activities</h4>
+              <span className="text-xs text-slate-500">
+                {plan.dailyPlans.length} practice days scheduled
+              </span>
+            </div>
+            <div className="space-y-3">
+              {plan.dailyPlans.map((day) => {
+                const dateString = new Date(day.date).toISOString().split('T')[0]
+                const isExpanded = expandedDays.has(dateString)
+                const dayIsToday = isToday(new Date(day.date))
+                const completedActivities = day.activities.filter((a) => a.completed).length
+                const allComplete = completedActivities === day.activities.length && day.activities.length > 0
+
+                return (
+                  <Collapsible
+                    key={dateString}
+                    open={isExpanded}
+                    onOpenChange={() => toggleDay(dateString)}
+                  >
+                    <div
+                      className={cn(
+                        'rounded-lg border transition-colors',
+                        dayIsToday ? 'border-orange-200 bg-orange-50/50' : 'border-slate-200',
+                        allComplete && 'border-green-200 bg-green-50/50'
+                      )}
+                    >
+                      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={cn(
+                              'w-10 h-10 rounded-lg flex items-center justify-center text-sm font-semibold',
+                              dayIsToday
+                                ? 'bg-orange-100 text-orange-700'
+                                : allComplete
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-slate-100 text-slate-600'
+                            )}
+                          >
+                            {new Date(day.date).getDate()}
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium text-slate-900">{day.dayOfWeek}</span>
+                              {dayIsToday && (
+                                <Badge className="bg-orange-100 text-orange-700 text-xs">Today</Badge>
+                              )}
+                              {allComplete && <CheckCircle2 className="h-4 w-4 text-green-500" />}
+                            </div>
+                            <span className="text-xs text-slate-500">
+                              {day.activities.length} activities · ~{day.recommendedMinutes} min
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs text-slate-500">
+                            {completedActivities}/{day.activities.length} done
                           </span>
-                          {dayIsToday && (
-                            <Badge className="bg-orange-100 text-orange-700 text-xs">
-                              Today
-                            </Badge>
-                          )}
-                          {allComplete && (
-                            <CheckCircle2 className="h-4 w-4 text-green-500" />
+                          {isExpanded ? (
+                            <ChevronDown className="h-4 w-4 text-slate-400" />
+                          ) : (
+                            <ChevronRight className="h-4 w-4 text-slate-400" />
                           )}
                         </div>
-                        <span className="text-xs text-slate-500">
-                          {day.activities.length} activities · ~{day.estimatedMinutes} min
-                        </span>
-                      </div>
+                      </CollapsibleTrigger>
+
+                      <CollapsibleContent>
+                        <div className="px-4 pb-4 space-y-2">
+                          {day.activities.map((activity) => (
+                            <ActivityItem
+                              key={activity.id}
+                              activity={activity}
+                              onStart={() => handleStartActivity(activity)}
+                            />
+                          ))}
+                        </div>
+                      </CollapsibleContent>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-slate-500">
-                        {completedActivities}/{day.activities.length} done
-                      </span>
-                      {isExpanded ? (
-                        <ChevronDown className="h-4 w-4 text-slate-400" />
+                  </Collapsible>
+                )
+              })}
+            </div>
+          </section>
+
+          {/* Today card */}
+          <section className="rounded-xl border p-4 bg-gradient-to-br from-white to-amber-50/40 space-y-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-slate-900">Today&apos;s recommendation</p>
+                <p className="text-xs text-slate-500">
+                  {todayPlan ? "Quick plan tailored for today's session" : 'No scheduled practice today'}
+                </p>
+              </div>
+              <Badge variant="secondary">~{todayPlan?.recommendedMinutes ?? 15} min</Badge>
+            </div>
+
+            {todayPlan ? (
+              <>
+                <div className="space-y-2">
+                  {todayPlan.activities.map((activity) => (
+                    <div
+                      key={activity.id}
+                      className="flex items-center justify-between rounded-lg border border-slate-200 bg-white/60 p-3 text-sm"
+                    >
+                      <div>
+                        <p className="font-medium text-slate-900">{activity.topic}</p>
+                        <p className="text-xs text-slate-500">
+                          {activity.questionCount} questions · ~{activity.estimatedMinutes} min
+                        </p>
+                      </div>
+                      {activity.completed ? (
+                        <CheckCircle2 className="h-4 w-4 text-green-500" />
                       ) : (
-                        <ChevronRight className="h-4 w-4 text-slate-400" />
+                        <ArrowRight className="h-4 w-4 text-slate-400" />
                       )}
                     </div>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent>
-                    <div className="px-4 pb-4 space-y-2">
-                      {day.activities.map((activity) => (
-                        <ActivityItem
-                          key={activity.id}
-                          activity={activity}
-                          onStart={() => onActivityStart?.(activity)}
-                        />
-                      ))}
-                    </div>
-                  </CollapsibleContent>
+                  ))}
                 </div>
-              </Collapsible>
-            )
-          })}
+                <Button
+                  className="w-full gap-1"
+                  onClick={() => handleStartActivity(nextActivity)}
+                  disabled={!nextActivity}
+                >
+                  <Play className="h-4 w-4" />
+                  Start next activity
+                </Button>
+              </>
+            ) : (
+              <p className="text-sm text-slate-600">
+                Enjoy a rest day! Tomorrow's plan will adapt once new practice data arrives.
+              </p>
+            )}
+          </section>
         </div>
 
-        {/* Focus Areas */}
-        {plan.weeklyFocusAreas.length > 0 && (
-          <div className="pt-4 border-t border-slate-200">
-            <h4 className="font-medium text-slate-900 mb-3 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-amber-500" />
-              Focus Areas This Week
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {plan.weeklyFocusAreas.map((area, i) => (
-                <Badge
-                  key={i}
-                  variant="outline"
-                  className={cn(
-                    area.currentAccuracy < 50 
-                      ? 'border-red-200 bg-red-50 text-red-700'
-                      : area.currentAccuracy < 70
-                      ? 'border-amber-200 bg-amber-50 text-amber-700'
-                      : 'border-blue-200 bg-blue-50 text-blue-700'
-                  )}
-                >
-                  {area.topic} ({area.currentAccuracy.toFixed(0)}%)
-                </Badge>
-              ))}
+        {/* Focus areas */}
+        {focusAreas.length > 0 && (
+          <section className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-amber-500" />
+                Focus areas this week
+              </h4>
+              <span className="text-xs text-slate-500">Auto-selected from weakest topics</span>
             </div>
-          </div>
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {focusAreas.map((area) => {
+                const topicActivity = findActivityForTopic(area.topic)
+                const priorityClass =
+                  area.priority === 'high'
+                    ? 'border-red-200 bg-red-50 text-red-700'
+                    : area.priority === 'medium'
+                    ? 'border-amber-200 bg-amber-50 text-amber-700'
+                    : 'border-blue-200 bg-blue-50 text-blue-700'
+
+                return (
+                  <div key={area.topic} className="rounded-xl border p-4 space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">{area.topic}</p>
+                        <p className="text-xs text-slate-500">{area.subject}</p>
+                      </div>
+                      <Badge variant="outline" className={priorityClass}>
+                        {area.priority} focus
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-slate-600">{area.reason}</p>
+                    <div className="flex items-center justify-between text-xs text-slate-500">
+                      <span>
+                        {area.currentAccuracy.toFixed(0)}% -&gt; {area.targetAccuracy}%
+                      </span>
+                      <span>{area.suggestedQuestions} Q</span>
+                    </div>
+                    <Button
+                      size="sm"
+                      variant={topicActivity ? 'secondary' : 'outline'}
+                      className="gap-1"
+                      disabled={!topicActivity}
+                      onClick={() => handleStartActivity(topicActivity)}
+                    >
+                      <ArrowRight className="h-3 w-3" />
+                      Start practice
+                    </Button>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
         )}
       </CardContent>
     </Card>

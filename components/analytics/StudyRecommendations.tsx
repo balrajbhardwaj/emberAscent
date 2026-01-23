@@ -106,7 +106,8 @@ export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
             currentAccuracy: topic.accuracy,
             targetAccuracy: 85,
             importance: 8,
-            suggestedQuestions: Math.ceil((85 - topic.accuracy) / 5) * 5
+            suggestedQuestions: Math.ceil((85 - topic.accuracy) / 5) * 5,
+            priority: topic.accuracy < 50 ? 'high' : topic.accuracy < 65 ? 'medium' : 'low'
           })
         })
       }

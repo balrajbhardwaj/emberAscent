@@ -20,7 +20,7 @@ import type {
 // TYPES
 // =============================================================================
 
-interface PlanOptions {
+export interface PlanOptions {
   /** Target practice minutes per day */
   dailyMinutes?: number
   /** Which days to include (0 = Sunday) */
@@ -31,7 +31,7 @@ interface PlanOptions {
   focusMode?: 'weak_areas' | 'balanced' | 'review'
 }
 
-interface SessionResult {
+export interface SessionResult {
   subject: string
   topic: string
   questionsAttempted: number
@@ -231,7 +231,7 @@ export async function generateWeeklyPlan(
     .slice(0, 5)
 
   // Generate focus areas
-  const focusAreas: FocusArea[] = weakAreas.map(topic => ({
+  const focusAreas: FocusArea[] = weakAreas.slice(0, 3).map(topic => ({
     topic: topic.topic,
     subject: topic.subject,
     reason: topic.currentAccuracy < 50 
@@ -240,7 +240,8 @@ export async function generateWeeklyPlan(
     currentAccuracy: topic.currentAccuracy,
     targetAccuracy: MASTERY_TARGET,
     importance: topic.importance,
-    suggestedQuestions: topic.suggestedQuestions
+    suggestedQuestions: topic.suggestedQuestions,
+    priority: topic.priority > 60 ? 'high' : topic.priority > 35 ? 'medium' : 'low'
   }))
 
   // Calculate week dates
@@ -252,6 +253,10 @@ export async function generateWeeklyPlan(
   
   const weekEnd = new Date(weekStart)
   weekEnd.setDate(weekStart.getDate() + 6)
+
+  const planReasoning = focusAreas.length
+    ? `Prioritising ${focusAreas.map(area => `${area.topic} (${area.subject}) at ${area.currentAccuracy.toFixed(0)}%`).join(', ')} because they sit below the ${WEAK_THRESHOLD}% mastery threshold and are high-weight topics this term.`
+    : 'All tracked topics are above the mastery target, so this week balances maintenance practice across core subjects.'
 
   // Generate daily plans
   const dailyPlans: DailyPlan[] = []
@@ -336,7 +341,7 @@ export async function generateWeeklyPlan(
       date: dayDate,
       dayOfWeek: getDayName(dayNumber),
       activities,
-      estimatedMinutes: dailyMinutes - remainingMinutes,
+      recommendedMinutes: dailyMinutes - remainingMinutes,
       completed: false
     })
   }
@@ -376,13 +381,15 @@ export async function generateWeeklyPlan(
 
   return {
     childId,
+    weekOf: weekStart,
     weekStart,
     weekEnd,
     generatedAt: new Date(),
+    reasoning: planReasoning,
     dailyPlans,
-    weeklyFocusAreas: focusAreas,
+    focusAreas,
     weeklyGoals,
-    estimatedTotalMinutes: dailyPlans.reduce((sum, day) => sum + day.estimatedMinutes, 0)
+    totalRecommendedMinutes: dailyPlans.reduce((sum, day) => sum + day.recommendedMinutes, 0)
   }
 }
 
@@ -414,19 +421,17 @@ export async function getDailyRecommendation(
  * @param sessionResult - Results from the completed session
  */
 export async function adjustPlanAfterSession(
-  childId: string,
-  sessionResult: SessionResult
+  _childId: string,
+  _sessionResult: SessionResult
 ): Promise<void> {
   // In a full implementation, this would:
   // 1. Mark the matching activity as completed
   // 2. Update the child's stored plan in the database
   // 3. Potentially regenerate future days if significant improvement
   // 4. Track progress toward weekly goals
-  
-  console.log('Plan adjustment for child:', childId, sessionResult)
-  
-  // For now, plans are regenerated fresh each time
-  // Future enhancement: persist plans in database
+
+  // For now, plans are regenerated fresh each time.
+  // Future enhancement: persist plans in database and update records here.
 }
 
 /**
