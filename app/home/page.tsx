@@ -340,6 +340,68 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* NEW: Ascent Guide Feature */}
+            <div className="mb-6">
+              <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-200 p-8 sm:p-10">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-700 mb-4">
+                      <Compass className="h-4 w-4" />
+                      Ascent Guide
+                      <span className="text-xs bg-orange-500 text-white px-1.5 py-0.5 rounded-full ml-1">NEW</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                      Daily coaching in plain English
+                    </h3>
+                    <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                      Stop interpreting data. Start coaching. Ascent Guide synthesises your child's 
+                      daily progress into clear, actionable guidance — so you know exactly what matters 
+                      and what to do next.
+                    </p>
+                    <ul className="space-y-3 text-slate-700">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-orange-500" />
+                        Daily personalised narrative (not raw data)
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-orange-500" />
+                        Links behaviour to outcomes (rushing → accuracy)
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-orange-500" />
+                        Conversation starters for supportive discussions
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Example Guide Card */}
+                  <div className="bg-white rounded-xl p-6 border border-orange-100 shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <Compass className="h-5 w-5 text-orange-500" />
+                        <span className="font-semibold text-slate-900">Today's Guide</span>
+                      </div>
+                      <span className="text-xs text-slate-500">Thursday, 24 Jan</span>
+                    </div>
+                    <div className="space-y-4">
+                      <p className="text-slate-800 font-medium">
+                        "Emma is progressing well, but rushing is holding back her Maths score."
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        28% of questions were answered in under 5 seconds. Slowing down on 
+                        Fractions could improve accuracy by ~15%.
+                      </p>
+                      <div className="pt-3 border-t border-orange-100">
+                        <p className="text-xs text-slate-500 mb-1">💬 Conversation Starter</p>
+                        <p className="text-sm text-slate-700 italic">
+                          "I noticed you flew through yesterday's quiz — which question made you think the hardest?"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Feature Cards Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Ascent Score */}
@@ -575,9 +637,10 @@ export default function HomePage() {
                   <ul className="space-y-3 mb-8">
                     {[
                       "Everything in Free",
+                      "Daily Ascent Guide (plain English coaching)",
                       "Weakness heatmaps",
                       "Mock test simulations",
-                      "Detailed session history",
+                      "Conversation starters for discussions",
                       "Readiness score & predictions",
                       "Focus recommendations with rationale"
                     ].map((item, i) => (
