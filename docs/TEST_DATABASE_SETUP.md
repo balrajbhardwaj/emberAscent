@@ -18,7 +18,7 @@ Ember Ascent uses a **separate Supabase project** for testing to ensure producti
 
 2. **Configure Test Project**
    - **Name**: `ember-ascent-test`
-   - **Database Password**: Generate a strong password (save it!)
+   - **Database Password**: Generate a strong password (save it!)MEyxtf2*cV?qjmb
    - **Region**: Same as production (for consistency)
    - **Pricing Plan**: Free tier is sufficient
 
@@ -37,6 +37,7 @@ Ember Ascent uses a **separate Supabase project** for testing to ensure producti
    
    ```
    Project URL: https://[your-test-ref].supabase.co
+   
    Anon Key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
    Service Role Key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
    ```
@@ -78,34 +79,41 @@ Ember Ascent uses a **separate Supabase project** for testing to ensure producti
 
 You need to replicate your production schema in the test database.
 
-### Option A: Export/Import Schema (Recommended)
+### ⭐ Use the Consolidated Schema File (EASIEST)
 
-1. **Export from Production**
-   - Go to production Supabase Dashboard
-   - Navigate to Database → Schema
-   - Click "Export Schema"
-   - Download SQL file
+I've created a single SQL file that contains everything:
 
-2. **Import to Test**
-   - Go to test Supabase Dashboard
-   - Navigate to SQL Editor
-   - Click "New Query"
-   - Paste exported schema
-   - Click "Run"
+1. **Open the Schema File**
+   - File location: `supabase/test-database-schema.sql`
+   - This consolidates ALL migrations into one file
 
-### Option B: Run Migration Files
+2. **Run in Test Database**
+   - Go to **test** Supabase Dashboard
+   - Navigate to **SQL Editor** (left sidebar)
+   - Click **"New Query"**
+   - Open `supabase/test-database-schema.sql` in your code editor
+   - Copy **ENTIRE** file contents (Ctrl+A, Ctrl+C)
+   - Paste into SQL Editor (Ctrl+V)
+   - Click **"Run"** (or Ctrl+Enter)
+   - Wait ~30 seconds for completion
 
-1. **Collect All Migrations**
-   ```bash
-   # In project root
-   ls -la supabase/migrations/
-   ```
+3. **Verify Success**
+   - Check for success message in SQL Editor output
+   - Go to **Table Editor** - you should see all tables:
+     - profiles, children, questions, practice_sessions, session_responses
+     - child_ember_scores, adaptive_tracker, achievements, etc.
 
-2. **Run Each Migration in Order**
-   - Go to test Supabase Dashboard
-   - SQL Editor → New Query
-   - Copy migration file contents
-   - Run each migration sequentially
+### Alternative: Use Supabase CLI (If Installed)
+
+If you have Supabase CLI installed:
+
+```bash
+# Connect to your test project
+supabase link --project-ref your-test-ref
+
+# Push migrations
+supabase db push
+```
 
 ## Step 5: Seed Test Data
 
