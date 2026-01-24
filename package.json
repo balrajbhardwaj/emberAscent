@@ -17,7 +17,19 @@
     "db:status": "supabase status",
     "import:questions": "tsx scripts/import-questions.ts",
     "import:curriculum-questions": "tsx scripts/import-curriculum-questions.ts",
-    "create:test-user": "tsx scripts/create-test-user.ts"
+    "create:test-user": "tsx scripts/create-test-user.ts",
+    "test": "playwright test",
+    "test:e2e": "playwright test tests/e2e",
+    "test:unit": "vitest",
+    "test:component": "vitest tests/component",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:module": "playwright test tests/e2e/$MODULE",
+    "test:report": "playwright show-report",
+    "test:auth": "playwright test tests/e2e/auth",
+    "test:practice": "playwright test tests/e2e/practice"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -56,21 +68,28 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@playwright/test": "^1.58.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.19.30",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitest/ui": "^4.0.18",
     "autoprefixer": "^10.4.0",
     "dotenv": "^17.2.3",
     "eslint": "^8",
     "eslint-config-next": "^14.2.13",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "7.33.2",
+    "jsdom": "^27.4.0",
     "postcss": "^8",
     "prettier": "^3.2.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "supabase": "^2.72.8",
     "tailwindcss": "^3.4.0",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.18"
   }
 }
