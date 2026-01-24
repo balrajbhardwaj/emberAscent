@@ -47,11 +47,13 @@ export default defineConfig({
         '**/types/**',
         '**/*.d.ts',
       ],
-      // Target 80% coverage
-      lines: 80,
-      functions: 80,
-      branches: 80,
-      statements: 80,
+      // Target 80% coverage thresholds
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
     
     // Globals (optional, allows using test functions without importing)

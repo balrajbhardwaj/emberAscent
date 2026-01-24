@@ -70,6 +70,15 @@ async function PracticeContent({ childId }: { childId?: string }) {
 
   if (!children || children.length === 0) return null
 
+  // Get user's subscription tier
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('subscription_tier')
+    .eq('id', user.id)
+    .single()
+
+  const subscriptionTier = profile?.subscription_tier || 'free'
+
   // Determine selected child - match by ID from URL parameter
   const selectedChild = childId
     ? children.find((c: any) => c.id === childId) || children[0]
@@ -243,7 +252,7 @@ async function PracticeContent({ childId }: { childId?: string }) {
       )}
 
       {/* Quick Actions */}
-      <QuickActionsSection childId={(selectedChild as any).id} />
+      <QuickActionsSection childId={(selectedChild as any).id} subscriptionTier={subscriptionTier} />
 
       {/* Subject Browser */}
       <SubjectBrowser subjects={subjects} childId={(selectedChild as any).id} />

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { redirect } from "next/navigation"
 import { Sparkles } from "lucide-react"
 
@@ -57,15 +56,6 @@ export default async function SetupPage() {
           </CardHeader>
           <CardContent>
             <ChildSetupForm />
-
-            <div className="mt-6 border-t border-slate-200 pt-6">
-              <Link
-                href="/practice"
-                className="block text-center text-sm text-slate-500 hover:text-slate-700"
-              >
-                Skip for now (you can add children later from settings)
-              </Link>
-            </div>
           </CardContent>
         </Card>
 

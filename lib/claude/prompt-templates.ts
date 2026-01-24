@@ -197,7 +197,7 @@ function generateVisualInstructions(context: QuestionContext): string {
 /**
  * Generate color-coded example instructions
  */
-function generateExampleInstructions(context: QuestionContext): string {
+function generateExampleInstructions(_context: QuestionContext): string {
   return `Create a SIMILAR PROBLEM with COLOR-CODED MAPPING:
 
 Format:
@@ -243,9 +243,7 @@ export function buildExplanationPrompt(context: QuestionContext): string {
     parts.push(
       ``,
       `**Existing Step-by-Step (use for reference):**`,
-      typeof context.existingStepByStep === 'string' 
-        ? context.existingStepByStep 
-        : context.existingStepByStep.join('\n')
+      context.existingStepByStep
     )
   }
 

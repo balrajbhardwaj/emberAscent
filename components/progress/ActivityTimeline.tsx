@@ -201,13 +201,13 @@ export function ActivityTimeline({ sessions, isLoading = false, isAscent = false
         <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-yellow-50 border border-orange-200 rounded-lg">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <h3 className="font-semibold text-slate-900 mb-1">Want to see your full history?</h3>
+              <h3 className="font-semibold text-slate-900 mb-1">Want to see your complete session history?</h3>
               <p className="text-sm text-slate-700">
-                Upgrade to Ascent to view all your practice sessions and unlock advanced analytics.
+                Upgrade to Ascent to access detailed session logs, filter by date and subject, and review every question.
               </p>
             </div>
             <Button asChild size="sm">
-              <Link href="/pricing">
+              <Link href="/pricing?feature=session-history">
                 Upgrade
               </Link>
             </Button>

@@ -13,6 +13,8 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { UserPlus } from 'lucide-react'
+import Link from 'next/link'
 import UserTable from '@/components/admin/users/UserTable'
 import UserFilters from '@/components/admin/users/UserFilters'
 import {
@@ -82,6 +84,12 @@ export default function UserManagementClient() {
                 {totalUsers} total users
               </p>
             </div>
+            <Button asChild>
+              <Link href="/admin/users/new">
+                <UserPlus className="h-4 w-4 mr-2" />
+                Add User
+              </Link>
+            </Button>
           </div>
         </CardHeader>
         <CardContent>

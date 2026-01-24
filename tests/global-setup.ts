@@ -7,7 +7,7 @@
 import { chromium, FullConfig } from '@playwright/test';
 import { verifyTestDatabase } from './helpers/db-helpers';
 
-async function globalSetup(config: FullConfig) {
+async function globalSetup(_config: FullConfig) {
   console.log('🔧 Running global test setup...');
   
   // 1. Verify test database connection

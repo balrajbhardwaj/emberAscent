@@ -105,7 +105,7 @@ export default function MockTestSelector({
                 </p>
               </div>
               <Button variant="outline" size="sm" asChild>
-                <a href="/progress/history?filter=mock">View History</a>
+                <a href="/pricing?feature=session-history">View History</a>
               </Button>
             </div>
           </CardContent>

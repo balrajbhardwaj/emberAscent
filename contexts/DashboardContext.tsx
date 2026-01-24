@@ -23,6 +23,7 @@ interface DashboardContextState {
   user: User | null
   selectedChild: Child | null
   children: Child[]
+  userRole: string
   setSelectedChild: (child: Child) => void
   refetchChildren: () => Promise<void>
   isLoading: boolean
@@ -43,6 +44,7 @@ interface DashboardProviderProps {
   user: User
   initialChildren: Child[]
   initialSelectedChild: Child | null
+  userRole?: string
   children: ReactNode
 }
 
@@ -61,6 +63,7 @@ export function DashboardProvider({
   user,
   initialChildren,
   initialSelectedChild,
+  userRole = "user",
   children: childrenProp,
 }: DashboardProviderProps) {
   const router = useRouter()
@@ -108,6 +111,7 @@ export function DashboardProvider({
     user,
     selectedChild,
     children: childrenList,
+    userRole,
     setSelectedChild,
     refetchChildren,
     isLoading,

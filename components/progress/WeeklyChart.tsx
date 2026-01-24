@@ -55,7 +55,9 @@ export function WeeklyChart({ data, isLoading = false }: WeeklyChartProps) {
     )
   }
 
-  const maxQuestions = Math.max(...data.map((d) => d.questionsAnswered), 10)
+  // Add 20% padding to prevent bars from touching the top
+  const actualMax = Math.max(...data.map((d) => d.questionsAnswered), 10)
+  const maxQuestions = Math.ceil(actualMax * 1.2)
   const today = new Date().toISOString().split("T")[0]
 
   return (

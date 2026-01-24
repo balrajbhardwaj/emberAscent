@@ -7,7 +7,7 @@
 import { FullConfig } from '@playwright/test';
 import { cleanupTestData } from './helpers/db-helpers';
 
-async function globalTeardown(config: FullConfig) {
+async function globalTeardown(_config: FullConfig) {
   console.log('\n🧹 Running global test teardown...');
   
   // Clean up test data

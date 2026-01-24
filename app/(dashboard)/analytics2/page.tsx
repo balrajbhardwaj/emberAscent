@@ -211,7 +211,7 @@ function NoChildSelected() {
 export default async function Analytics2Page({
   searchParams,
 }: {
-  searchParams: Promise<{ child?: string }>
+  searchParams: Promise<{ child?: string; childId?: string }>
 }) {
   const supabase = await createClient()
 
@@ -242,7 +242,8 @@ export default async function Analytics2Page({
 
   // Determine which child to show
   const params = await searchParams
-  const selectedChildId = params.child || children?.[0]?.id
+  // Support both 'child' and 'childId' parameters for compatibility
+  const selectedChildId = params.childId || params.child || children?.[0]?.id
   const selectedChild = children?.find((c) => c.id === selectedChildId)
 
   return (

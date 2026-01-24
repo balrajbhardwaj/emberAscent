@@ -115,9 +115,9 @@ All 31 features now include:
 - Password Recovery: FREE, NORMAL
 - Onboarding: FREE, CRITICAL
 
-### Practice Module (4 features - All FREE, All CRITICAL)
+### Practice Module (4 features - Mixed Tier, All CRITICAL)
 - Quick Byte: FREE, CRITICAL
-- Mock Tests: FREE, CRITICAL
+- Mock Tests: ASCENT, CRITICAL
 - Focus Sessions: FREE, CRITICAL
 - Adaptive Engine: FREE, CRITICAL
 
@@ -128,8 +128,8 @@ All 31 features now include:
 - Growth Tracking: ASCENT, NORMAL
 - Study Plans & Recommendations: ASCENT, NORMAL
 
-### Progress Module (3 features - All FREE, All NORMAL)
-- Session History: FREE, NORMAL
+### Progress Module (3 features - Mixed Tier, All NORMAL)
+- Session History: ASCENT, NORMAL
 - Topic Progress: FREE, NORMAL
 - Bookmarks: FREE, NORMAL
 

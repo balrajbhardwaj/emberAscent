@@ -1,6 +1,124 @@
-# 🚀 Quick Start: Your Next Steps
+# 🚀 Ember Ascent - Developer Guide
 
-Testing framework is ready! Here's what to do next.
+**Welcome to Ember Ascent development!**
+
+---
+
+## 📚 Documentation Index
+
+### Essential Guides
+- [Testing Guide](./TESTING.md) - **START HERE** for testing (3 tests passing)
+- [Quick Start](../QUICKSTART.md) - Get the app running locally
+- [Architecture Guidelines](../architecture-guidelines.md) - Security & compliance rules
+- [Database Schema](./DATABASE_SCHEMA.md) - Complete schema reference
+
+### Development Resources
+- [E2E Testing Strategy](./E2E_TESTING_STRATEGY.md) - Comprehensive testing strategy (1,700+ lines)
+- [Test Database Setup](./TEST_DATABASE_SETUP.md) - Database setup details
+- [Commit Policy](../commit_policy.md) - Version control standards
+- [Security Audit Report](../SECURITY_AUDIT_REPORT.md) - Security issues & remediation
+
+### Feature Documentation
+- [Adaptive System](./ADAPTIVE_SYSTEM.md) - Adaptive learning algorithm
+- [Ember Score Integration](./EMBER_SCORE_INTEGRATION.md) - Difficulty scoring
+- [Error Reporting System](./ERROR_REPORTING_SYSTEM.md) - Error handling
+- [Y3 Import Guide](./Y3_IMPORT_GUIDE.md) - Question import process
+
+---
+
+## ✅ Current Status
+
+### Testing Infrastructure
+- ✅ Playwright & Vitest installed
+- ✅ 3 auth tests passing (login, session, logout)
+- ✅ Test helpers created (auth, navigation, database)
+- ✅ Production database with test users approach
+- 🚧 145+ tests planned across 9 modules
+
+### What You Can Do Now
+```bash
+# Run passing tests
+npm test
+
+# Expected: 3 auth tests pass in ~90 seconds
+```
+
+---
+
+## 🎯 Quick Actions
+
+### Run Tests
+```bash
+# All tests (3 passing)
+npm test
+
+# With UI
+npx playwright test --ui
+
+# Headed mode (see browser)
+npx playwright test --headed
+```
+
+### Clean Test Data
+After running tests, clean up in Supabase Dashboard SQL Editor:
+```sql
+DELETE FROM auth.users WHERE email LIKE 'test.%@emberascent.dev';
+```
+
+### Development Server
+```bash
+npm run dev
+# Open http://localhost:3000
+```
+
+---
+
+## 📖 Key Documents
+
+### For Testing
+**Read**: [TESTING.md](./TESTING.md) - Complete guide with:
+- Available test cases (3 auth tests)
+- Test infrastructure overview
+- Database cleanup strategy
+- Debugging tips
+- Next steps for test expansion
+
+### For Features
+**Read**: [architecture-guidelines.md](../architecture-guidelines.md) - Production requirements:
+- Security rules (RLS, data protection)
+- UK GDPR & ICO Children's Code compliance
+- PCI DSS payment standards
+- Error handling patterns
+
+### For Commits
+**Read**: [commit_policy.md](../commit_policy.md) - Standards:
+- Commit message format
+- Security commit requirements
+- Scope guidelines
+
+---
+
+## 🚀 Next Steps
+
+### Expand Testing (Priority)
+1. Add signup flow tests
+2. Add password reset tests
+3. Implement Practice module tests
+4. Add Analytics dashboard tests
+
+### Feature Development
+1. Review [PROGRESS.md](../PROGRESS.md) for current work
+2. Check [pendingTasksTodo.md](../pendingTasksTodo.md) for pending tasks
+3. Follow security guidelines from [architecture-guidelines.md](../architecture-guidelines.md)
+
+---
+
+## 📞 Need Help?
+
+- **Testing issues**: See [TESTING.md](./TESTING.md) debugging section
+- **Database setup**: See [TEST_DATABASE_SETUP.md](./TEST_DATABASE_SETUP.md)
+- **Architecture questions**: See [architecture-guidelines.md](../architecture-guidelines.md)
+- **Security concerns**: See [SECURITY_AUDIT_REPORT.md](../SECURITY_AUDIT_REPORT.md)
 
 ## ✅ What's Done
 

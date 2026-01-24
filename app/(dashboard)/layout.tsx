@@ -65,14 +65,15 @@ export default async function DashboardLayout({
     redirect("/setup")
   }
 
-  // Fetch subscription tier (for header display)
+  // Fetch subscription tier and role (for header display and admin access)
   const { data: profile } = await supabase
     .from("profiles")
-    .select("subscription_tier, subscription_status")
+    .select("subscription_tier, subscription_status, role")
     .eq("id", user.id)
     .single()
 
   const subscriptionTier = (profile as any)?.subscription_tier || "free"
+  const userRole = (profile as any)?.role || "user"
 
   // TODO: Fetch current streak (placeholder for now)
   const currentStreak = 0
@@ -82,6 +83,7 @@ export default async function DashboardLayout({
       user={user}
       initialChildren={childrenData}
       initialSelectedChild={selectedChild}
+      userRole={userRole}
     >
       <div className="flex h-screen overflow-hidden">
         {/* Desktop Sidebar */}

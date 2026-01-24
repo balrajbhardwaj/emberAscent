@@ -35,7 +35,7 @@ export function ExplainabilityShowcase() {
             'Take away 2 tens (20) and 6 ones',
             'Count what remains: 21'
           ].map((step, idx) => (
-            <div key={idx} className="flex items-start gap-4 animate-in slide-in-from-left" style={{ animationDelay: `${idx * 100}ms` }}>
+            <div key={idx} className="flex items-start gap-4 animate-in slide-in-from-left" style={{ animationDelay: `${idx * 200}ms`, animationDuration: '500ms' }}>
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 text-white flex items-center justify-center text-lg font-bold shadow-lg">
                 {idx + 1}
               </div>
@@ -54,7 +54,7 @@ export function ExplainabilityShowcase() {
       color: 'orange',
       gradient: 'from-orange-500 to-amber-600',
       content: (
-        <div className="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 p-8 rounded-2xl border-2 border-orange-200 shadow-inner">
+        <div className="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 p-8 rounded-2xl border-2 border-orange-200 shadow-inner animate-in fade-in slide-in-from-bottom" style={{ animationDuration: '600ms' }}>
           <pre className="text-lg leading-loose font-mono text-slate-800">
 {`🟦🟦🟦🟦 🟦🟦🟦🟦 🟦🟦  🔴🔴🔴🔴🔴🔴🔴
 (4 tens + 7 ones = 47)
@@ -78,7 +78,7 @@ What's left:
       color: 'amber',
       gradient: 'from-amber-500 to-orange-600',
       content: (
-        <div className="space-y-4">
+        <div className="space-y-4 animate-in fade-in slide-in-from-bottom" style={{ animationDuration: '600ms' }}>
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl border-2 border-amber-200">
             <p className="text-xl font-bold text-orange-700 mb-4">Problem: 🔵 56 - 🟢 32</p>
             <div className="space-y-3 text-lg">

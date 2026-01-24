@@ -15,6 +15,7 @@ import { SessionHistoryTable } from "@/components/progress/SessionHistoryTable"
 import { SessionHistoryFilters } from "@/components/progress/SessionHistoryFilters"
 import { Pagination } from "@/components/progress/Pagination"
 import { fetchSessionHistory } from "./actions"
+import { PaywallCard } from "@/components/common/PaywallCard"
 
 interface PageProps {
   searchParams: {
@@ -54,6 +55,38 @@ export default async function SessionHistoryPage({ searchParams }: PageProps) {
   
   if (!child) {
     redirect("/onboarding")
+  }
+
+  // Check subscription tier
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) {
+    redirect('/login')
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('subscription_tier')
+    .eq('id', user.id)
+    .single()
+
+  // Enforce Ascent tier for Session History
+  const isAscent = profile?.subscription_tier === 'ascent' || profile?.subscription_tier === 'summit'
+  if (!isAscent) {
+    return (
+      <PaywallCard
+        feature="Session History"
+        description="Track your complete learning journey with detailed session logs and filtering."
+        benefits={[
+          "Complete history of all practice sessions",
+          "Filter by date range, subject, and session type",
+          "Detailed breakdown of each session",
+          "Review questions and answers from past sessions",
+          "Track progress and consistency over time",
+          "Plus all other Ascent analytics features"
+        ]}
+      />
+    )
   }
   
   // Parse search params

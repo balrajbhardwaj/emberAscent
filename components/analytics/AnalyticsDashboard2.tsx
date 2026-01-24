@@ -1193,7 +1193,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           title="Deep Dive"
           description="Celebrate strengths and identify areas of improvement"
         />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           <ReadinessScoreCard
             score={analyticsData.readiness.score}
             breakdown={analyticsData.readiness.breakdown}

@@ -119,11 +119,15 @@ export async function updateSession(request: NextRequest) {
 
     if (!isElevated) {
       const redirectUrl = request.nextUrl.clone()
-      redirectUrl.pathname = '/dashboard'
+      redirectUrl.pathname = '/practice'
       return NextResponse.redirect(redirectUrl)
     }
 
     console.info(`[admin-access] ${user.id} -> ${pathname}`)
+    
+    // Admin users are allowed in admin area without children
+    // Skip the setup check below
+    return supabaseResponse
   }
 
   // Check if authenticated user needs to complete setup
@@ -135,25 +139,55 @@ export async function updateSession(request: NextRequest) {
     !isApiRoute &&
     !isPublicRoute
   ) {
-    // Check if user has any children
-    const { data: children } = await supabase
-      .from('children')
-      .select('id')
-      .eq('parent_id', user.id)
-      .eq('is_active', true)
-      .limit(1)
+    // First check if user is admin - admins don't need children
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
 
-    if (!children || children.length === 0) {
-      // No children, redirect to setup
-      const url = request.nextUrl.clone()
-      url.pathname = '/setup'
-      return NextResponse.redirect(url)
+    const role = (profile as any)?.role ?? 'user'
+    const isAdmin = role === 'admin' || role === 'super_admin'
+
+    // If not admin, check if user has any children (required)
+    if (!isAdmin) {
+      const { data: children } = await supabase
+        .from('children')
+        .select('id')
+        .eq('parent_id', user.id)
+        .eq('is_active', true)
+        .limit(1)
+
+      if (!children || children.length === 0) {
+        // No children - must create one
+        const url = request.nextUrl.clone()
+        url.pathname = '/setup'
+        return NextResponse.redirect(url)
+      }
     }
   }
 
   // Redirect authenticated users away from auth pages
   if (user && (pathname === '/login' || pathname === '/signup')) {
-    // Check if they need setup first
+    // Check if user is admin first
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    const role = (profile as any)?.role ?? 'user'
+    const isAdmin = role === 'admin' || role === 'super_admin'
+
+    const url = request.nextUrl.clone()
+
+    if (isAdmin) {
+      // Redirect admins to admin panel
+      url.pathname = '/admin'
+      return NextResponse.redirect(url)
+    }
+
+    // Check if regular user needs setup
     const { data: children } = await supabase
       .from('children')
       .select('id')
@@ -161,7 +195,6 @@ export async function updateSession(request: NextRequest) {
       .eq('is_active', true)
       .limit(1)
 
-    const url = request.nextUrl.clone()
     url.pathname = children && children.length > 0 ? '/practice' : '/setup'
     return NextResponse.redirect(url)
   }

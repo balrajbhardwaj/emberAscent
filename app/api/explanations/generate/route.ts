@@ -97,7 +97,9 @@ export async function POST(request: NextRequest) {
         correctAnswer,
         difficulty: difficulty || 'Foundation',
         yearGroup: 5,
-        existingStepByStep: existingExplanation || null
+        existingStepByStep: existingExplanation 
+          ? (Array.isArray(existingExplanation) ? existingExplanation.join('\n') : existingExplanation)
+          : null
       }
     } else {
       console.error('❌ Question not found and no test data provided')

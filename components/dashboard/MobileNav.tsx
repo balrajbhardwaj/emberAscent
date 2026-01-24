@@ -18,7 +18,7 @@
 
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
-import { PlayCircle, BarChart, Bookmark, Settings, Sparkles } from "lucide-react"
+import { PlayCircle, BarChart, Bookmark, Settings, Sparkles, ShieldAlert } from "lucide-react"
 import { useDashboard } from "@/contexts/DashboardContext"
 import { cn } from "@/lib/utils"
 
@@ -60,7 +60,10 @@ const navItems = [
 export function MobileNav() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { selectedChild } = useDashboard()
+  const { selectedChild, userRole } = useDashboard()
+  
+  // Check if user has admin access
+  const isAdmin = userRole === "admin" || userRole === "super_admin"
   
   // Build URL with childId if available
   const getHref = (basePath: string) => {
@@ -96,6 +99,24 @@ export function MobileNav() {
             </Link>
           )
         })}
+        
+        {/* Admin Link - Only show for admin/super_admin users */}
+        {isAdmin && (
+          <Link
+            href="/admin"
+            className={cn(
+              "flex flex-col items-center gap-1 rounded-lg px-4 py-2 transition-colors",
+              pathname.startsWith("/admin") ? "text-purple-600" : "text-slate-600"
+            )}
+            aria-label="Admin"
+          >
+            <ShieldAlert className="h-6 w-6" />
+            <span className="text-xs font-medium">Admin</span>
+            {pathname.startsWith("/admin") && (
+              <div className="absolute bottom-0 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-purple-600" />
+            )}
+          </Link>
+        )}
       </div>
     </nav>
   )

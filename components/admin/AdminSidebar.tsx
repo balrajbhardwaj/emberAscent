@@ -16,7 +16,6 @@ import {
   LayoutDashboard,
   Settings,
   Users2,
-  ClipboardList,
   BookOpenCheck,
   ShieldAlert,
 } from 'lucide-react'
@@ -33,7 +32,6 @@ const NAV_ITEMS = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { label: 'Questions', href: '/admin/questions', icon: BookOpenCheck },
   { label: 'Users', href: '/admin/users', icon: Users2 },
-  { label: 'Reviews', href: '/admin/reviewers', icon: ClipboardList },
   { label: 'Reports', href: '/admin/reports', icon: Flag },
   { label: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
   { label: 'Settings', href: '/admin/settings', icon: Settings },
@@ -84,7 +82,7 @@ export function AdminSidebar({ adminName, adminRole }: AdminSidebarProps) {
         </div>
 
         <Button asChild size="sm" variant="outline">
-          <Link href="/dashboard">View as parent</Link>
+          <Link href="/practice">View as parent</Link>
         </Button>
       </div>
     </aside>

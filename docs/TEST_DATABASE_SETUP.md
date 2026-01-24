@@ -598,11 +598,129 @@ When you're ready for GitHub Actions:
 - [x] Test users exist in production database
 - [x] Tests run successfully against production
 - [x] Test users isolated with `test.*@emberascent.dev` emails
-- [ ] Clean up test data after testing (see Cleanup section above)
+- [ ] Clean up test data after testing (see Cleanup section below)
 
 **You're ready to test! 🚀**
 
 Run `npm test` to start the test suite.
+
+---
+
+## Cleanup After Testing
+
+### Understanding CASCADE Deletes
+
+The database uses **ON DELETE CASCADE** foreign keys, so deleting test users automatically removes all related data:
+
+**Cascade Chain:**
+```
+auth.users → profiles → children → [all child data]
+```
+
+**Automatically Deleted:**
+- ✅ profiles
+- ✅ children
+- ✅ practice_sessions + session_responses
+- ✅ question_attempts
+- ✅ child_question_history
+- ✅ child_topic_performance
+- ✅ child_ember_scores
+- ✅ adaptive_tracker
+- ✅ achievements
+- ✅ session_feedback
+- ✅ question_feedback
+- ✅ parent_feedback
+- ✅ subscriptions
+- ✅ admin_log
+- ✅ impersonation_log
+
+**NOT Deleted (shared data):**
+- ❌ questions (shared across all users)
+- ❌ curriculum_objectives
+- ❌ question_type_taxonomy
+
+### Cleanup Commands
+
+#### 1. Verify Test Data Before Deletion
+```sql
+-- Count test users and their data
+SELECT 
+  (SELECT COUNT(*) FROM auth.users WHERE email LIKE 'test.%@emberascent.dev') as test_users,
+  (SELECT COUNT(*) FROM profiles WHERE email LIKE 'test.%@emberascent.dev') as test_profiles,
+  (SELECT COUNT(*) FROM children WHERE parent_id IN 
+    (SELECT id FROM profiles WHERE email LIKE 'test.%@emberascent.dev')) as test_children,
+  (SELECT COUNT(*) FROM practice_sessions WHERE child_id IN 
+    (SELECT id FROM children WHERE parent_id IN 
+      (SELECT id FROM profiles WHERE email LIKE 'test.%@emberascent.dev'))) as test_sessions;
+```
+
+#### 2. Delete Test Users (CASCADE handles rest)
+```sql
+-- Single command - CASCADE deletes all related data
+DELETE FROM auth.users WHERE email LIKE 'test.%@emberascent.dev';
+```
+
+#### 3. Verify Deletion
+```sql
+-- Should return all zeros
+SELECT 
+  (SELECT COUNT(*) FROM auth.users WHERE email LIKE 'test.%@emberascent.dev') as remaining_users,
+  (SELECT COUNT(*) FROM profiles WHERE email LIKE 'test.%@emberascent.dev') as remaining_profiles,
+  (SELECT COUNT(*) FROM children WHERE parent_id IN 
+    (SELECT id FROM profiles WHERE email LIKE 'test.%@emberascent.dev')) as remaining_children;
+```
+
+### When to Run Cleanup
+
+**After Each Test Run (Recommended):**
+- Prevents test data accumulation
+- Keeps production database clean
+- Reset to known state for next test run
+
+**Command:**
+```bash
+# In Supabase Dashboard SQL Editor
+DELETE FROM auth.users WHERE email LIKE 'test.%@emberascent.dev';
+```
+
+**Or Keep Test Users (Alternative):**
+- Keep test users permanently in production
+- Tests will reuse existing accounts
+- Faster test execution (no signup needed)
+- Data accumulates over time (sessions, attempts)
+
+**Trade-offs:**
+- ✅ Faster: No signup overhead
+- ✅ Persistent: Same users across runs
+- ❌ Accumulation: Data grows over time
+- ❌ State: Previous test data may affect new tests
+
+### Automated Cleanup Script (Future)
+
+For automated cleanup, create `scripts/cleanup-test-data.sql`:
+
+```sql
+-- Delete test users and all CASCADE data
+DO $$
+DECLARE
+  deleted_users INT;
+  deleted_profiles INT;
+  deleted_children INT;
+BEGIN
+  -- Count before deletion
+  SELECT COUNT(*) INTO deleted_users FROM auth.users WHERE email LIKE 'test.%@emberascent.dev';
+  SELECT COUNT(*) INTO deleted_profiles FROM profiles WHERE email LIKE 'test.%@emberascent.dev';
+  SELECT COUNT(*) INTO deleted_children FROM children WHERE parent_id IN 
+    (SELECT id FROM profiles WHERE email LIKE 'test.%@emberascent.dev');
+  
+  -- Delete (CASCADE handles related data)
+  DELETE FROM auth.users WHERE email LIKE 'test.%@emberascent.dev';
+  
+  -- Report results
+  RAISE NOTICE 'Deleted % test users, % profiles, % children (plus all related data via CASCADE)', 
+    deleted_users, deleted_profiles, deleted_children;
+END $$;
+```
 
 ---
 

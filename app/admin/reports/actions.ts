@@ -65,7 +65,7 @@ export async function getReports(
       `
       *,
       question:questions(id, subject, topic, question_text, difficulty, ember_score),
-      reporter:profiles(id, email, full_name)
+      reporter:profiles!error_reports_reported_by_fkey(id, email, full_name)
     `,
       { count: 'exact' }
     )

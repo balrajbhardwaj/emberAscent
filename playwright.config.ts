@@ -9,8 +9,8 @@
  */
 
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
+// import * as dotenv from 'dotenv';
+// import * as path from 'path';
 
 // Load test environment variables
 // COMMENTED OUT - Using production database for now

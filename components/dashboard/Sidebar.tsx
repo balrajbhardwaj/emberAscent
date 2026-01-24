@@ -18,7 +18,7 @@
 
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
-import { PlayCircle, BarChart, Bookmark, Settings, UserPlus, Flame, Sparkles } from "lucide-react"
+import { PlayCircle, BarChart, Bookmark, Settings, UserPlus, Flame, Sparkles, ShieldAlert } from "lucide-react"
 import { useDashboard } from "@/contexts/DashboardContext"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -73,7 +73,10 @@ const navItems = [
 export function Sidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { selectedChild } = useDashboard()
+  const { selectedChild, userRole } = useDashboard()
+  
+  // Check if user has admin access
+  const isAdmin = userRole === "admin" || userRole === "super_admin"
   
   // Build URL with childId if available
   const getHref = (basePath: string) => {
@@ -122,6 +125,22 @@ export function Sidebar() {
             </Link>
           )
         })}
+        
+        {/* Admin Link - Only show for admin/super_admin users */}
+        {isAdmin && (
+          <Link
+            href="/admin"
+            className={cn(
+              "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              pathname.startsWith("/admin")
+                ? "bg-gradient-to-r from-purple-50 to-indigo-50 text-purple-700"
+                : "text-slate-700 hover:bg-slate-50"
+            )}
+          >
+            <ShieldAlert className={cn("h-5 w-5", pathname.startsWith("/admin") && "text-purple-600")} />
+            Admin
+          </Link>
+        )}
       </nav>
 
       {/* Current Child Info */}

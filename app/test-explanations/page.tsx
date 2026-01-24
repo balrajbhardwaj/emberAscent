@@ -11,7 +11,6 @@ import { useState } from 'react'
 import { EnhancedExplanationPanel } from '@/components/practice/EnhancedExplanationPanel'
 
 export default function TestExplanationsPage() {
-  const [testQuestionId, setTestQuestionId] = useState('')
   const [showPanel, setShowPanel] = useState(false)
   const [apiStatus, setApiStatus] = useState<'idle' | 'checking' | 'ok' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -188,7 +187,9 @@ export default function TestExplanationsPage() {
                   topic="Arithmetic"
                   difficulty="Foundation"
                   explanations={{
-                    stepByStep: sampleQuestion.explanations.step_by_step,
+                    stepByStep: Array.isArray(sampleQuestion.explanations.step_by_step) 
+                      ? sampleQuestion.explanations.step_by_step.join('\n')
+                      : sampleQuestion.explanations.step_by_step,
                     visual: null,
                     workedExample: null
                   }}

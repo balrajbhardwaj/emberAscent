@@ -20,10 +20,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Clock, CheckCircle, XCircle, Lightbulb } from "lucide-react"
+import { Clock, CheckCircle, XCircle } from "lucide-react"
 import { EmberScore } from "@/components/practice/EmberScore"
 import { CurriculumBadge } from "@/components/curriculum/CurriculumReference"
 import { ProvenancePanel } from "@/components/ember-score/ProvenancePanel"
+import { EnhancedExplanationPanel } from "@/components/practice/EnhancedExplanationPanel"
 import { useToast } from "@/hooks/use-toast"
 
 interface QuestionOption {
@@ -652,37 +653,21 @@ export default function PracticeSessionPage() {
             </div>
           )}
 
-          {/* Explanation Panel */}
-          {hasSubmitted && currentQuestion.explanations && (
-            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <div className="flex items-start space-x-3">
-                <Lightbulb className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-amber-900">Explanation</h4>
-
-                  {currentQuestion.explanations.step_by_step && (
-                    <div>
-                      <p className="text-sm font-medium text-amber-800">Step by Step:</p>
-                      <p className="text-sm text-amber-900">{currentQuestion.explanations.step_by_step}</p>
-                    </div>
-                  )}
-
-                  {currentQuestion.explanations.worked_example && (
-                    <div>
-                      <p className="text-sm font-medium text-amber-800">Worked Example:</p>
-                      <p className="text-sm text-amber-900">{currentQuestion.explanations.worked_example}</p>
-                    </div>
-                  )}
-
-                  {currentQuestion.explanations.visual && (
-                    <div>
-                      <p className="text-sm font-medium text-amber-800">Visual Aid:</p>
-                      <p className="text-sm text-amber-900">{currentQuestion.explanations.visual}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+          {/* Enhanced Explanation Panel with AI Generation */}
+          {hasSubmitted && (
+            <EnhancedExplanationPanel
+              questionId={currentQuestion.id}
+              explanations={{
+                stepByStep: currentQuestion.explanations?.step_by_step || null,
+                visual: currentQuestion.explanations?.visual || null,
+                workedExample: currentQuestion.explanations?.worked_example || null
+              }}
+              isCorrect={selectedAnswer === currentQuestion.correct_answer}
+              questionText={currentQuestion.question_text}
+              correctAnswer={currentQuestion.correct_answer}
+              topic={currentQuestion.topic || currentQuestion.subject}
+              difficulty={currentQuestion.difficulty as 'Foundation' | 'Standard' | 'Challenge'}
+            />
           )}
         </CardContent>
       </Card>

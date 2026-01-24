@@ -15,6 +15,7 @@
 import { useEffect, useState } from "react"
 import { SessionProgress } from "./SessionProgress"
 import { QuestionCard } from "./QuestionCard"
+import { EnhancedExplanationPanel } from "./EnhancedExplanationPanel"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Eye } from "lucide-react"
 import { SessionQuestion as SessionQuestionType } from "@/hooks/usePracticeSession"
@@ -225,32 +226,19 @@ export function SessionQuestion({
 
           {/* Inline Explanation (expandable) */}
           {isAnswered && showExplanation && (
-            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 space-y-3">
-              <div className="flex items-center gap-2 text-blue-800">
-                <span className="text-lg">💡</span>
-                <h4 className="font-semibold">Explanation</h4>
-              </div>
-              <div className="space-y-4 text-slate-700">
-                {question.explanations.stepByStep && (
-                  <div>
-                    <p className="text-sm font-medium text-slate-600 mb-1">Step by Step:</p>
-                    <p className="text-sm whitespace-pre-wrap">{question.explanations.stepByStep}</p>
-                  </div>
-                )}
-                {question.explanations.example && (
-                  <div>
-                    <p className="text-sm font-medium text-slate-600 mb-1">Worked Example:</p>
-                    <p className="text-sm whitespace-pre-wrap">{question.explanations.example}</p>
-                  </div>
-                )}
-                {question.explanations.visual && (
-                  <div>
-                    <p className="text-sm font-medium text-slate-600 mb-1">Visual Aid:</p>
-                    <p className="text-sm whitespace-pre-wrap">{question.explanations.visual}</p>
-                  </div>
-                )}
-              </div>
-            </div>
+            <EnhancedExplanationPanel
+              questionId={question.id}
+              questionText={question.questionText}
+              correctAnswer={question.correctAnswerId}
+              topic={question.topic || undefined}
+              difficulty={(question.difficulty || 'Foundation') as 'Foundation' | 'Standard' | 'Challenge'}
+              explanations={{
+                stepByStep: question.explanations.stepByStep || null,
+                visual: question.explanations.visual || null,
+                workedExample: question.explanations.example || null
+              }}
+              isCorrect={selectedAnswer === question.correctAnswerId}
+            />
           )}
 
           {/* Keyboard Shortcuts Hint */}

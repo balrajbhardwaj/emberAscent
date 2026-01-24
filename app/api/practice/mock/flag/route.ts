@@ -25,6 +25,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    // Check subscription tier
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('subscription_tier')
+      .eq('id', user.id)
+      .single()
+
+    const isAscent = profile?.subscription_tier === 'ascent' || profile?.subscription_tier === 'summit'
+    if (!isAscent) {
+      return NextResponse.json(
+        { error: 'Mock tests require Ascent subscription' },
+        { status: 403 }
+      )
+    }
+
     // Parse and validate request
     const body = await request.json()
     const { sessionId, questionId } = flagSchema.parse(body)

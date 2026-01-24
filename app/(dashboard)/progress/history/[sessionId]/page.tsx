@@ -17,6 +17,7 @@ import { ArrowLeft, Target } from "lucide-react"
 import { SessionDetailCard } from "@/components/progress/SessionDetailCard"
 import { QuestionReviewList } from "@/components/progress/QuestionReviewList"
 import { fetchSessionDetail } from "../actions"
+import { PaywallCard } from "@/components/common/PaywallCard"
 
 interface PageProps {
   params: {
@@ -53,6 +54,36 @@ export default async function SessionDetailPage({ params }: PageProps) {
   
   if (!child) {
     redirect("/onboarding")
+  }
+
+  // Check subscription tier
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) {
+    redirect('/login')
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('subscription_tier')
+    .eq('id', user.id)
+    .single()
+
+  // Enforce Ascent tier for Session History detail
+  const isAscent = profile?.subscription_tier === 'ascent' || profile?.subscription_tier === 'summit'
+  if (!isAscent) {
+    return (
+      <PaywallCard
+        feature="Session History"
+        description="Review detailed session history with an Ascent subscription."
+        benefits={[
+          "Question-by-question review",
+          "See correct answers and explanations",
+          "Track performance patterns",
+          "Plus all other Ascent features"
+        ]}
+      />
+    )
   }
   
   // Fetch session detail

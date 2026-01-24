@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getMockTestTemplates } from '@/lib/practice/mockTestGenerator'
 import MockTestSelector from './MockTestSelector'
+import { PaywallCard } from '@/components/common/PaywallCard'
 
 export default async function MockTestPage() {
   const supabase = await createClient()
@@ -19,15 +20,34 @@ export default async function MockTestPage() {
     redirect('/login')
   }
 
-  // Get active child
+  // Check subscription tier
   const { data: profile } = await supabase
     .from('profiles')
-    .select('active_child_id')
+    .select('active_child_id, subscription_tier')
     .eq('id', user.id)
     .single()
 
   if (!profile?.active_child_id) {
     redirect('/setup')
+  }
+
+  // Enforce Ascent tier for Mock Tests
+  const isAscent = profile?.subscription_tier === 'ascent' || profile?.subscription_tier === 'summit'
+  if (!isAscent) {
+    return (
+      <PaywallCard
+        feature="Mock Tests"
+        description="Practice under real exam conditions with timed, full-length tests. Get detailed results analysis and track your exam readiness."
+        benefits={[
+          "Full-length timed practice exams",
+          "Five different test templates (Standard, Maths Focus, English Focus, VR Focus, Quick)",
+          "Realistic exam conditions with countdown timer",
+          "Question flagging and navigation grid",
+          "Comprehensive results analysis with recommendations",
+          "Track improvement across multiple mock tests"
+        ]}
+      />
+    )
   }
 
   // Get child details

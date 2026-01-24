@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { analyzeMockResults, generateRecommendations, compareToPreviousMocks } from '@/lib/practice/mockAnalyzer'
 import MockResults from './MockResults'
+import { PaywallCard } from '@/components/common/PaywallCard'
 
 export default async function MockTestResultsPage({
   params,
@@ -23,15 +24,32 @@ export default async function MockTestResultsPage({
     redirect('/login')
   }
 
-  // Get active child
+  // Check subscription tier
   const { data: profile } = await supabase
     .from('profiles')
-    .select('active_child_id')
+    .select('active_child_id, subscription_tier')
     .eq('id', user.id)
     .single()
 
   if (!profile?.active_child_id) {
     redirect('/setup')
+  }
+
+  // Enforce Ascent tier for Mock Test results
+  const isAscent = profile?.subscription_tier === 'ascent' || profile?.subscription_tier === 'summit'
+  if (!isAscent) {
+    return (
+      <PaywallCard
+        feature="Mock Test Results"
+        description="View detailed results analysis with an Ascent subscription."
+        benefits={[
+          "Detailed question-by-question breakdown",
+          "Performance insights and recommendations",
+          "Track progress across multiple tests",
+          "Plus all other Ascent analytics features"
+        ]}
+      />
+    )
   }
 
   // Verify session belongs to child and is completed
