@@ -1,30 +1,58 @@
 /**
  * Feedback Collection Service
- * 
- * Service layer for managing user feedback:
- * - Question feedback (helpful/not helpful)
- * - Session feedback (ratings and experience)
- * - NPS surveys (Net Promoter Score)
- * 
- * Handles logic for when to show surveys and aggregating feedback data.
- * 
+ *
+ * Provides server-side helpers for recording and aggregating feedback data.
+ * - Question feedback (helpfulness, clarity, difficulty alignment)
+ * - Session feedback (rating + quick tags)
+ * - Net Promoter Score responses
+ *
  * @module lib/feedback/collector
  */
 
 import { createClient } from "@/lib/supabase/server"
 
-// =====================================================
-// Question Feedback
-// =====================================================
+export type ExplanationClarity = 'clear' | 'mixed' | 'confusing'
+export type DifficultyAccuracy = 'too_easy' | 'just_right' | 'too_hard'
+export type NpsTriggerReason = 'two_weeks_active' | 'ninety_day_interval' | 'manual' | 'prompted'
 
 interface QuestionFeedbackInput {
   questionId: string
   childId: string
   parentId: string
   isHelpful: boolean
-  issueType?: 'unclear' | 'incorrect' | 'too_easy' | 'too_hard' | 'other'
-  feedbackText?: string
+  explanationClarity?: ExplanationClarity
+  explanationStyle?: string
+  difficultyAccuracy?: DifficultyAccuracy
+  detail?: string
+  extraContext?: Record<string, unknown>
   sessionId?: string
+}
+
+interface SessionFeedbackInput {
+  sessionId: string
+  childId: string
+  parentId: string
+  rating: number
+  comment?: string
+  tags?: string[] // feedback tag slugs
+}
+
+interface NpsResponseInput {
+  parentId: string
+  childId?: string
+  score: number
+  followUp?: string
+  triggerReason: NpsTriggerReason
+}
+
+export interface FeedbackStats {
+  questionId: string
+  totalFeedback: number
+  helpfulCount: number
+  notHelpfulCount: number
+  helpfulPercentage: number
+  clarityBreakdown: Record<string, number>
+  difficultyBreakdown: Record<string, number>
 }
 
 export async function submitQuestionFeedback(input: QuestionFeedbackInput) {
@@ -32,289 +60,193 @@ export async function submitQuestionFeedback(input: QuestionFeedbackInput) {
 
   const { data, error } = await supabase
     .from('question_feedback')
-    .insert({
-      question_id: input.questionId,
-      child_id: input.childId,
-      parent_id: input.parentId,
-      is_helpful: input.isHelpful,
-      issue_type: input.issueType || null,
-      feedback_text: input.feedbackText || null,
-      session_id: input.sessionId || null,
-    })
+    .upsert(
+      {
+        question_id: input.questionId,
+        child_id: input.childId,
+        parent_id: input.parentId,
+        session_id: input.sessionId ?? null,
+        is_helpful: input.isHelpful,
+        explanation_clarity: input.explanationClarity ?? null,
+        explanation_style: input.explanationStyle ?? null,
+        difficulty_accuracy: input.difficultyAccuracy ?? null,
+        feedback_text: input.detail ?? null,
+        extra_context: input.extraContext ?? null,
+      },
+      { onConflict: 'question_id,child_id' }
+    )
     .select()
     .single()
 
   if (error) {
-    console.error('Error submitting question feedback:', error)
+    console.error('submitQuestionFeedback failed')
     throw error
   }
 
   return data
-}
-
-export async function getQuestionFeedbackSummary(questionId: string) {
-  const supabase = await createClient()
-
-  const { data, error } = await supabase
-    .rpc('get_question_feedback_summary', {
-      question_uuid: questionId,
-    })
-
-  if (error) {
-    console.error('Error fetching feedback summary:', error)
-    return null
-  }
-
-  return data?.[0] || null
-}
-
-export async function hasUserProvidedQuestionFeedback(
-  questionId: string,
-  childId: string
-): Promise<boolean> {
-  const supabase = await createClient()
-
-  const { data, error } = await supabase
-    .from('question_feedback')
-    .select('id')
-    .eq('question_id', questionId)
-    .eq('child_id', childId)
-    .maybeSingle()
-
-  if (error) {
-    console.error('Error checking feedback:', error)
-    return false
-  }
-
-  return !!data
-}
-
-// =====================================================
-// Session Feedback
-// =====================================================
-
-interface SessionFeedbackInput {
-  sessionId: string
-  childId: string
-  parentId: string
-  rating: number // 1-5
-  difficultyAppropriate?: boolean
-  explanationsHelpful?: boolean
-  wouldRecommend?: boolean
-  positiveFeedback?: string
-  improvementSuggestions?: string
 }
 
 export async function submitSessionFeedback(input: SessionFeedbackInput) {
   const supabase = await createClient()
 
-  const { data, error } = await supabase
+  const { data: feedback, error } = await supabase
     .from('session_feedback')
+    .upsert(
+      {
+        session_id: input.sessionId,
+        child_id: input.childId,
+        parent_id: input.parentId,
+        rating: input.rating,
+        comment: input.comment ?? null,
+      },
+      { onConflict: 'session_id' }
+    )
+    .select()
+    .single()
+
+  if (error || !feedback) {
+    console.error('submitSessionFeedback failed')
+    throw error
+  }
+
+  if (input.tags) {
+    await supabase
+      .from('session_feedback_tags')
+      .delete()
+      .eq('session_feedback_id', feedback.id)
+
+    if (input.tags.length) {
+      const { data: tagRows, error: tagError } = await supabase
+        .from('feedback_tags')
+        .select('id, slug')
+        .in('slug', input.tags)
+
+      if (tagError) {
+        console.error('session feedback tag lookup failed')
+        throw tagError
+      }
+
+      const tagPayload = (tagRows ?? []).map((tag) => ({
+        session_feedback_id: feedback.id,
+        tag_id: tag.id,
+      }))
+
+      if (tagPayload.length) {
+        const { error: tagInsertError } = await supabase
+          .from('session_feedback_tags')
+          .upsert(tagPayload, { onConflict: 'session_feedback_id,tag_id' })
+
+        if (tagInsertError) {
+          console.error('session feedback tag insert failed')
+          throw tagInsertError
+        }
+      }
+    }
+  }
+
+  return feedback
+}
+
+export async function submitNpsResponse(input: NpsResponseInput) {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase
+    .from('nps_responses')
     .insert({
-      session_id: input.sessionId,
-      child_id: input.childId,
       parent_id: input.parentId,
-      rating: input.rating,
-      difficulty_appropriate: input.difficultyAppropriate ?? null,
-      explanations_helpful: input.explanationsHelpful ?? null,
-      would_recommend: input.wouldRecommend ?? null,
-      positive_feedback: input.positiveFeedback || null,
-      improvement_suggestions: input.improvementSuggestions || null,
+      child_id: input.childId ?? null,
+      score: input.score,
+      follow_up: input.followUp ?? null,
+      trigger_reason: input.triggerReason,
     })
     .select()
     .single()
 
   if (error) {
-    console.error('Error submitting session feedback:', error)
+    console.error('submitNpsResponse failed')
     throw error
   }
 
   return data
 }
 
-export async function shouldShowSessionFeedback(sessionId: string): Promise<boolean> {
+export async function shouldShowNpsSurvey(userId: string): Promise<boolean> {
   const supabase = await createClient()
 
-  // Check if feedback already exists
-  const { data, error } = await supabase
-    .from('session_feedback')
+  const { data: children, error: childError } = await supabase
+    .from('children')
     .select('id')
-    .eq('session_id', sessionId)
-    .maybeSingle()
+    .eq('parent_id', userId)
 
-  if (error) {
-    console.error('Error checking session feedback:', error)
+  if (childError || !children?.length) {
     return false
   }
 
-  // Show feedback form if no feedback exists yet
-  // Could add more logic here (e.g., only show every 5th session)
-  return !data
-}
+  const childIds = children.map((child) => child.id)
 
-// =====================================================
-// NPS Surveys
-// =====================================================
-
-interface NpsSurveyInput {
-  parentId: string
-  childId?: string
-  score: number // 0-10
-  feedbackText?: string
-  triggerType: 'session_10' | 'session_30' | 'manual' | 'prompted'
-  totalSessionsAtTime: number
-}
-
-export async function submitNpsSurvey(input: NpsSurveyInput) {
-  const supabase = await createClient()
-
-  const { data, error } = await supabase
-    .from('nps_surveys')
-    .insert({
-      parent_id: input.parentId,
-      child_id: input.childId || null,
-      score: input.score,
-      feedback_text: input.feedbackText || null,
-      trigger_type: input.triggerType,
-      total_sessions_at_time: input.totalSessionsAtTime,
-    })
-    .select()
-    .single()
-
-  if (error) {
-    console.error('Error submitting NPS survey:', error)
-    throw error
-  }
-
-  return data
-}
-
-export async function shouldShowNpsSurvey(
-  parentId: string,
-  totalSessions: number
-): Promise<{ show: boolean; triggerType: 'session_10' | 'session_30' | null }> {
-  const supabase = await createClient()
-
-  // Check if they've completed surveys before
-  const { data: surveys, error } = await supabase
-    .from('nps_surveys')
-    .select('trigger_type, created_at')
-    .eq('parent_id', parentId)
-    .order('created_at', { ascending: false })
+  const { data: firstSession } = await supabase
+    .from('practice_sessions')
+    .select('started_at')
+    .in('child_id', childIds)
+    .order('started_at', { ascending: true })
     .limit(1)
+    .maybeSingle()
 
-  if (error) {
-    console.error('Error checking NPS surveys:', error)
-    return { show: false, triggerType: null }
+  if (!firstSession?.started_at) {
+    return false
   }
 
-  const lastSurvey = surveys?.[0]
+  const firstSessionDate = new Date(firstSession.started_at)
+  const twoWeeksMs = 14 * 24 * 60 * 60 * 1000
+  const ninetyDaysMs = 90 * 24 * 60 * 60 * 1000
 
-  // First survey at 10 sessions
-  if (totalSessions === 10 && !lastSurvey) {
-    return { show: true, triggerType: 'session_10' }
+  if (Date.now() - firstSessionDate.getTime() < twoWeeksMs) {
+    return false
   }
 
-  // Follow-up survey at 30 sessions
-  if (totalSessions === 30 && lastSurvey?.trigger_type === 'session_10') {
-    return { show: true, triggerType: 'session_30' }
+  const { data: lastResponse } = await supabase
+    .from('nps_responses')
+    .select('responded_at')
+    .eq('parent_id', userId)
+    .order('responded_at', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  if (!lastResponse?.responded_at) {
+    return true
   }
 
-  // Don't show again after 30-session survey (avoid survey fatigue)
-  return { show: false, triggerType: null }
+  const lastResponseDate = new Date(lastResponse.responded_at)
+  return Date.now() - lastResponseDate.getTime() >= ninetyDaysMs
 }
 
-export async function calculateNps(
-  startDate?: Date,
-  endDate?: Date
-): Promise<{
-  totalResponses: number
-  promoters: number
-  passives: number
-  detractors: number
-  npsScore: number
-} | null> {
+export async function getFeedbackStats(questionId: string): Promise<FeedbackStats | null> {
   const supabase = await createClient()
 
-  const start = startDate || new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) // 30 days ago
-  const end = endDate || new Date()
-
-  const { data, error } = await supabase.rpc('calculate_nps', {
-    start_date: start.toISOString(),
-    end_date: end.toISOString(),
+  const { data, error } = await supabase.rpc('get_question_feedback_summary', {
+    question_uuid: questionId,
   })
 
-  if (error) {
-    console.error('Error calculating NPS:', error)
+  if (error || !data?.[0]) {
     return null
   }
 
-  return data?.[0] || null
-}
-
-// =====================================================
-// Feedback Analytics
-// =====================================================
-
-export async function getChildFeedbackStats(childId: string) {
-  const supabase = await createClient()
-
-  // Get question feedback count
-  const { count: questionFeedbackCount } = await supabase
-    .from('question_feedback')
-    .select('*', { count: 'exact', head: true })
-    .eq('child_id', childId)
-
-  // Get session feedback count
-  const { count: sessionFeedbackCount } = await supabase
-    .from('session_feedback')
-    .select('*', { count: 'exact', head: true })
-    .eq('child_id', childId)
-
-  // Get average session rating
-  const { data: avgRating } = await supabase
-    .from('session_feedback')
-    .select('rating')
-    .eq('child_id', childId)
-
-  const averageRating = avgRating?.length
-    ? avgRating.reduce((sum: number, item: { rating: number }) => sum + item.rating, 0) / avgRating.length
-    : null
+  const payload = data[0] as {
+    total_feedback: number
+    helpful_count: number
+    not_helpful_count: number
+    helpful_percentage: number
+    clarity_breakdown?: Record<string, number>
+    difficulty_breakdown?: Record<string, number>
+  }
 
   return {
-    questionFeedbackCount: questionFeedbackCount || 0,
-    sessionFeedbackCount: sessionFeedbackCount || 0,
-    averageSessionRating: averageRating ? Number(averageRating.toFixed(1)) : null,
+    questionId,
+    totalFeedback: payload.total_feedback ?? 0,
+    helpfulCount: payload.helpful_count ?? 0,
+    notHelpfulCount: payload.not_helpful_count ?? 0,
+    helpfulPercentage: Number(payload.helpful_percentage ?? 0),
+    clarityBreakdown: payload.clarity_breakdown ?? {},
+    difficultyBreakdown: payload.difficulty_breakdown ?? {},
   }
-}
-
-export async function getRecentIssues(limit: number = 10) {
-  const supabase = await createClient()
-
-  const { data, error } = await supabase
-    .from('question_feedback')
-    .select(`
-      id,
-      question_id,
-      is_helpful,
-      issue_type,
-      feedback_text,
-      created_at,
-      questions (
-        question_text,
-        subject,
-        topic
-      )
-    `)
-    .eq('is_helpful', false)
-    .not('issue_type', 'is', null)
-    .order('created_at', { ascending: false })
-    .limit(limit)
-
-  if (error) {
-    console.error('Error fetching recent issues:', error)
-    return []
-  }
-
-  return data || []
 }

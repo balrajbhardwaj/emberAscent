@@ -332,21 +332,25 @@ export interface PredictionFactor {
  */
 export interface StudyPlan {
   childId: string
+  /** ISO week anchor (Monday) for this plan */
+  weekOf: Date
   weekStart: Date
   weekEnd: Date
   generatedAt: Date
+  /** Narrative explaining why these areas were selected */
+  reasoning: string
   
   // Daily plans
   dailyPlans: DailyPlan[]
   
   // Focus areas for the week
-  weeklyFocusAreas: FocusArea[]
+  focusAreas: FocusArea[]
   
   // Goals
   weeklyGoals: StudyGoal[]
   
   // Estimated time
-  estimatedTotalMinutes: number
+  totalRecommendedMinutes: number
 }
 
 /**
@@ -356,7 +360,7 @@ export interface DailyPlan {
   date: Date
   dayOfWeek: string
   activities: PlannedActivity[]
-  estimatedMinutes: number
+  recommendedMinutes: number
   completed: boolean
   actualMinutes?: number
 }
@@ -389,6 +393,7 @@ export interface FocusArea {
   targetAccuracy: number
   importance: number // 1-10
   suggestedQuestions: number
+  priority: 'high' | 'medium' | 'low'
 }
 
 /**

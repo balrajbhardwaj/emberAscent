@@ -1,5 +1,9 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import {
+  IMPERSONATION_COOKIE_NAME,
+  IMPERSONATION_DURATION_MS,
+} from '@/lib/admin/impersonation.constants'
 
 /**
  * Updates the user's session in middleware
@@ -7,6 +11,16 @@ import { NextResponse, type NextRequest } from 'next/server'
  * and is available to Server Components
  */
 export async function updateSession(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+  const isApiRoute = pathname.startsWith('/api')
+  const isAuthRoute =
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/signup') ||
+    pathname.startsWith('/forgot-password') ||
+    pathname.startsWith('/reset-password')
+  const isAdminRoute = pathname.startsWith('/admin')
+  const isPublicRoute = pathname === '/'
+
   let supabaseResponse = NextResponse.next({
     request,
   })
@@ -37,30 +51,89 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
+  const impersonationToken = request.cookies.get(IMPERSONATION_COOKIE_NAME)?.value
+
+  if (impersonationToken && user) {
+    const { data: impersonation } = await supabase
+      .from('impersonation_sessions')
+      .select('id, admin_id, target_user_id, started_at, ended_at')
+      .eq('id', impersonationToken)
+      .single()
+
+    const startedAt = impersonation?.started_at
+      ? new Date(impersonation.started_at).getTime()
+      : 0
+    const expiresAt = startedAt + IMPERSONATION_DURATION_MS
+    const expired = Date.now() > expiresAt
+    const invalidAdmin = impersonation?.admin_id !== user.id
+    const alreadyEnded = Boolean(impersonation?.ended_at)
+    const missingSession = !impersonation
+
+    if (expired || invalidAdmin || alreadyEnded || missingSession) {
+      supabaseResponse.cookies.set({
+        name: IMPERSONATION_COOKIE_NAME,
+        value: '',
+        maxAge: 0,
+        path: '/',
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+      })
+
+      if (impersonation && !impersonation.ended_at) {
+        await supabase
+          .from('impersonation_sessions')
+          .update({ ended_at: new Date().toISOString() })
+          .eq('id', impersonationToken)
+          .is('ended_at', null)
+      }
+    } else {
+      supabaseResponse.headers.set(
+        'x-impersonation-target',
+        impersonation.target_user_id
+      )
+    }
+  }
+
   // Protected routes logic
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/signup') &&
-    !request.nextUrl.pathname.startsWith('/forgot-password') &&
-    !request.nextUrl.pathname.startsWith('/reset-password') &&
-    !request.nextUrl.pathname.startsWith('/api') &&
-    request.nextUrl.pathname !== '/'
-  ) {
+  if (!user && !isAuthRoute && !isApiRoute && !isPublicRoute) {
     // Redirect to login if accessing protected route without auth
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
   }
 
+  // Admin-only guard: only admins and super admins may access /admin routes
+  if (user && isAdminRoute) {
+    const { data: profile, error: roleError } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    if (roleError) {
+      console.error('Error fetching admin role', roleError)
+    }
+
+    const role = (profile as any)?.role ?? 'user'
+    const isElevated = role === 'admin' || role === 'super_admin'
+
+    if (!isElevated) {
+      const redirectUrl = request.nextUrl.clone()
+      redirectUrl.pathname = '/dashboard'
+      return NextResponse.redirect(redirectUrl)
+    }
+
+    console.info(`[admin-access] ${user.id} -> ${pathname}`)
+  }
+
   // Check if authenticated user needs to complete setup
   if (
     user &&
-    request.nextUrl.pathname !== '/setup' &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/signup') &&
-    !request.nextUrl.pathname.startsWith('/api') &&
-    request.nextUrl.pathname !== '/'
+    !isAdminRoute &&
+    pathname !== '/setup' &&
+    !isAuthRoute &&
+    !isApiRoute &&
+    !isPublicRoute
   ) {
     // Check if user has any children
     const { data: children } = await supabase
@@ -79,11 +152,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // Redirect authenticated users away from auth pages
-  if (
-    user &&
-    (request.nextUrl.pathname === '/login' ||
-      request.nextUrl.pathname === '/signup')
-  ) {
+  if (user && (pathname === '/login' || pathname === '/signup')) {
     // Check if they need setup first
     const { data: children } = await supabase
       .from('children')

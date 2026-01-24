@@ -61,7 +61,7 @@ export default function LoginPage() {
 
       router.push("/practice")
       router.refresh()
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",

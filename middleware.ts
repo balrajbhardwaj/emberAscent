@@ -2,6 +2,13 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
 import { checkRateLimit, getRateLimitConfig } from '@/lib/security/rateLimiter'
 
+const IMPERSONATION_SENSITIVE_PATHS = [
+  '/api/stripe',
+  '/api/account',
+  '/api/profile/delete',
+  '/api/auth/password',
+]
+
 export async function middleware(request: NextRequest) {
   // 1. Rate Limiting for API routes
   if (request.nextUrl.pathname.startsWith('/api/')) {
@@ -30,6 +37,49 @@ export async function middleware(request: NextRequest) {
   
   // 2. Session management
   const response = await updateSession(request)
+  const impersonationTarget = response.headers.get('x-impersonation-target')
+  if (impersonationTarget) {
+    response.headers.delete('x-impersonation-target')
+  }
+
+  if (impersonationTarget) {
+    const path = request.nextUrl.pathname
+    const isSensitive = IMPERSONATION_SENSITIVE_PATHS.some((prefix) => path.startsWith(prefix))
+
+    if (isSensitive) {
+      const blocked = NextResponse.json(
+        { error: 'Action blocked while impersonating a user.' },
+        { status: 403 }
+      )
+      blocked.headers.set('X-Frame-Options', 'DENY')
+      blocked.headers.set('X-Content-Type-Options', 'nosniff')
+      blocked.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+      blocked.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+      blocked.headers.set(
+        'Content-Security-Policy',
+        [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.jsdelivr.net",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' data: https: blob:",
+          "font-src 'self' data:",
+          "connect-src 'self' https://*.supabase.co https://api.stripe.com",
+          "frame-src 'self' https://js.stripe.com",
+          "base-uri 'self'",
+          "form-action 'self'",
+        ].join('; ')
+      )
+
+      if (process.env.NODE_ENV === 'production') {
+        blocked.headers.set(
+          'Strict-Transport-Security',
+          'max-age=31536000; includeSubDomains; preload'
+        )
+      }
+
+      return blocked
+    }
+  }
   
   // 3. Security Headers
   response.headers.set('X-Frame-Options', 'DENY')

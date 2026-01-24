@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
+import { ImpersonationBanner } from "@/components/admin/ImpersonationBanner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,6 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* Impersonation banner is rendered globally so admins never miss their current context */}
+        <ImpersonationBanner />
         {children}
         <Toaster />
       </body>

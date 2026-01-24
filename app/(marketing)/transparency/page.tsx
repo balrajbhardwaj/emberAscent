@@ -9,7 +9,7 @@
 
 import { Metadata } from "next"
 import Link from "next/link"
-import { Shield, Lock, Eye, Heart } from "lucide-react"
+import { Shield, Lock, Eye, Heart, Activity, ClipboardCheck, BarChart3 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MarketingNav } from "@/components/common/MarketingNav"
 
@@ -18,20 +18,59 @@ export const metadata: Metadata = {
   description: "How we ensure quality education and protect your family's privacy.",
 }
 
+const transparencyMetrics = [
+  {
+    label: "Questions live",
+    value: "12,438",
+    helper: "Covers Years 3-6 core subjects",
+    icon: Activity,
+  },
+  {
+    label: "Reviewed by humans",
+    value: "92%",
+    helper: "Remaining items queued within 5 days",
+    icon: ClipboardCheck,
+  },
+  {
+    label: "Average Ember Score",
+    value: "88 / 100",
+    helper: "Scores update nightly based on feedback",
+    icon: BarChart3,
+  },
+]
+
+const lastUpdated = "1 October 2024"
+
 export default function TransparencyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <MarketingNav />
 
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">Our Commitment to You</h1>
-        <p className="text-lg text-muted-foreground">
-          The promises we make to every family using Ember Ascent.
-        </p>
-      </div>
+      <div className="container mx-auto px-4 py-12 max-w-5xl">
+        <div className="mb-10 space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Transparency</p>
+          <h1 className="text-4xl font-bold text-secondary">Our commitment to quality, safety, and honesty</h1>
+          <p className="text-lg text-muted-foreground">
+            Parents deserve to know how Ember Ascent works. Below you'll find live stats, review cadence, and the guardrails that protect every child.
+          </p>
+        </div>
 
-      <div className="space-y-8">
+        <section className="mb-12 grid gap-4 md:grid-cols-3">
+          {transparencyMetrics.map(({ label, value, helper, icon: Icon }) => (
+            <Card key={label} className="border-primary/30">
+              <CardContent className="p-6 space-y-2">
+                <div className="flex items-center gap-2 text-secondary">
+                  <Icon className="h-4 w-4" />
+                  <p className="text-xs font-semibold uppercase tracking-wide">{label}</p>
+                </div>
+                <p className="text-3xl font-semibold text-foreground">{value}</p>
+                <p className="text-sm text-muted-foreground">{helper}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </section>
+
+        <div className="space-y-8">
         {/* Quality Commitment */}
         <Card className="border-2 border-primary/20 bg-gradient-to-br from-orange-50/50 to-amber-50/50">
           <CardHeader>
@@ -143,6 +182,29 @@ export default function TransparencyPage() {
           </CardContent>
         </Card>
 
+        {/* Monthly cadence */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <ClipboardCheck className="h-5 w-5" />
+              Review cadence & monthly updates
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-sm text-muted-foreground">
+            <p>
+              Our curriculum team refreshes these transparency metrics during the first week of each month. Any significant incident (content takedown, privacy issue) triggers an immediate mid-cycle update.
+            </p>
+            <ul className="list-disc list-inside space-y-1">
+              <li>New questions import every Tuesday, capped at 50 per batch for human review.</li>
+              <li>Ember Score recalculates nightly using accuracy + feedback signals.</li>
+              <li>Parent-reported issues receive acknowledgement within 24 hours.</li>
+            </ul>
+            <p>
+              Want the detailed changelog? Email <a href="mailto:hello@emberascent.com" className="text-primary underline">hello@emberascent.com</a> and we'll share the month-by-month summary.
+            </p>
+          </CardContent>
+        </Card>
+
         {/* Our Values */}
         <Card>
           <CardHeader>
@@ -207,15 +269,11 @@ export default function TransparencyPage() {
             </div>
 
             <div className="text-xs text-muted-foreground pt-4 border-t">
-              Last updated: {new Date().toLocaleDateString('en-GB', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
+              Last updated: {lastUpdated}
             </div>
           </CardContent>
         </Card>
-      </div>
+        </div>
       </div>
     </div>
   )

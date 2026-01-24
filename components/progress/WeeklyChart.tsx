@@ -87,23 +87,32 @@ export function WeeklyChart({ data, isLoading = false }: WeeklyChartProps) {
               >
                 {/* Bar */}
                 <div className="w-full flex flex-col justify-end h-full">
-                  {/* eslint-disable-next-line react/forbid-dom-props */}
-                  <div
-                    className={`w-full rounded-t-lg transition-all relative ${
-                      day.hasSession
-                        ? isToday
-                          ? "bg-gradient-to-t from-orange-500 to-orange-400"
-                          : "bg-gradient-to-t from-blue-500 to-blue-400"
-                        : "bg-slate-200"
-                    } ${day.hasSession ? "hover:opacity-80" : ""}`}
-                    style={(() => {
-                      const barStyle: React.CSSProperties = {
-                        height: `${height}%`,
-                        minHeight: height > 0 ? "8px" : "0"
-                      }
-                      return barStyle
-                    })()}
-                  >
+                  <div className="w-full h-full relative flex items-end">
+                    <svg
+                      viewBox="0 0 20 100"
+                      role="img"
+                      aria-label={`${formatDay(day.date)} engagement bar showing ${day.questionsAnswered} questions`}
+                      className={`w-full h-full transition-opacity ${
+                        day.hasSession ? "hover:opacity-80" : ""
+                      }`}
+                    >
+                      <rect
+                        x="0"
+                        width="20"
+                        rx="6"
+                        ry="6"
+                        y={100 - Math.max(height, day.hasSession ? 8 : 0)}
+                        height={Math.max(height, day.hasSession ? 8 : 0)}
+                        className={
+                          day.hasSession
+                            ? isToday
+                              ? "fill-orange-400"
+                              : "fill-blue-400"
+                            : "fill-slate-200"
+                        }
+                      />
+                    </svg>
+
                     {/* Tooltip on hover */}
                     {day.hasSession && (
                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">

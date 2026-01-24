@@ -76,7 +76,7 @@ export function ChildSetupForm() {
 
       router.push("/practice")
       router.refresh()
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",
