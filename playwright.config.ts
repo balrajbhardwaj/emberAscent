@@ -13,7 +13,8 @@ import * as dotenv from 'dotenv';
 import * as path from 'path';
 
 // Load test environment variables
-dotenv.config({ path: path.resolve(__dirname, '.env.test.local') });
+// COMMENTED OUT - Using production database for now
+// dotenv.config({ path: path.resolve(__dirname, '.env.test.local') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -101,12 +102,6 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
-    env: {
-      // Use test database
-      NEXT_PUBLIC_SUPABASE_URL: process.env.TEST_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.TEST_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '',
-      SUPABASE_SERVICE_ROLE_KEY: process.env.TEST_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '',
-    },
   },
   
   /* Test timeout */

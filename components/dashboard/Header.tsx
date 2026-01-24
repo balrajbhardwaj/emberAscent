@@ -134,6 +134,7 @@ export function Header({ currentStreak = 0, subscriptionTier = "free" }: HeaderP
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
+                data-testid="user-menu"
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-0"
               >

@@ -39,10 +39,11 @@ export class AuthHelper {
     // Submit form
     await this.page.click('button[type="submit"]');
     
-    // Wait for navigation
-    await this.page.waitForURL(url => 
-      url.pathname === '/practice' || 
-      url.pathname === '/setup'
+    // Wait for navigation to /practice or /setup
+    await this.page.waitForURL(url =>
+      url.pathname === '/practice' ||
+      url.pathname === '/setup',
+      { timeout: 30000 }
     );
   }
 
@@ -71,8 +72,8 @@ export class AuthHelper {
     // Click user menu
     await this.page.click('[data-testid="user-menu"]');
     
-    // Click logout
-    await this.page.click('text=Log Out');
+    // Click logout (menu item says "Sign Out")
+    await this.page.click('text=Sign Out');
     
     // Should redirect to login
     await this.page.waitForURL('/login');

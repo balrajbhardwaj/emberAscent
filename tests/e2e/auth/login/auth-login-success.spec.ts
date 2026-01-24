@@ -10,14 +10,18 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { AuthHelper } from '../../helpers/auth-helpers';
-import { TEST_USERS } from '../../fixtures/users';
+import { AuthHelper } from '@/tests/helpers/auth-helpers';
+import { TEST_USERS } from '@/tests/fixtures/users';
 
 test.describe('Authentication - Login Success', () => {
   let authHelper: AuthHelper;
 
   test.beforeEach(async ({ page }) => {
     authHelper = new AuthHelper(page);
+    
+    // Listen to browser console
+    page.on('console', msg => console.log('BROWSER:', msg.text()));
+    page.on('pageerror', error => console.error('PAGE ERROR:', error));
   });
 
   test('should successfully log in with valid credentials', async ({ page }) => {

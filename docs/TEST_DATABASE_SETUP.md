@@ -2,15 +2,26 @@
 
 ## Overview
 
-Ember Ascent uses a **separate Supabase project** for testing to ensure production data integrity. This guide walks you through creating and configuring the test database.
+Ember Ascent uses **production database with dedicated test users** for E2E testing. This approach avoids the complexity of maintaining a separate test database with full auth schema replication.
 
 ## Prerequisites
 
 - Supabase account (free tier works)
-- Access to your production Ember Ascent project
+- Access to production Ember Ascent project
 - Node.js 20+ installed
 
-## Step 1: Create Test Supabase Project
+## Quick Start
+
+For running tests, you only need:
+
+1. **Test users exist in production** (already created)
+2. **Run tests**: `npm test`
+
+That's it! The test users (`test.sarah@emberascent.dev`, etc.) are isolated and won't interfere with real user data.
+
+---
+
+## Detailed Setup (For Reference)
 
 1. **Go to Supabase Dashboard**
    - Navigate to: https://supabase.com/dashboard
@@ -77,15 +88,85 @@ Ember Ascent uses a **separate Supabase project** for testing to ensure producti
 
 ## Step 4: Apply Database Schema
 
-You need to replicate your production schema in the test database.
+You need to replicate your production schema in the test database. Choose the method that works best for you.
 
-### ⭐ Use the Consolidated Schema File (EASIEST)
+### ⭐ Method 1: Use Supabase CLI `db pull` (RECOMMENDED)
 
-I've created a single SQL file that contains everything:
+This generates a schema file directly from your production database automatically.
+
+**Prerequisites**: Install Supabase CLI (if not already installed)
+
+Choose the installation method for your system:
+
+**Windows (Scoop):**
+```powershell
+# Install Scoop first if you don't have it: https://scoop.sh
+scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
+scoop install supabase
+```
+
+**macOS (Homebrew):**
+```bash
+brew install supabase/tap/supabase
+```
+
+**Linux:**
+```bash
+# Download and extract (replace with latest version)
+curl -fsSL https://github.com/supabase/cli/releases/download/v1.x.x/supabase_linux_amd64.tar.gz | tar -xz
+sudo mv supabase /usr/local/bin/
+```
+
+**Any OS (via npx - no installation required):**
+```bash
+# Just prefix commands with 'npx supabase' instead of 'supabase'
+npx supabase --help
+```
+
+**Steps:**
+
+1. **Link to your PRODUCTION project first**
+   ```bash
+   supabase link --project-ref cmujulpwvmfvpyypcfaa
+   ```
+   - Your production ref: `cmujulpwvmfvpyypcfaa`
+   - Enter your production database password when prompted
+
+2. **Pull schema from production**
+   ```bash
+   supabase db pull
+   ```
+   - This connects to your production database
+   - Generates a migration file in `supabase/migrations/`
+   - File name: `<timestamp>_remote_schema.sql`
+   - Prompts to update migration history (answer: No for test setup)
+
+3. **Run generated schema in test database**
+   - Open the newly created migration file from `supabase/migrations/`
+   - Copy the entire contents
+   - Go to your **TEST** Supabase Dashboard
+   - Navigate to **SQL Editor** → **New Query**
+   - Paste and click **"Run"**
+   - Wait ~30 seconds for completion
+
+**Benefits:**
+- Always accurate - pulls latest production schema
+- No manual maintenance needed
+- Can re-run anytime to sync changes
+- Single source of truth (production database)
+
+**When to use this method:**
+- Initial test database setup
+- After applying new migrations to production
+- When you need to ensure test matches production exactly
+
+### Method 2: Use Pre-Generated Schema File
+
+If CLI is not available or you prefer a simpler approach:
 
 1. **Open the Schema File**
    - File location: `supabase/test-database-schema.sql`
-   - This consolidates ALL migrations into one file
+   - This file was generated using `supabase db pull`
 
 2. **Run in Test Database**
    - Go to **test** Supabase Dashboard
@@ -97,33 +178,164 @@ I've created a single SQL file that contains everything:
    - Click **"Run"** (or Ctrl+Enter)
    - Wait ~30 seconds for completion
 
-3. **Verify Success**
-   - Check for success message in SQL Editor output
-   - Go to **Table Editor** - you should see all tables:
-     - profiles, children, questions, practice_sessions, session_responses
-     - child_ember_scores, adaptive_tracker, achievements, etc.
+**Note:** This file may become outdated as you add migrations to production. Use Method 1 to regenerate it.
 
-### Alternative: Use Supabase CLI (If Installed)
+### Verify Schema Applied Successfully
 
-If you have Supabase CLI installed:
+After using either method:
+- Check for success message in SQL Editor output
+- Go to **Table Editor** - you should see all tables:
+  - profiles, children, questions, practice_sessions, session_responses
+  - child_ember_scores, adaptive_tracker, achievements, etc.
 
-```bash
-# Connect to your test project
-supabase link --project-ref your-test-ref
+## Step 5: Create Auth Users (MUST DO FIRST!)
 
-# Push migrations
-supabase db push
-```
+⚠️ **IMPORTANT**: Create auth users BEFORE inserting profiles (profiles table has FK to auth.users)
 
-## Step 5: Seed Test Data
+### Use SQL to Create Users with Specific UUIDs
 
-### Create Test Users
+The Supabase UI doesn't allow setting custom User IDs, so we must use SQL.
 
-Run this SQL in your test database SQL Editor:
+**Run this in SQL Editor** (test Supabase Dashboard → SQL Editor → New Query):
 
 ```sql
--- Create test profiles (these will auto-create auth users via trigger)
-INSERT INTO profiles (id, email, full_name, tier)
+-- Create test users with specific UUIDs
+-- These UUIDs match the profiles we'll insert in Step 6
+
+-- User 1: Sarah (Free tier)
+INSERT INTO auth.users (
+  id,
+  instance_id,
+  aud,
+  role,
+  email,
+  encrypted_password,
+  email_confirmed_at,
+  created_at,
+  updated_at,
+  confirmation_token,
+  recovery_token
+) VALUES (
+  'b1111111-1111-1111-1111-111111111111',
+  '00000000-0000-0000-0000-000000000000',
+  'authenticated',
+  'authenticated',
+  'test.sarah@emberascent.dev',
+  crypt('TestPassword123!', gen_salt('bf')),
+  NOW(),
+  NOW(),
+  NOW(),
+  '',
+  ''
+);
+
+-- User 2: Emma (Ascent tier)
+INSERT INTO auth.users (
+  id,
+  instance_id,
+  aud,
+  role,
+  email,
+  encrypted_password,
+  email_confirmed_at,
+  created_at,
+  updated_at,
+  confirmation_token,
+  recovery_token
+) VALUES (
+  'b2222222-2222-2222-2222-222222222222',
+  '00000000-0000-0000-0000-000000000000',
+  'authenticated',
+  'authenticated',
+  'test.emma@emberascent.dev',
+  crypt('TestPassword123!', gen_salt('bf')),
+  NOW(),
+  NOW(),
+  NOW(),
+  '',
+  ''
+);
+
+-- User 3: James (Ascent tier, multiple children)
+INSERT INTO auth.users (
+  id,
+  instance_id,
+  aud,
+  role,
+  email,
+  encrypted_password,
+  email_confirmed_at,
+  created_at,
+  updated_at,
+  confirmation_token,
+  recovery_token
+) VALUES (
+  'b3333333-3333-3333-3333-333333333333',
+  '00000000-0000-0000-0000-000000000000',
+  'authenticated',
+  'authenticated',
+  'test.james@emberascent.dev',
+  crypt('TestPassword123!', gen_salt('bf')),
+  NOW(),
+  NOW(),
+  NOW(),
+  '',
+  ''
+);
+
+-- Also create identities for email login
+INSERT INTO auth.identities (
+  provider_id,
+  user_id,
+  identity_data,
+  provider,
+  last_sign_in_at,
+  created_at,
+  updated_at
+) VALUES 
+(
+  'b1111111-1111-1111-1111-111111111111',
+  'b1111111-1111-1111-1111-111111111111',
+  jsonb_build_object('sub', 'b1111111-1111-1111-1111-111111111111', 'email', 'test.sarah@emberascent.dev'),
+  'email',
+  NOW(),
+  NOW(),
+  NOW()
+),
+(
+  'b2222222-2222-2222-2222-222222222222',
+  'b2222222-2222-2222-2222-222222222222',
+  jsonb_build_object('sub', 'b2222222-2222-2222-2222-222222222222', 'email', 'test.emma@emberascent.dev'),
+  'email',
+  NOW(),
+  NOW(),
+  NOW()
+),
+(
+  'b3333333-3333-3333-3333-333333333333',
+  'b3333333-3333-3333-3333-333333333333',
+  jsonb_build_object('sub', 'b3333333-3333-3333-3333-333333333333', 'email', 'test.james@emberascent.dev'),
+  'email',
+  NOW(),
+  NOW(),
+  NOW()
+);
+```
+
+**Verify Users Created:**
+- Go to **Authentication → Users** in Supabase Dashboard
+- You should see 3 users with "Email confirmed" status
+- Emails: test.sarah@, test.emma@, test.james@emberascent.dev
+
+## Step 6: Seed Test Data
+
+### Create Test Profiles & Children
+
+Now that auth users exist, run this SQL in your test database SQL Editor:
+
+```sql
+-- Create test profiles (now that auth users exist)
+INSERT INTO profiles (id, email, full_name, subscription_tier)
 VALUES
   (
     'b1111111-1111-1111-1111-111111111111',
@@ -226,7 +438,7 @@ If you want all questions in test:
 # In test Supabase Dashboard → Table Editor → questions → Import from CSV
 ```
 
-## Step 6: Verify Test Database
+## Step 7: Verify Test Database
 
 1. **Run Verification Script**
    ```bash
@@ -248,43 +460,23 @@ If you want all questions in test:
    - Verify each table has RLS enabled
    - Verify policies match production
 
-## Step 7: Test Authentication Setup
-
-Test users need authentication credentials.
-
-### Option A: Manual User Creation
-
-1. **Go to Authentication → Users**
-2. **Add User**
-   - Email: `test.sarah@emberascent.dev`
-   - Password: `TestPassword123!`
-   - Auto Confirm: ✅
-3. **Repeat for other test users**
-
-### Option B: Automated Setup (via API)
-
-```typescript
-// Use Supabase admin client
-const { data, error } = await supabase.auth.admin.createUser({
-  email: 'test.sarah@emberascent.dev',
-  password: 'TestPassword123!',
-  email_confirm: true,
-  user_metadata: {
-    full_name: 'Sarah Thompson',
-  }
-});
-```
+4. **Verify Auth Users Created**
+   - Go to Authentication → Users
+   - Should see 3 test users with confirmed status
 
 ## Step 8: Run Your First Test
 
 ```bash
-# Start dev server
+# Start dev server (Terminal 1)
 npm run dev
 
-# In another terminal, run test
-npm run test:e2e -- tests/e2e/auth/login/auth-login-success.spec.ts
+# In another terminal (Terminal 2), run a specific test
+npm test -- tests/e2e/auth/login/auth-login-success.spec.ts
 
-# Or run all tests
+# Or run all E2E tests
+npm run test:e2e
+
+# Or run all tests (E2E + unit)
 npm test
 ```
 
@@ -336,7 +528,7 @@ When test data gets messy:
 TRUNCATE practice_sessions CASCADE;
 TRUNCATE session_responses CASCADE;
 TRUNCATE children CASCADE;
-TRUNCATE profiles CASCADE;
+TRUNCATE profiles 5 (Create Auth Users
 
 -- Re-run Step 5 seed scripts
 ```
@@ -403,16 +595,51 @@ When you're ready for GitHub Actions:
 
 ## Summary Checklist
 
-- [ ] Test Supabase project created
-- [ ] `.env.test.local` configured with credentials
-- [ ] Database schema applied to test project
-- [ ] Test users seeded (profiles + auth)
-- [ ] Test children seeded
-- [ ] Sample questions imported
-- [ ] RLS policies verified
-- [ ] First test runs successfully
-- [ ] `.env.test.local` in `.gitignore`
+- [x] Test users exist in production database
+- [x] Tests run successfully against production
+- [x] Test users isolated with `test.*@emberascent.dev` emails
+- [ ] Clean up test data after testing (see Cleanup section above)
 
 **You're ready to test! 🚀**
 
-Run `npm test` to start the full test suite.
+Run `npm test` to start the test suite.
+
+---
+
+## Key Learnings & Best Practices
+
+### 1. NEXT_PUBLIC_* Variables Are Baked at Build Time
+- Environment variables prefixed with `NEXT_PUBLIC_` are embedded in the JavaScript bundle during build/compilation
+- Changing them requires clearing `.next/` cache and rebuilding
+- For testing, either:
+  - Use production database with test users (current approach)
+  - Temporarily modify `.env.local` and rebuild
+
+### 2. Supabase Auth Schema is Complex
+- Separate test databases need full auth schema including:
+  - Extensions (uuid-ossp, pgcrypto)
+  - Auth schema with proper permissions
+  - Triggers and functions
+- Simpler to use production with isolated test users
+
+### 3. Test User Isolation
+- Use consistent email pattern: `test.*@emberascent.dev`
+- Easy to identify and clean up
+- Won't interfere with real users
+- Can filter from analytics/reports
+
+### 4. Playwright Configuration
+- `webServer` in playwright.config.ts auto-starts dev server
+- `reuseExistingServer` allows manual server control
+- Console logs from browser visible with `BROWSER:` prefix
+
+### 5. Test Helper Best Practices  
+- Use exact UI text for selectors (`'text=Sign Out'` not `'text=Log Out'`)
+- Add `data-testid` attributes to key UI elements
+- Keep test helpers simple - avoid complex error handling that masks real issues
+
+---
+
+</details>
+
+## Step 1: Create Test Supabase Project (DEPRECATED)

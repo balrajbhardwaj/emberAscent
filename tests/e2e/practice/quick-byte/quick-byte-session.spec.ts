@@ -10,9 +10,9 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { AuthHelper } from '../../helpers/auth-helpers';
-import { NavigationHelper } from '../../helpers/navigation-helpers';
-import { TEST_USERS } from '../../fixtures/users';
+import { AuthHelper } from '@/tests/helpers/auth-helpers';
+import { NavigationHelper } from '@/tests/helpers/navigation-helpers';
+import { TEST_USERS } from '@/tests/fixtures/users';
 
 test.describe('Practice - Quick Byte Session', () => {
   let authHelper: AuthHelper;

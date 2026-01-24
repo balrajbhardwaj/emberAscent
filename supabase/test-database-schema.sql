@@ -2,7 +2,7 @@
 -- EMBER ASCENT - TEST DATABASE SCHEMA
 -- ============================================================================
 -- This file consolidates ALL migrations for easy test database setup
--- Run this entire file once in your test Supabase project SQL Editor
+-- Run this entire file in your test Supabase project SQL Editor
 -- 
 -- Instructions:
 -- 1. Create new Supabase project for testing
@@ -10,7 +10,44 @@
 -- 3. Copy and paste this ENTIRE file
 -- 4. Click "Run" (or Ctrl+Enter)
 -- 5. Wait for completion (~30 seconds)
+-- 
+-- Safe to re-run: Includes DROP IF EXISTS statements
 -- ============================================================================
+
+-- ============================================================================
+-- CLEANUP - Drop existing objects (safe to re-run)
+-- ============================================================================
+
+-- Drop tables in reverse dependency order
+DROP TABLE IF EXISTS subscriptions CASCADE;
+DROP TABLE IF EXISTS review_tasks CASCADE;
+DROP TABLE IF EXISTS reviewer_profiles CASCADE;
+DROP TABLE IF EXISTS impersonation_sessions CASCADE;
+DROP TABLE IF EXISTS audit_log CASCADE;
+DROP TABLE IF EXISTS admin_roles CASCADE;
+DROP TABLE IF EXISTS mock_test_templates CASCADE;
+DROP TABLE IF EXISTS feedback CASCADE;
+DROP TABLE IF EXISTS child_streaks CASCADE;
+DROP TABLE IF EXISTS child_achievements CASCADE;
+DROP TABLE IF EXISTS achievements CASCADE;
+DROP TABLE IF EXISTS child_objective_progress CASCADE;
+DROP TABLE IF EXISTS curriculum_objectives CASCADE;
+DROP TABLE IF EXISTS adaptive_tracker CASCADE;
+DROP TABLE IF EXISTS child_ember_scores CASCADE;
+DROP TABLE IF EXISTS session_responses CASCADE;
+DROP TABLE IF EXISTS practice_sessions CASCADE;
+DROP TABLE IF EXISTS questions CASCADE;
+DROP TABLE IF EXISTS children CASCADE;
+DROP TABLE IF EXISTS profiles CASCADE;
+
+-- Drop functions
+DROP FUNCTION IF EXISTS update_updated_at_column() CASCADE;
+DROP FUNCTION IF EXISTS calculate_ember_score(UUID) CASCADE;
+DROP FUNCTION IF EXISTS update_all_ember_scores() CASCADE;
+
+-- Drop views
+DROP VIEW IF EXISTS analytics_overview CASCADE;
+DROP VIEW IF EXISTS child_progress_summary CASCADE;
 
 -- Enable required extensions
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -77,18 +114,32 @@ CREATE TABLE questions (
     difficulty TEXT NOT NULL CHECK (difficulty IN ('foundation', 'standard', 'challenge')),
     year_group INTEGER NOT NULL CHECK (year_group IN (3, 4, 5, 6)),
     question_text TEXT NOT NULL,
-    option_a TEXT NOT NULL,
-    option_b TEXT NOT NULL,
-    option_c TEXT NOT NULL,
-    option_d TEXT NOT NULL,
+    question_type TEXT DEFAULT 'multiple_choice',
+    option_a TEXT,
+    option_b TEXT,
+    option_c TEXT,
+    option_d TEXT,
     option_e TEXT,
+    options JSONB,
     correct_answer TEXT NOT NULL CHECK (correct_answer IN ('A', 'B', 'C', 'D', 'E')),
-    explanation TEXT NOT NULL,
+    explanation TEXT,
+    explanations JSONB,
     ember_score INTEGER CHECK (ember_score >= 60 AND ember_score <= 100),
+    ember_score_breakdown JSONB,
     curriculum_refs TEXT[],
+    curriculum_reference TEXT,
+    primary_curriculum_code TEXT,
+    exam_board TEXT,
     tags TEXT[],
     image_url TEXT,
     is_active BOOLEAN NOT NULL DEFAULT true,
+    is_published BOOLEAN DEFAULT false,
+    created_by UUID,
+    reviewed_by UUID,
+    reviewed_at TIMESTAMPTZ,
+    review_status TEXT CHECK (review_status IN ('pending', 'approved', 'rejected', 'needs_revision', 'ai_only')),
+    helpful_count INTEGER DEFAULT 0,
+    not_helpful_count INTEGER DEFAULT 0,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

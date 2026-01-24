@@ -530,6 +530,129 @@
       letter-spacing: 0.5px;
     }
     
+    /* Tab Navigation */
+    .tab-navigation {
+      display: flex;
+      gap: 0;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #e9ecef;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
+      padding-top: 10px;
+    }
+    
+    .tab-btn {
+      flex: 1;
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #6c757d;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .tab-btn:hover {
+      color: #667eea;
+      background: #f8f9fa;
+    }
+    
+    .tab-btn.active {
+      color: #667eea;
+      border-bottom-color: #667eea;
+      background: white;
+    }
+    
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .summary-section {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 2px solid #e9ecef;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .summary-section h3 {
+      font-size: 1.2rem;
+      color: #495057;
+      margin-bottom: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .summary-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .summary-list li {
+      padding: 12px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f1f3f5;
+      font-size: 0.95rem;
+    }
+    
+    .summary-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .summary-list .label {
+      color: #495057;
+      font-weight: 500;
+    }
+    
+    .summary-list .value {
+      font-weight: 600;
+      color: #667eea;
+    }
+    
     footer {
       margin-top: 60px;
       padding-top: 30px;
@@ -612,142 +735,381 @@
       </div>
     </div>
     
-    <div class="legend">
-      <div class="legend-item">
-        <span class="status-icon status-done">✓</span>
-        <span><strong>Implemented</strong> - Feature complete and deployed</span>
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button class="tab-btn active" data-tab="summary">📊 Summary Dashboard</button>
+      <button class="tab-btn" data-tab="details">📋 Feature Details</button>
+    </div>
+    
+    <!-- SUMMARY TAB -->
+    <div id="summary-tab" class="tab-content active">
+      <div class="legend">
+        <div class="legend-item">
+          <span class="status-icon status-done">✓</span>
+          <span><strong>Implemented</strong> - Feature complete and deployed</span>
+        </div>
+        <div class="legend-item">
+          <span class="status-icon status-progress">→</span>
+          <span><strong>In Progress</strong> - Currently being built</span>
+        </div>
+        <div class="legend-item">
+          <span class="status-icon status-planned">○</span>
+          <span><strong>Planned</strong> - Not yet started</span>
+        </div>
+        <div class="legend-item">
+          <span class="tier-badge tier-free">FREE</span>
+          <span>Available to all users</span>
+        </div>
+        <div class="legend-item">
+          <span class="tier-badge tier-paid">ASCENT</span>
+          <span>Paid tier only</span>
+        </div>
+        <div class="legend-item">
+          <span class="priority-badge priority-critical">CRITICAL</span>
+          <span>Core MVP feature</span>
+        </div>
       </div>
-      <div class="legend-item">
-        <span class="status-icon status-progress">→</span>
-        <span><strong>In Progress</strong> - Currently being built</span>
+      
+      <!-- Dashboard Charts -->
+      <div class="dashboard-charts">
+        <div class="chart-card">
+          <h3>📊 Feature Status Distribution</h3>
+          <div class="chart-container">
+            <div class="bar-chart">
+              <div class="bar" style="height: 100%;" title="Implemented: 76">
+                <span class="bar-value">76</span>
+                <span class="bar-label">✅ Done</span>
+              </div>
+              <div class="bar" style="height: 5%; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);" title="In Progress: 3">
+                <span class="bar-value">3</span>
+                <span class="bar-label">🚧 Progress</span>
+              </div>
+              <div class="bar" style="height: 42%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Planned: 32">
+                <span class="bar-value">32</span>
+                <span class="bar-label">📝 Planned</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-card">
+          <h3>🎯 Progress by Module</h3>
+          <div class="pie-legend">
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #28a745;"></span>
+                <span>Authentication</span>
+              </div>
+              <span style="font-weight: 600;">100%</span>
+            </div>
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #667eea;"></span>
+                <span>Practice</span>
+              </div>
+              <span style="font-weight: 600;">84%</span>
+            </div>
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #764ba2;"></span>
+                <span>Analytics</span>
+              </div>
+              <span style="font-weight: 600;">100%</span>
+            </div>
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #17a2b8;"></span>
+                <span>Progress</span>
+              </div>
+              <span style="font-weight: 600;">100%</span>
+            </div>
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #ffc107;"></span>
+                <span>Gamification</span>
+              </div>
+              <span style="font-weight: 600;">100%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-card">
+          <h3>💰 Feature Tier Distribution</h3>
+          <div class="chart-container">
+            <div class="bar-chart">
+              <div class="bar" style="height: 85%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%);" title="Free Tier: 86">
+                <span class="bar-value">86</span>
+                <span class="bar-label">FREE</span>
+              </div>
+              <div class="bar" style="height: 45%; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);" title="Paid Tier: 18">
+                <span class="bar-value">18</span>
+                <span class="bar-label">ASCENT</span>
+              </div>
+              <div class="bar" style="height: 20%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Not Applicable: 7">
+                <span class="bar-value">7</span>
+                <span class="bar-label">N/A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-card">
+          <h3>⚠️ Priority Distribution</h3>
+          <div class="chart-container">
+            <div class="bar-chart">
+              <div class="bar" style="height: 100%; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);" title="Critical: 89">
+                <span class="bar-value">89</span>
+                <span class="bar-label">CRITICAL</span>
+              </div>
+              <div class="bar" style="height: 25%; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);" title="Normal: 22">
+                <span class="bar-value">22</span>
+                <span class="bar-label">NORMAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="legend-item">
-        <span class="status-icon status-planned">○</span>
-        <span><strong>Planned</strong> - Not yet started</span>
-      </div>
-      <div class="legend-item">
-        <span class="tier-badge tier-free">FREE</span>
-        <span>Available to all users</span>
-      </div>
-      <div class="legend-item">
-        <span class="tier-badge tier-paid">ASCENT</span>
-        <span>Paid tier only</span>
-      </div>
-      <div class="legend-item">
-        <span class="priority-badge priority-critical">CRITICAL</span>
-        <span>Core MVP feature</span>
+      
+      <!-- Summary Sections -->
+      <div class="summary-grid">
+        <div class="summary-section">
+          <h3>🔐 Authentication Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">4/4 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">12/12 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Priority</span>
+              <span class="value" style="color: #dc3545;">Critical</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>🎯 Practice Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">3/4 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">21/25 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #ffc107;">⚡ 84%</span>
+            </li>
+            <li>
+              <span class="label">Priority</span>
+              <span class="value" style="color: #dc3545;">Critical</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>📊 Analytics Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">5/5 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">18/18 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Tier</span>
+              <span class="value" style="color: #ffc107;">💎 Ascent Only</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>📈 Progress Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">3/3 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">9/9 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Tier</span>
+              <span class="value" style="color: #28a745;">💚 Free</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>🏆 Gamification Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">2/2 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">8/8 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Tier</span>
+              <span class="value" style="color: #28a745;">💚 Free</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>⚙️ Settings Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">2/3 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">7/11 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #ffc107;">⚡ 64%</span>
+            </li>
+            <li>
+              <span class="label">Includes</span>
+              <span class="value">Stripe Integration</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>🛡️ Admin Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">3/3 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">12/12 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Type</span>
+              <span class="value">Internal Tool</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>👀 Reviewer Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">3/3 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">8/8 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Type</span>
+              <span class="value">Quality Control</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="summary-section">
+          <h3>🌐 Marketing Module</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">4/4 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">8/8 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Priority</span>
+              <span class="value" style="color: #dc3545;">Critical</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     
-    <!-- Dashboard Charts -->
-    <div class="dashboard-charts">
-      <div class="chart-card">
-        <h3>📊 Feature Status Distribution</h3>
-        <div class="chart-container">
-          <div class="bar-chart">
-            <div class="bar" style="height: 100%;" title="Implemented: 76">
-              <span class="bar-value">76</span>
-              <span class="bar-label">✅ Done</span>
-            </div>
-            <div class="bar" style="height: 5%; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);" title="In Progress: 3">
-              <span class="bar-value">3</span>
-              <span class="bar-label">🚧 Progress</span>
-            </div>
-            <div class="bar" style="height: 42%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Planned: 32">
-              <span class="bar-value">32</span>
-              <span class="bar-label">📝 Planned</span>
-            </div>
-          </div>
+    <!-- DETAILS TAB -->
+    <div id="details-tab" class="tab-content">
+      <div class="legend">
+        <div class="legend-item">
+          <span class="status-icon status-done">✓</span>
+          <span><strong>Implemented</strong> - Feature complete and deployed</span>
+        </div>
+        <div class="legend-item">
+          <span class="status-icon status-progress">→</span>
+          <span><strong>In Progress</strong> - Currently being built</span>
+        </div>
+        <div class="legend-item">
+          <span class="status-icon status-planned">○</span>
+          <span><strong>Planned</strong> - Not yet started</span>
+        </div>
+        <div class="legend-item">
+          <span class="tier-badge tier-free">FREE</span>
+          <span>Available to all users</span>
+        </div>
+        <div class="legend-item">
+          <span class="tier-badge tier-paid">ASCENT</span>
+          <span>Paid tier only</span>
+        </div>
+        <div class="legend-item">
+          <span class="priority-badge priority-critical">CRITICAL</span>
+          <span>Core MVP feature</span>
         </div>
       </div>
       
-      <div class="chart-card">
-        <h3>🎯 Progress by Module</h3>
-        <div class="pie-legend">
-          <div class="pie-legend-item">
-            <div class="pie-label">
-              <span class="pie-color" style="background: #28a745;"></span>
-              <span>Authentication</span>
-            </div>
-            <span style="font-weight: 600;">100%</span>
-          </div>
-          <div class="pie-legend-item">
-            <div class="pie-label">
-              <span class="pie-color" style="background: #667eea;"></span>
-              <span>Practice</span>
-            </div>
-            <span style="font-weight: 600;">84%</span>
-          </div>
-          <div class="pie-legend-item">
-            <div class="pie-label">
-              <span class="pie-color" style="background: #764ba2;"></span>
-              <span>Analytics</span>
-            </div>
-            <span style="font-weight: 600;">100%</span>
-          </div>
-          <div class="pie-legend-item">
-            <div class="pie-label">
-              <span class="pie-color" style="background: #17a2b8;"></span>
-              <span>Progress</span>
-            </div>
-            <span style="font-weight: 600;">100%</span>
-          </div>
-          <div class="pie-legend-item">
-            <div class="pie-label">
-              <span class="pie-color" style="background: #ffc107;"></span>
-              <span>Gamification</span>
-            </div>
-            <span style="font-weight: 600;">100%</span>
-          </div>
+      <div class="filter-group">
+        <div class="filter-group-title">Filter by Status</div>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">📋 All Features</button>
+          <button class="filter-btn" data-filter="done">✅ Implemented</button>
+          <button class="filter-btn" data-filter="progress">🚧 In Progress</button>
+          <button class="filter-btn" data-filter="planned">📝 Planned</button>
         </div>
       </div>
-      
-      <div class="chart-card">
-        <h3>💰 Feature Tier Distribution</h3>
-        <div class="chart-container">
-          <div class="bar-chart">
-            <div class="bar" style="height: 85%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%);" title="Free Tier: 86">
-              <span class="bar-value">86</span>
-              <span class="bar-label">FREE</span>
-            </div>
-            <div class="bar" style="height: 45%; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);" title="Paid Tier: 18">
-              <span class="bar-value">18</span>
-              <span class="bar-label">ASCENT</span>
-            </div>
-            <div class="bar" style="height: 20%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Not Applicable: 7">
-              <span class="bar-value">7</span>
-              <span class="bar-label">N/A</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="chart-card">
-        <h3>⚠️ Priority Distribution</h3>
-        <div class="chart-container">
-          <div class="bar-chart">
-            <div class="bar" style="height: 100%; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);" title="Critical: 89">
-              <span class="bar-value">89</span>
-              <span class="bar-label">CRITICAL</span>
-            </div>
-            <div class="bar" style="height: 25%; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);" title="Normal: 22">
-              <span class="bar-value">22</span>
-              <span class="bar-label">NORMAL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="filter-group">
-      <div class="filter-group-title">Filter by Status</div>
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">📋 All Features</button>
-        <button class="filter-btn" data-filter="done">✅ Implemented</button>
-        <button class="filter-btn" data-filter="progress">🚧 In Progress</button>
-        <button class="filter-btn" data-filter="planned">📝 Planned</button>
-      </div>
-    </div>
     
     <div class="filter-group">
       <div class="filter-group-title">Filter by Phase</div>
@@ -927,10 +1289,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Quick Byte (Daily 4-question mode)</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Daily practice mode featuring exactly 4 questions across subjects. Designed for consistent, bite-sized learning without overwhelming children. Immediate feedback after each answer with explanations. Tracks daily completion for streak mechanics. Questions selected by adaptive engine based on child's year group and performance history.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -956,10 +1326,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Mock Tests</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Full-length timed practice exams simulating real 11+ test conditions. Five template types: Standard (balanced), Maths Focus, English Focus, Verbal Reasoning Focus, and Quick (20 mins). Features countdown timer with warning states, question flagging, grid navigator, and comprehensive results analysis with recommendations. Auto-submits on timer expiry.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1005,10 +1383,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Focus Sessions</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Topic-specific practice allowing children to drill down on particular subjects or areas. Parents and children can select subject, topic, difficulty level, and question count. Questions adapt based on performance. Ideal for targeted improvement after identifying weaknesses in analytics. Supports bookmarking difficult questions for review.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="progress">
@@ -1034,10 +1420,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Adaptive Engine</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Core AI-powered question selection algorithm tracking per-topic performance and dynamically adjusting difficulty. Uses Ember Score (60-100 difficulty rating) and child's historical accuracy to select optimal next questions. Implements spaced repetition for topics not practiced recently. Ensures balanced subject distribution and appropriate challenge level.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1071,10 +1465,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="paid" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Weakness Heatmap</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-paid">ASCENT</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Visual grid showing topic-level performance with color-coded accuracy rates. Green (>80%), yellow (60-80%), red (<60%). Allows drill-down to subtopics and National Curriculum objectives. Parents can click topics to start targeted Focus Sessions. Updates in real-time as child completes practice. Ascent tier exclusive feature.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1095,10 +1497,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="paid" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Learning Health Check</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-paid">ASCENT</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Advanced behavioral analysis detecting rush patterns (answering too quickly), fatigue indicators (declining accuracy over session), and stagnant topics (no improvement over time). Provides actionable insights for parents to optimize practice timing and identify when breaks are needed. Uses statistical analysis of answer timing and accuracy trends.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1119,10 +1529,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="paid" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Readiness Score</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-paid">ASCENT</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Composite 0-100 score predicting exam readiness based on multiple factors: subject mastery, consistency, mock test performance, topic coverage, and time management. Components weighted appropriately with transparent breakdown. Historical tracking shows improvement over time. Updated after each practice session. Helps parents gauge preparation level objectively.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1143,10 +1561,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="paid" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Growth Tracking</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-paid">ASCENT</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Time-series charts visualizing performance trends across subjects over weeks and months. Shows accuracy improvements, question count growth, and difficulty progression. Includes peer benchmarking (anonymized, aggregate data) to contextualize progress. Helps identify plateaus and celebrate growth milestones. Export to PDF for school applications.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1167,10 +1593,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="paid" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Study Plans & Recommendations</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-paid">ASCENT</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            AI-generated personalized action items based on child's performance patterns. Four recommendation types: urgent weaknesses, practice more, avoid burnout, and celebrate strengths. Priority-based ordering with specific next-action guidance. Weekly email reports (infrastructure ready) will summarize recommendations for parents.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1204,10 +1638,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Session History</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Complete log of all practice sessions with filtering by type (Quick Byte/Mock/Focus), subject, date range, and score. Each entry shows questions attempted, accuracy, time spent, and session type. Click to review detailed Q&A breakdown with explanations for incorrect answers. Parents can track practice volume and consistency.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1228,10 +1670,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Topic Progress</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Subject and topic breakdown showing completion percentages and accuracy rates. Visualizes which areas have sufficient practice vs gaps. Difficulty distribution chart shows exposure to Foundation, Standard, and Challenge questions. Helps guide Focus Session topic selection. Updated real-time as child practices.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1252,10 +1702,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Bookmarks</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Save difficult or interesting questions for later review. Children can flag questions during practice; parents can view bookmarked questions list anytime. Each bookmark shows question text, child's answer, correct answer, and explanation. One-click removal. Useful for targeted review before exams or Focus Sessions on challenging questions.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1289,10 +1747,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Achievements System</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            20 seeded achievements across 4 categories (Practice, Mastery, Speed, Milestones) with 4 rarity levels (Common, Rare, Epic, Legendary). Auto-detection of 7 criteria types: first_session, streak milestones, total_correct, subject_mastery, speed records, perfect_session, first_mock. Unlock notifications with gold gradient styling. Category filtering in achievements page.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1323,10 +1789,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Streak Tracking</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Daily practice streak counter with visual flame icon that grows and changes color (bronze→silver→gold→platinum). 30-day calendar visualization showing practice days. At-risk warnings if yesterday missed (grace period before streak loss). Ascent tier users get 3 streak freezes to protect streaks during holidays/illness. Encourages consistency.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1360,10 +1834,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Profile Management</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Parent account settings: update name, email, password. Email notification preferences for weekly reports, achievement unlocks, and milestone alerts. Profile updates validated and reflected immediately. Password changes require current password confirmation for security. Email changes trigger verification flow.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1384,10 +1866,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="free" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Child Management</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Add multiple child profiles (siblings), edit existing profiles (name, avatar, year group, target school), switch active child (dropdown in navigation), soft delete child profiles (archived, not permanently deleted). Each child has isolated practice data via RLS policies. Parents see all children's progress in unified dashboard.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1413,10 +1903,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Subscription Management</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            View current tier (Free/Ascent) and feature comparison. Upgrade to Ascent via Stripe integration (planned). Manage billing details, payment methods, invoices. Cancel subscription (maintains access until period end, then downgrades to Free). Prorated refunds for cancellations. Stripe webhook handling for subscription events.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="progress">
@@ -1455,10 +1953,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">User Management</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Admin dashboard for viewing all users with search and filtering (email, tier, registration date). Impersonation tool for support (logged in audit_log with start/end times, reason). View user's children, sessions, and subscription status. Manually upgrade/downgrade subscriptions. Audit log tracks all admin actions with IP address and timestamp.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1479,10 +1985,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Question Management</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Review user-reported errors via feedback system. Edit question content (text, options, correct answer, explanations, curriculum tags) with version history. Update Ember scores after edits (runs recalculation). Bulk import questions from JSON/CSV with validation. Export question sets for backup. Approve new questions from reviewers.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1508,10 +2022,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Analytics Dashboard</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Platform-wide metrics: total users, active users (7/30 days), questions answered today/week/month, average session length, tier distribution (Free vs Ascent). Revenue tracking from Stripe (MRR, churn rate, LTV). Top performing questions by accuracy. User engagement heatmaps. Export reports for business analysis.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1545,10 +2067,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Review Queue</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Question reviewer dashboard showing assigned questions pending review. Review interface displays question, all options, correct answer, explanations, curriculum alignment, and AI rationale. Reviewers submit feedback: approve (publish), reject (return to author), or needs-work (request revisions). Timed sessions for quality control (10 questions/hour target).
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1569,10 +2099,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Review History</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Log of completed reviews with filters by date, decision (approved/rejected/needs-work), and subject. Shows reviewer stats: approval rate, average time per review, total reviews. Earnings tracker summing payment for approved reviews (£0.50/question). Payment history with invoice generation. Admin can audit reviewer quality and accuracy.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1588,10 +2126,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Stats Dashboard</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Reviewer performance metrics: reviews completed count, accuracy rate (admin approvals of reviewer decisions), average review time, earnings this month/all-time. Leaderboard comparing reviewers (anonymized). Payment status (pending, processing, paid). Badges for milestone reviews (100, 500, 1000 reviews). Helps gamify reviewer engagement.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1625,10 +2171,18 @@
         </div>
       </div>
       <div class="module-content">
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Landing Page</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Public-facing homepage with compelling value proposition: 'Free 11+ prep for every child. Advanced analytics for parents who want more.' Feature highlights with screenshots. Social proof (testimonials, user count). Clear CTA buttons for signup and login. Mobile-responsive design. Fast load times. SEO optimized for '11+ practice' keywords.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1649,10 +2203,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="critical">
           <div class="feature-header">
             <div class="feature-title">Pricing Page</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-critical">CRITICAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Side-by-side comparison of Free vs Ascent tier features. Transparent pricing (£14.99/month or £149/year). Emphasizes free tier capabilities to build trust. Clear explanation of what Ascent unlocks (analytics, insights, reports). No hidden fees messaging. Monthly/annual toggle. FAQ section addressing common questions. CTA to upgrade or start free.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1668,10 +2230,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Transparency Pages</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Dedicated pages explaining platform philosophy: question creation process (AI generation + human review), Ember Score methodology, adaptive algorithm logic, data usage policies, child safety measures (ICO Children's Code compliance). Builds trust with parents by demystifying 'black box' of edtech. Links to privacy policy and security practices.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1687,10 +2257,18 @@
           </ul>
         </div>
         
-        <div class="feature" data-phase="1">
+        <div class="feature" data-phase="1" data-tier="na" data-priority="normal">
           <div class="feature-header">
             <div class="feature-title">Why Analytics Page</div>
             <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-normal">NORMAL</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Educational content explaining value of analytics for exam preparation: identifying hidden weaknesses, tracking growth objectively, optimizing study time, avoiding burnout through health checks. Sample insights previews with anonymized examples. Testimonials from parents about analytics impact. Soft sell for Ascent upgrade. Helps justify paid tier value.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1707,6 +2285,7 @@
         </div>
       </div>
     </div>
+    </div><!-- End Details Tab -->
     
     <footer>
       <p>🔥 <strong>Ember Ascent</strong> | UK 11+ Exam Preparation Platform</p>
@@ -1716,6 +2295,23 @@
   </div>
   
   <script>
+    // Tab switching functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all tabs
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Activate clicked tab
+        btn.classList.add('active');
+        const tabId = btn.dataset.tab + '-tab';
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+    
     // Feature toggle functionality
     document.querySelectorAll('.feature-toggle').forEach(toggle => {
       toggle.addEventListener('click', function(e) {

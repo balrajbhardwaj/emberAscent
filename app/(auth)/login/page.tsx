@@ -51,6 +51,7 @@ export default function LoginPage() {
           title: "Login failed",
           description: error.message,
         })
+        setIsLoading(false)
         return
       }
 

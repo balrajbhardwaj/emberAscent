@@ -10,7 +10,7 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { AuthHelper } from '../../helpers/auth-helpers';
+import { AuthHelper } from '@/tests/helpers/auth-helpers';
 
 test.describe('Authentication - Login Validation', () => {
   let authHelper: AuthHelper;
