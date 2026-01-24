@@ -93,6 +93,17 @@ export function EnhancedExplanationPanel({
    * Generate missing explanations using Claude AI
    */
   const handleGenerateExplanations = async () => {
+    // Guard against missing required data
+    if (!questionId) {
+      console.error('Cannot generate explanations: questionId is missing')
+      toast({
+        title: 'Error',
+        description: 'Question ID is missing. Cannot generate explanations.',
+        variant: 'destructive'
+      })
+      return
+    }
+
     setIsGenerating(true)
     setHasRequestedGeneration(true)
 
@@ -126,6 +137,8 @@ export function EnhancedExplanationPanel({
           ? generatedExplanations.stepByStep
           : [generatedExplanations.stepByStep]
       }
+
+      console.log('🚀 Generating explanations with:', requestBody)
 
       const response = await fetch('/api/explanations/generate', {
         method: 'POST',
@@ -343,25 +356,18 @@ function ExplanationPlaceholder({
   isGenerating: boolean
   hasRequested: boolean
 }) {
-  if (isGenerating) {
+  if (isGenerating || hasRequested) {
     return (
       <div className="flex flex-col items-center justify-center py-8 text-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-500 mb-3" />
-        <p className="text-sm text-slate-600">
-          Generating {type.toLowerCase()} with AI...
+        <div className="relative mb-4">
+          <div className="h-12 w-12 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin" />
+          <Sparkles className="absolute inset-0 m-auto h-5 w-5 text-blue-600" />
+        </div>
+        <p className="text-sm font-medium text-slate-700">
+          Generating {type.toLowerCase()}...
         </p>
         <p className="text-xs text-slate-500 mt-1">
-          This may take a few seconds
-        </p>
-      </div>
-    )
-  }
-
-  if (hasRequested) {
-    return (
-      <div className="flex flex-col items-center justify-center py-8 text-center">
-        <p className="text-sm text-slate-600">
-          {type} will be available shortly.
+          Claude AI is crafting your explanation
         </p>
       </div>
     )

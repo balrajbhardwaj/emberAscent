@@ -375,6 +375,12 @@
       border: 1px solid #ffc107;
     }
     
+    .tier-internal {
+      background: #e7d9ff;
+      color: #5f3dc4;
+      border: 1px solid #7950f2;
+    }
+    
     .tier-na {
       background: #e2e3e5;
       color: #6c757d;
@@ -396,6 +402,18 @@
       background: #f8d7da;
       color: #721c24;
       border: 1px solid #dc3545;
+    }
+    
+    .priority-high {
+      background: #ffe5e5;
+      color: #c92a2a;
+      border: 1px solid #ff6b6b;
+    }
+    
+    .priority-medium {
+      background: #fff4e6;
+      color: #e8590c;
+      border: 1px solid #fd7e14;
     }
     
     .priority-normal {
@@ -1848,7 +1866,7 @@
           </div>
           <div class="feature-toggle">Show Details</div>
           <div class="feature-description">
-            AI-generated personalized action items based on child's performance patterns. Four recommendation types: urgent weaknesses, practice more, avoid burnout, and celebrate strengths. Priority-based ordering with specific next-action guidance. Weekly email reports (infrastructure ready) will summarize recommendations for parents.
+            AI-generated personalized action items based on child's performance patterns. Four recommendation types: urgent weaknesses, practice more, avoid burnout, and celebrate strengths. Priority-based ordering with specific next-action guidance. Weekly email reports (infrastructure ready) will summarize recommendations for parents. <strong>CRITICAL GAP:</strong> Recommendations currently link to generic practice page - missing direct session creation from recommendation click.
           </div>
           <ul class="functionalities">
             <li class="functionality" data-status="done">
@@ -1864,6 +1882,58 @@
             <li class="functionality" data-status="done">
               <span class="status-icon status-done">✓</span>
               <span class="functionality-name">Weekly email reports (infrastructure)</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">✅ Direct practice session from recommendation</span>
+              <span class="test-coverage">0/5 tests</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="feature" data-phase="1" data-tier="internal" data-priority="medium">
+          <div class="feature-header">
+            <div class="feature-title">Admin Study Plan Oversight</div>
+            <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-internal">ADMIN ONLY</span>
+            <span class="priority-badge priority-medium">MEDIUM</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Administrative interface for monitoring and managing all children's auto-generated study plans. View platform-wide learning effectiveness, identify at-risk children, manually adjust plans, add admin notes, and track plan completion rates. Includes audit trail for all admin modifications and effectiveness metrics. Enables proactive intervention when plans aren't being followed or children aren't improving.
+          </div>
+          <ul class="functionalities">
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Admin study plans dashboard (list view)</span>
+              <span class="test-coverage">0/4 tests</span>
+            </li>
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Individual plan detail view with performance</span>
+              <span class="test-coverage">0/3 tests</span>
+            </li>
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Manual activity add/remove/adjust</span>
+              <span class="test-coverage">0/4 tests</span>
+            </li>
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Admin notes and flagging system</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Plan effectiveness analytics</span>
+              <span class="test-coverage">0/3 tests</span>
+            </li>
+            <li class="functionality" data-status="planned">
+              <span class="status-icon status-planned">○</span>
+              <span class="functionality-name">Audit trail for admin modifications</span>
               <span class="test-coverage">0/2 tests</span>
             </li>
           </ul>

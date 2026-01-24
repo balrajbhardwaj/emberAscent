@@ -111,10 +111,12 @@ async function PracticeContent({ childId }: { childId?: string }) {
   const quickByteCompletedToday = await hasCompletedQuickByteToday((selectedChild as any).id)
 
   // Fetch 4 random questions for Quick Review (only if not completed today)
+  // Filter by child's year_group to show age-appropriate questions
   const { data: quickReviewQuestions } = await supabase
     .from("questions")
     .select("id, subject, question_text, options, correct_answer, explanations")
     .eq("is_published", true)
+    .eq("year_group", (selectedChild as any).year_group)
     .limit(100) // Get a pool to randomize from
   
   // Randomly select 4 questions from different subjects if possible

@@ -177,7 +177,7 @@ export default function FocusSessionPage() {
 
       // Navigate to the session page
       router.push(`/practice/session/${result.sessionId}`)
-    } catch (error) {
+    } catch {
       toast({
         title: "Error",
         description: "An unexpected error occurred.",

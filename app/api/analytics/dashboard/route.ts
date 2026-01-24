@@ -155,6 +155,13 @@ export async function GET(request: NextRequest) {
           },
           subjectBreakdown: comprehensive.subjectBreakdown || [],
           difficultyBreakdown: comprehensive.difficultyBreakdown || [],
+          topicBreakdown: heatmap.map((item: any) => ({
+            topic: item.topic,
+            subject: item.subject,
+            total: item.total_attempts || 0,
+            correct: item.correct_attempts || 0,
+            accuracy: item.accuracy || 0,
+          })),
         },
         readiness: {
           overallScore: Math.round(readiness.overallScore || 0),

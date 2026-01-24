@@ -480,6 +480,31 @@ export default function PracticeSessionPage() {
     ? (questionsAnswered / session.total_questions) * 100
     : 0
 
+  // Format subject for display
+  const formatSubjectName = (subject: string): string => {
+    return subject
+      .split("_")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  }
+
+  // Get display subject based on session type:
+  // - Quick practice: Always "Mixed Subjects" (intentionally mixed)
+  // - Focus practice: Show session subject, or fall back to current question
+  // - Mock test: Always "Mixed Subjects" (covers all subjects)
+  const displaySubject = session.subject 
+    ? formatSubjectName(session.subject)
+    : (session.session_type === 'quick' || session.session_type === 'mock')
+      ? 'Mixed Subjects'
+      : currentQuestion?.subject 
+        ? formatSubjectName(currentQuestion.subject)
+        : 'Mixed Subjects'
+  
+  // Get display topic if available (only for focus sessions with explicit topic)
+  const displayTopic = session.session_type === 'focus' 
+    ? (session.topic || currentQuestion?.topic)
+    : null
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Header */}
@@ -488,8 +513,9 @@ export default function PracticeSessionPage() {
           <h1 className="text-2xl font-bold text-slate-900">
             {session.session_type.charAt(0).toUpperCase() + session.session_type.slice(1)} Practice
           </h1>
-          <p className="text-slate-600 capitalize">
-            {session.subject || 'Mixed Subjects'}
+          <p className="text-slate-600">
+            {displaySubject}
+            {displayTopic && ` • ${displayTopic}`}
             {retryFromSession === 'true' && ' (Retry)'}
           </p>
         </div>

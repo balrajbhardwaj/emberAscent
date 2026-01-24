@@ -23,13 +23,14 @@ import { z } from 'zod'
  * Request body validation schema
  */
 const GenerateExplanationSchema = z.object({
-  questionId: z.string(),
+  questionId: z.string().min(1, "Question ID is required"),
   // Optional: Allow direct context for testing
   questionText: z.string().optional(),
   correctAnswer: z.string().optional(),
   existingExplanation: z.array(z.string()).optional(),
   topic: z.string().optional(),
-  difficulty: z.enum(['Foundation', 'Standard', 'Challenge']).optional(),
+  // Accept any case for difficulty and normalize later
+  difficulty: z.string().optional(),
 })
 
 /**
@@ -52,16 +53,24 @@ export async function POST(request: NextRequest) {
 
     // Parse and validate request body
     const body = await request.json()
+    console.log('📥 Request body:', JSON.stringify(body, null, 2))
+    
     const validation = GenerateExplanationSchema.safeParse(body)
     
     if (!validation.success) {
+      console.error('❌ Validation failed:', validation.error.issues)
       return NextResponse.json(
         { error: 'Invalid request data', details: validation.error.issues },
         { status: 400 }
       )
     }
 
-    const { questionId, questionText, correctAnswer, existingExplanation, topic, difficulty } = validation.data
+    const { questionId, questionText, correctAnswer, existingExplanation, topic, difficulty: rawDifficulty } = validation.data
+    
+    // Normalize difficulty to proper case
+    const difficulty = rawDifficulty 
+      ? (rawDifficulty.charAt(0).toUpperCase() + rawDifficulty.slice(1).toLowerCase()) as 'Foundation' | 'Standard' | 'Challenge'
+      : undefined
 
     console.log('🔍 Generating explanations for:', questionId)
 

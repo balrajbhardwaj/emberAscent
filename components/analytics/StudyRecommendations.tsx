@@ -4,11 +4,17 @@
  * Displays AI-generated study recommendations based on
  * child's performance patterns.
  * 
+ * Features:
+ * - Priority-based action items
+ * - Direct session creation from recommendations (no manual config)
+ * - Focus areas with progress targets
+ * 
  * @module components/analytics/StudyRecommendations
  */
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -21,8 +27,10 @@ import {
   ChevronDown,
   ChevronUp,
   Sparkles,
-  BookOpen
+  BookOpen,
+  Loader2
 } from 'lucide-react'
+import { useToast } from '@/hooks/use-toast'
 import type { ChildAnalytics, FocusArea } from '@/types/analytics'
 import { cn } from '@/lib/utils'
 
@@ -39,6 +47,7 @@ interface Recommendation {
   subject: string
   topics: string[]
   estimatedMinutes: number
+  difficulty?: 'foundation' | 'standard' | 'challenge'
   actionUrl: string
 }
 
@@ -47,11 +56,65 @@ interface Recommendation {
  * 
  * Shows personalized study recommendations based on performance.
  */
-export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
+export function StudyRecommendations({ childId, analytics }: StudyRecommendationsProps) {
+  const router = useRouter()
+  const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(true)
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [focusAreas, setFocusAreas] = useState<FocusArea[]>([])
   const [showAll, setShowAll] = useState(false)
+  const [creatingSessionId, setCreatingSessionId] = useState<string | null>(null)
+
+  /**
+   * Create a practice session directly from a recommendation
+   * Bypasses manual configuration - user goes straight to practicing
+   */
+  const handleStartFromRecommendation = useCallback(async (rec: Recommendation) => {
+    if (creatingSessionId) return // Prevent double-click
+    
+    setCreatingSessionId(rec.id)
+    
+    try {
+      const response = await fetch('/api/practice/session/from-recommendation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          childId,
+          recommendation: {
+            subject: rec.subject,
+            topics: rec.topics,
+            difficulty: rec.difficulty,
+            estimatedMinutes: rec.estimatedMinutes
+          }
+        })
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to create session')
+      }
+
+      const { sessionId, redirect } = await response.json()
+      
+      toast({
+        title: 'Practice Session Ready!',
+        description: `Starting ${rec.title} with ${rec.topics.length > 0 ? rec.topics.join(', ') : 'mixed topics'}`,
+      })
+
+      // Navigate directly to the practice session
+      router.push(redirect || `/practice/session/${sessionId}`)
+      
+    } catch (error) {
+      console.error('Failed to create session from recommendation:', error)
+      toast({
+        title: 'Could not start practice',
+        description: error instanceof Error ? error.message : 'Please try again or use manual practice selection.',
+        variant: 'destructive'
+      })
+    } finally {
+      setCreatingSessionId(null)
+    }
+  }, [childId, creatingSessionId, router, toast])
 
   // Generate recommendations from analytics
   useEffect(() => {
@@ -84,6 +147,11 @@ export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
         const topicNames = topics.slice(0, 3).map(t => t.topic)
         const avgAccuracy = topics.reduce((sum, t) => sum + t.accuracy, 0) / topics.length
 
+        // Determine difficulty based on accuracy
+        const difficulty: 'foundation' | 'standard' | 'challenge' = 
+          avgAccuracy < 40 ? 'foundation' : 
+          avgAccuracy < 70 ? 'standard' : 'challenge'
+
         recs.push({
           id: `rec_${subject}`,
           title: `Improve ${subjectLabel}`,
@@ -93,6 +161,7 @@ export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
           priority: avgAccuracy < 50 ? 'high' : avgAccuracy < 65 ? 'medium' : 'low',
           subject,
           topics: topicNames,
+          difficulty,
           estimatedMinutes: topics.length * 10,
           actionUrl: `/practice?subject=${subject}`
         })
@@ -210,7 +279,12 @@ export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
         {/* Recommendations List */}
         <div className="space-y-4">
           {visibleRecommendations.map((rec) => (
-            <RecommendationCard key={rec.id} recommendation={rec} />
+            <RecommendationCard 
+              key={rec.id} 
+              recommendation={rec}
+              onStart={handleStartFromRecommendation}
+              isLoading={creatingSessionId === rec.id}
+            />
           ))}
         </div>
 
@@ -259,7 +333,15 @@ export function StudyRecommendations({ analytics }: StudyRecommendationsProps) {
 /**
  * Individual recommendation card
  */
-function RecommendationCard({ recommendation }: { recommendation: Recommendation }) {
+function RecommendationCard({ 
+  recommendation, 
+  onStart, 
+  isLoading 
+}: { 
+  recommendation: Recommendation
+  onStart: (rec: Recommendation) => void
+  isLoading: boolean
+}) {
   const priorityStyles = {
     high: 'border-l-4 border-l-red-500 bg-red-50/50',
     medium: 'border-l-4 border-l-amber-500 bg-amber-50/50',
@@ -304,11 +386,24 @@ function RecommendationCard({ recommendation }: { recommendation: Recommendation
           </div>
         </div>
 
-        <Button size="sm" variant="outline" className="shrink-0 gap-1" asChild>
-          <a href={recommendation.actionUrl}>
-            Start
-            <ArrowRight className="h-3 w-3" />
-          </a>
+        <Button 
+          size="sm" 
+          variant="outline" 
+          className="shrink-0 gap-1"
+          onClick={() => onStart(recommendation)}
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="h-3 w-3 animate-spin" />
+              Creating...
+            </>
+          ) : (
+            <>
+              Start
+              <ArrowRight className="h-3 w-3" />
+            </>
+          )}
         </Button>
       </div>
     </div>

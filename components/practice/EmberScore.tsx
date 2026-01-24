@@ -58,17 +58,21 @@ const defaultBreakdown: EmberScoreBreakdown = {
   curriculumReference: "",
 }
 
-// Dot indicator component
-function TrustDots({ filled, total, color }: { filled: number; total: number; color: string }) {
+// Shield indicator component - shows trust level with filled shields
+function TrustShields({ filled, total, color }: { filled: number; total: number; color: string }) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-0.5">
       {Array.from({ length: total }).map((_, i) => (
-        <div
+        <svg
           key={i}
-          className={`h-2.5 w-2.5 rounded-full transition-all ${
-            i < filled ? color : "bg-slate-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className={`h-3.5 w-3.5 transition-all ${
+            i < filled ? color.replace('bg-', 'text-') : "text-slate-300"
           }`}
-        />
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
       ))}
     </div>
   )
@@ -130,7 +134,7 @@ export function EmberScore({
           <button
             className={`inline-flex items-center gap-2 rounded-full border font-medium transition-all hover:scale-105 ${tierColors[tier]} ${sizes[size]}`}
           >
-            <TrustDots filled={dots} total={3} color={dotColors[tier]} />
+            <TrustShields filled={dots} total={3} color={dotColors[tier]} />
             <span>{score}</span>
           </button>
         </PopoverTrigger>
@@ -188,7 +192,7 @@ export function EmberScore({
           className={`group relative flex items-center gap-2 rounded-full border px-3 py-1.5 transition-all hover:scale-105 hover:shadow-md ${tierColors[tier]}`}
           title="Click to see how this question was made"
         >
-          <TrustDots filled={dots} total={3} color={dotColors[tier]} />
+          <TrustShields filled={dots} total={3} color={dotColors[tier]} />
           <span className="font-semibold">{score}</span>
           <span className="text-xs opacity-75">{tierLabel}</span>
           

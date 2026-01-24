@@ -64,6 +64,7 @@ function SessionStartContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [isLoading, setIsLoading] = useState(false)
+  const [isNavigating, setIsNavigating] = useState(false)
   const [questions, setQuestions] = useState<any[]>([])
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null)
   
@@ -137,6 +138,7 @@ function SessionStartContent() {
     }
 
     setIsLoading(true)
+    setIsNavigating(true)
     
     try {
       const supabase = createClient()
@@ -157,6 +159,7 @@ function SessionStartContent() {
 
       if (error) {
         console.error('Error creating session:', error)
+        setIsNavigating(false)
         return
       }
 
@@ -165,22 +168,40 @@ function SessionStartContent() {
       
     } catch (error) {
       console.error('Failed to start session:', error)
+      setIsNavigating(false)
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
-      {/* Back Button */}
-      <Button 
-        variant="ghost" 
-        className="mb-4"
-        onClick={() => router.back()}
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back
-      </Button>
+    <>
+      {/* Full-page loading overlay when navigating to practice */}
+      {isNavigating && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative">
+              <div className="h-16 w-16 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin" />
+              <Zap className="absolute inset-0 m-auto h-6 w-6 text-blue-600" />
+            </div>
+            <div className="text-center">
+              <p className="text-lg font-semibold text-slate-900">Preparing Practice Session</p>
+              <p className="text-sm text-slate-500 mt-1">Loading questions just for you...</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="max-w-2xl mx-auto space-y-6">
+        {/* Back Button */}
+        <Button 
+          variant="ghost" 
+          className="mb-4"
+          onClick={() => router.back()}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Button>
 
       {/* Session Configuration Card */}
       <Card>
@@ -315,7 +336,8 @@ function SessionStartContent() {
           )}
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </>
   )
 }
 

@@ -518,11 +518,13 @@ function WeaknessHeatmapCard({ data }: { data: Array<{ topic: string; scores: nu
 function PerformanceTablesCard({ 
   subjectPerformance, 
   difficultyPerformance,
-  heatmapData
+  heatmapData,
+  topicPerformance = []
 }: { 
   subjectPerformance: Array<{ subject: string; questions: number; accuracy: number }>
   difficultyPerformance: Array<{ level: string; count: number; accuracy: number }>
   heatmapData: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }>
+  topicPerformance?: Array<{ topic: string; subject: string; questions: number; accuracy: number }>
 }) {
   const [expandedSubject, setExpandedSubject] = React.useState<string | null>(null)
 
@@ -565,11 +567,14 @@ function PerformanceTablesCard({
         </div>
       </CardHeader>
       <CardContent>
-        {/* Side-by-side layout: Subject on left, Difficulty on right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Three-column layout: Subject, Topic, Difficulty */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* By Subject Section */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-700 mb-3">By Subject</h3>
+            <h3 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
+              <BookOpen className="h-4 w-4" />
+              By Subject
+            </h3>
             {subjectPerformance.length > 0 ? (
               <div className="space-y-3">
                 {subjectPerformance.map((item) => {
@@ -654,9 +659,64 @@ function PerformanceTablesCard({
             )}
           </div>
 
+          {/* By Topic Section */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              By Topic
+            </h3>
+            {topicPerformance.length > 0 ? (
+              <div className="space-y-2 max-h-[500px] overflow-y-auto pr-2">
+                {topicPerformance
+                  .sort((a, b) => b.questions - a.questions) // Sort by question count
+                  .map((item, idx) => {
+                    const colors = getAccuracyColor(item.accuracy)
+                    return (
+                      <div 
+                        key={idx} 
+                        className={`border ${colors.border} rounded-lg p-3 ${colors.bg}`}
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium text-slate-900 text-sm truncate" title={item.topic}>
+                              {item.topic}
+                            </p>
+                            <p className="text-xs text-slate-500 mt-0.5">{item.subject}</p>
+                          </div>
+                          <span className={`ml-2 text-base font-bold ${colors.text} flex-shrink-0`}>
+                            {Math.round(item.accuracy)}%
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs text-slate-600">
+                          <span>{item.questions} {item.questions === 1 ? 'question' : 'questions'}</span>
+                          {item.accuracy >= 80 && <span className="text-emerald-600 font-medium">✓ Strong</span>}
+                          {item.accuracy < 60 && <span className="text-red-600 font-medium">⚠ Focus needed</span>}
+                        </div>
+                        <div className="relative h-1.5 bg-slate-200 rounded-full overflow-hidden mt-2">
+                          <div 
+                            className={`h-full ${colors.bar} transition-all duration-500`}
+                            style={{ width: `${Math.min(100, item.accuracy)}%` }}
+                          />
+                        </div>
+                      </div>
+                    )
+                  })}
+              </div>
+            ) : (
+              <div className="text-center py-8 bg-slate-50 rounded-lg border border-dashed border-slate-300">
+                <Target className="h-8 w-8 text-slate-400 mx-auto mb-2" />
+                <p className="text-sm text-slate-500">No topic data yet</p>
+                <p className="text-xs text-slate-400 mt-1">Answer questions across topics to see breakdown</p>
+              </div>
+            )}
+          </div>
+
           {/* By Difficulty Section */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-700 mb-3">By Difficulty</h3>
+            <h3 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-4 w-4" />
+              By Difficulty
+            </h3>
             {difficultyPerformance.length > 0 ? (
               <div className="space-y-3">
                 {difficultyPerformance.map((d) => {
@@ -702,70 +762,341 @@ function PerformanceTablesCard({
 }
 
 /**
- * Mock Study Recommendations (placeholder)
+ * Study Recommendations Card with real data and interaction tracking
+ * 
+ * Generates personalized recommendations based on weakness analysis,
+ * tracks practice attempts, and supports soft-delete with audit trail.
  */
-function StudyRecommendationsCard() {
-  const recommendations = [
-    {
-      priority: "high",
-      topic: "Fractions",
-      action: "Focus on fraction addition with different denominators",
-      time: "20 mins/day",
-    },
-    {
-      priority: "medium",
-      topic: "Comprehension",
-      action: "Practice inference questions with longer passages",
-      time: "15 mins/day",
-    },
-    {
-      priority: "low",
-      topic: "Synonyms",
-      action: "Review vocabulary from recent incorrect answers",
-      time: "10 mins/day",
-    },
-  ]
+function StudyRecommendationsCard({
+  childId,
+  heatmapData,
+  subjectPerformance,
+}: {
+  childId: string
+  heatmapData: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }>
+  subjectPerformance: Array<{ subject: string; questions: number; accuracy: number }>
+}) {
+  const [interactionStats, setInteractionStats] = React.useState<Map<string, {
+    startedCount: number
+    completedCount: number
+    lastAttempted: string | null
+    isDismissed: boolean
+  }>>(new Map())
+  const [loadingRecommendation, setLoadingRecommendation] = React.useState<string | null>(null)
+  const [dismissingRecommendation, setDismissingRecommendation] = React.useState<string | null>(null)
+  const [statsLoaded, setStatsLoaded] = React.useState(false)
+  const [isNavigating, setIsNavigating] = React.useState(false)
+
+  // Generate recommendations from real data
+  const recommendations = React.useMemo(() => {
+    const recs: Array<{
+      id: string
+      priority: "high" | "medium" | "low"
+      topic: string
+      subject: string
+      action: string
+      time: string
+      accuracy?: number
+    }> = []
+
+    // Add weakness-based recommendations from heatmap (topics needing focus)
+    const weakTopics = heatmapData
+      .filter(item => item.needsFocus && item.subject)
+      .sort((a, b) => (a.scores[0] || 0) - (b.scores[0] || 0))
+      .slice(0, 2)
+
+    weakTopics.forEach((item, idx) => {
+      recs.push({
+        id: `topic-${item.subject}-${item.topic}`,
+        priority: idx === 0 ? "high" : "medium",
+        topic: item.topic,
+        subject: item.subject || "",
+        action: `Focus on ${item.topic} - accuracy at ${Math.round(item.scores[0] || 0)}%`,
+        time: idx === 0 ? "20 mins/day" : "15 mins/day",
+        accuracy: item.scores[0],
+      })
+    })
+
+    // Add subject-based recommendations for low-performing subjects
+    const weakSubjects = subjectPerformance
+      .filter(s => s.accuracy < 70 && s.questions >= 5)
+      .sort((a, b) => a.accuracy - b.accuracy)
+      .slice(0, 2)
+
+    weakSubjects.forEach((subj, idx) => {
+      // Avoid duplicates if topic already added
+      const key = `subject-${subj.subject.toLowerCase().replace(/\s+/g, "_")}`
+      if (!recs.some(r => r.id.includes(subj.subject.toLowerCase()))) {
+        recs.push({
+          id: key,
+          priority: recs.length === 0 ? "high" : recs.length === 1 ? "medium" : "low",
+          topic: subj.subject,
+          subject: subj.subject.toLowerCase().replace(/\s+/g, "_"),
+          action: `Practice ${subj.subject} - currently at ${Math.round(subj.accuracy)}% accuracy`,
+          time: "15 mins/day",
+          accuracy: subj.accuracy,
+        })
+      }
+    })
+
+    // If no weak areas, add a general challenge recommendation
+    if (recs.length === 0) {
+      recs.push({
+        id: "challenge-general",
+        priority: "low",
+        topic: "Challenge Practice",
+        subject: "",
+        action: "Great progress! Try Challenge difficulty to push further",
+        time: "10 mins/day",
+      })
+    }
+
+    return recs.slice(0, 3) // Max 3 recommendations
+  }, [heatmapData, subjectPerformance])
+
+  // Fetch interaction stats
+  React.useEffect(() => {
+    async function fetchStats() {
+      try {
+        const response = await fetch(`/api/analytics/recommendations?childId=${childId}`)
+        if (response.ok) {
+          const data = await response.json()
+          const statsMap = new Map()
+          for (const stat of data.stats || []) {
+            const key = stat.topic ? `${stat.subject}:${stat.topic}` : stat.subject
+            statsMap.set(key, {
+              startedCount: stat.startedCount || 0,
+              completedCount: stat.completedCount || 0,
+              lastAttempted: stat.lastAttempted,
+              isDismissed: stat.isDismissed || false,
+            })
+          }
+          setInteractionStats(statsMap)
+        }
+      } catch (error) {
+        console.error("Failed to fetch recommendation stats:", error)
+      } finally {
+        setStatsLoaded(true)
+      }
+    }
+    fetchStats()
+  }, [childId])
+
+  // Get stats for a specific recommendation
+  const getStats = (rec: typeof recommendations[0]) => {
+    // Try topic-level match first, then subject-level
+    const topicKey = `${rec.subject}:${rec.topic}`
+    const subjectKey = rec.subject
+    return interactionStats.get(topicKey) || interactionStats.get(subjectKey) || {
+      startedCount: 0,
+      completedCount: 0,
+      lastAttempted: null,
+      isDismissed: false,
+    }
+  }
+
+  // Handle starting a practice session for a recommendation
+  const handleStartPractice = async (rec: typeof recommendations[0]) => {
+    setLoadingRecommendation(rec.id)
+    setIsNavigating(true)
+    
+    try {
+      // Record the interaction (don't await to speed up navigation)
+      fetch("/api/analytics/recommendations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childId,
+          recommendationType: rec.id.startsWith("topic-") ? "topic" : "subject",
+          subject: rec.subject || rec.topic.toLowerCase().replace(/\s+/g, "_"),
+          topic: rec.id.startsWith("topic-") ? rec.topic : undefined,
+          interactionType: "started",
+        }),
+      })
+
+      // Create and navigate to practice session
+      const sessionResponse = await fetch("/api/practice/session/from-recommendation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childId,
+          subject: rec.subject || rec.topic.toLowerCase().replace(/\s+/g, "_"),
+          topic: rec.id.startsWith("topic-") ? rec.topic : undefined,
+          questionCount: 10,
+          difficulty: rec.accuracy && rec.accuracy < 50 ? "Foundation" : "Standard",
+        }),
+      })
+
+      if (sessionResponse.ok) {
+        const sessionData = await sessionResponse.json()
+        if (sessionData.sessionId) {
+          window.location.href = `/practice/session/${sessionData.sessionId}`
+        }
+      } else {
+        console.error("Failed to create practice session")
+        setIsNavigating(false)
+      }
+    } catch (error) {
+      console.error("Error starting practice:", error)
+      setIsNavigating(false)
+    } finally {
+      setLoadingRecommendation(null)
+    }
+  }
+
+  // Handle dismissing a recommendation
+  const handleDismiss = async (rec: typeof recommendations[0], e: React.MouseEvent) => {
+    e.stopPropagation()
+    setDismissingRecommendation(rec.id)
+    
+    try {
+      await fetch("/api/analytics/recommendations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          childId,
+          recommendationType: rec.id.startsWith("topic-") ? "topic" : "subject",
+          subject: rec.subject || rec.topic.toLowerCase().replace(/\s+/g, "_"),
+          topic: rec.id.startsWith("topic-") ? rec.topic : undefined,
+          interactionType: "dismissed",
+          dismissedReason: "User dismissed from dashboard",
+        }),
+      })
+
+      // Update local state
+      const key = rec.id.startsWith("topic-") 
+        ? `${rec.subject}:${rec.topic}` 
+        : rec.subject || rec.topic.toLowerCase().replace(/\s+/g, "_")
+      setInteractionStats(prev => {
+        const newMap = new Map(prev)
+        const current = newMap.get(key) || { startedCount: 0, completedCount: 0, lastAttempted: null, isDismissed: false }
+        newMap.set(key, { ...current, isDismissed: true })
+        return newMap
+      })
+    } catch (error) {
+      console.error("Error dismissing recommendation:", error)
+    } finally {
+      setDismissingRecommendation(null)
+    }
+  }
+
+  // Filter out dismissed recommendations
+  const visibleRecommendations = recommendations.filter(rec => !getStats(rec).isDismissed)
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg flex items-center gap-2">
-          <BookOpen className="h-5 w-5" />
-          Study Recommendations
-        </CardTitle>
-        <CardDescription>Personalized action plan based on performance</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
-          {recommendations.map((rec, i) => (
-            <div
-              key={i}
-              className={`p-4 rounded-lg border-l-4 ${
-                rec.priority === "high"
-                  ? "border-l-red-500 bg-red-50"
-                  : rec.priority === "medium"
-                  ? "border-l-amber-500 bg-amber-50"
-                  : "border-l-blue-500 bg-blue-50"
-              }`}
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-medium text-slate-900">{rec.topic}</p>
-                  <p className="text-sm text-slate-600 mt-1">{rec.action}</p>
-                </div>
-                <Badge variant="outline" className="shrink-0">
-                  {rec.time}
-                </Badge>
-              </div>
+    <>
+      {/* Full-page loading overlay when navigating to practice */}
+      {isNavigating && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative">
+              <div className="h-16 w-16 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin" />
+              <Zap className="absolute inset-0 m-auto h-6 w-6 text-blue-600" />
             </div>
-          ))}
+            <div className="text-center">
+              <p className="text-lg font-semibold text-slate-900">Preparing Practice Session</p>
+              <p className="text-sm text-slate-500 mt-1">Loading questions just for you...</p>
+            </div>
+          </div>
         </div>
+      )}
 
-        <Button className="w-full mt-4" variant="outline">
-          Generate Practice Session
-        </Button>
-      </CardContent>
-    </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <BookOpen className="h-5 w-5" />
+            Study Recommendations
+          </CardTitle>
+          <CardDescription>Personalized action plan based on performance</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {visibleRecommendations.length === 0 ? (
+            <div className="text-center py-8 bg-slate-50 rounded-lg border border-dashed border-slate-300">
+              <Award className="h-8 w-8 text-emerald-500 mx-auto mb-2" />
+              <p className="text-sm text-slate-600 font-medium">All caught up!</p>
+              <p className="text-xs text-slate-400 mt-1">No priority areas to focus on right now</p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {visibleRecommendations.map((rec) => {
+                const stats = getStats(rec)
+                const isLoading = loadingRecommendation === rec.id
+                const isDismissing = dismissingRecommendation === rec.id
+
+                return (
+                  <div
+                    key={rec.id}
+                    className={`p-4 rounded-lg border-l-4 relative group ${
+                      rec.priority === "high"
+                        ? "border-l-red-500 bg-red-50"
+                        : rec.priority === "medium"
+                        ? "border-l-amber-500 bg-amber-50"
+                        : "border-l-blue-500 bg-blue-50"
+                    }`}
+                  >
+                    {/* Dismiss button */}
+                  <button
+                    onClick={(e) => handleDismiss(rec, e)}
+                    disabled={isDismissing}
+                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-slate-200 rounded text-slate-400 hover:text-slate-600"
+                    title="Dismiss recommendation"
+                  >
+                    {isDismissing ? (
+                      <RefreshCw className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <span className="text-lg leading-none">&times;</span>
+                    )}
+                  </button>
+
+                  <div className="flex items-start justify-between pr-6">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <p className="font-medium text-slate-900">{rec.topic}</p>
+                        {stats.startedCount > 0 && (
+                          <Badge variant="secondary" className="text-xs">
+                            Attempted {stats.startedCount}×
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-sm text-slate-600 mt-1">{rec.action}</p>
+                      {stats.lastAttempted && (
+                        <p className="text-xs text-slate-400 mt-1">
+                          Last practiced: {new Date(stats.lastAttempted).toLocaleDateString()}
+                        </p>
+                      )}
+                    </div>
+                    <Badge variant="outline" className="shrink-0 ml-2">
+                      {rec.time}
+                    </Badge>
+                  </div>
+
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="mt-3 w-full"
+                    onClick={() => handleStartPractice(rec)}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                        Starting...
+                      </>
+                    ) : (
+                      <>
+                        <Zap className="h-4 w-4 mr-2" />
+                        Start Practice
+                      </>
+                    )}
+                  </Button>
+                </div>
+              )
+            })}
+          </div>
+        )}
+        </CardContent>
+      </Card>
+    </>
   )
 }
 
@@ -887,6 +1218,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
     heatmapData: Array<{ topic: string; scores: number[]; masteryLevel?: string; needsFocus?: boolean; subject?: string }>
     subjectPerformance: Array<{ subject: string; questions: number; accuracy: number }>
     difficultyPerformance: Array<{ level: string; count: number; accuracy: number }>
+    topicPerformance: Array<{ topic: string; subject: string; questions: number; accuracy: number }>
     benchmarking: {
       overallPercentile: number
       subjectPercentiles: Array<{ subject: string; percentile: number }>
@@ -981,6 +1313,19 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         })
       }
 
+      // Extract topic performance
+      const topicPerformance: Array<{ topic: string; subject: string; questions: number; accuracy: number }> = []
+      if (comprehensive?.topicBreakdown && Array.isArray(comprehensive.topicBreakdown)) {
+        comprehensive.topicBreakdown.forEach((item: any) => {
+          topicPerformance.push({
+            topic: item.topic || 'Unknown',
+            subject: formatSubjectName(item.subject || ''),
+            questions: item.total || 0,
+            accuracy: item.accuracy || 0,
+          })
+        })
+      }
+
       // Extract KRIs (Risk Indicators) from learning health data
       const rushFactor = learningHealth?.rushFactor || 0
       const fatigueDropOff = learningHealth?.fatigueDropOff || 0
@@ -1015,6 +1360,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
         ],
         subjectPerformance,
         difficultyPerformance,
+        topicPerformance,
         benchmarking: benchmark ? {
           overallPercentile: benchmark.overallPercentile || 50,
           subjectPercentiles: benchmark.subjectPercentiles || [],
@@ -1213,6 +1559,7 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           subjectPerformance={analyticsData.subjectPerformance}
           difficultyPerformance={analyticsData.difficultyPerformance}
           heatmapData={analyticsData.heatmapData}
+          topicPerformance={analyticsData.topicPerformance}
         />
       </section>
 
@@ -1224,7 +1571,11 @@ export function AnalyticsDashboard2({ childId, childName }: AnalyticsDashboard2P
           description="Personalized recommendations and benchmarking"
         />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <StudyRecommendationsCard />
+          <StudyRecommendationsCard 
+            childId={childId}
+            heatmapData={analyticsData.heatmapData}
+            subjectPerformance={analyticsData.subjectPerformance}
+          />
           <BenchmarkingCardComponent benchmarking={analyticsData.benchmarking} />
         </div>
       </section>
