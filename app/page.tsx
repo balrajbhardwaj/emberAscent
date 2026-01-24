@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { BookOpen, BarChart3, Target, ArrowRight } from "lucide-react"
+import { ExplainabilityShowcase } from "@/components/marketing/ExplainabilityShowcase"
 
 export default function LandingPage() {
   return (
@@ -78,6 +79,9 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+
+      {/* AI Explainability Showcase */}
+      <ExplainabilityShowcase />
 
       {/* Analytics Teaser */}
       <div className="px-8 py-16 bg-slate-50">

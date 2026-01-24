@@ -105,20 +105,22 @@
     
     .filters {
       display: flex;
-      gap: 10px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px;
     }
     
     .filter-btn {
-      padding: 10px 18px;
+      width: 100%;
+      padding: 10px 14px;
       border: 2px solid #dee2e6;
       background: white;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
+      white-space: nowrap;
+      text-align: left;
     }
     
     .filter-btn:hover {
@@ -518,16 +520,22 @@
     
     /* Filter improvements */
     .filter-group {
-      margin-bottom: 20px;
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     
     .filter-group-title {
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 700;
       color: #495057;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      border-bottom: 2px solid #f1f3f5;
+      padding-bottom: 8px;
     }
     
     /* Tab Navigation */
@@ -662,6 +670,180 @@
       font-size: 0.9rem;
     }
     
+    /* Search input styling */
+    .search-container {
+      margin-bottom: 20px;
+    }
+    
+    #featureSearch {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    #featureSearch:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    /* Sticky filters */
+    .filter-section {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+      padding: 15px 0 20px 0;
+      border-bottom: 2px solid #e9ecef;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      grid-template-rows: auto auto;
+    }
+    
+    .view-controls {
+      grid-column: 1 / -1;
+      margin-bottom: 10px;
+    }
+    
+    /* View controls styling */
+    .view-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .view-controls button {
+      padding: 8px 16px;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    
+    .view-controls button:hover {
+      background: #e9ecef;
+      border-color: #adb5bd;
+    }
+    
+    /* Module progress bar */
+    .module-header-content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+    }
+    
+    .module-progress-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 300px;
+    }
+    
+    .module-progress-fill {
+      height: 100%;
+      background: #28a745;
+      transition: width 0.3s;
+    }
+    
+    .completion-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    /* Test coverage link styling */
+    .test-coverage.link {
+      color: #667eea;
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 1px dashed #667eea;
+    }
+    
+    .test-coverage.link:hover {
+      color: #764ba2;
+      border-bottom-color: #764ba2;
+    }
+    
+    /* Print-friendly styles */
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+      
+      .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 20px;
+      }
+      
+      .search-container,
+      .view-controls,
+      .filter-section,
+      .tab-navigation,
+      .filters {
+        display: none !important;
+      }
+      
+      .module-content {
+        display: block !important;
+      }
+      
+      .feature-description {
+        display: block !important;
+      }
+      
+      .module {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+      }
+      
+      .feature {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+        color: black !important;
+        -webkit-text-fill-color: black !important;
+      }
+      
+      .module-header {
+        background: #f8f9fa !important;
+        color: black !important;
+        border: 1px solid #dee2e6;
+      }
+      
+      .progress-summary {
+        grid-template-columns: repeat(4, 1fr);
+        page-break-inside: avoid;
+      }
+      
+      #summary-tab {
+        display: none !important;
+      }
+      
+      #details-tab {
+        display: block !important;
+      }
+    }
+    
     @media (max-width: 768px) {
       body {
         padding: 20px 10px;
@@ -699,29 +881,29 @@
       <h1>🔥 Ember Ascent</h1>
       <div class="subtitle">Feature Implementation Status & Test Coverage Tracker</div>
       <div class="header-meta">
-        <span>📅 Last Updated: January 24, 2026</span>
+        <span>📅 Last Updated: January 25, 2026</span>
         <span>•</span>
         <span>📍 Phase 1 MVP (Day 18 Complete)</span>
         <span>•</span>
-        <span>👥 9 Modules · 31 Features · 111 Functionalities</span>
+        <span>👥 10 Modules · 33 Features · 118 Functionalities</span>
       </div>
     </header>
     
     <div class="progress-summary">
       <div class="progress-card">
         <h3>Overall Progress</h3>
-        <div class="value">68%</div>
-        <div class="detail">76/111 functionalities</div>
+        <div class="value">64%</div>
+        <div class="detail">76/118 functionalities</div>
       </div>
       <div class="progress-card">
         <h3>Features Complete</h3>
-        <div class="value">22/31</div>
-        <div class="detail">71% of features done</div>
+        <div class="value">22/33</div>
+        <div class="detail">67% of features done</div>
       </div>
       <div class="progress-card">
         <h3>Test Coverage</h3>
         <div class="value">0%</div>
-        <div class="detail">0/145 tests written</div>
+        <div class="detail">0/169 tests written</div>
       </div>
       <div class="progress-card">
         <h3>Current Phase</h3>
@@ -784,8 +966,8 @@
                 <span class="bar-value">3</span>
                 <span class="bar-label">🚧 Progress</span>
               </div>
-              <div class="bar" style="height: 42%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Planned: 32">
-                <span class="bar-value">32</span>
+              <div class="bar" style="height: 42%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Planned: 39">
+                <span class="bar-value">39</span>
                 <span class="bar-label">📝 Planned</span>
               </div>
             </div>
@@ -830,6 +1012,13 @@
               </div>
               <span style="font-weight: 600;">100%</span>
             </div>
+            <div class="pie-legend-item">
+              <div class="pie-label">
+                <span class="pie-color" style="background: #e83e8c;"></span>
+                <span>AI & Content</span>
+              </div>
+              <span style="font-weight: 600;">100%</span>
+            </div>
           </div>
         </div>
         
@@ -837,16 +1026,16 @@
           <h3>💰 Feature Tier Distribution</h3>
           <div class="chart-container">
             <div class="bar-chart">
-              <div class="bar" style="height: 85%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%);" title="Free Tier: 86">
-                <span class="bar-value">86</span>
+              <div class="bar" style="height: 85%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%);" title="Free Tier: 90">
+                <span class="bar-value">90</span>
                 <span class="bar-label">FREE</span>
               </div>
               <div class="bar" style="height: 45%; background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);" title="Paid Tier: 18">
                 <span class="bar-value">18</span>
                 <span class="bar-label">ASCENT</span>
               </div>
-              <div class="bar" style="height: 20%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Not Applicable: 7">
-                <span class="bar-value">7</span>
+              <div class="bar" style="height: 20%; background: linear-gradient(135deg, #6c757d 0%, #495057 100%);" title="Not Applicable: 10">
+                <span class="bar-value">10</span>
                 <span class="bar-label">N/A</span>
               </div>
             </div>
@@ -857,8 +1046,8 @@
           <h3>⚠️ Priority Distribution</h3>
           <div class="chart-container">
             <div class="bar-chart">
-              <div class="bar" style="height: 100%; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);" title="Critical: 89">
-                <span class="bar-value">89</span>
+              <div class="bar" style="height: 100%; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);" title="Critical: 96">
+                <span class="bar-value">96</span>
                 <span class="bar-label">CRITICAL</span>
               </div>
               <div class="bar" style="height: 25%; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);" title="Normal: 22">
@@ -1069,11 +1258,39 @@
             </li>
           </ul>
         </div>
+        
+        <div class="summary-section">
+          <h3>🤖 AI & Content Generation</h3>
+          <ul class="summary-list">
+            <li>
+              <span class="label">Features</span>
+              <span class="value">2/2 Complete</span>
+            </li>
+            <li>
+              <span class="label">Functionalities</span>
+              <span class="value">7/7 Done</span>
+            </li>
+            <li>
+              <span class="label">Status</span>
+              <span class="value" style="color: #28a745;">✅ 100%</span>
+            </li>
+            <li>
+              <span class="label">Type</span>
+              <span class="value">AI-Powered</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     
     <!-- DETAILS TAB -->
     <div id="details-tab" class="tab-content">
+      
+      <!-- Search Functionality -->
+      <div class="search-container">
+        <input type="text" id="featureSearch" placeholder="🔍 Search features, tests, or descriptions..." aria-label="Search features">
+      </div>
+      
       <div class="legend">
         <div class="legend-item">
           <span class="status-icon status-done">✓</span>
@@ -1101,9 +1318,17 @@
         </div>
       </div>
       
-      <div class="filter-group">
-        <div class="filter-group-title">Filter by Status</div>
-        <div class="filters">
+      <div class="filter-section">
+        <!-- View Controls -->
+        <div class="view-controls">
+          <button onclick="toggleAllModules(true)" aria-label="Expand all modules">📂 Expand All</button>
+          <button onclick="toggleAllModules(false)" aria-label="Collapse all modules">📁 Collapse All</button>
+          <button onclick="document.getElementById('featureSearch').focus()" aria-label="Focus search">🔍 Jump to Search</button>
+        </div>
+        
+        <div class="filter-group">
+          <div class="filter-group-title">Filter by Status</div>
+          <div class="filters">
           <button class="filter-btn active" data-filter="all">📋 All Features</button>
           <button class="filter-btn" data-filter="done">✅ Implemented</button>
           <button class="filter-btn" data-filter="progress">🚧 In Progress</button>
@@ -1136,15 +1361,22 @@
         <button class="filter-btn" data-filter="no-tests">⚠️ No Tests</button>
       </div>
     </div>
+    </div><!-- End filter-section -->
     
     <!-- AUTHENTICATION MODULE -->
     <div class="module" data-module="auth">
       <div class="module-header">
-        <h2>🔐 Authentication Module</h2>
+        <div class="module-header-content">
+          <h2>🔐 Authentication Module</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 12 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 12</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -1281,11 +1513,17 @@
     <!-- PRACTICE MODULE -->
     <div class="module" data-module="practice">
       <div class="module-header">
-        <h2>🎯 Practice Module</h2>
+        <div class="module-header-content">
+          <h2>🎯 Practice Module</h2>
+          <div class="module-progress-bar" title="84% complete">
+            <div class="module-progress-fill" style="width: 84%;"></div>
+          </div>
+          <span class="completion-badge">84% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 21 Done</span>
-          <span>🚧 2 Progress</span>
-          <span>📋 2 Planned</span>
+          <span>✅ 21</span>
+          <span>🚧 2</span>
+          <span>📋 2</span>
         </div>
       </div>
       <div class="module-content">
@@ -1457,11 +1695,17 @@
     <!-- ANALYTICS MODULE -->
     <div class="module" data-module="analytics">
       <div class="module-header">
-        <h2>📊 Analytics Module (Ascent Tier)</h2>
+        <div class="module-header-content">
+          <h2>📊 Analytics Module (Ascent Tier)</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 18 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 18</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -1630,11 +1874,17 @@
     <!-- PROGRESS MODULE -->
     <div class="module" data-module="progress">
       <div class="module-header">
-        <h2>📈 Progress Module</h2>
+        <div class="module-header-content">
+          <h2>📈 Progress Module</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 9 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 9</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -1739,11 +1989,17 @@
     <!-- GAMIFICATION MODULE -->
     <div class="module" data-module="gamification">
       <div class="module-header">
-        <h2>🏆 Gamification Module</h2>
+        <div class="module-header-content">
+          <h2>🏆 Gamification Module</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 8 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 8</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -1826,11 +2082,17 @@
     <!-- SETTINGS MODULE -->
     <div class="module" data-module="settings">
       <div class="module-header">
-        <h2>⚙️ Settings Module</h2>
+        <div class="module-header-content">
+          <h2>⚙️ Settings Module</h2>
+          <div class="module-progress-bar" title="64% complete">
+            <div class="module-progress-fill" style="width: 64%;"></div>
+          </div>
+          <span class="completion-badge">64% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 7 Done</span>
-          <span>🚧 1 Progress</span>
-          <span>📋 3 Planned</span>
+          <span>✅ 7</span>
+          <span>🚧 1</span>
+          <span>📋 3</span>
         </div>
       </div>
       <div class="module-content">
@@ -1945,11 +2207,17 @@
     <!-- ADMIN MODULE -->
     <div class="module" data-module="admin">
       <div class="module-header">
-        <h2>🛡️ Admin Module</h2>
+        <div class="module-header-content">
+          <h2>🛡️ Admin Module</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 12 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 12</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -2059,11 +2327,17 @@
     <!-- REVIEWER MODULE -->
     <div class="module" data-module="reviewer">
       <div class="module-header">
-        <h2>👀 Reviewer Module</h2>
+        <div class="module-header-content">
+          <h2>👀 Reviewer Module</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 8 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 8</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -2163,11 +2437,17 @@
     <!-- MARKETING MODULE -->
     <div class="module" data-module="marketing">
       <div class="module-header">
-        <h2>🌐 Marketing Pages</h2>
+        <div class="module-header-content">
+          <h2>🌐 Marketing Pages</h2>
+          <div class="module-progress-bar" title="100% complete">
+            <div class="module-progress-fill" style="width: 100%;"></div>
+          </div>
+          <span class="completion-badge">100% Complete</span>
+        </div>
         <div class="module-stats">
-          <span>✅ 8 Done</span>
-          <span>🚧 0 Progress</span>
-          <span>📋 0 Planned</span>
+          <span>✅ 8</span>
+          <span>🚧 0</span>
+          <span>📋 0</span>
         </div>
       </div>
       <div class="module-content">
@@ -2285,6 +2565,109 @@
         </div>
       </div>
     </div>
+    
+    <!-- Module 10: AI & Content Generation -->
+    <div class="module">
+      <div class="module-header">
+        <div class="module-header-content">
+          <span class="module-icon">🤖</span>
+          <h2>Module 10: AI & Content Generation</h2>
+          <span class="completion-badge">2/2 Features Complete</span>
+        </div>
+      </div>
+      <div class="features-container">
+        
+        <div class="feature" data-phase="1" data-tier="free" data-priority="high">
+          <div class="feature-header">
+            <div class="feature-title">AI-Enhanced Explanation System</div>
+            <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-free">FREE</span>
+            <span class="priority-badge priority-high">HIGH</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Claude AI-powered explanation generation system that provides three types of explanations for practice questions: Step-by-Step (sequential problem-solving), Visual Illustration (analogies and diagrams), and Worked Example (complete walkthrough). Uses existing step_by_step explanations as context. Integrated into practice session with tabbed interface and localStorage preference persistence. Includes API caching and cost optimization (~$0.004 per generation).
+          </div>
+          <ul class="functionalities">
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Claude API client configuration</span>
+              <span class="test-coverage">0/1 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Three explanation types generator</span>
+              <span class="test-coverage">0/3 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">API route with caching</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Tabbed UI component</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="feature" data-phase="1" data-tier="na" data-priority="high">
+          <div class="feature-header">
+            <div class="feature-title">Question Validation Pipeline</div>
+            <span class="phase-badge phase-1">Phase 1</span>
+          </div>
+          <div class="feature-badges">
+            <span class="tier-badge tier-na">N/A</span>
+            <span class="priority-badge priority-high">HIGH</span>
+          </div>
+          <div class="feature-toggle">Show Details</div>
+          <div class="feature-description">
+            Multi-layer validation system for AI-generated math questions using Claude AI. Layer 1: Structural validation (required fields, format). Layer 2: Mathematical accuracy (arithmetic with mathjs, fractions). Layer 3: Consistency checks (answer-option matching, duplicates). Includes batch validation, auto-correction suggestions, validation tracking database, and admin API endpoints with authentication. Supports single question and batch operations.
+          </div>
+          <ul class="functionalities">
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Validation type definitions</span>
+              <span class="test-coverage">0/1 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Consistency validator (Layer 3)</span>
+              <span class="test-coverage">0/4 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Arithmetic validator (Layer 2)</span>
+              <span class="test-coverage">0/3 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Fractions validator (Layer 2)</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Main orchestrator with batch support</span>
+              <span class="test-coverage">0/3 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Admin API endpoints</span>
+              <span class="test-coverage">0/2 tests</span>
+            </li>
+            <li class="functionality" data-status="done">
+              <span class="status-icon status-done">✓</span>
+              <span class="functionality-name">Database schema for validation tracking</span>
+              <span class="test-coverage">0/1 tests</span>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
     </div><!-- End Details Tab -->
     
     <footer>
@@ -2295,6 +2678,73 @@
   </div>
   
   <script>
+    // Search functionality
+    document.getElementById('featureSearch')?.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const modules = document.querySelectorAll('.module');
+      
+      if (term.length === 0) {
+        // Reset: show all modules and features
+        modules.forEach(module => {
+          module.style.display = 'block';
+          const functionalities = module.querySelectorAll('.functionality');
+          functionalities.forEach(func => func.style.display = 'flex');
+        });
+        return;
+      }
+      
+      modules.forEach(module => {
+        let hasMatch = false;
+        const functionalities = module.querySelectorAll('.functionality');
+        const features = module.querySelectorAll('.feature');
+        
+        // Search in functionalities
+        functionalities.forEach(func => {
+          const text = func.textContent.toLowerCase();
+          const isMatch = text.includes(term);
+          func.style.display = isMatch ? 'flex' : 'none';
+          if (isMatch) hasMatch = true;
+        });
+        
+        // Search in feature descriptions
+        features.forEach(feature => {
+          const description = feature.querySelector('.feature-description');
+          const title = feature.querySelector('.feature-title');
+          if (description && title) {
+            const text = (description.textContent + title.textContent).toLowerCase();
+            if (text.includes(term)) hasMatch = true;
+          }
+        });
+        
+        // Show/hide module based on matches
+        module.style.display = hasMatch ? 'block' : 'none';
+        
+        // Auto-expand modules with matches
+        if (term.length > 0 && hasMatch) {
+          const content = module.querySelector('.module-content');
+          if (content) content.style.display = 'block';
+        }
+      });
+    });
+    
+    // Expand/Collapse all modules
+    function toggleAllModules(expand) {
+      document.querySelectorAll('.module-content').forEach(content => {
+        content.style.display = expand ? 'block' : 'none';
+      });
+      
+      // Also toggle feature details if expanding
+      if (expand) {
+        document.querySelectorAll('.feature-description').forEach(desc => {
+          desc.classList.add('show');
+        });
+        document.querySelectorAll('.feature-toggle').forEach(toggle => {
+          toggle.classList.add('active');
+          toggle.textContent = 'Hide Details';
+        });
+      }
+    }
+    
     // Tab switching functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
