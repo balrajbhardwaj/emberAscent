@@ -18,6 +18,7 @@ import { TOPIC_TAXONOMY, getSubject } from "@/lib/content/topics"
 import { ArrowRight, ArrowLeft } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { createClient } from "@/lib/supabase/client"
+import { createFocusSession } from "./actions"
 
 type Step = "subject" | "topics"
 
@@ -30,6 +31,7 @@ export default function FocusSessionPage() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
   const [showWeakAreasOnly, setShowWeakAreasOnly] = useState(false)
   const [childId, setChildId] = useState<string | null>(null)
+  const [isStarting, setIsStarting] = useState(false)
 
   // Fetch active child
   useEffect(() => {
@@ -117,7 +119,7 @@ export default function FocusSessionPage() {
   }
 
   // Handle start session
-  const handleStart = () => {
+  const handleStart = async () => {
     if (!selectedSubject) {
       toast({
         title: "Select a subject",
@@ -136,14 +138,54 @@ export default function FocusSessionPage() {
       return
     }
 
-    // Navigate to session page with parameters
-    const subject = getSubject(selectedSubject)
-    const params = new URLSearchParams({
-      subject: subject?.name || "",
-      topics: selectedTopics.join(","),
-    })
+    if (!childId) {
+      toast({
+        title: "Child not found",
+        description: "Please select a child profile.",
+        variant: "destructive",
+      })
+      return
+    }
 
-    router.push(`/practice/focus/session?${params.toString()}`)
+    // Create focus session via server action
+    const subject = getSubject(selectedSubject)
+    if (!subject) {
+      toast({
+        title: "Invalid subject",
+        description: "Please select a valid subject.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsStarting(true)
+    try {
+      const result = await createFocusSession({
+        childId,
+        subject: subject.name,
+        topics: selectedTopics,
+      })
+
+      if (!result.success) {
+        toast({
+          title: "Failed to start session",
+          description: result.error || "Could not create focus session.",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Navigate to the session page
+      router.push(`/practice/session/${result.sessionId}`)
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsStarting(false)
+    }
   }
 
   if (isLoading) {
@@ -230,9 +272,9 @@ export default function FocusSessionPage() {
                 className="flex-1"
                 size="lg"
                 onClick={handleStart}
-                disabled={selectedTopics.length === 0}
+                disabled={selectedTopics.length === 0 || isStarting}
               >
-                Start Practice
+                {isStarting ? "Starting..." : "Start Practice"}
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>
