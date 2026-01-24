@@ -43,6 +43,7 @@ export default function HomePage() {
               <Flame className="h-5 w-5 text-white" />
             </div>
             <span className="text-lg font-bold text-slate-900">Ascent</span>
+            <span className="text-xs font-semibold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">BETA</span>
           </Link>
           
           <nav className="hidden md:flex items-center gap-8">

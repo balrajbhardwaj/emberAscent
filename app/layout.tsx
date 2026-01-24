@@ -7,7 +7,7 @@ import { ImpersonationBanner } from "@/components/admin/ImpersonationBanner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Ember Ascent - 11+ Exam Preparation",
+  title: "Ascent (Beta) - 11+ Exam Preparation",
   description:
     "Free UK 11+ exam preparation for Year 4-5 students. Practice questions aligned with National Curriculum objectives.",
 }
