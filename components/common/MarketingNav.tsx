@@ -18,13 +18,13 @@ export function MarketingNav() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/" className="flex items-center gap-2">
+              <Link href="/home" className="flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 Back
               </Link>
             </Button>
           </div>
-          <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900 hover:text-primary transition-colors">
+          <Link href="/home" className="flex items-center gap-2 font-semibold text-slate-900 hover:text-primary transition-colors">
             <Home className="h-4 w-4" />
             Ember Ascent
           </Link>

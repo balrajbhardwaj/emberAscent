@@ -1,8 +1,13 @@
+import { redirect } from "next/navigation"
 import Link from "next/link"
 import { BookOpen, BarChart3, Target, ArrowRight } from "lucide-react"
 import { ExplainabilityShowcase } from "@/components/marketing/ExplainabilityShowcase"
 
 export default function LandingPage() {
+  // Redirect to /home as the main landing page
+  redirect("/home")
+  
+  // Legacy page kept for reference - not reached due to redirect
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
