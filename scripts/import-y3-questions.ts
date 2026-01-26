@@ -174,6 +174,48 @@ function parseYearGroup(year: string): number {
 }
 
 /**
+ * Check for duplicate external_ids within a batch
+ */
+function findDuplicateExternalIds(questions: Y3QuestionJSON[]): Map<string, number> {
+  const idCounts = new Map<string, number>()
+  const duplicates = new Map<string, number>()
+  
+  for (const q of questions) {
+    const count = (idCounts.get(q.question_id) || 0) + 1
+    idCounts.set(q.question_id, count)
+    if (count > 1) {
+      duplicates.set(q.question_id, count)
+    }
+  }
+  
+  return duplicates
+}
+
+/**
+ * Check for duplicate question content (same text + options + answer)
+ */
+function findDuplicateContent(questions: Y3QuestionJSON[]): Map<string, string[]> {
+  const contentMap = new Map<string, string[]>()
+  const duplicates = new Map<string, string[]>()
+  
+  for (const q of questions) {
+    // Create content hash from question_text + correct_option + all options
+    const optionsStr = JSON.stringify([q.options.a, q.options.b, q.options.c, q.options.d, q.options.e].sort())
+    const contentKey = `${q.question_text}||${q.correct_option}||${optionsStr}`
+    
+    const ids = contentMap.get(contentKey) || []
+    ids.push(q.question_id)
+    contentMap.set(contentKey, ids)
+    
+    if (ids.length > 1) {
+      duplicates.set(contentKey, ids)
+    }
+  }
+  
+  return duplicates
+}
+
+/**
  * Transform Y3 JSON question to database format
  */
 function transformY3Question(question: Y3QuestionJSON) {
@@ -243,6 +285,58 @@ async function importQuestionsFromFile(filePath: string): Promise<{
       return { inserted: 0, updated: 0, skipped: 0, total: 0, errors: 0 }
     }
 
+    // Check for duplicates within the batch
+    const duplicateExternalIds = findDuplicateExternalIds(questions)
+    const duplicateContent = findDuplicateContent(questions)
+    
+    if (duplicateExternalIds.size > 0) {
+      console.log(`   ⚠️  Found ${duplicateExternalIds.size} duplicate external_ids in batch:`)
+      for (const [id, count] of duplicateExternalIds) {
+        console.log(`      - ${id} appears ${count} times`)
+      }
+    }
+    
+    if (duplicateContent.size > 0) {
+      console.log(`   ⚠️  Found ${duplicateContent.size} duplicate question contents in batch:`)
+      let shown = 0
+      for (const [contentKey, ids] of duplicateContent) {
+        if (shown < 3) {
+          console.log(`      - Same content: ${ids.join(', ')}`)
+          shown++
+        }
+      }
+      if (duplicateContent.size > 3) {
+        console.log(`      ... and ${duplicateContent.size - 3} more`)
+      }
+    }
+    
+    // Remove duplicates from batch (keep first occurrence)
+    const seenExternalIds = new Set<string>()
+    const seenContent = new Set<string>()
+    const uniqueQuestions = questions.filter(q => {
+      // Check external_id
+      if (seenExternalIds.has(q.question_id)) {
+        return false
+      }
+      seenExternalIds.add(q.question_id)
+      
+      // Check content
+      const optionsStr = JSON.stringify([q.options.a, q.options.b, q.options.c, q.options.d, q.options.e].sort())
+      const contentKey = `${q.question_text}||${q.correct_option}||${optionsStr}`
+      if (seenContent.has(contentKey)) {
+        return false
+      }
+      seenContent.add(contentKey)
+      
+      return true
+    })
+    
+    const removedDuplicates = questions.length - uniqueQuestions.length
+    if (removedDuplicates > 0) {
+      console.log(`   🧹 Removed ${removedDuplicates} duplicate(s) from batch before import`)
+      questions = uniqueQuestions
+    }
+
     // Validate first question structure
     const firstQ = questions[0]
     if (!firstQ.question_id || !firstQ.subject || !firstQ.options) {
@@ -267,32 +361,46 @@ async function importQuestionsFromFile(filePath: string): Promise<{
       process.stdout.write(`   Processing batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(transformedQuestions.length / batchSize)}... `)
 
       try {
-        // Use simple insert without ON CONFLICT for now
-        // The unique index on external_id might not exist yet
-        const { data, error } = await supabase
+        // Check which external_ids already exist in database
+        const externalIds = batch.map(q => q.external_id).filter(id => id != null)
+        const { data: existingQuestions } = await supabase
           .from('questions')
-          .insert(batch)
-          .select('id, external_id')
-
-        if (error) {
-          console.log(`❌ Error`)
-          console.error(`      ${error.message}`)
-          
-          // If it's a duplicate key error, that's actually OK (skip silently)
-          if (error.message.includes('duplicate key') || error.message.includes('unique constraint')) {
-            skipped += batch.length
-          } else {
-            errors += batch.length
-          }
-          continue
-        }
-
-        // Count inserted vs updated
-        // Since upsert doesn't distinguish, we'll assume all succeeded
-        const successCount = data?.length || batch.length
-        inserted += successCount
+          .select('external_id')
+          .in('external_id', externalIds)
         
-        console.log(`✅ ${successCount} questions`)
+        const existingIds = new Set(existingQuestions?.map(q => q.external_id) || [])
+        
+        // Split batch into new questions and updates
+        const newQuestions = batch.filter(q => !existingIds.has(q.external_id))
+        const duplicateQuestions = batch.filter(q => existingIds.has(q.external_id))
+        
+        let batchInserted = 0
+        let batchSkipped = duplicateQuestions.length
+        
+        // Insert only new questions
+        if (newQuestions.length > 0) {
+          const { data, error } = await supabase
+            .from('questions')
+            .insert(newQuestions)
+            .select('id, external_id')
+
+          if (error) {
+            console.log(`❌ Error`)
+            console.error(`      ${error.message}`)
+            errors += newQuestions.length
+          } else {
+            batchInserted = data?.length || newQuestions.length
+          }
+        }
+        
+        inserted += batchInserted
+        skipped += batchSkipped
+        
+        if (batchSkipped > 0) {
+          console.log(`✅ ${batchInserted} new, ⏭️  ${batchSkipped} skipped (already exist)`)
+        } else {
+          console.log(`✅ ${batchInserted} questions`)
+        }
         
       } catch (err: any) {
         console.log(`❌ Exception`)
@@ -310,11 +418,14 @@ async function importQuestionsFromFile(filePath: string): Promise<{
     }
 
     console.log(`\n   📊 Results:`)
-    console.log(`      ✅ Inserted/Updated: ${inserted}`)
+    console.log(`      ✅ Inserted: ${inserted}`)
+    if (skipped > 0) {
+      console.log(`      ⏭️  Skipped (duplicates): ${skipped}`)
+    }
     if (errors > 0) {
       console.log(`      ❌ Errors: ${errors}`)
     }
-    console.log(`      📦 Total: ${questions.length}`)
+    console.log(`      📦 Total processed: ${questions.length}`)
 
     return stats
 
