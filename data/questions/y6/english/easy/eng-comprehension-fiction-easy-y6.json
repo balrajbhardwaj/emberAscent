@@ -1,0 +1,3302 @@
+[
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00001",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The old cottage stood at the edge of the forest, its windows dark and empty.' What does the word 'cottage' mean in this sentence?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A small house, typically in the countryside",
+    "options": {
+      "a": "A small house, typically in the countryside",
+      "b": "A large mansion with many rooms",
+      "c": "A tent used for camping",
+      "d": "A shop selling food",
+      "e": "A wooden boat"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Look at the context: the cottage is described as 'old' and has 'windows'\n2. It 'stood' somewhere, meaning it's a building\n3. It's located 'at the edge of the forest', suggesting a rural setting\n4. Answer: A cottage is a small house, typically in the countryside",
+      "illustration": {
+        "text": "Picture a small, cosy house with a thatched or tiled roof, surrounded by trees and nature. It has windows and a door, but is much smaller than a mansion. This is what we call a cottage.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'They spent their holiday in a tiny cottage by the sea.'\n1. The cottage is described as 'tiny', so it's small\n2. It's 'by the sea', which is a countryside location\n3. People can stay in it for holidays\nAnswer: A cottage is a small house in the countryside"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00002",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Sarah pushed open the heavy wooden door and stepped inside. The room was filled with dusty books and ancient maps.' Where is Sarah most likely?",
+    "question_type": "multiple_choice",
+    "computed_answer": "In a library or study",
+    "options": {
+      "a": "In a swimming pool",
+      "b": "In a library or study",
+      "c": "In a supermarket",
+      "d": "In a playground",
+      "e": "In a restaurant kitchen"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look for clues in the text: 'dusty books' and 'ancient maps'\n2. Books and maps are typically found in libraries or studies\n3. The heavy wooden door and dusty atmosphere suggest an old, quiet place for reading\n4. Answer: Sarah is most likely in a library or study",
+      "illustration": {
+        "text": "Imagine a quiet room with tall wooden shelves packed with old books. On the walls hang yellowing maps from long ago. Dust particles float in the air, caught in beams of sunlight. This is the kind of place where books and maps are kept - a library or study room.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom entered the room and saw rows of science equipment and beakers.'\n1. Science equipment and beakers are clues\n2. These items are found in laboratories or science classrooms\n3. The context tells us about the location\nAnswer: Tom is in a science laboratory or classroom"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-002",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00003",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The dragon's roar echoed through the valley, making the ground tremble beneath their feet.' What does the word 'echoed' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The sound repeated or bounced back",
+    "options": {
+      "a": "The sound became very quiet",
+      "b": "The sound disappeared completely",
+      "c": "The sound repeated or bounced back",
+      "d": "The sound turned into music",
+      "e": "The sound changed colour"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The roar 'echoed through the valley'\n2. An echo is when a sound bounces off surfaces and you hear it again\n3. 'Through the valley' suggests the sound travelled and repeated across the space\n4. Answer: Echoed means the sound repeated or bounced back",
+      "illustration": {
+        "text": "Imagine shouting 'Hello!' in a large valley surrounded by mountains. After you shout, you hear 'Hello... hello... hello...' coming back to you from the mountains. This repetition of sound is called an echo. The dragon's roar did the same thing - it bounced around the valley.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Her footsteps echoed in the empty corridor.'\n1. The corridor is empty, so sounds can bounce off the walls\n2. The footsteps made sounds that repeated\n3. This repetition is what 'echoed' describes\nAnswer: The footsteps made repeating sounds that bounced back"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-003",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00004",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Marcus frowned at the puzzle, scratching his head. He had been working on it for hours but still couldn't find the solution.' How does Marcus feel?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Frustrated and puzzled",
+    "options": {
+      "a": "Angry and violent",
+      "b": "Happy and excited",
+      "c": "Sleepy and relaxed",
+      "d": "Frustrated and puzzled",
+      "e": "Proud and successful"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Marcus 'frowned' - this shows he's unhappy or confused\n2. He's 'scratching his head' - a sign of being puzzled or thinking hard\n3. He's been working for hours but 'still couldn't find the solution' - this shows frustration\n4. Answer: Marcus feels frustrated and puzzled",
+      "illustration": {
+        "text": "Picture Marcus sitting at a table with a difficult puzzle in front of him. His eyebrows are pulled together in a frown, showing concern. One hand is scratching his head as he thinks hard. He's been there for hours, trying different things but nothing has worked yet. You can see the frustration on his face.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Emma smiled broadly and clapped her hands when she saw her test results.'\n1. 'Smiled broadly' shows happiness\n2. 'Clapped her hands' shows excitement and joy\n3. She's reacting positively to good test results\nAnswer: Emma feels happy and pleased"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-004",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00005",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The brave knight drew his gleaming sword and faced the fearsome beast.' What does 'gleaming' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Shining brightly",
+    "options": {
+      "a": "Covered in mud",
+      "b": "Broken and rusty",
+      "c": "Very small",
+      "d": "Made of wood",
+      "e": "Shining brightly"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Gleaming' is used to describe the sword\n2. The knight is brave and facing a beast, so his equipment would be well-maintained\n3. Gleaming means to shine with a bright, especially reflected light\n4. Answer: Gleaming means shining brightly",
+      "illustration": {
+        "text": "Imagine a knight's sword made of polished metal. The surface is so clean and smooth that it reflects light like a mirror. When sunlight hits it, it sparkles and shines brilliantly. This bright, shining quality is what 'gleaming' describes - like when you polish your shoes until they shine.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The gleaming trophy sat on the shelf, catching everyone's eye.'\n1. The trophy catches people's attention\n2. It sits proudly on display\n3. Gleaming suggests it's polished and shiny\nAnswer: The trophy is shining brightly and looks impressive"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-005",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00006",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The clock struck midnight. Suddenly, the statue in the garden began to move, its stone limbs creaking as it turned its head.' What type of story is this most likely to be?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A fantasy or magical story",
+    "options": {
+      "a": "A fantasy or magical story",
+      "b": "A recipe book",
+      "c": "A science textbook",
+      "d": "A history documentary",
+      "e": "A sports report"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. The passage describes a statue coming to life\n2. In real life, statues cannot move on their own\n3. Midnight is often used in magical or mysterious stories\n4. Answer: This is most likely a fantasy or magical story",
+      "illustration": {
+        "text": "Picture a mysterious garden at night. The clock tower chimes twelve times. In the moonlight, a stone statue that has stood still for years suddenly begins to move! Its stone fingers flex, its head turns, and it steps down from its pedestal. This impossible event tells us we're reading a fantasy story where magical things can happen.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The spaceship landed on the alien planet, and strange creatures emerged from the purple mist.'\n1. Spaceships and alien planets don't exist in real life yet\n2. Strange creatures from purple mist is imaginative\n3. This describes impossible or futuristic events\nAnswer: This is science fiction or fantasy"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-006",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00007",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Lily reluctantly put down her book and went to help her mother.' What does 'reluctantly' tell us about Lily?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She didn't want to stop reading",
+    "options": {
+      "a": "She was eager to help immediately",
+      "b": "She didn't want to stop reading",
+      "c": "She was very tired",
+      "d": "She couldn't find her book",
+      "e": "She was reading very fast"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Reluctantly' means unwillingly or without enthusiasm\n2. Lily put down her book to help, but did so reluctantly\n3. This shows she would have preferred to keep reading\n4. Answer: She didn't want to stop reading",
+      "illustration": {
+        "text": "Imagine Lily sitting comfortably with her favourite book, completely absorbed in an exciting chapter. When her mother calls, she slowly closes the book with a small sigh, looking back at it longingly as she stands up. She goes to help, but clearly wishes she could stay and keep reading. This unwilling feeling is what 'reluctantly' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'James reluctantly apologised after the argument.'\n1. He did apologise, so he took action\n2. But he did it reluctantly, meaning unwillingly\n3. This shows he didn't really want to say sorry\nAnswer: James said sorry but didn't want to"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-007",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00008",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The wind howled through the trees. Rain lashed against the windows. Thunder rumbled in the distance.' What is the weather like?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Stormy and wild",
+    "options": {
+      "a": "Sunny and calm",
+      "b": "Snowy and quiet",
+      "c": "Stormy and wild",
+      "d": "Misty and peaceful",
+      "e": "Hot and dry"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Wind howled' suggests strong, noisy wind\n2. 'Rain lashed' means heavy rain hitting hard\n3. 'Thunder rumbled' indicates a thunderstorm\n4. Answer: The weather is stormy and wild",
+      "illustration": {
+        "text": "Picture a dramatic storm scene: powerful winds bend the trees back and forth, making loud howling sounds. Heavy rain drives sideways against the house windows with great force. Dark clouds fill the sky, and you can hear the deep rumbling sound of thunder echoing across the sky. Everything about this weather is fierce and intense - this is a wild storm.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Snowflakes drifted gently down. The world was silent and white. Everything sparkled in the moonlight.'\n1. Snowflakes falling gently suggests calm weather\n2. Silence and whiteness indicate peaceful snow\n3. No mention of wind or storms\nAnswer: The weather is snowy and peaceful"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-008",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00009",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The old man's wrinkled face broke into a warm smile as he greeted his grandchildren.' What does 'broke into' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Suddenly started to smile",
+    "options": {
+      "a": "His face was damaged",
+      "b": "He became angry",
+      "c": "He fell down",
+      "d": "Suddenly started to smile",
+      "e": "He went to sleep"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Broke into a warm smile' is a phrase meaning to begin smiling\n2. The context shows he's happy to see his grandchildren\n3. 'Broke into' here means 'suddenly started' (not breaking something)\n4. Answer: He suddenly started to smile",
+      "illustration": {
+        "text": "Imagine the old man's face was serious or neutral at first. Then, the moment he sees his beloved grandchildren, his expression changes quickly - his lips curve upward, his eyes crinkle with joy, and a big warm smile appears across his face. This sudden change from not smiling to smiling is what 'broke into a smile' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'When she heard the good news, she broke into laughter.'\n1. She wasn't laughing before\n2. The good news caused a sudden change\n3. 'Broke into' means she suddenly started laughing\nAnswer: She suddenly began to laugh"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-009",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00010",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Tom had saved every penny of his pocket money for six months. Today, he finally had enough to buy the telescope he'd been dreaming about.' What does this tell us about Tom?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He is patient and determined",
+    "options": {
+      "a": "He is lazy and careless",
+      "b": "He is dishonest and sneaky",
+      "c": "He is mean and selfish",
+      "d": "He is forgetful and confused",
+      "e": "He is patient and determined"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Tom saved 'every penny' - this shows he was careful and committed\n2. He did this 'for six months' - this shows patience over a long time\n3. He had a goal (the telescope) and worked towards it - this shows determination\n4. Answer: Tom is patient and determined",
+      "illustration": {
+        "text": "Picture Tom over six months: week after week, he receives his pocket money and instead of spending it on sweets or toys, he puts every coin into his savings jar. He watches it slowly fill up, always thinking about the telescope he wants. Even when friends buy treats, he resists temptation. After 26 weeks of saving, he finally achieves his goal. This shows real patience and determination.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Maya practiced piano every single day for a year to prepare for her exam.'\n1. She practiced every day - showing commitment\n2. She did this for a whole year - showing patience\n3. She had a goal (the exam) - showing determination\nAnswer: Maya is patient and determined"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-010",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00011",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The mysterious package sat on the doorstep, wrapped in brown paper and tied with string.' What does 'mysterious' suggest about the package?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Nobody knows where it came from or what's inside",
+    "options": {
+      "a": "Nobody knows where it came from or what's inside",
+      "b": "It is colourful and bright",
+      "c": "It is very heavy",
+      "d": "It belongs to the postman",
+      "e": "It contains food"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. 'Mysterious' means full of mystery or unknown\n2. The package arrived unexpectedly on the doorstep\n3. When something is mysterious, we don't know important details about it\n4. Answer: Nobody knows where it came from or what's inside",
+      "illustration": {
+        "text": "Imagine opening your door and finding a package you weren't expecting. There's no label showing who sent it. You don't know what's inside. You might wonder: Who left this? What's in it? Why is it here? These unanswered questions are what make the package mysterious - it's full of unknowns that create curiosity and perhaps a little suspense.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'A mysterious figure in a dark cloak walked through the fog.'\n1. We don't know who the figure is\n2. The dark cloak hides their identity\n3. This creates mystery and unknowns\nAnswer: The figure's identity is unknown and puzzling"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-011",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00012",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Anna tiptoed down the stairs, careful not to wake anyone. She wanted to see if Father Christmas had been.' When is this story taking place?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Early Christmas morning",
+    "options": {
+      "a": "Summer holiday",
+      "b": "Early Christmas morning",
+      "c": "A school day",
+      "d": "Halloween night",
+      "e": "Her birthday party"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Anna mentions 'Father Christmas'\n2. She's checking if he 'had been' - past tense, suggesting he comes at night\n3. She's being quiet not to wake anyone, so it's early morning\n4. Answer: This is taking place early Christmas morning",
+      "illustration": {
+        "text": "Picture a dark, quiet house in the very early morning hours of Christmas Day. Everyone is still asleep. Anna, excited and unable to wait any longer, creeps down the stairs as quietly as possible. She's heading to see if Father Christmas came during the night and left presents under the tree. This is the classic Christmas morning scene when children wake up early, full of excitement.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Jack ran to the window to see if it had snowed overnight. He hoped school would be cancelled.'\n1. Checking for overnight snow suggests morning\n2. Hoping for school cancellation suggests a school day\n3. Snow happens in winter\nAnswer: This is a winter morning on a school day"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-012",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00013",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The weary traveller collapsed onto the bed, too exhausted to even remove his boots.' What does 'weary' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Very tired",
+    "options": {
+      "a": "Very happy",
+      "b": "Very angry",
+      "c": "Very tired",
+      "d": "Very hungry",
+      "e": "Very cold"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The traveller 'collapsed' onto the bed - suggesting extreme tiredness\n2. He was 'too exhausted' to remove his boots - 'exhausted' means very tired\n3. 'Weary' is used alongside these clues about tiredness\n4. Answer: Weary means very tired",
+      "illustration": {
+        "text": "Imagine someone who has been walking or travelling for many hours, perhaps even days. Their legs ache, their eyes are heavy, and they can barely stand. When they finally reach a bed, they simply fall onto it without energy to do anything else - not even take off their dirty boots. This complete physical and mental tiredness is what 'weary' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'After the marathon, the weary runners could barely walk to their cars.'\n1. A marathon is 26 miles of running - very tiring\n2. They could 'barely walk' - showing extreme tiredness\n3. Weary describes their state after this exhausting activity\nAnswer: Weary means extremely tired"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-013",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00014",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Jake's heart pounded as he stepped onto the stage. Hundreds of eyes were watching him. His mouth felt dry and his hands trembled slightly.' What is Jake about to do?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Perform or speak in front of an audience",
+    "options": {
+      "a": "Go swimming",
+      "b": "Eat dinner",
+      "c": "Play football",
+      "d": "Perform or speak in front of an audience",
+      "e": "Go to bed"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Jake stepped 'onto the stage' - stages are for performances\n2. 'Hundreds of eyes were watching' - there's a large audience\n3. His nervousness (pounding heart, dry mouth, trembling) suggests he's about to perform\n4. Answer: Jake is about to perform or speak in front of an audience",
+      "illustration": {
+        "text": "Picture Jake standing on a stage in a theatre or school hall. In front of him, rows and rows of seats are filled with people all looking at him expectantly. Bright lights shine on him. He can feel his heart beating fast, his mouth is dry with nerves, and his hands shake slightly. He's experiencing stage fright before a performance - perhaps acting in a play, giving a speech, or playing an instrument.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sophie laced up her running shoes and stretched her legs at the starting line.'\n1. Running shoes and stretching suggest athletic activity\n2. A starting line indicates a race\n3. These clues tell us what's about to happen\nAnswer: Sophie is about to run in a race"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-014",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00015",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The ancient tree had stood in the village square for over three hundred years.' What does 'ancient' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Very old",
+    "options": {
+      "a": "Very tall",
+      "b": "Very green",
+      "c": "Very young",
+      "d": "Very thin",
+      "e": "Very old"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. The tree has 'stood for over three hundred years'\n2. Three hundred years is a very long time\n3. 'Ancient' is used to describe something from long ago\n4. Answer: Ancient means very old",
+      "illustration": {
+        "text": "Imagine a massive tree with a thick, gnarled trunk that would take several people holding hands to reach around. Its bark is deeply wrinkled and weathered. It has seen generations of families grow up in the village - great-great-great-grandparents, their children, grandchildren, and beyond. For over 300 years it has stood in the same spot, making it ancient - incredibly old and historic.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The archaeologists discovered ancient pottery from Roman times.'\n1. Roman times were over 2,000 years ago\n2. Archaeologists study old objects from the past\n3. Ancient describes something from a very long time ago\nAnswer: The pottery is very old, from thousands of years ago"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-015",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00016",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The detective examined the muddy footprints carefully. They led from the broken window to the empty safe.' What has happened in this story?",
+    "question_type": "multiple_choice",
+    "computed_answer": "There has been a robbery",
+    "options": {
+      "a": "There has been a robbery",
+      "b": "Someone has cooked a meal",
+      "c": "Someone has planted flowers",
+      "d": "Someone has had a birthday party",
+      "e": "Someone has painted a picture"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. There's a 'broken window' - suggesting forced entry\n2. Muddy footprints lead to an 'empty safe'\n3. A detective is investigating - this happens when crimes occur\n4. Answer: There has been a robbery",
+      "illustration": {
+        "text": "Picture a crime scene: a window has been smashed, with broken glass on the floor. Muddy footprints track across the carpet from the window to where a safe stands open and empty - the valuables that were inside are gone. A detective is crouched down, studying these clues to work out what happened. All the evidence points to a burglary - someone broke in and stole from the safe.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The kitchen was a mess with flour everywhere, broken eggs on the floor, and spilled milk on the counter.'\n1. Flour, eggs, and milk are baking ingredients\n2. They're spilled and messy\n3. This happened in the kitchen\nAnswer: Someone was trying to bake and made a mess"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-016",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00017",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Mia beamed with pride as she held up her certificate.' What does 'beamed' suggest about how Mia looked?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She smiled very widely and happily",
+    "options": {
+      "a": "She looked angry and upset",
+      "b": "She smiled very widely and happily",
+      "c": "She looked confused and worried",
+      "d": "She looked tired and sleepy",
+      "e": "She looked sick and unwell"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Beamed' is a way of describing smiling\n2. She was feeling 'pride' - a positive, happy emotion\n3. Beaming means smiling very brightly and broadly\n4. Answer: She smiled very widely and happily",
+      "illustration": {
+        "text": "Imagine Mia's face lit up with the biggest, brightest smile possible. Her whole face radiates happiness - her eyes sparkle, her cheeks are lifted, and her smile stretches from ear to ear. It's like her joy is shining out like beams of light from her face. This intense, radiant smile is what 'beamed' describes. She's so proud of her certificate that her happiness just glows.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The winner beamed at the crowd as she received her gold medal.'\n1. She's the winner - a happy achievement\n2. She's receiving a gold medal - something to celebrate\n3. Beaming shows her extreme happiness\nAnswer: She smiled very widely with joy and pride"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-017",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00018",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The classroom fell silent when the headteacher walked in. Every student sat up straight and paid attention.' How did the students feel when the headteacher arrived?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Respectful and perhaps a little nervous",
+    "options": {
+      "a": "Bored and sleepy",
+      "b": "Excited and playful",
+      "c": "Respectful and perhaps a little nervous",
+      "d": "Confused and lost",
+      "e": "Angry and rebellious"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The room 'fell silent' immediately - showing respect and possibly some nervousness\n2. Students 'sat up straight' - proper, respectful behaviour\n3. Everyone 'paid attention' - taking the headteacher seriously\n4. Answer: The students felt respectful and perhaps a little nervous",
+      "illustration": {
+        "text": "Picture a lively classroom where students are chatting and laughing. Suddenly, the door opens and the headteacher steps in. Instantly, all conversation stops. Students quickly straighten in their chairs, stop fidgeting, and direct their eyes to the front. There's a sense of importance and perhaps slight worry - not because they've done wrong, but because the headteacher commands respect and authority.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'When the fire alarm rang, everyone quickly lined up and walked quietly outside.'\n1. Quick response shows they took it seriously\n2. Quiet, orderly behaviour shows discipline\n3. The alarm created a sense of urgency\nAnswer: Everyone felt alert and followed the rules carefully"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-018",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00019",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The abandoned house stood at the end of the lane, its windows boarded up and garden overgrown.' What does 'abandoned' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Left empty and no longer used",
+    "options": {
+      "a": "Newly built",
+      "b": "Very expensive",
+      "c": "Painted bright colours",
+      "d": "Left empty and no longer used",
+      "e": "Full of people"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. The windows are 'boarded up' - covered to keep people out\n2. The garden is 'overgrown' - nobody has cared for it\n3. 'Abandoned' means left behind and no longer occupied\n4. Answer: The house is left empty and no longer used",
+      "illustration": {
+        "text": "Picture a sad, neglected house at the end of a quiet lane. Nobody lives there anymore. The windows are covered with wooden boards so no one can see in or get in. The garden that was once neat is now wild with tall weeds, overgrown grass, and tangled bushes. No lights shine from inside, no smoke comes from the chimney. The house has been abandoned - left behind and forgotten by its owners.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The abandoned playground had rusty swings and broken equipment.'\n1. The playground equipment is rusty - not maintained\n2. Things are broken - nobody fixes them\n3. Abandoned means nobody uses or cares for it anymore\nAnswer: The playground is left empty and uncared for"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-019",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00020",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Oliver gazed longingly at the toy shop window. The train set inside was exactly what he wanted, but his piggy bank was empty.' What can we infer about Oliver's situation?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He wants something but cannot afford it",
+    "options": {
+      "a": "He already owns the train set",
+      "b": "He dislikes trains",
+      "c": "He has lots of money",
+      "d": "He is going to his friend's house",
+      "e": "He wants something but cannot afford it"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Oliver gazed 'longingly' - this means with desire or wanting\n2. The train set was 'exactly what he wanted' - he really wants it\n3. His piggy bank was 'empty' - he has no money saved\n4. Answer: He wants something but cannot afford it",
+      "illustration": {
+        "text": "Picture Oliver standing outside a toy shop, his face pressed close to the glass window. Inside, displayed beautifully under a spotlight, is the perfect train set - with engines, carriages, tracks and tunnels. Oliver's eyes are full of longing as he imagines playing with it. But in his mind, he knows his piggy bank at home is empty - not a single coin inside. He wants it desperately but has no money to buy it. This is a feeling many children experience.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Emma stared at the ice cream van but her pockets were empty. She sighed and walked away.'\n1. She stared at the ice cream - showing interest\n2. Her pockets were empty - no money\n3. She sighed and walked away - disappointed she couldn't buy any\nAnswer: Emma wanted ice cream but had no money"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-020",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00021",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The fierce tiger prowled through the jungle, its yellow eyes gleaming in the darkness.' What does 'prowled' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Moved quietly and stealthily, like a hunter",
+    "options": {
+      "a": "Moved quietly and stealthily, like a hunter",
+      "b": "Ran away quickly",
+      "c": "Slept peacefully",
+      "d": "Ate some food",
+      "e": "Jumped very high"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. The tiger is 'fierce' and moving through the jungle\n2. 'Prowled' describes how predators move when hunting\n3. The context suggests careful, threatening movement\n4. Answer: Prowled means moved quietly and stealthily, like a hunter",
+      "illustration": {
+        "text": "Imagine a powerful tiger moving through the jungle at night. It doesn't run or make noise. Instead, it places each paw carefully and silently on the ground, moving low and smooth through the undergrowth. Its muscles are tense and ready to pounce. Its eyes scan for prey. This careful, quiet, hunting movement is called prowling - it's how predators move when they're looking for food or patrolling their territory.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The cat prowled around the garden, watching the birds carefully.'\n1. The cat is watching birds - potential prey\n2. It's moving 'around the garden' in a careful way\n3. Prowling describes this hunting movement\nAnswer: The cat moved quietly and carefully, ready to hunt"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-021",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00022",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The sun was setting, painting the sky in shades of orange and pink. Birds flew home to their nests. The day was coming to an end.' What time of day is being described?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Evening/dusk",
+    "options": {
+      "a": "Early morning",
+      "b": "Evening/dusk",
+      "c": "Midnight",
+      "d": "Late afternoon",
+      "e": "Middle of the day"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'The sun was setting' - this happens at the end of the day\n2. Birds flying 'home to their nests' - they do this as darkness approaches\n3. 'The day was coming to an end' - directly states it's ending\n4. Answer: This is evening/dusk",
+      "illustration": {
+        "text": "Picture the sky as the sun drops toward the horizon. Beautiful colours spread across the clouds - oranges, pinks, and purples. The light is softer and more golden than during the day. Birds fly across the sky in silhouettes, heading back to where they sleep. Shadows grow longer. This magical time between day and night is called dusk or evening - when the sun sets and darkness gradually arrives.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The alarm clock buzzed. Sunlight streamed through the curtains. It was time to get up for school.'\n1. An alarm clock waking someone suggests morning\n2. Sunlight streaming in shows it's become light\n3. Getting ready for school happens in the morning\nAnswer: This is early morning"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-022",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00023",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The magician flourished his cape and, with a dramatic gesture, made the rabbit disappear.' What does 'flourished' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Waved or moved with a bold, sweeping motion",
+    "options": {
+      "a": "Washed carefully",
+      "b": "Folded neatly",
+      "c": "Waved or moved with a bold, sweeping motion",
+      "d": "Hid in a pocket",
+      "e": "Threw away"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The magician is performing - making dramatic, showy movements\n2. It's paired with 'dramatic gesture' - suggesting bold movement\n3. 'Flourished' means to wave something with a grand, sweeping motion\n4. Answer: Flourished means waved or moved with a bold, sweeping motion",
+      "illustration": {
+        "text": "Picture a magician on stage wearing a long, flowing cape. As part of his magic trick, he grabs the edge of his cape and swings it through the air in a big, dramatic arc - whoosh! The cape billows and flows as he moves it with style and flair. This grand, showy sweeping movement is called a flourish. It's designed to impress the audience and add drama to the performance.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The conductor flourished his baton and the orchestra began to play.'\n1. A conductor leads an orchestra\n2. The baton is waved to signal the musicians\n3. Flourishing suggests a dramatic, sweeping wave\nAnswer: The conductor waved his baton with a bold gesture"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-023",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00024",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Ben trudged slowly up the steep hill, his backpack feeling heavier with every step. Sweat dripped down his face.' How is Ben feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Tired and finding it difficult",
+    "options": {
+      "a": "Energetic and excited",
+      "b": "Cold and shivering",
+      "c": "Happy and relaxed",
+      "d": "Tired and finding it difficult",
+      "e": "Hungry and thirsty"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Ben 'trudged slowly' - trudging means walking with effort and tiredness\n2. His backpack felt 'heavier with every step' - he's struggling\n3. 'Sweat dripped down his face' - he's working hard physically\n4. Answer: Ben is tired and finding it difficult",
+      "illustration": {
+        "text": "Picture Ben climbing a steep hill on a warm day. Each step is an effort - his legs feel heavy, his breathing is laboured. His backpack, which felt fine at the start, now seems to weigh a ton, pulling on his shoulders. Beads of sweat roll down his forehead and cheeks. He's trudging - that slow, heavy way of walking when you're exhausted but keep going. Every part of his body is telling him this is hard work.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'After running five laps, Sophie collapsed on the grass, breathing heavily and unable to move.'\n1. She ran five laps - strenuous exercise\n2. She collapsed - couldn't stay standing\n3. Breathing heavily - physically exhausted\nAnswer: Sophie is extremely tired and exhausted"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-024",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00025",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The gentle breeze rustled through the leaves, creating a peaceful, soothing sound.' What does 'rustled' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Made a soft, whispering sound",
+    "options": {
+      "a": "Made a loud crashing noise",
+      "b": "Made everything completely silent",
+      "c": "Made the leaves fall off",
+      "d": "Made the trees grow taller",
+      "e": "Made a soft, whispering sound"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. The breeze is described as 'gentle' - soft, not strong\n2. The sound is 'peaceful' and 'soothing' - pleasant and quiet\n3. Rustling is the soft sound leaves make when they move gently\n4. Answer: Rustled means made a soft, whispering sound",
+      "illustration": {
+        "text": "Imagine sitting under a tree on a calm day. A light breeze blows through the branches above you. The leaves gently brush against each other, creating a soft 'shh-shh-shh' sound - like quiet whispering or tissue paper being lightly crumpled. It's peaceful and calming, not loud or harsh. This delicate sound of leaves moving in the wind is called rustling. It's one of nature's most soothing sounds.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Paper rustled as she turned the pages of her book.'\n1. Paper makes soft sounds when moved\n2. Turning pages is a gentle action\n3. Rustling describes this light, crisp sound\nAnswer: The paper made soft, light sounds"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-025",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00026",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The ancient oak tree stood proudly in the meadow, its branches reaching towards the sky like welcoming arms.' What does the word 'ancient' tell us about the tree?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It is very old",
+    "options": {
+      "a": "It is very old",
+      "b": "It is very tall",
+      "c": "It is very beautiful",
+      "d": "It is very strong",
+      "e": "It is very dark"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Identify the word 'ancient' in the sentence\n2. Consider what 'ancient' means as a descriptive word\n3. 'Ancient' refers to something from a long time ago or very old\n4. Answer: It is very old",
+      "illustration": {
+        "text": "Imagine a timeline showing a young sapling growing into a massive, gnarled oak tree over hundreds of years. The word 'ancient' helps us visualize this tree has been standing for a very long time, with thick bark and a wide trunk.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The ancient castle had stood for five hundred years.'\n1. 'Ancient' describes the castle\n2. The sentence tells us it has been there for five hundred years\n3. This confirms 'ancient' means very old\nAnswer: Ancient = very old"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00027",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Maya crept silently down the corridor, her heart pounding. She had to find the hidden key before midnight.' How is Maya feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Nervous and anxious",
+    "options": {
+      "a": "Happy and excited",
+      "b": "Nervous and anxious",
+      "c": "Angry and frustrated",
+      "d": "Tired and sleepy",
+      "e": "Bored and uninterested"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look for clues about Maya's emotions in the text\n2. 'Heart pounding' suggests fear or nervousness\n3. 'Crept silently' and the urgency ('before midnight') add to the tension\n4. Answer: Nervous and anxious",
+      "illustration": {
+        "text": "Picture Maya tiptoeing carefully, checking over her shoulder, with wide eyes and tense shoulders. Her racing heartbeat and careful movements show she is worried about being caught or running out of time.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom's hands shook as he opened the exam paper.'\n1. 'Hands shook' indicates nervousness\n2. This physical reaction shows emotion\n3. Tom is anxious about the exam\nAnswer: Physical clues reveal emotions"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00028",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The enormous dragon spread its wings, blocking out the sun completely.' What does 'blocking out the sun' suggest about the dragon's size?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The dragon is extremely large",
+    "options": {
+      "a": "The dragon is invisible",
+      "b": "The dragon is quite small",
+      "c": "The dragon is extremely large",
+      "d": "The dragon is brightly coloured",
+      "e": "The dragon is flying very high"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Consider what it means to 'block out the sun'\n2. This would require enormous wings to cast such a large shadow\n3. The word 'enormous' also directly describes the dragon's size\n4. Answer: The dragon is extremely large",
+      "illustration": {
+        "text": "Visualize a massive dragon with wings so wide they create darkness on the ground below, like clouds covering the sun. Only something truly gigantic could block out all the sunlight.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The huge building blocked our view of the mountains.'\n1. To block a view, something must be very large\n2. The building must be taller and wider than the person looking\n3. This tells us about size\nAnswer: Blocking something shows large size"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00029",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The cottage was perfect. Roses climbed around the door, birds sang in the garden, and smoke curled peacefully from the chimney.' What is the overall mood of this description?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Calm and pleasant",
+    "options": {
+      "a": "Exciting and adventurous",
+      "b": "Scary and dangerous",
+      "c": "Sad and gloomy",
+      "d": "Calm and pleasant",
+      "e": "Mysterious and strange"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Identify the descriptive words: 'perfect', 'peacefully', birds singing\n2. Notice positive images: roses, singing birds, peaceful smoke\n3. These all create a peaceful, happy atmosphere\n4. Answer: Calm and pleasant",
+      "illustration": {
+        "text": "Picture a cozy, welcoming cottage on a sunny day, with beautiful flowers, cheerful birdsong, and gentle smoke rising from a warm fire inside. Everything suggests comfort and tranquility.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The storm raged, lightning flashed, and thunder crashed overhead.'\n1. Words like 'raged', 'flashed', 'crashed' are violent\n2. These create a frightening, dangerous mood\n3. Compare this to gentle, peaceful words in the cottage description\nAnswer: Word choice creates mood"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00030",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'James wolfed down his breakfast and sprinted out the door.' What does 'wolfed down' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Ate very quickly",
+    "options": {
+      "a": "Took his time eating",
+      "b": "Cooked carefully",
+      "c": "Threw away",
+      "d": "Shared with others",
+      "e": "Ate very quickly"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Wolfed down' is an idiom about eating\n2. Wolves eat quickly and hungrily\n3. The word 'sprinted' (ran fast) suggests James was in a hurry\n4. Answer: Ate very quickly",
+      "illustration": {
+        "text": "Imagine James sitting at the table, quickly shoveling food into his mouth without pausing, then immediately jumping up and running. The phrase 'wolfed down' compares his eating to how a hungry wolf devours its food.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'She gobbled up her lunch before the bell rang.'\n1. 'Gobbled up' is similar to 'wolfed down'\n2. Both mean eating very fast\n3. The context (before the bell) shows urgency\nAnswer: These phrases describe rapid eating"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00031",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The pirate captain stood at the wheel, scanning the horizon with his telescope. \"Land ahead!\" he shouted triumphantly.' Why did the captain shout 'triumphantly'?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He was pleased and victorious about finding land",
+    "options": {
+      "a": "He was pleased and victorious about finding land",
+      "b": "He was angry at his crew",
+      "c": "He was confused about the direction",
+      "d": "He was scared of what he saw",
+      "e": "He was tired from sailing"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Define 'triumphantly' - it means in a victorious or successful way\n2. The captain has been searching ('scanning the horizon')\n3. Finding land after searching at sea is a success\n4. Answer: He was pleased and victorious about finding land",
+      "illustration": {
+        "text": "Picture the captain raising his fist in the air with joy and relief, smiling broadly as he announces the good news to his crew. 'Triumphantly' shows his feeling of achievement and happiness at the discovery.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sarah raised the trophy triumphantly above her head.'\n1. Raising a trophy shows success\n2. 'Triumphantly' describes how she did it - with pride and joy\n3. She won and is celebrating\nAnswer: Triumphantly = with success and pride"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00032",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The classroom fell silent as Mr. Thompson entered, his stern expression warning everyone to behave.' What does 'stern' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Strict and serious",
+    "options": {
+      "a": "Happy and smiling",
+      "b": "Strict and serious",
+      "c": "Confused and lost",
+      "d": "Excited and energetic",
+      "e": "Sleepy and tired"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look at the context: 'warning everyone to behave'\n2. The classroom becomes silent, suggesting respect or fear\n3. 'Stern' describes a serious, no-nonsense expression\n4. Answer: Strict and serious",
+      "illustration": {
+        "text": "Imagine Mr. Thompson with a firm, unsmiling face, perhaps with furrowed brows and a straight mouth. His expression makes students straighten up and stop talking immediately because they know he means business.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The judge gave the defendant a stern look.'\n1. Judges must be serious and authoritative\n2. A 'stern look' shows disapproval\n3. This matches strict and serious behavior\nAnswer: Stern = strict and serious"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00033",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Lily gazed longingly at the bicycle in the shop window. She had been saving her pocket money for months.' What can we infer about Lily?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She wants to buy the bicycle but doesn't have enough money yet",
+    "options": {
+      "a": "She already owns many bicycles",
+      "b": "She dislikes bicycles",
+      "c": "She wants to buy the bicycle but doesn't have enough money yet",
+      "d": "She is window shopping for her friend",
+      "e": "She works in the bicycle shop"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Gazed longingly' shows she really wants the bicycle\n2. 'Saving her pocket money for months' shows she's working toward buying it\n3. The fact she's still saving suggests she doesn't have enough yet\n4. Answer: She wants to buy the bicycle but doesn't have enough money yet",
+      "illustration": {
+        "text": "Picture Lily standing outside the shop, pressing her nose against the window, looking at the bicycle with hopeful eyes. In her mind, she's counting the coins in her piggy bank, calculating how much more she needs to save.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom stared hungrily at the cake, but he had no money for lunch.'\n1. 'Stared hungrily' shows desire\n2. 'No money' shows he can't have it\n3. We infer he wants it but can't afford it\nAnswer: Context clues reveal intentions"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00034",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The mysterious package sat on the doorstep, wrapped in brown paper and tied with string.' What does 'mysterious' suggest about the package?",
+    "question_type": "multiple_choice",
+    "computed_answer": "No one knows what it is or where it came from",
+    "options": {
+      "a": "It is very heavy",
+      "b": "It is addressed to someone specific",
+      "c": "It is beautifully decorated",
+      "d": "No one knows what it is or where it came from",
+      "e": "It is made of cardboard"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Define 'mysterious' - something unknown, puzzling, or hard to understand\n2. A mysterious package would be unexpected or unexplained\n3. This suggests uncertainty about its contents or origin\n4. Answer: No one knows what it is or where it came from",
+      "illustration": {
+        "text": "Imagine finding an unmarked package on your doorstep with no return address or note. The plain brown paper gives no clues about what's inside or who sent it, creating curiosity and questions.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'A mysterious figure appeared in the fog.'\n1. 'Mysterious' describes the unknown figure\n2. You can't identify who it is in the fog\n3. This creates intrigue and uncertainty\nAnswer: Mysterious = unknown or puzzling"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00035",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'After three hours of hiking, the children finally reached the summit. They collapsed on the grass, exhausted but happy.' Why were the children exhausted?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The long hike up the mountain had tired them out",
+    "options": {
+      "a": "They had been playing football",
+      "b": "They had been arguing with each other",
+      "c": "They had stayed up late the night before",
+      "d": "They had been running from something scary",
+      "e": "The long hike up the mountain had tired them out"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. The text states 'after three hours of hiking'\n2. Hiking to a summit (mountain top) is physically demanding\n3. Three hours is a long time for physical activity\n4. Answer: The long hike up the mountain had tired them out",
+      "illustration": {
+        "text": "Picture children climbing steadily uphill for three hours, using their leg muscles constantly, breathing hard in the thin mountain air. By the time they reach the top, their legs are wobbly and they need to rest.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'After swimming twenty lengths, Marcus climbed out of the pool, exhausted.'\n1. Swimming twenty lengths is strenuous exercise\n2. This physical activity caused tiredness\n3. The text directly connects the activity to being exhausted\nAnswer: Physical activity causes exhaustion"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00036",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The villain cackled wickedly as he revealed his evil plan to take over the kingdom.' What does 'cackled' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Laughed in a harsh, unpleasant way",
+    "options": {
+      "a": "Laughed in a harsh, unpleasant way",
+      "b": "Sang beautifully",
+      "c": "Whispered quietly",
+      "d": "Spoke politely",
+      "e": "Cried sadly"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. 'Cackled' describes a type of laugh, often associated with villains or witches\n2. The word 'wickedly' reinforces the negative tone\n3. A cackle is harsh and unpleasant, not a nice laugh\n4. Answer: Laughed in a harsh, unpleasant way",
+      "illustration": {
+        "text": "Imagine a villain throwing his head back and making a loud, harsh 'heh-heh-heh' sound that sends shivers down your spine. It's the opposite of a warm, friendly laugh - it's menacing and evil-sounding.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The witch cackled over her bubbling cauldron.'\n1. Witches in stories traditionally cackle\n2. This is portrayed as an evil, grating laugh\n3. 'Cackle' fits the negative character\nAnswer: Cackle = unpleasant, evil laugh"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00037",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The moonlight cast long shadows across the empty playground. Not a sound could be heard except the creaking of the old swings.' What time of day is this scene set?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Night-time",
+    "options": {
+      "a": "Early morning",
+      "b": "Night-time",
+      "c": "Midday",
+      "d": "Late afternoon",
+      "e": "Dawn"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. The text mentions 'moonlight' which occurs when the moon is visible\n2. The moon is most visible at night when it's dark\n3. The empty, quiet playground also suggests evening/night\n4. Answer: Night-time",
+      "illustration": {
+        "text": "Picture a dark playground illuminated only by silvery moonlight, with long dark shadows stretching across the ground. The moon hangs in a dark sky, creating an eerie, nighttime atmosphere.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The sunrise painted the sky orange and pink.'\n1. Sunrise occurs in the morning\n2. This directly tells us the time of day\n3. Key words like 'moonlight' or 'sunrise' indicate time\nAnswer: Use light source clues for timing"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00038",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Emma's eyes sparkled with mischief as she hid her brother's football boots.' What does 'sparkled with mischief' tell us about Emma?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is playfully planning something naughty",
+    "options": {
+      "a": "She is crying",
+      "b": "She is angry",
+      "c": "She is playfully planning something naughty",
+      "d": "She is confused",
+      "e": "She is frightened"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Sparkled' suggests brightness and excitement in her eyes\n2. 'Mischief' means playful naughtiness or harmless troublemaking\n3. She's hiding her brother's boots, which is a prank\n4. Answer: She is playfully planning something naughty",
+      "illustration": {
+        "text": "Imagine Emma with a cheeky grin and twinkling eyes, looking pleased with herself as she sneaks away with the football boots. She's not being mean, just playful and enjoying the idea of her brother searching for them.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Jack grinned mischievously as he prepared the water balloon.'\n1. 'Mischievously' shows playful naughtiness\n2. Water balloons suggest a harmless prank\n3. He's planning something fun but slightly naughty\nAnswer: Mischief = playful trouble"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00039",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The detective examined the footprints carefully, measuring them and taking photographs. \"These prints are fresh,\" he muttered.' What is the detective doing?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Looking for clues to solve a mystery",
+    "options": {
+      "a": "Going for a walk",
+      "b": "Teaching a photography class",
+      "c": "Cleaning up the area",
+      "d": "Looking for clues to solve a mystery",
+      "e": "Making footprints of his own"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Detectives investigate crimes and mysteries\n2. Examining, measuring, and photographing footprints are investigative actions\n3. 'Fresh' prints might lead to finding someone\n4. Answer: Looking for clues to solve a mystery",
+      "illustration": {
+        "text": "Picture a detective crouching down with a magnifying glass, carefully studying footprints in the dirt, using a tape measure and camera. These footprints are evidence that might tell him who was there and where they went.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The scientist collected samples and recorded her observations.'\n1. Scientists gather evidence systematically\n2. Like detectives, they analyze information\n3. Both use careful examination to find answers\nAnswer: Detailed examination indicates investigation"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00040",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The garden was a riot of colours, with red poppies, yellow sunflowers, and purple lavender blooming everywhere.' What does 'a riot of colours' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Many bright colours appearing together",
+    "options": {
+      "a": "The garden was messy",
+      "b": "People were fighting in the garden",
+      "c": "There were only dark colours",
+      "d": "The flowers were dying",
+      "e": "Many bright colours appearing together"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Riot' here is used figuratively, not literally\n2. The text lists multiple bright colours: red, yellow, purple\n3. 'Riot' suggests abundance and wildness\n4. Answer: Many bright colours appearing together",
+      "illustration": {
+        "text": "Imagine a garden so full of different colored flowers that everywhere you look, there's a burst of bright reds, yellows, and purples. The colors seem to compete for attention, creating a vibrant, lively scene.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The market was a riot of sounds and smells.'\n1. 'Riot' is used to show abundance\n2. It means lots of different sounds and smells\n3. This is figurative language showing variety\nAnswer: 'Riot of' = abundant variety"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00041",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Oliver hesitated at the edge of the diving board, looking down at the water far below. His friends cheered encouragingly from the pool.' What is Oliver about to do?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Jump from the diving board into the water",
+    "options": {
+      "a": "Jump from the diving board into the water",
+      "b": "Teach his friends to swim",
+      "c": "Leave the swimming pool",
+      "d": "Climb down from the board",
+      "e": "Clean the diving board"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Oliver is standing on a diving board\n2. He's looking down at the water, considering something\n3. His friends are in the pool, encouraging him\n4. Answer: Jump from the diving board into the water",
+      "illustration": {
+        "text": "Picture Oliver standing on the edge of a high diving board, toes curled over the edge, looking nervously at the blue water below. His friends are waving and calling out encouragement, waiting for him to take the plunge.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sophie stood at the starting line, stretching her legs while others gathered to watch.'\n1. Starting line suggests a race\n2. Stretching indicates preparation\n3. Context tells us what's about to happen\nAnswer: Context clues predict actions"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00042",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The knight's armor gleamed in the sunlight as he rode bravely toward the castle gates.' What does 'gleamed' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Shone brightly",
+    "options": {
+      "a": "Was rusty and dirty",
+      "b": "Shone brightly",
+      "c": "Was very heavy",
+      "d": "Made a loud noise",
+      "e": "Was painted red"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Gleamed' describes how the armor looked in sunlight\n2. Sunlight reflecting off metal creates brightness\n3. 'Gleamed' means to shine with reflected light\n4. Answer: Shone brightly",
+      "illustration": {
+        "text": "Imagine polished metal armor catching the sun's rays, creating bright flashes of light as the knight moves. The armor is so clean and shiny that it reflects light like a mirror.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The trophy gleamed on the shelf.'\n1. Trophies are usually polished metal\n2. They reflect light and shine\n3. 'Gleamed' describes this brightness\nAnswer: Gleamed = shone with reflected light"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00043",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The old lighthouse stood alone on the rocky cliff, warning ships of the dangerous rocks below. For a hundred years, it had guided sailors safely home.' What is the purpose of the lighthouse?",
+    "question_type": "multiple_choice",
+    "computed_answer": "To warn ships about danger and guide them safely",
+    "options": {
+      "a": "To provide a home for sailors",
+      "b": "To make the cliff look beautiful",
+      "c": "To warn ships about danger and guide them safely",
+      "d": "To store supplies for ships",
+      "e": "To measure the height of waves"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The text says it warns ships of dangerous rocks\n2. It has 'guided sailors safely home' for a hundred years\n3. These are the two main functions: warning and guiding\n4. Answer: To warn ships about danger and guide them safely",
+      "illustration": {
+        "text": "Picture a tall lighthouse with a bright, rotating beam of light at the top, sweeping across dark waters. Ships at sea see this light and know to steer away from the dangerous rocky coastline.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Traffic lights control the flow of cars and keep everyone safe.'\n1. Identify the purpose: control and safety\n2. The lighthouse similarly provides safety through guidance\n3. Both serve protective functions\nAnswer: Purpose is found in what something does"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00044",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Sarah trudged slowly through the deep snow, her feet growing colder with each step.' What does 'trudged' suggest about how Sarah is moving?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is walking with difficulty and effort",
+    "options": {
+      "a": "She is running quickly",
+      "b": "She is skipping happily",
+      "c": "She is dancing gracefully",
+      "d": "She is walking with difficulty and effort",
+      "e": "She is standing still"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Trudged' means to walk slowly and with effort\n2. The context mentions 'deep snow' which is hard to walk through\n3. 'Slowly' confirms the difficult movement\n4. Answer: She is walking with difficulty and effort",
+      "illustration": {
+        "text": "Imagine Sarah lifting each foot high to pull it out of deep snow, then pushing it forward heavily, sinking in again with each step. Her movement is slow, tiring, and requires much more effort than normal walking.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The exhausted hikers trudged up the final hill.'\n1. 'Exhausted' shows they're tired\n2. 'Trudged' indicates heavy, difficult walking\n3. The hill makes it harder still\nAnswer: Trudged = difficult, heavy walking"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00045",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The circus tent was enormous, with red and white stripes and colorful flags flying from the top. Inside, the crowd buzzed with excitement.' How is the crowd feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Excited and eager",
+    "options": {
+      "a": "Bored and sleepy",
+      "b": "Scared and worried",
+      "c": "Angry and upset",
+      "d": "Sad and disappointed",
+      "e": "Excited and eager"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. The text directly states the crowd 'buzzed with excitement'\n2. 'Buzzed' suggests animated talking and movement\n3. This matches anticipation before a circus performance\n4. Answer: Excited and eager",
+      "illustration": {
+        "text": "Picture a large crowd of people chattering happily to each other, children pointing and bouncing in their seats, everyone looking around eagerly waiting for the show to start. The atmosphere is full of energy and anticipation.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The audience buzzed with anticipation before the concert.'\n1. 'Buzzed' describes excited sounds and movement\n2. Anticipation means looking forward to something\n3. This creates an atmosphere of excitement\nAnswer: Buzzed = excited energy"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00046",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The baby bird chirped frantically from its nest, waiting for its mother to return with food.' What does 'frantically' tell us about the baby bird?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It is chirping in an urgent, desperate way",
+    "options": {
+      "a": "It is chirping in an urgent, desperate way",
+      "b": "It is chirping very slowly",
+      "c": "It is chirping in a musical way",
+      "d": "It is chirping very rarely",
+      "e": "It is chirping very quietly"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. 'Frantically' means in a hurried, anxious manner\n2. The bird is waiting for food, showing need\n3. The urgent chirping expresses its desperate hunger\n4. Answer: It is chirping in an urgent, desperate way",
+      "illustration": {
+        "text": "Picture a small, fluffy baby bird opening its beak wide and making loud, rapid 'cheep-cheep-cheep' sounds continuously, bobbing its head urgently. It's very hungry and calling desperately for its mother.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'He searched frantically for his lost keys.'\n1. 'Frantically' shows urgency and anxiety\n2. The search is hurried and desperate\n3. This describes intense, worried activity\nAnswer: Frantically = urgent and desperate"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00047",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The spaceship glided silently through the darkness of space, its lights twinkling like stars. Inside, the astronauts prepared for landing on Mars.' Where are the astronauts going?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Mars",
+    "options": {
+      "a": "The Moon",
+      "b": "Mars",
+      "c": "Jupiter",
+      "d": "Venus",
+      "e": "Earth"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Read the end of the passage carefully\n2. It states they are 'prepared for landing on Mars'\n3. This directly tells us their destination\n4. Answer: Mars",
+      "illustration": {
+        "text": "Imagine a sleek spaceship floating through the black expanse of space, with the reddish planet Mars growing larger in the windows. The astronauts inside are checking their instruments and equipment, getting ready to land on the red planet.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The train departed from London, heading for Edinburgh.'\n1. 'Heading for Edinburgh' tells the destination\n2. Look for phrases like 'going to', 'landing on', 'heading for'\n3. These indicate the destination\nAnswer: Destination is often stated directly"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00048",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The thunder rumbled ominously overhead, and dark clouds gathered on the horizon.' What does 'ominously' suggest about the weather?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The weather seems threatening and dangerous",
+    "options": {
+      "a": "The weather is improving",
+      "b": "The weather is warm and pleasant",
+      "c": "The weather seems threatening and dangerous",
+      "d": "The weather is becoming sunny",
+      "e": "The weather is staying the same"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Ominously' means in a threatening or worrying way\n2. Thunder and dark clouds already suggest bad weather\n3. 'Ominously' adds a sense of danger or warning\n4. Answer: The weather seems threatening and dangerous",
+      "illustration": {
+        "text": "Picture dark, heavy storm clouds rolling in across the sky, with deep rumbling thunder that sounds menacing. The atmosphere feels heavy and threatening, warning that a dangerous storm is approaching.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The wolf growled ominously at the hikers.'\n1. 'Ominously' describes a threatening growl\n2. It suggests danger or warning\n3. The situation feels dangerous\nAnswer: Ominously = threatening or warning"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00049",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The museum was filled with fascinating artifacts: ancient pottery, gleaming jewels, and dusty scrolls covered in strange writing. Alex couldn't decide what to look at first.' How does Alex feel about the museum?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Interested and overwhelmed by all the choices",
+    "options": {
+      "a": "Bored and wanting to leave",
+      "b": "Frightened of the old objects",
+      "c": "Confused about where he is",
+      "d": "Interested and overwhelmed by all the choices",
+      "e": "Tired and ready to sit down"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. The artifacts are described as 'fascinating'\n2. Multiple interesting items are listed\n3. Alex 'couldn't decide what to look at first' shows too many good options\n4. Answer: Interested and overwhelmed by all the choices",
+      "illustration": {
+        "text": "Picture Alex standing in the middle of a large museum hall, slowly turning around with wide eyes, looking from pottery to jewels to scrolls. There's so much to see that he's excited but also uncertain where to start.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'At the buffet, she stared at the food, unable to choose from so many delicious options.'\n1. Many delicious options shows positive interest\n2. Unable to choose shows being overwhelmed\n3. This is a happy problem - too many good things\nAnswer: Interest + difficulty choosing = positive overwhelm"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00050",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The champion athlete crossed the finish line with arms raised in victory, a huge smile spreading across her face.' What can we infer about how the athlete feels?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Proud and delighted with her achievement",
+    "options": {
+      "a": "Disappointed with her performance",
+      "b": "Unsure whether she won",
+      "c": "Exhausted and unhappy",
+      "d": "Worried about the other competitors",
+      "e": "Proud and delighted with her achievement"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Arms raised in victory' is a celebration gesture\n2. 'Huge smile' shows happiness and joy\n3. Being a champion and finishing shows success\n4. Answer: Proud and delighted with her achievement",
+      "illustration": {
+        "text": "Picture an athlete bursting across the finish line, immediately throwing her arms up triumphantly toward the sky, with a beaming smile on her face. Her body language and expression clearly show joy and pride in winning the race.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The graduate threw her cap in the air, laughing with joy.'\n1. Throwing the cap is a celebration tradition\n2. Laughing with joy shows happiness\n3. These actions reveal emotions\nAnswer: Actions and expressions reveal feelings"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00051",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The old lighthouse stood proudly on the clifftop, its beam cutting through the foggy night.' What does the word 'beam' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A ray of light",
+    "options": {
+      "a": "A ray of light",
+      "b": "A wooden plank",
+      "c": "A happy smile",
+      "d": "A metal pole",
+      "e": "A loud sound"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Look at the context: the sentence mentions a lighthouse in foggy conditions\n2. Lighthouses are designed to send out light to guide ships\n3. The phrase 'cutting through the foggy night' suggests something that travels through darkness\n4. Answer: A ray of light",
+      "illustration": {
+        "text": "Picture a lighthouse on a cliff. From the top, a bright beam of light shines out into the dark, foggy night, helping ships find their way safely. The light travels in a straight line, 'cutting through' the fog like a knife through butter.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The torch's beam illuminated the dark cave.'\n1. A torch produces light\n2. The light travels outward from the torch\n3. This light is called a beam\nAnswer: A beam is a ray of light"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00052",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the story, Maya felt 'butterflies in her stomach' before her piano recital. What does this phrase tell us about how Maya is feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is nervous or anxious",
+    "options": {
+      "a": "She is very hungry",
+      "b": "She is nervous or anxious",
+      "c": "She has eaten too much",
+      "d": "She is feeling ill",
+      "e": "She is very excited about butterflies"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Butterflies in her stomach' is a common idiom (phrase with a special meaning)\n2. The context shows Maya is about to perform in front of people\n3. This idiom describes the fluttery, unsettled feeling people get when nervous\n4. Answer: She is nervous or anxious",
+      "illustration": {
+        "text": "Imagine standing on a stage with everyone watching you. Your stomach feels strange and fluttery, as if butterflies are flying around inside. This uncomfortable feeling happens when we're nervous about something important.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom had butterflies in his stomach before the big match.'\n1. Tom is about to play an important game\n2. The phrase describes a nervous feeling\n3. People often feel this way before important events\nAnswer: Tom is feeling nervous"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00053",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The ancient door creaked open slowly. Inside, cobwebs hung from every corner and dust covered the furniture like a thick blanket.' Where is this scene most likely taking place?",
+    "question_type": "multiple_choice",
+    "computed_answer": "An old, abandoned building",
+    "options": {
+      "a": "A busy restaurant",
+      "b": "A modern shopping centre",
+      "c": "An old, abandoned building",
+      "d": "A new school classroom",
+      "e": "A clean hospital"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Look for clues: 'ancient door', 'creaked', 'cobwebs', 'dust'\n2. These words suggest somewhere very old and unused\n3. Modern or regularly used places would not have cobwebs and thick dust\n4. Answer: An old, abandoned building",
+      "illustration": {
+        "text": "Picture a forgotten house or building that no one has visited for years. The door is old and makes a creaking sound. Inside, spiders have built webs everywhere, and dust has settled on all the furniture because no one has cleaned it for a very long time.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The room was spotless, with gleaming floors and fresh flowers on the desk.'\n1. 'Spotless' and 'gleaming' suggest cleanliness\n2. Fresh flowers mean someone cares for the room\n3. This describes a well-maintained place\nAnswer: A clean, regularly used room"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00054",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'James trudged slowly through the rain, his shoulders slumped and his head bowed.' How is James feeling in this sentence?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Sad or dejected",
+    "options": {
+      "a": "Curious and interested",
+      "b": "Excited and energetic",
+      "c": "Angry and furious",
+      "d": "Sad or dejected",
+      "e": "Proud and confident"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Trudged slowly' suggests heavy, tired walking without enthusiasm\n2. 'Shoulders slumped' and 'head bowed' are body language signs of sadness\n3. These physical descriptions paint a picture of someone feeling down\n4. Answer: Sad or dejected",
+      "illustration": {
+        "text": "Imagine someone walking with their head down, shoulders drooping, moving slowly and heavily as if they have no energy or happiness. This body language shows they are feeling sad or disappointed about something.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sarah skipped happily down the street, beaming from ear to ear.'\n1. 'Skipped happily' shows energetic, joyful movement\n2. 'Beaming' means smiling widely\n3. These descriptions show positive emotions\nAnswer: Sarah is feeling happy and joyful"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00055",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the story, the author writes: 'The garden was a riot of colours, with roses, sunflowers, and daisies competing for attention.' What does 'a riot of colours' suggest about the garden?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It has many bright, different colours",
+    "options": {
+      "a": "It only has one type of flower",
+      "b": "It is messy and untidy",
+      "c": "It has been damaged by protesters",
+      "d": "It is grey and dull",
+      "e": "It has many bright, different colours"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Riot' here is used figuratively, not literally meaning a violent protest\n2. The phrase lists different colourful flowers: roses, sunflowers, daisies\n3. 'Competing for attention' suggests lots of bright, eye-catching colours\n4. Answer: It has many bright, different colours",
+      "illustration": {
+        "text": "Imagine a garden bursting with flowers of every colour imaginable - red roses, yellow sunflowers, white daisies, and more. There are so many bright colours that your eyes don't know where to look first. This is what 'a riot of colours' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The market stall was an explosion of colours with fruits from around the world.'\n1. 'Explosion of colours' is similar to 'riot of colours'\n2. Fruits come in many different bright colours\n3. This creates a vivid, colourful scene\nAnswer: The stall has many bright, colourful items"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00056",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The clock tower chimed midnight as Sophie crept down the dark hallway.' What time of day is this scene set?",
+    "question_type": "multiple_choice",
+    "computed_answer": "12:00 at night",
+    "options": {
+      "a": "12:00 at night",
+      "b": "Early morning",
+      "c": "Afternoon",
+      "d": "Evening",
+      "e": "Lunchtime"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. The text explicitly states 'the clock tower chimed midnight'\n2. Midnight means 12:00 at night\n3. The 'dark hallway' confirms it is nighttime\n4. Answer: 12:00 at night",
+      "illustration": {
+        "text": "Midnight is the middle of the night, when one day ends and the next begins. It's 12:00 on the clock at night - the darkest time when most people are asleep. The clock tower chiming twelve times signals this exact moment.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The church bells rang twelve times as the new day began.'\n1. Twelve chimes indicate midnight or midday\n2. 'New day began' tells us it's midnight (start of a new day)\n3. Midnight is 12:00 at night\nAnswer: The scene is set at midnight"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00057",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read: 'Ben's eyes widened as he spotted the enormous castle perched on top of the mountain. He had never seen anything so magnificent.' What does the word 'magnificent' mean here?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Impressive and beautiful",
+    "options": {
+      "a": "Scary and frightening",
+      "b": "Impressive and beautiful",
+      "c": "Small and simple",
+      "d": "Boring and ordinary",
+      "e": "Broken and ruined"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Ben's eyes 'widened' which shows amazement and wonder\n2. The castle is described as 'enormous' suggesting something grand\n3. He 'had never seen anything so magnificent' indicates positive awe\n4. Answer: Impressive and beautiful",
+      "illustration": {
+        "text": "Picture Ben looking up at a huge, beautiful castle with tall towers, grand walls, and impressive architecture. His eyes open wide with wonder because it's the most amazing thing he's ever seen. That's what magnificent means - something so impressive it takes your breath away.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The magnificent waterfall crashed down from the cliff, creating rainbows in the spray.'\n1. Waterfalls that create rainbows are beautiful sights\n2. The description suggests something impressive and awe-inspiring\n3. Magnificent describes something grand and wonderful\nAnswer: The waterfall is impressive and beautiful"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00058",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The mysterious stranger's face was hidden beneath a dark hood, and he spoke in hushed whispers.' What atmosphere does this description create?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Suspenseful and secretive",
+    "options": {
+      "a": "Cheerful and friendly",
+      "b": "Boring and dull",
+      "c": "Suspenseful and secretive",
+      "d": "Funny and amusing",
+      "e": "Peaceful and calm"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Mysterious stranger' and 'hidden beneath a dark hood' suggest secrets\n2. 'Hushed whispers' means speaking very quietly, as if hiding something\n3. These details create tension and intrigue\n4. Answer: Suspenseful and secretive",
+      "illustration": {
+        "text": "Imagine a figure in the shadows, their face completely hidden by a dark hood. They speak so quietly that you have to strain to hear. You don't know who they are or what they want. This creates a feeling of mystery and suspense - you want to know more but feel slightly nervous.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Children laughed and played in the sunny meadow, picking flowers and chasing butterflies.'\n1. 'Laughed and played' suggests happiness\n2. 'Sunny meadow' and 'flowers' create pleasant imagery\n3. This atmosphere is positive and joyful\nAnswer: The atmosphere is cheerful and happy"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00059",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the passage, Emma 'raced like the wind' to catch the bus. What does this simile tell us about how Emma moved?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Very quickly",
+    "options": {
+      "a": "Carefully and slowly",
+      "b": "Backwards",
+      "c": "In circles",
+      "d": "Very quickly",
+      "e": "Up and down"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Raced like the wind' is a simile comparing Emma's movement to wind\n2. Wind moves very fast\n3. The simile emphasizes Emma's speed as she tried to catch the bus\n4. Answer: Very quickly",
+      "illustration": {
+        "text": "Picture Emma running as fast as she possibly can, her legs pumping and her hair streaming behind her. She's moving so quickly that she seems almost as fast as the wind itself, rushing to catch the bus before it leaves.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The cheetah moved like lightning across the savanna.'\n1. This is a simile comparing the cheetah to lightning\n2. Lightning is extremely fast\n3. The comparison emphasizes speed\nAnswer: The cheetah moved very quickly"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00060",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The witch's cottage was nestled deep in the forest, surrounded by gnarled trees and strange mushrooms.' What does 'nestled' suggest about the cottage's position?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Tucked away comfortably",
+    "options": {
+      "a": "Floating in the air",
+      "b": "Built on top of the trees",
+      "c": "Falling down",
+      "d": "Moving around",
+      "e": "Tucked away comfortably"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Nestled' means settled snugly or comfortably in a place\n2. 'Deep in the forest' tells us it's hidden away from view\n3. The word suggests the cottage fits naturally into its surroundings\n4. Answer: Tucked away comfortably",
+      "illustration": {
+        "text": "Think of how a bird's nest is tucked safely in the branches of a tree, fitting snugly in place. The cottage is 'nestled' in the same way - sitting comfortably in a hidden spot deep in the forest, surrounded by trees as if it belongs there.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The village was nestled in the valley between two mountains.'\n1. 'Nestled' describes how the village sits in the valley\n2. It suggests the village fits comfortably in that protected spot\n3. The word creates an image of safety and shelter\nAnswer: The village is tucked comfortably in the valley"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00061",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read: 'Lily's heart sank when she saw the cancelled sign on the cinema door. She had been looking forward to this all week.' Why did Lily's heart sink?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She felt disappointed",
+    "options": {
+      "a": "She felt disappointed",
+      "b": "She was hungry",
+      "c": "She was tired",
+      "d": "She was excited",
+      "e": "She was confused"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. 'Heart sank' is an idiom meaning to feel suddenly disappointed or sad\n2. She saw a 'cancelled' sign - the cinema event wasn't happening\n3. She had 'been looking forward to this all week' - it was important to her\n4. Answer: She felt disappointed",
+      "illustration": {
+        "text": "Imagine looking forward to something special all week, then arriving to find it's been cancelled. That sinking feeling in your chest, like your heart is dropping, represents the disappointment and sadness you feel when something you wanted doesn't happen.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom's heart leaped when he saw his name on the team list.'\n1. 'Heart leaped' is the opposite of 'heart sank'\n2. Seeing his name meant good news\n3. This idiom shows excitement and happiness\nAnswer: Tom felt excited and happy"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00062",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The dragon's scales shimmered like precious jewels in the sunlight, each one reflecting a different colour of the rainbow.' What technique is the author using to describe the dragon?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Simile",
+    "options": {
+      "a": "Alliteration",
+      "b": "Simile",
+      "c": "Metaphor",
+      "d": "Onomatopoeia",
+      "e": "Personification"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look for comparison words: the text uses 'like' to compare scales to jewels\n2. A simile uses 'like' or 'as' to compare two things\n3. The dragon's scales are being compared to precious jewels\n4. Answer: Simile",
+      "illustration": {
+        "text": "A simile is when we compare two different things using the words 'like' or 'as'. Here, the author compares the dragon's scales to precious jewels, helping us imagine how beautiful and colourful they are. This makes the description more vivid and interesting.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Her voice was as sweet as honey.'\n1. This compares a voice to honey using 'as'\n2. This is a simile because it uses 'as' for comparison\n3. It helps us understand the voice sounds pleasant\nAnswer: This is a simile"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00063",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the story: 'Oliver hesitated at the doorway, his hand trembling as he reached for the handle.' What does the word 'hesitated' tell us about Oliver's actions?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He paused uncertainly",
+    "options": {
+      "a": "He moved very quickly",
+      "b": "He fell over",
+      "c": "He paused uncertainly",
+      "d": "He shouted loudly",
+      "e": "He ran away"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. 'Hesitated' means to pause before doing something, usually due to uncertainty or fear\n2. His 'trembling' hand shows he's nervous or afraid\n3. These clues tell us Oliver is unsure about going through the door\n4. Answer: He paused uncertainly",
+      "illustration": {
+        "text": "Imagine standing in front of a door, wanting to go in but feeling nervous. You stop, your hand shaking slightly as you reach for the handle, not quite sure if you should open it. This pause, this moment of uncertainty, is what 'hesitated' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sarah hesitated before jumping into the cold pool.'\n1. She stopped before jumping\n2. The cold water made her uncertain\n3. She paused to gather courage\nAnswer: Sarah paused uncertainly before jumping"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00064",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The old tree groaned and creaked in the fierce wind, its branches reaching out like arms trying to grab passing children.' What is being personified in this sentence?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The tree",
+    "options": {
+      "a": "The wind",
+      "b": "The children",
+      "c": "The branches",
+      "d": "The tree",
+      "e": "The ground"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Personification gives human qualities to non-human things\n2. The tree 'groaned' (human sound) and its branches are like 'arms trying to grab' (human actions)\n3. These human characteristics are given to the tree\n4. Answer: The tree",
+      "illustration": {
+        "text": "The author makes the tree seem almost human by saying it 'groaned' like a person in pain and describing its branches as arms trying to grab children. This is personification - giving human qualities to something that isn't human to make the description more vivid and sometimes scary.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The sun smiled down on the happy picnickers.'\n1. The sun is described as 'smiling'\n2. Smiling is a human action\n3. The sun is being given human qualities\nAnswer: The sun is being personified"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00065",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read: 'The spaceship's control panel blinked with red warning lights. Captain Zhang frowned as she studied the readings.' When is this story most likely set?",
+    "question_type": "multiple_choice",
+    "computed_answer": "In the future",
+    "options": {
+      "a": "In medieval times",
+      "b": "In Victorian times",
+      "c": "In the Stone Age",
+      "d": "In ancient Rome",
+      "e": "In the future"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. The story mentions a 'spaceship' and 'control panel'\n2. Spaceships with captains suggest futuristic or science fiction settings\n3. This technology doesn't exist in the past time periods mentioned\n4. Answer: In the future",
+      "illustration": {
+        "text": "The clues 'spaceship', 'control panel', and 'Captain Zhang' tell us this is a science fiction story set in the future or in space. Spaceships with advanced technology and space captains are associated with future settings, not historical ones.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The knight mounted his horse and rode towards the castle, his armour gleaming.'\n1. Knights, horses, and castles are clues\n2. These things existed in medieval times\n3. This suggests a historical setting\nAnswer: The story is set in medieval times"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00066",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'Marcus stomped up the stairs, slammed his bedroom door, and threw himself onto his bed.' What can we infer about Marcus's mood?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He is angry or frustrated",
+    "options": {
+      "a": "He is angry or frustrated",
+      "b": "He is excited and happy",
+      "c": "He is calm and peaceful",
+      "d": "He is sleepy and tired",
+      "e": "He is scared and worried"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. 'Stomped' suggests heavy, angry footsteps\n2. 'Slammed' his door shows forceful, aggressive action\n3. 'Threw himself' indicates frustration or anger\n4. Answer: He is angry or frustrated",
+      "illustration": {
+        "text": "Picture someone walking heavily up the stairs with loud, angry footsteps, then forcefully shutting their door with a loud SLAM! They collapse onto their bed in frustration. All these actions - stomping, slamming, throwing - show someone who is angry or upset about something.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Jenny skipped into the room, giggling with her friends.'\n1. 'Skipped' shows light, bouncy movement\n2. 'Giggling' indicates laughter and joy\n3. These actions suggest happiness\nAnswer: Jenny is happy and cheerful"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00067",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the passage: 'The market was a hive of activity, with vendors calling out their wares and customers bustling between the stalls.' What does 'hive of activity' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A very busy place",
+    "options": {
+      "a": "A place with bees",
+      "b": "A very busy place",
+      "c": "An empty place",
+      "d": "A quiet place",
+      "e": "A dangerous place"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Hive' refers to a beehive, where bees are constantly busy and active\n2. This is a metaphor comparing the market to a beehive\n3. The context shows vendors calling and customers bustling - lots of movement\n4. Answer: A very busy place",
+      "illustration": {
+        "text": "Think of a beehive with hundreds of bees flying in and out, constantly working and moving. A 'hive of activity' compares a busy place to this beehive. The market is full of people moving around, talking, buying, and selling - just like bees buzzing around their hive.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The classroom was a hive of activity as students prepared for the science fair.'\n1. Students are working busily on their projects\n2. Lots of movement and activity happening\n3. Like bees in a hive, everyone is busy\nAnswer: The classroom is very busy with activity"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00068",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The detective examined the scene meticulously, noting every tiny detail.' What does 'meticulously' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Very carefully and thoroughly",
+    "options": {
+      "a": "Quickly and carelessly",
+      "b": "Lazily and slowly",
+      "c": "Very carefully and thoroughly",
+      "d": "Angrily and roughly",
+      "e": "Nervously and fearfully"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The detective is 'noting every tiny detail' - this suggests great attention\n2. 'Meticulously' describes doing something with great care and precision\n3. Detectives need to be thorough to solve crimes\n4. Answer: Very carefully and thoroughly",
+      "illustration": {
+        "text": "Imagine a detective with a magnifying glass, examining every small clue at a crime scene - a footprint, a thread of fabric, a fingerprint. They look at everything with extreme care, making sure nothing is missed. This careful, detailed approach is what 'meticulously' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The artist meticulously painted each tiny flower petal.'\n1. Painting each petal individually shows great care\n2. The word suggests attention to small details\n3. This requires patience and precision\nAnswer: The artist worked very carefully and precisely"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00069",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read: 'As the final whistle blew, the team erupted in celebration, jumping and hugging each other.' What can we infer happened just before this moment?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The team won their match",
+    "options": {
+      "a": "The team lost their match",
+      "b": "The match was cancelled",
+      "c": "Practice started",
+      "d": "The team won their match",
+      "e": "A player got injured"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Final whistle' indicates the end of a match\n2. 'Erupted in celebration' shows extreme happiness\n3. 'Jumping and hugging' are signs of victory and joy\n4. Answer: The team won their match",
+      "illustration": {
+        "text": "Picture the end of a football or sports match. When the whistle blows and the team starts celebrating wildly - jumping up and down, hugging each other with big smiles - it means they've won. People don't celebrate like this if they've lost.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'When the results were announced, the crowd fell silent and heads dropped.'\n1. Silence and dropped heads suggest disappointment\n2. This body language shows sadness\n3. The outcome was not what they hoped for\nAnswer: They received disappointing news"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00070",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The tiny kitten mewed pitifully from the tree branch, too frightened to climb down.' What does 'pitifully' suggest about how the kitten is feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Sad and helpless",
+    "options": {
+      "a": "Angry and fierce",
+      "b": "Happy and playful",
+      "c": "Excited and energetic",
+      "d": "Proud and confident",
+      "e": "Sad and helpless"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. 'Pitifully' means in a way that causes pity or sympathy\n2. The kitten is stuck and 'too frightened to climb down'\n3. This shows the kitten is distressed and needs help\n4. Answer: Sad and helpless",
+      "illustration": {
+        "text": "Imagine a tiny kitten stuck high in a tree, making sad little crying sounds because it's scared and doesn't know how to get down. The word 'pitifully' describes these sad cries that make you feel sorry for the kitten and want to help it.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The injured bird chirped pitifully in the grass.'\n1. The bird is injured and unable to fly\n2. Its chirps are sad and cause concern\n3. This makes us feel sympathy for the bird\nAnswer: The bird is in distress and needs help"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00071",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the story: 'The abandoned fairground was eerie, with rusted rides creaking in the breeze and faded posters flapping against broken walls.' What does 'eerie' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Strange and frightening",
+    "options": {
+      "a": "Strange and frightening",
+      "b": "Busy and crowded",
+      "c": "Clean and modern",
+      "d": "Warm and cosy",
+      "e": "Bright and cheerful"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. The fairground is 'abandoned' meaning empty and unused\n2. Rusted rides, creaking sounds, and broken walls create an unsettling atmosphere\n3. 'Eerie' describes something that feels strange or spooky\n4. Answer: Strange and frightening",
+      "illustration": {
+        "text": "Picture an old, empty fairground where happy rides once entertained children, but now everything is rusty and broken. The wind makes the old rides creak eerily, and torn posters flap against crumbling walls. This strange, slightly scary feeling is what 'eerie' means.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The eerie silence in the empty house made Sarah nervous.'\n1. Empty house with complete silence is unusual\n2. This strange atmosphere makes Sarah uncomfortable\n3. Eerie describes something unsettling or spooky\nAnswer: The silence felt strange and frightening"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00072",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'Amelia gazed longingly at the birthday cake, her stomach rumbling loudly.' Why is Amelia gazing at the cake?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is hungry and wants some cake",
+    "options": {
+      "a": "She is angry at the cake",
+      "b": "She is hungry and wants some cake",
+      "c": "She dislikes birthday cakes",
+      "d": "She is too full to eat",
+      "e": "She is scared of the cake"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. 'Gazed longingly' means looking at something with desire or wanting\n2. Her 'stomach rumbling' indicates she is hungry\n3. Together, these clues show she wants to eat the cake\n4. Answer: She is hungry and wants some cake",
+      "illustration": {
+        "text": "Imagine staring at a delicious birthday cake with layers of frosting and decorations. Your stomach makes a rumbling sound because you're hungry. You look at the cake 'longingly' - wishing you could have a slice. Your body language and hungry stomach show you really want some cake.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom gazed longingly at the bicycle in the shop window, counting his pocket money.'\n1. Gazing longingly shows he wants the bicycle\n2. Counting money suggests he wants to buy it\n3. He desires something he doesn't yet have\nAnswer: Tom wants the bicycle"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00073",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read: 'The treasure map was ancient and fragile, its edges torn and its ink faded with age.' What does 'fragile' mean in this sentence?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Easily broken or damaged",
+    "options": {
+      "a": "Very strong",
+      "b": "Brightly coloured",
+      "c": "Easily broken or damaged",
+      "d": "Very expensive",
+      "e": "Very large"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. The map is 'ancient' meaning very old\n2. It has 'torn edges' and 'faded ink' showing it's deteriorating\n3. 'Fragile' describes something delicate that breaks or tears easily\n4. Answer: Easily broken or damaged",
+      "illustration": {
+        "text": "Think of a very old piece of paper that crumbles if you handle it too roughly. The treasure map is so old and worn that it could tear or fall apart very easily if not handled carefully. This is what fragile means - delicate and easily damaged.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The fragile glass ornament must be handled with care.'\n1. Glass breaks easily if dropped\n2. The ornament needs careful handling\n3. Fragile means easily damaged\nAnswer: The ornament is delicate and easily broken"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00074",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "'The village was preparing for the harvest festival. Farmers brought their finest produce and children decorated the hall with autumn leaves.' What season is this story set in?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Autumn",
+    "options": {
+      "a": "Spring",
+      "b": "Summer",
+      "c": "Winter",
+      "d": "Autumn",
+      "e": "It could be any season"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. 'Harvest festival' refers to celebrating the gathering of crops, which happens in autumn\n2. 'Autumn leaves' are explicitly mentioned as decorations\n3. Farmers bringing produce also indicates harvest time\n4. Answer: Autumn",
+      "illustration": {
+        "text": "The clues 'harvest festival' and 'autumn leaves' tell us clearly this is autumn (also called fall). This is the season when farmers collect their crops and the leaves on trees turn golden, orange, and red before falling. Harvest festivals celebrate this time of gathering food.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Children built a snowman and drank hot chocolate by the fire.'\n1. Snow indicates cold weather\n2. Snowmen are built in winter\n3. Hot chocolate by the fire suggests staying warm\nAnswer: The story is set in winter"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00075",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "In the passage: 'Daniel's conscience nagged at him all day. He knew he should tell the truth about the broken window.' What is Daniel's problem?",
+    "question_type": "multiple_choice",
+    "computed_answer": "He feels guilty about not being honest",
+    "options": {
+      "a": "He is worried about homework",
+      "b": "He doesn't like windows",
+      "c": "He is hungry",
+      "d": "He is tired",
+      "e": "He feels guilty about not being honest"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. His 'conscience nagged' means his inner sense of right and wrong is bothering him\n2. He 'knew he should tell the truth' suggests he hasn't been honest\n3. The broken window is something he hasn't been truthful about\n4. Answer: He feels guilty about not being honest",
+      "illustration": {
+        "text": "Your conscience is like a little voice inside that tells you when you've done something wrong. Daniel's conscience is 'nagging' - bothering him constantly - because he hasn't told the truth about breaking the window. This guilty feeling won't go away until he admits what really happened.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Lucy's conscience told her to return the money she found.'\n1. Lucy found money that belongs to someone else\n2. Her conscience guides her to do the right thing\n3. The right thing is to return it\nAnswer: Lucy knows she should return the money"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00076",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The old lighthouse stood proudly on the cliff, its beam cutting through the misty night.' What does the word 'beam' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A ray of light",
+    "options": {
+      "a": "A ray of light",
+      "b": "A wooden support structure",
+      "c": "A happy smile",
+      "d": "A metal pole",
+      "e": "A type of boat"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Read the sentence and identify the context\n2. The lighthouse has a beam that 'cuts through' the misty night\n3. Lighthouses are designed to guide ships with light\n4. In this context, 'beam' refers to the ray of light from the lighthouse\n5. Answer: A ray of light",
+      "illustration": {
+        "text": "Picture a tall lighthouse on a dark, foggy night. From the top, a powerful beam of light shines outward, penetrating the mist like a glowing path across the darkness. This is the 'beam' described in the sentence.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: In the sentence 'The torch's beam illuminated the cave,' the word 'beam' also means light.\n1. Identify what is producing the beam (a torch)\n2. Notice what the beam does (illuminates)\n3. Conclude that beam means a ray of light\nAnswer: A ray of light"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00077",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Maya tiptoed down the creaky stairs, her heart pounding. She knew she wasn't supposed to be awake, but the strange noise had been too curious to ignore.' How is Maya feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Nervous and curious",
+    "options": {
+      "a": "Happy and excited",
+      "b": "Nervous and curious",
+      "c": "Angry and frustrated",
+      "d": "Bored and tired",
+      "e": "Sad and lonely"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look for clues about Maya's emotions in the text\n2. 'Heart pounding' suggests she's nervous or anxious\n3. She's investigating a 'strange noise' which she found 'too curious to ignore'\n4. These clues show she's both nervous and curious\n5. Answer: Nervous and curious",
+      "illustration": {
+        "text": "Imagine Maya creeping slowly down dark stairs, her chest tight with worry but her eyes wide with interest. She's scared of getting caught but can't resist finding out what made that mysterious sound.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom's hands trembled as he reached for the mysterious box, unable to resist opening it.'\n1. 'Hands trembled' shows nervousness\n2. 'Unable to resist' shows curiosity\n3. Combine these emotions\nAnswer: Nervous and curious"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00078",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The dragon's scales shimmered like emeralds in the sunlight as it stretched its magnificent wings.' What type of figurative language is used in this description?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A simile",
+    "options": {
+      "a": "Personification",
+      "b": "A metaphor",
+      "c": "A simile",
+      "d": "Alliteration",
+      "e": "Onomatopoeia"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Identify the comparison being made in the sentence\n2. The dragon's scales are compared to emeralds\n3. The word 'like' is used to make the comparison\n4. A comparison using 'like' or 'as' is called a simile\n5. Answer: A simile",
+      "illustration": {
+        "text": "A simile is like building a bridge between two things using the words 'like' or 'as'. Here, the author builds a bridge between the dragon's scales and emeralds, helping us visualize the green, shimmering appearance.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Her eyes sparkled like diamonds.'\n1. This compares eyes to diamonds\n2. It uses the word 'like'\n3. This is the structure of a simile\nAnswer: A simile"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00079",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The garden was abandoned years ago. Weeds covered the pathways, the fountain had stopped flowing, and ivy crept up the broken walls.' What is the mood of this description?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Neglected and sad",
+    "options": {
+      "a": "Peaceful and calm",
+      "b": "Cheerful and bright",
+      "c": "Exciting and mysterious",
+      "d": "Neglected and sad",
+      "e": "Frightening and dangerous"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Examine the descriptive words used: 'abandoned', 'weeds', 'stopped flowing', 'broken'\n2. These words suggest lack of care and deterioration\n3. The garden was once maintained but is now forgotten\n4. This creates a mood of neglect and sadness\n5. Answer: Neglected and sad",
+      "illustration": {
+        "text": "Picture a once-beautiful garden now overgrown and forgotten. The fountain that once sparkled with water is dry and silent. Plants grow wild where neat flowers once bloomed. This creates a feeling of sadness for what has been lost.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The old playground stood empty, its swings rusting and its slide covered in leaves.'\n1. Words like 'old', 'empty', 'rusting' suggest abandonment\n2. This creates a feeling of neglect\n3. The mood is sad and neglected\nAnswer: Neglected and sad"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00080",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Before James could explain, his sister had already stormed out of the room, slamming the door behind her.' When did his sister leave the room?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Before James could explain",
+    "options": {
+      "a": "After James apologized",
+      "b": "After James explained everything",
+      "c": "While James was explaining",
+      "d": "Long before James arrived",
+      "e": "Before James could explain"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Look at the beginning of the sentence: 'Before James could explain'\n2. This tells us the timing of when his sister left\n3. The word 'before' indicates she left prior to his explanation\n4. She didn't wait for him to say anything\n5. Answer: Before James could explain",
+      "illustration": {
+        "text": "Imagine a timeline: James is about to speak, but before the words leave his mouth, his sister is already leaving and slamming the door. The action happens 'before' he gets the chance to explain.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Before the rain started, we had already reached home.'\n1. Identify the time marker ('before')\n2. What happened before? (We reached home)\n3. When did it happen? (Before the rain started)\nAnswer: Before the rain started"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00081",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The detective examined the muddy footprints carefully. They led from the broken window to the safe, then disappeared at the doorway. Someone had definitely been here.' What can we infer happened?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Someone broke in through the window",
+    "options": {
+      "a": "Someone broke in through the window",
+      "b": "The detective left the footprints",
+      "c": "The safe was never opened",
+      "d": "It rained inside the building",
+      "e": "The window broke by accident"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Note the clues: muddy footprints, broken window, path to the safe\n2. The footprints start at the broken window (point of entry)\n3. They lead to the safe (the target)\n4. This evidence suggests someone entered illegally\n5. Answer: Someone broke in through the window",
+      "illustration": {
+        "text": "Picture a crime scene: a broken window with muddy footprints starting there, tracking across the floor to where the safe stands, then leading to the exit. This trail tells the story of an intruder's path through the building.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The cookie jar was empty, and crumbs led from the jar to Sam's bedroom.'\n1. Identify the clues (empty jar, trail of crumbs)\n2. Follow the evidence (leads to Sam's bedroom)\n3. Make an inference (Sam took the cookies)\nAnswer: Sam took the cookies"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00082",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Although it was raining heavily, the children played outside with their umbrellas and wellington boots.' What does the word 'although' tell us?",
+    "question_type": "multiple_choice",
+    "computed_answer": "There is a contrast between two ideas",
+    "options": {
+      "a": "The rain made them play",
+      "b": "There is a contrast between two ideas",
+      "c": "The children stayed indoors",
+      "d": "It stopped raining later",
+      "e": "The rain was very light"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Identify what 'although' means as a conjunction\n2. 'Although' introduces something that contrasts with what follows\n3. The contrast here: heavy rain (normally keeps people inside) BUT children still played outside\n4. This shows two opposing ideas in the sentence\n5. Answer: There is a contrast between two ideas",
+      "illustration": {
+        "text": "Think of 'although' as a word that says 'despite this'. Despite the heavy rain (which normally stops outdoor play), the children played outside anyway (unexpected action). It shows the surprise or contrast between what we'd expect and what actually happened.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Although she was tired, Emma finished her homework.'\n1. First idea: she was tired (suggests she might not work)\n2. 'Although' signals a contrast\n3. Second idea: she finished anyway (opposite of what tiredness suggests)\nAnswer: There is a contrast between two ideas"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00083",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Ben packed his rucksack with a torch, rope, water bottle, and a map. He double-checked his climbing boots were tied securely. Today was the day he'd been training for.' What is Ben about to do?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Go on a climbing or hiking adventure",
+    "options": {
+      "a": "Go swimming at the beach",
+      "b": "Attend a birthday party",
+      "c": "Go on a climbing or hiking adventure",
+      "d": "Play football with friends",
+      "e": "Go to school"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. List the equipment Ben is taking: torch, rope, water, map, climbing boots\n2. Note the phrase 'he'd been training for'\n3. This equipment is used for outdoor adventures\n4. Climbing boots specifically suggest mountain or rock climbing\n5. Answer: Go on a climbing or hiking adventure",
+      "illustration": {
+        "text": "Picture Ben preparing for an outdoor challenge. His rucksack contains survival and navigation tools. His climbing boots are specially designed for rough terrain. All these preparations point to a serious outdoor adventure like mountain climbing or a challenging hike.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sarah put on her goggles, tucked her hair into a swimming cap, and stretched her arms. She'd been practicing her butterfly stroke for weeks.'\n1. Identify the equipment (goggles, swimming cap)\n2. Note the preparation (practicing butterfly stroke)\n3. Conclude the activity\nAnswer: Sarah is going swimming in a competition"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00084",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The enormous elephant trumpeted loudly, making everyone at the waterhole turn to look.' What effect does the word 'trumpeted' have?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It creates a specific sound image of how elephants call",
+    "options": {
+      "a": "It describes the elephant's size",
+      "b": "It tells us the elephant was eating",
+      "c": "It shows the elephant was angry",
+      "d": "It creates a specific sound image of how elephants call",
+      "e": "It means the elephant was silent"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Understand that 'trumpeted' is a specific verb for the sound elephants make\n2. It's more precise than simply saying 'made a noise'\n3. The word helps readers 'hear' the distinctive elephant call\n4. It creates a vivid sound image in the reader's mind\n5. Answer: It creates a specific sound image of how elephants call",
+      "illustration": {
+        "text": "When you read 'trumpeted', you can almost hear the loud, brassy call of an elephant - that distinctive sound made through its trunk. The author chose this precise word instead of 'shouted' or 'called' to help you hear exactly what the elephant sounded like.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The snake hissed' versus 'The snake made a noise'.\n1. 'Hissed' is specific to snakes\n2. It creates a clear sound image (sss sound)\n3. It's more effective than a general word\nAnswer: Specific verbs create vivid sound images"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00085",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Lucy had saved every penny of her pocket money for three months. Finally, she had enough to buy the book she'd been longing for. She clutched the coins tightly as she walked to the bookshop.' What does this tell us about Lucy's character?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is determined and patient",
+    "options": {
+      "a": "She is lazy and careless",
+      "b": "She is afraid and nervous",
+      "c": "She is mean and selfish",
+      "d": "She is forgetful and messy",
+      "e": "She is determined and patient"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Lucy saved money for three months - this shows patience\n2. She saved 'every penny' - this shows dedication and determination\n3. She had a goal (buying the book) and worked towards it\n4. These actions reveal positive character traits\n5. Answer: She is determined and patient",
+      "illustration": {
+        "text": "Imagine someone who wants something so much they resist spending any money for three whole months. That takes real determination! Lucy didn't give up when she couldn't afford the book immediately; she patiently saved until she reached her goal.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Tom practiced piano every single day for a year before his concert.'\n1. Daily practice shows dedication\n2. Continuing for a year shows patience\n3. Working towards a goal shows determination\nAnswer: Tom is determined and patient"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00086",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The wise old owl perched silently on the branch, watching the forest below with unblinking eyes.' Which word best describes the owl's behavior?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Observant",
+    "options": {
+      "a": "Observant",
+      "b": "Aggressive",
+      "c": "Playful",
+      "d": "Sleepy",
+      "e": "Noisy"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Identify what the owl is doing: perched silently, watching\n2. Note the phrase 'unblinking eyes' suggests careful attention\n3. The owl is actively observing its surroundings\n4. This behavior is best described as observant\n5. Answer: Observant",
+      "illustration": {
+        "text": "Picture the owl sitting completely still on its branch, eyes wide open and focused. It's not sleeping, playing, or making noise - it's carefully watching everything happening in the forest below, alert and attentive to every movement.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The guard stood motionless, his eyes scanning the crowd for any suspicious activity.'\n1. The guard is watching carefully\n2. He's paying close attention\n3. This is observant behavior\nAnswer: Observant"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00087",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The spaceship's engines hummed as it prepared for takeoff. Captain Rodriguez checked all the systems one final time. Everything was ready. In five minutes, they would leave Earth behind.' What genre is this text?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Science fiction",
+    "options": {
+      "a": "Historical fiction",
+      "b": "Science fiction",
+      "c": "Mystery",
+      "d": "Fairy tale",
+      "e": "Biography"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Identify key elements: spaceship, engines, leaving Earth\n2. These are features of futuristic or space-based stories\n3. The setting involves advanced technology and space travel\n4. This combination is characteristic of science fiction\n5. Answer: Science fiction",
+      "illustration": {
+        "text": "Science fiction stories involve scientific concepts, future technology, or space exploration. This passage has all these elements: a spaceship with engines, a captain checking systems, and space travel. These are classic science fiction features.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: A story about robots taking over a city in the year 2150.\n1. Contains futuristic technology (robots)\n2. Set in the future (2150)\n3. Involves scientific concepts (artificial intelligence)\nAnswer: Science fiction"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00088",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The thunder rumbled and roared across the sky, shaking the windows of every house in the village.' What technique has the author used to describe the thunder?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Personification",
+    "options": {
+      "a": "Simile",
+      "b": "Metaphor",
+      "c": "Personification",
+      "d": "Alliteration",
+      "e": "Rhyme"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Identify what the thunder is doing: 'rumbled and roared'\n2. 'Roared' is typically used to describe animal or human sounds\n3. The author gives the thunder a human or animal quality\n4. This technique is called personification\n5. Answer: Personification",
+      "illustration": {
+        "text": "Personification means giving human or animal characteristics to non-living things. Thunder can't really 'roar' like a lion or person, but describing it this way makes it seem alive and powerful, helping readers imagine its intensity.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The wind whispered secrets through the trees.'\n1. Wind cannot literally whisper\n2. Whispering is a human action\n3. The author gives the wind human qualities\nAnswer: Personification"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00089",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Amira opened the dusty chest in the attic. Inside, she found old photographs, letters tied with ribbon, and her grandmother's jewelry. Each item told a story from long ago.' What is the main purpose of this paragraph?",
+    "question_type": "multiple_choice",
+    "computed_answer": "To describe a discovery",
+    "options": {
+      "a": "To give instructions",
+      "b": "To persuade someone",
+      "c": "To explain how to do something",
+      "d": "To describe a discovery",
+      "e": "To compare two things"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Identify what happens in the paragraph: Amira finds items in a chest\n2. The text lists what she discovered: photographs, letters, jewelry\n3. It describes the contents and their significance\n4. The main purpose is to describe what was found\n5. Answer: To describe a discovery",
+      "illustration": {
+        "text": "This paragraph takes us on a journey of discovery with Amira. We learn what she finds as she opens the chest, and each sentence reveals more treasures. The author's purpose is to help us visualize this exciting moment of discovery.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'When Jake lifted the rock, he saw beetles, worms, and a tiny snail underneath.'\n1. The text describes what Jake found\n2. It lists the discoveries\n3. The purpose is describing a discovery\nAnswer: To describe a discovery"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00090",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The tiny mouse scurried across the enormous kitchen floor, desperately searching for crumbs.' What does the word 'desperately' suggest about the mouse?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It urgently needs food",
+    "options": {
+      "a": "It is playing a game",
+      "b": "It is very sleepy",
+      "c": "It is exploring for fun",
+      "d": "It is hiding from a cat",
+      "e": "It urgently needs food"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Identify what 'desperately' means: with urgent need or extreme desire\n2. The mouse is searching for crumbs (food)\n3. Doing this 'desperately' means it really needs food\n4. The word emphasizes urgency and importance\n5. Answer: It urgently needs food",
+      "illustration": {
+        "text": "When someone does something 'desperately', they have an urgent, pressing need. The mouse isn't casually looking around; it's frantically searching because finding food is critically important to its survival at that moment.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The lost hiker desperately called for help.'\n1. 'Desperately' shows urgent need\n2. The hiker really needs help\n3. The word emphasizes the seriousness of the situation\nAnswer: It shows urgent need"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00091",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The ancient tree had stood in the village square for over 500 years. Children played beneath its branches in summer. In autumn, its golden leaves carpeted the ground. Everyone loved the old oak.' What is the setting of this passage?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A village square",
+    "options": {
+      "a": "A village square",
+      "b": "A school playground",
+      "c": "A dense forest",
+      "d": "A private garden",
+      "e": "A city park"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Look for location clues in the text\n2. The passage states 'in the village square'\n3. This is explicitly mentioned as the tree's location\n4. Other details support this: it's a communal space where everyone gathers\n5. Answer: A village square",
+      "illustration": {
+        "text": "Picture a central open area in a village where an enormous old oak tree stands. This public space is where the whole community comes together - children play, people gather, and seasons change around this beloved landmark.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The fountain splashed in the town square where market stalls were set up each Saturday.'\n1. Look for the location mentioned (town square)\n2. Identify it as the setting\n3. Note supporting details (public space, market)\nAnswer: A town square"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00092",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Raj's stomach churned with worry as he waited outside the headteacher's office.' What does 'stomach churned' suggest about how Raj feels?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Anxious and worried",
+    "options": {
+      "a": "Hungry and tired",
+      "b": "Anxious and worried",
+      "c": "Excited and happy",
+      "d": "Angry and frustrated",
+      "e": "Relaxed and calm"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Understand that 'stomach churned' is a physical sensation\n2. This feeling often accompanies anxiety or nervousness\n3. The context mentions 'worry' and waiting outside the headteacher's office\n4. These clues all point to anxious feelings\n5. Answer: Anxious and worried",
+      "illustration": {
+        "text": "When we're very nervous or worried, we often feel uncomfortable sensations in our stomach - like it's turning over or 'churning'. The author uses this physical description to show Raj's emotional state of anxiety about meeting the headteacher.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Before the exam, Sarah's hands trembled and her heart raced.'\n1. Identify physical symptoms (trembling, racing heart)\n2. Connect to emotions (these happen when nervous)\n3. Conclude the feeling\nAnswer: Nervous and anxious"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00093",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The prince lived in a magnificent castle with towers reaching toward the clouds. However, despite all his wealth, he felt lonely. The marble halls echoed with emptiness.' What is the main theme of this passage?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Wealth doesn't guarantee happiness",
+    "options": {
+      "a": "Castles are beautiful buildings",
+      "b": "Princes have difficult lives",
+      "c": "Wealth doesn't guarantee happiness",
+      "d": "Living alone is always better",
+      "e": "Towers are very tall"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Identify the contrast: magnificent castle BUT feeling lonely\n2. Note the word 'despite all his wealth'\n3. The prince has material possessions but lacks happiness\n4. This shows that money and luxury don't ensure contentment\n5. Answer: Wealth doesn't guarantee happiness",
+      "illustration": {
+        "text": "The passage creates a contrast between the prince's impressive, wealthy surroundings (magnificent castle, marble halls) and his inner emotional state (lonely, empty). This shows that having lots of possessions or living in luxury doesn't automatically make someone happy.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The celebrity had everything - fame, money, cars - but she missed her simple childhood with friends.'\n1. Identify what the person has (wealth, fame)\n2. Identify what they lack (happiness, friendship)\n3. Recognize the theme\nAnswer: Wealth doesn't guarantee happiness"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00094",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The brave firefighter rushed into the burning building without hesitation.' What does 'without hesitation' tell us about the firefighter?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She acted immediately and confidently",
+    "options": {
+      "a": "She was scared and uncertain",
+      "b": "She waited for instructions",
+      "c": "She thought carefully first",
+      "d": "She acted immediately and confidently",
+      "e": "She asked for help first"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Understand that 'without hesitation' means without pausing or doubting\n2. The firefighter didn't stop to think or delay\n3. She rushed in immediately when needed\n4. This shows confidence and quick action\n5. Answer: She acted immediately and confidently",
+      "illustration": {
+        "text": "Imagine someone who doesn't pause, doesn't second-guess, and doesn't wait - they see what needs to be done and do it straight away. That's acting 'without hesitation'. The firefighter's immediate action shows courage and decisiveness.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'When the child fell in the water, the lifeguard jumped in without hesitation.'\n1. The lifeguard didn't pause or think\n2. She acted immediately\n3. This shows quick, confident action\nAnswer: She acted immediately and confidently"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00095",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The village bakery opened at dawn each morning. The warm smell of fresh bread drifted down the street, tempting people from their beds. By the time the sun was fully up, a queue had already formed.' At what time does the bakery open?",
+    "question_type": "multiple_choice",
+    "computed_answer": "At dawn (sunrise)",
+    "options": {
+      "a": "At midnight",
+      "b": "In the afternoon",
+      "c": "At noon",
+      "d": "In the evening",
+      "e": "At dawn (sunrise)"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Look for the time mentioned in the text\n2. The passage states 'opened at dawn each morning'\n3. Dawn is the time when the sun rises\n4. This is early morning, when day begins\n5. Answer: At dawn (sunrise)",
+      "illustration": {
+        "text": "Dawn is that special time in the early morning when darkness gives way to light and the sun begins to rise. The bakery opens at this very early time, before most people are awake, so the bread is fresh and ready when customers arrive.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The farmer woke at dawn to feed the animals.'\n1. Identify the time word (dawn)\n2. Understand it means sunrise/early morning\n3. Recognize this is the answer\nAnswer: At dawn (sunrise)"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00096",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The magician pulled a fluffy white rabbit from his seemingly empty hat, much to the audience's amazement.' What does 'seemingly empty' mean?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Appearing to be empty but actually not",
+    "options": {
+      "a": "Appearing to be empty but actually not",
+      "b": "Very large",
+      "c": "Completely full",
+      "d": "Definitely empty",
+      "e": "Made of cardboard"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Break down the phrase 'seemingly empty'\n2. 'Seemingly' means 'appears to be' or 'looks like'\n3. But a rabbit came out, so it wasn't really empty\n4. The hat appeared empty but contained a rabbit\n5. Answer: Appearing to be empty but actually not",
+      "illustration": {
+        "text": "The word 'seemingly' is like saying 'it looks like this, but...' The hat looked empty to everyone watching, but the magician proved it wasn't when he pulled out the rabbit. That's the magic trick - making something that isn't empty appear to be so.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The seemingly simple puzzle took hours to solve.'\n1. 'Seemingly simple' means it appeared simple\n2. But it took hours, so it wasn't actually simple\n3. It looked one way but was actually another\nAnswer: Appearing to be simple but actually not"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00097",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Winter had arrived with a vengeance. Snow piled high against doorways, and icicles hung from every roof like frozen daggers. The bitter wind howled through the empty streets.' What season is described?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Winter",
+    "options": {
+      "a": "Spring",
+      "b": "Winter",
+      "c": "Autumn",
+      "d": "Summer",
+      "e": "No particular season"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. The first sentence explicitly states 'Winter had arrived'\n2. Supporting details confirm this: snow, icicles, bitter wind\n3. These are all characteristics of winter weather\n4. The description creates a clear picture of winter\n5. Answer: Winter",
+      "illustration": {
+        "text": "The passage paints a vivid picture of harsh winter conditions. Snow blocks doorways, ice hangs from roofs, and freezing winds blow through empty streets. Every detail - from the snow to the icicles to the bitter cold - confirms this is winter.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The trees were covered in pink blossoms, and baby animals played in the warming sunshine. Spring had finally come.'\n1. Look for season clues (blossoms, baby animals)\n2. Find the explicit statement ('Spring had come')\n3. Identify the season\nAnswer: Spring"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00098",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'After months of practice, Aisha finally mastered the difficult piano piece and performed it perfectly at the concert.' What is the relationship between the practice and the performance?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The practice caused the successful performance",
+    "options": {
+      "a": "They are unrelated events",
+      "b": "The performance happened before the practice",
+      "c": "The practice caused the successful performance",
+      "d": "Practice made the performance worse",
+      "e": "The concert prevented practice"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Identify the sequence: months of practice THEN perfect performance\n2. Note the word 'finally' suggesting the practice led to success\n3. The practice was the cause, the perfect performance was the effect\n4. This shows a cause-and-effect relationship\n5. Answer: The practice caused the successful performance",
+      "illustration": {
+        "text": "Think of cause and effect like a chain: Aisha's dedicated practice (the cause) led directly to her ability to perform perfectly (the effect). Without those months of practice, she wouldn't have mastered the difficult piece.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Because it rained heavily, the match was cancelled.'\n1. Identify the cause (heavy rain)\n2. Identify the effect (match cancelled)\n3. Recognize the relationship\nAnswer: The rain caused the cancellation"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00099",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The old photograph showed a young woman in a long dress, standing beside a horse and cart. Behind her, the street was unpaved and gas lamps lined the path. No cars were visible anywhere.' When was this photograph most likely taken?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Over 100 years ago in the past",
+    "options": {
+      "a": "Last week",
+      "b": "Yesterday",
+      "c": "Next year",
+      "d": "Over 100 years ago in the past",
+      "e": "In the future"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. List the clues: horse and cart (not cars), gas lamps (not electric), unpaved streets, long dresses\n2. These items were common before the 20th century\n3. The absence of modern technology (cars, paved roads) confirms an old time period\n4. All evidence points to the distant past\n5. Answer: Over 100 years ago in the past",
+      "illustration": {
+        "text": "The photograph captures a time before modern conveniences. Horse-drawn carts instead of cars, gas lamps instead of electricity, and unpaved streets all indicate this was taken in the Victorian era or similar historical period, well over a century ago.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The diary described traveling by steam train, writing with a quill pen, and lighting candles at night.'\n1. Identify old-fashioned items (steam train, quill, candles)\n2. These were used before modern technology\n3. Conclude the time period\nAnswer: A long time ago in the past"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00100",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The mysterious package sat on the doorstep, wrapped in brown paper and tied with string, with no return address visible.' Which word best describes the reader's likely feeling?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Curious",
+    "options": {
+      "a": "Bored",
+      "b": "Tired",
+      "c": "Annoyed",
+      "d": "Satisfied",
+      "e": "Curious"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Identify the key word: 'mysterious'\n2. The package has no return address - we don't know who sent it\n3. Mystery creates questions: What's inside? Who sent it?\n4. These unanswered questions make readers want to know more\n5. Answer: Curious",
+      "illustration": {
+        "text": "When something is described as 'mysterious' with missing information (like no return address), it creates a puzzle. Our natural response is to want to solve the puzzle - to find out what's inside and who sent it. This feeling of wanting to know is curiosity.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'A strange noise came from behind the locked door, but nobody knew what caused it.'\n1. Identify the mystery (strange noise, unknown cause)\n2. Recognize this creates questions\n3. Questions make us want answers\nAnswer: Curious"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00101",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The ancient door creaked loudly as Sarah pushed it open, revealing a dusty room filled with forgotten treasures.' What does the word 'ancient' tell us about the door?",
+    "question_type": "multiple_choice",
+    "computed_answer": "It is very old",
+    "options": {
+      "a": "It is very old",
+      "b": "It is very large",
+      "c": "It is very heavy",
+      "d": "It is very clean",
+      "e": "It is very modern"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Identify the word 'ancient' in the sentence\n2. Recall that 'ancient' means something from a very long time ago\n3. Connect this meaning to the door being described\n4. Answer: The door is very old",
+      "illustration": {
+        "text": "Imagine a timeline showing a brand new door from this year, then doors from 50 years ago, 100 years ago, and finally an ancient door from hundreds of years ago with worn wood and old hinges. The word 'ancient' places the door at the far end of this timeline.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The ancient castle stood on the hilltop.'\n1. The word 'ancient' is used to describe the castle\n2. Ancient means very old, from long ago in history\n3. Therefore, the castle has been standing for hundreds of years\nAnswer: Ancient tells us the castle is very old"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00102",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Tom nervously approached the stage. His hands were shaking, and his mouth felt dry. When the curtain opened, he froze, unable to remember his first line.' How is Tom feeling in this passage?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Scared and anxious",
+    "options": {
+      "a": "Excited and happy",
+      "b": "Scared and anxious",
+      "c": "Bored and tired",
+      "d": "Angry and frustrated",
+      "e": "Proud and confident"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Look for clues about Tom's emotions: 'nervously', 'hands were shaking', 'mouth felt dry', 'froze'\n2. These are physical signs of fear and worry\n3. Tom cannot remember his line, showing he is anxious\n4. Answer: Tom is scared and anxious",
+      "illustration": {
+        "text": "Picture Tom standing backstage with wide eyes, trembling hands held in front of him, beads of sweat on his forehead, and a worried expression on his face. These physical signs all point to fear and nervousness about performing.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Emma's heart raced as she waited for her exam results. She bit her nails and paced back and forth.'\n1. Identify emotion words: 'heart raced', 'bit her nails', 'paced'\n2. These actions show nervousness and worry\n3. Emma is experiencing anxiety about her results\nAnswer: Emma is feeling anxious and worried"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00103",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The brave knight charged towards the dragon, his sword gleaming in the sunlight.' What does 'gleaming' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Shining brightly",
+    "options": {
+      "a": "Hanging loosely",
+      "b": "Breaking apart",
+      "c": "Shining brightly",
+      "d": "Becoming rusty",
+      "e": "Making noise"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Read the phrase 'gleaming in the sunlight'\n2. Consider what happens when sunlight hits a shiny metal sword\n3. The word 'gleaming' describes something reflecting light brightly\n4. Answer: Gleaming means shining brightly",
+      "illustration": {
+        "text": "Visualize a polished silver sword held high in the air. The sun's rays hit the metal surface and reflect back, creating a bright, sparkling effect that catches your eye. This bright reflection is what 'gleaming' describes.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Her gleaming eyes sparkled with excitement.'\n1. The word 'gleaming' is paired with 'sparkled'\n2. Both words suggest brightness and shine\n3. Gleaming describes something that reflects light or shines\nAnswer: Gleaming means shining or sparkling brightly"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00104",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Maya had been training for months. Every morning, she woke at dawn to practice. Finally, the day of the competition arrived, and she felt ready.' What can we infer about Maya's character?",
+    "question_type": "multiple_choice",
+    "computed_answer": "She is determined and hardworking",
+    "options": {
+      "a": "She is lazy and unmotivated",
+      "b": "She is careless and forgetful",
+      "c": "She is frightened and unsure",
+      "d": "She is determined and hardworking",
+      "e": "She is unkind and selfish"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Note that Maya trained for months, showing commitment\n2. She woke at dawn every morning, demonstrating dedication\n3. Her consistent practice shows she works hard to achieve her goals\n4. Answer: Maya is determined and hardworking",
+      "illustration": {
+        "text": "Imagine a calendar showing months of training, with each day marked with an early morning alarm clock symbol. This visual representation shows Maya's dedication day after day, highlighting her strong work ethic and determination to succeed.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'James studied every evening for his spelling test. He made flashcards and asked his mum to test him daily.'\n1. James studied regularly (every evening)\n2. He took extra steps to prepare (made flashcards)\n3. These actions show dedication and hard work\nAnswer: James is hardworking and committed"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00105",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The mysterious package sat on the doorstep, wrapped in brown paper and tied with string.' Which word best describes the package?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Puzzling",
+    "options": {
+      "a": "Ordinary",
+      "b": "Colourful",
+      "c": "Tiny",
+      "d": "Familiar",
+      "e": "Puzzling"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Identify the key word: 'mysterious'\n2. Mysterious means something unknown or puzzling\n3. The package raises questions - who sent it? What's inside?\n4. Answer: The package is puzzling",
+      "illustration": {
+        "text": "Picture a brown paper package with no label or return address sitting on a doorstep. A large question mark hovers above it, representing the unknown nature of the package. The viewer doesn't know where it came from or what it contains, making it mysterious and puzzling.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'A mysterious sound echoed through the empty house.'\n1. The word 'mysterious' describes the sound\n2. Mysterious means hard to understand or explain\n3. Something mysterious creates questions and puzzlement\nAnswer: The sound is puzzling and unexplained"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00106",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'The garden had been neglected for years. Weeds grew everywhere, the fence was broken, and wild bushes covered the paths. Nobody had cared for it in a very long time.' What is the main idea of this passage?",
+    "question_type": "multiple_choice",
+    "computed_answer": "The garden has not been looked after",
+    "options": {
+      "a": "The garden has not been looked after",
+      "b": "The garden needs flowers",
+      "c": "The garden is beautiful",
+      "d": "The garden is very large",
+      "e": "The garden is newly planted"
+    },
+    "correct_option": "a",
+    "explanations": {
+      "step_by_step": "1. Note the key word 'neglected' meaning not cared for\n2. List the evidence: weeds everywhere, broken fence, overgrown bushes\n3. The final sentence confirms 'Nobody had cared for it'\n4. Answer: The garden has not been looked after",
+      "illustration": {
+        "text": "Visualize a before-and-after comparison: one side showing a neat, tidy garden with trimmed hedges and clear paths; the other side showing the same garden overgrown with weeds, broken fences, and tangled bushes blocking the pathways. The contrast shows the result of neglect.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The car was covered in dust, the tyres were flat, and rust covered the doors. It hadn't been driven in years.'\n1. Identify signs of neglect: dust, flat tyres, rust\n2. Note the time factor: 'hadn't been driven in years'\n3. All clues point to lack of care\nAnswer: The car has been neglected and not maintained"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00107",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'Thunder rumbled in the distance as dark clouds gathered overhead, and the first drops of rain began to fall.' What is about to happen in this scene?",
+    "question_type": "multiple_choice",
+    "computed_answer": "A storm is coming",
+    "options": {
+      "a": "The sun will come out",
+      "b": "A storm is coming",
+      "c": "The wind will stop",
+      "d": "Snow will start falling",
+      "e": "It will become very hot"
+    },
+    "correct_option": "b",
+    "explanations": {
+      "step_by_step": "1. Identify the weather clues: thunder, dark clouds, rain\n2. Thunder and dark clouds are signs of a storm\n3. Rain has already started to fall\n4. Answer: A storm is coming",
+      "illustration": {
+        "text": "Picture a sky that starts bright and clear, then progressively shows darker clouds moving in, a flash of lightning in the distance, and finally raindrops beginning to fall. This sequence shows the build-up to a storm, with all the warning signs present in the description.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The sky turned grey, the wind picked up, and lightning flashed across the horizon.'\n1. Identify weather elements: grey sky, strong wind, lightning\n2. These are typical signs that precede a storm\n3. The combination of factors indicates stormy weather approaching\nAnswer: A storm is developing"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00108",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Lily walked slowly home, dragging her feet. She had failed her music exam, and tears rolled down her cheeks. The sunny day seemed to mock her sadness.' Why does the author mention the sunny day?",
+    "question_type": "multiple_choice",
+    "computed_answer": "To contrast with Lily's sad mood",
+    "options": {
+      "a": "To show the time of year",
+      "b": "To describe the weather forecast",
+      "c": "To contrast with Lily's sad mood",
+      "d": "To explain why Lily is walking",
+      "e": "To show that Lily likes sunshine"
+    },
+    "correct_option": "c",
+    "explanations": {
+      "step_by_step": "1. Identify Lily's mood: sad, crying, dragging her feet\n2. Note the weather: sunny and bright\n3. The text says the day 'seemed to mock her sadness' - it's opposite to her feelings\n4. Answer: The sunny day contrasts with Lily's sad mood",
+      "illustration": {
+        "text": "Imagine two scenes side by side: on one side, a bright, cheerful sunny day with blue sky and warm sunshine; on the other side, Lily's sad face with tears, walking slowly with slumped shoulders. The stark difference between the happy weather and her sad emotions creates a powerful contrast.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Everyone at the party was laughing and dancing, but Sam sat alone in the corner, feeling left out.'\n1. The party is happy and lively\n2. Sam feels lonely and excluded\n3. The contrast makes Sam's loneliness feel stronger\nAnswer: The happy party atmosphere contrasts with Sam's isolation"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00109",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this sentence: 'The explorer ventured deep into the jungle, hacking through thick vines and listening for dangerous animals.' What does 'ventured' mean in this context?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Went bravely",
+    "options": {
+      "a": "Ran away quickly",
+      "b": "Stayed in one place",
+      "c": "Got lost accidentally",
+      "d": "Went bravely",
+      "e": "Complained loudly"
+    },
+    "correct_option": "d",
+    "explanations": {
+      "step_by_step": "1. Consider the context: going deep into the jungle\n2. Note the challenges: thick vines, dangerous animals\n3. 'Ventured' means to go somewhere despite risks\n4. Answer: Ventured means went bravely",
+      "illustration": {
+        "text": "Picture an explorer standing at the edge of a dense, dark jungle, taking a deep breath and stepping forward with determination despite the obvious dangers ahead. The act of venturing shows courage and willingness to face unknown risks.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'The young climber ventured up the steep mountain path despite the difficult conditions.'\n1. The climber is going up a dangerous mountain\n2. There are difficult conditions to face\n3. 'Ventured' suggests going forward bravely despite challenges\nAnswer: Ventured means proceeded bravely into difficulty"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  },
+  {
+    "question_id": "ENG-COMP-fict-E-Y6-00110",
+    "subject": "English",
+    "topic": "Comprehension",
+    "subtopic": "Fiction",
+    "difficulty": "Easy",
+    "year_group": "Year 6",
+    "question_text": "Read this passage: 'Ben watched his sister win the trophy. He clapped with everyone else, but inside he felt a tight knot in his stomach. He wished he had practised more for the competition.' What is Ben experiencing?",
+    "question_type": "multiple_choice",
+    "computed_answer": "Jealousy and regret",
+    "options": {
+      "a": "Pure happiness",
+      "b": "Complete boredom",
+      "c": "Total confusion",
+      "d": "Extreme tiredness",
+      "e": "Jealousy and regret"
+    },
+    "correct_option": "e",
+    "explanations": {
+      "step_by_step": "1. Ben claps outwardly but feels different inside - he's hiding his true feelings\n2. The 'tight knot in his stomach' shows discomfort or negative emotion\n3. He wishes he had practised more, showing regret\n4. Answer: Ben feels jealousy of his sister's success and regret about not practising",
+      "illustration": {
+        "text": "Imagine Ben's face showing two emotions: on the outside, a forced smile as he claps politely, but in a thought bubble above his head, we see his true feelings - a twisted knot representing his uncomfortable mix of envy and regret as his sister holds the trophy he wanted.",
+        "visual_spec": null
+      },
+      "worked_example": "Example: 'Sophie smiled at her friend's new bike, but secretly wished she had one too. She felt bad for not being happier for her friend.'\n1. Sophie shows happiness outwardly (smiled)\n2. Inside she wants what her friend has (wished she had one)\n3. This creates feelings of jealousy and guilt\nAnswer: Sophie experiences jealousy mixed with guilt"
+    },
+    "curriculum_reference": "NC-Y6-ENG-COMP-001",
+    "exam_board": "generic",
+    "verification": "ai_generated"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "lastUpdated": "2026-01-28T00:41:43.446Z",
+  "completedBatches": [
+    47
+  ],
+  "failedBatches": [
+    {
+      "batch": 47,
+      "error": "Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted"
+    }
+  ],
+  "totalQuestionsGenerated": 110,
+  "estimatedCostUSD": 0.78,
+  "startTime": "2026-01-28T00:22:27.527Z",
+  "endTime": "2026-01-28T00:41:43.487Z"
+}

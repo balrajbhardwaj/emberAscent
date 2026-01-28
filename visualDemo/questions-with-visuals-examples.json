@@ -1,0 +1,338 @@
+{
+  "demo_info": {
+    "title": "Questions with Pre-computed Visual Explanations",
+    "description": "These questions include visual_explanation specs generated alongside the question - ready for client-side rendering"
+  },
+
+  "questions_with_visuals": [
+    {
+      "question_id": "MATH-FRC-shaded-F-Y5-001",
+      "subject": "Mathematics",
+      "topic": "Fractions",
+      "subtopic": "Recognising Fractions",
+      "difficulty": "Foundation",
+      "year_group": "Year 5",
+      "question_text": "What fraction of this shape is shaded?",
+      "question_type": "multiple_choice",
+      "working": {
+        "step_1": "Count total parts: 8 equal parts",
+        "step_2": "Count shaded parts: 3 parts are shaded",
+        "step_3": "Write as fraction: shaded/total = 3/8",
+        "final_calculation": "3 out of 8 = 3/8",
+        "computed_result": "3/8"
+      },
+      "computed_answer": "3/8",
+      "options": {
+        "a": "3/5",
+        "b": "3/8",
+        "c": "5/8",
+        "d": "8/3",
+        "e": "1/3"
+      },
+      "correct_option": "b",
+      "verification": {
+        "computed_answer_matches_option": true,
+        "verification_status": "VERIFIED"
+      },
+      "curriculum_reference": "KS2 Mathematics - Fractions - recognise, name and write fractions",
+      "curriculum_code": "M096",
+      
+      "visual_explanation": {
+        "question_visual": {
+          "type": "fraction_visual",
+          "spec": {
+            "numerator": 3,
+            "denominator": 8,
+            "shaded_color": "#3B82F6",
+            "unshaded_color": "#E5E7EB",
+            "display_style": "bar"
+          },
+          "alt_text": "A rectangle divided into 8 equal parts, with 3 parts shaded blue",
+          "caption": null
+        },
+        "explanation_visual": {
+          "type": "svg_inline",
+          "svg_code": "<svg viewBox='0 0 320 100' xmlns='http://www.w3.org/2000/svg'><text x='10' y='20' font-size='14' font-weight='bold'>Step-by-step:</text><rect x='10' y='35' width='37.5' height='40' fill='#3B82F6' stroke='#1E40AF'/><rect x='47.5' y='35' width='37.5' height='40' fill='#3B82F6' stroke='#1E40AF'/><rect x='85' y='35' width='37.5' height='40' fill='#3B82F6' stroke='#1E40AF'/><rect x='122.5' y='35' width='37.5' height='40' fill='#E5E7EB' stroke='#6B7280'/><rect x='160' y='35' width='37.5' height='40' fill='#E5E7EB' stroke='#6B7280'/><rect x='197.5' y='35' width='37.5' height='40' fill='#E5E7EB' stroke='#6B7280'/><rect x='235' y='35' width='37.5' height='40' fill='#E5E7EB' stroke='#6B7280'/><rect x='272.5' y='35' width='37.5' height='40' fill='#E5E7EB' stroke='#6B7280'/><text x='60' y='90' font-size='12'>3 shaded</text><text x='200' y='90' font-size='12'>8 total</text><text x='140' y='90' font-size='16'>→ 3/8</text></svg>",
+          "alt_text": "Visual showing 3 shaded parts out of 8 total equals 3/8",
+          "caption": "Count the shaded parts (numerator) and total parts (denominator)"
+        }
+      }
+    },
+
+    {
+      "question_id": "MATH-NPV-numberline-S-Y6-001",
+      "subject": "Mathematics",
+      "topic": "Number and Place Value",
+      "subtopic": "Negative Numbers",
+      "difficulty": "Standard",
+      "year_group": "Year 6",
+      "question_text": "The temperature was -4°C. It rose by 9°C. What is the new temperature?",
+      "question_type": "multiple_choice",
+      "working": {
+        "step_1": "Start at -4°C",
+        "step_2": "Add 9 (rose means increase)",
+        "step_3": "-4 + 9 = 5",
+        "final_calculation": "-4 + 9 = 5",
+        "computed_result": "5"
+      },
+      "computed_answer": "5",
+      "options": {
+        "a": "-13°C",
+        "b": "-5°C",
+        "c": "5°C",
+        "d": "13°C",
+        "e": "4°C"
+      },
+      "correct_option": "c",
+      "verification": {
+        "computed_answer_matches_option": true,
+        "verification_status": "VERIFIED"
+      },
+      "curriculum_reference": "KS2 Mathematics - Number and Place Value - use negative numbers in context, calculate intervals across zero",
+      "curriculum_code": "M127",
+      
+      "visual_explanation": {
+        "question_visual": null,
+        "explanation_visual": {
+          "type": "number_line",
+          "spec": {
+            "min": -6,
+            "max": 7,
+            "start_point": -4,
+            "jumps": [
+              {"from": -4, "to": 5, "label": "+9°C", "color": "#22C55E"}
+            ],
+            "markers": [
+              {"value": -4, "label": "Start", "color": "#EF4444"},
+              {"value": 0, "label": "0°C", "color": "#6B7280", "emphasize": true},
+              {"value": 5, "label": "End", "color": "#3B82F6"}
+            ],
+            "zero_line": true,
+            "theme": "temperature"
+          },
+          "alt_text": "Number line showing a jump from -4 to 5, crossing zero, with an arc labeled +9°C",
+          "caption": "Start at -4°C, add 9, cross zero, arrive at 5°C"
+        }
+      }
+    },
+
+    {
+      "question_id": "MATH-GEO-triangle-C-Y5-001",
+      "subject": "Mathematics",
+      "topic": "Geometry",
+      "subtopic": "Angles",
+      "difficulty": "Challenge",
+      "year_group": "Year 5",
+      "question_text": "Find the missing angle x in the triangle.",
+      "question_type": "multiple_choice",
+      "working": {
+        "step_1": "Angles in a triangle sum to 180°",
+        "step_2": "Given angles: 72° and 53°",
+        "step_3": "Sum of known angles: 72 + 53 = 125°",
+        "step_4": "Missing angle: 180 - 125 = 55°",
+        "final_calculation": "x = 180 - 72 - 53 = 55",
+        "computed_result": "55"
+      },
+      "computed_answer": "55",
+      "options": {
+        "a": "45°",
+        "b": "55°",
+        "c": "65°",
+        "d": "125°",
+        "e": "180°"
+      },
+      "correct_option": "b",
+      "verification": {
+        "computed_answer_matches_option": true,
+        "verification_status": "VERIFIED"
+      },
+      "curriculum_reference": "KS2 Mathematics - Properties of Shapes - know angles in a triangle sum to 180°",
+      "curriculum_code": "M120",
+      
+      "visual_explanation": {
+        "question_visual": {
+          "type": "geometry",
+          "spec": {
+            "shape": "triangle",
+            "vertices": [
+              {"x": 100, "y": 15, "label": "A"},
+              {"x": 25, "y": 160, "label": "B"},
+              {"x": 175, "y": 160, "label": "C"}
+            ],
+            "angles": [
+              {"vertex": "A", "value": "x°", "unknown": true, "position": "inside"},
+              {"vertex": "B", "value": "72°", "unknown": false, "position": "inside"},
+              {"vertex": "C", "value": "53°", "unknown": false, "position": "inside"}
+            ],
+            "show_arc": true,
+            "style": {
+              "stroke": "#374151",
+              "fill": "none",
+              "unknown_color": "#EF4444"
+            }
+          },
+          "alt_text": "Triangle with angles: 72° at B, 53° at C, and unknown angle x at A",
+          "caption": null
+        },
+        "explanation_visual": {
+          "type": "svg_inline",
+          "svg_code": "<svg viewBox='0 0 400 120' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='390' height='110' fill='#F8FAFC' rx='8'/><text x='20' y='30' font-size='14' font-weight='bold' fill='#1E40AF'>Solution:</text><text x='20' y='55' font-size='13' fill='#374151'>Angles in a triangle = 180°</text><text x='20' y='80' font-size='13' fill='#374151'>x + 72° + 53° = 180°</text><text x='20' y='105' font-size='13' fill='#374151'>x = 180° - 72° - 53° = </text><text x='215' y='105' font-size='14' font-weight='bold' fill='#22C55E'>55°</text><polygon points='300,20 260,100 340,100' fill='none' stroke='#3B82F6' stroke-width='2'/><text x='300' y='45' font-size='11' fill='#22C55E' text-anchor='middle'>55°</text><text x='270' y='95' font-size='10' fill='#374151'>72°</text><text x='325' y='95' font-size='10' fill='#374151'>53°</text></svg>",
+          "alt_text": "Solution showing: x + 72° + 53° = 180°, therefore x = 55°",
+          "caption": "All three angles must add up to exactly 180°"
+        }
+      }
+    },
+
+    {
+      "question_id": "MATH-STA-barchart-S-Y6-001",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Bar Charts",
+      "difficulty": "Standard",
+      "year_group": "Year 6",
+      "question_text": "The bar chart shows the number of books read by students. How many more books did Class A read than Class C?",
+      "question_type": "multiple_choice",
+      "working": {
+        "step_1": "Read Class A value: 45 books",
+        "step_2": "Read Class C value: 28 books",
+        "step_3": "Calculate difference: 45 - 28 = 17",
+        "final_calculation": "45 - 28 = 17",
+        "computed_result": "17"
+      },
+      "computed_answer": "17",
+      "options": {
+        "a": "12",
+        "b": "15",
+        "c": "17",
+        "d": "20",
+        "e": "73"
+      },
+      "correct_option": "c",
+      "verification": {
+        "computed_answer_matches_option": true,
+        "verification_status": "VERIFIED"
+      },
+      "curriculum_reference": "KS2 Mathematics - Statistics - interpret and construct bar charts",
+      "curriculum_code": "M172",
+      
+      "visual_explanation": {
+        "question_visual": {
+          "type": "chart_spec",
+          "chart_library": "recharts",
+          "spec": {
+            "type": "bar",
+            "data": [
+              {"class": "Class A", "books": 45},
+              {"class": "Class B", "books": 32},
+              {"class": "Class C", "books": 28},
+              {"class": "Class D", "books": 38}
+            ],
+            "xKey": "class",
+            "yKey": "books",
+            "title": "Books Read by Each Class",
+            "yAxisLabel": "Number of Books",
+            "colors": {
+              "Class A": "#3B82F6",
+              "Class B": "#10B981",
+              "Class C": "#F59E0B",
+              "Class D": "#8B5CF6"
+            },
+            "showValues": true,
+            "gridLines": true
+          },
+          "alt_text": "Bar chart showing: Class A: 45 books, Class B: 32 books, Class C: 28 books, Class D: 38 books",
+          "caption": null
+        },
+        "explanation_visual": {
+          "type": "svg_inline",
+          "svg_code": "<svg viewBox='0 0 350 80' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='5' width='340' height='70' fill='#FEF3C7' rx='8' stroke='#F59E0B'/><text x='20' y='30' font-size='14' fill='#92400E'>Class A: <tspan font-weight='bold'>45</tspan> books</text><text x='180' y='30' font-size='14' fill='#92400E'>Class C: <tspan font-weight='bold'>28</tspan> books</text><text x='20' y='55' font-size='14' fill='#92400E'>Difference: 45 - 28 = <tspan font-weight='bold' fill='#059669'>17 books</tspan></text></svg>",
+          "alt_text": "Calculation: Class A (45) minus Class C (28) equals 17 books",
+          "caption": "Read the values carefully from the chart, then subtract"
+        }
+      }
+    },
+
+    {
+      "question_id": "MATH-FRC-compare-S-Y5-001",
+      "subject": "Mathematics",
+      "topic": "Fractions",
+      "subtopic": "Comparing Fractions",
+      "difficulty": "Standard",
+      "year_group": "Year 5",
+      "question_text": "Which fraction is larger: 2/3 or 5/8?",
+      "question_type": "multiple_choice",
+      "working": {
+        "step_1": "Find common denominator: LCM of 3 and 8 = 24",
+        "step_2": "Convert 2/3: (2×8)/(3×8) = 16/24",
+        "step_3": "Convert 5/8: (5×3)/(8×3) = 15/24",
+        "step_4": "Compare: 16/24 > 15/24",
+        "step_5": "Therefore: 2/3 > 5/8",
+        "final_calculation": "2/3 = 16/24 > 15/24 = 5/8",
+        "computed_result": "2/3"
+      },
+      "computed_answer": "2/3",
+      "options": {
+        "a": "2/3",
+        "b": "5/8",
+        "c": "They are equal",
+        "d": "Cannot compare",
+        "e": "Neither"
+      },
+      "correct_option": "a",
+      "verification": {
+        "computed_answer_matches_option": true,
+        "verification_status": "VERIFIED"
+      },
+      "curriculum_reference": "KS2 Mathematics - Fractions - compare and order fractions whose denominators are multiples",
+      "curriculum_code": "M139",
+      
+      "visual_explanation": {
+        "question_visual": {
+          "type": "fraction_comparison",
+          "spec": {
+            "fractions": [
+              {"numerator": 2, "denominator": 3, "label": "2/3", "color": "#3B82F6"},
+              {"numerator": 5, "denominator": 8, "label": "5/8", "color": "#F59E0B"}
+            ],
+            "display_as": "bars",
+            "bar_height": 30,
+            "show_labels": true,
+            "common_denominator": {
+              "show": true,
+              "value": 24,
+              "converted": [
+                {"original": "2/3", "converted": "16/24"},
+                {"original": "5/8", "converted": "15/24"}
+              ]
+            }
+          },
+          "alt_text": "Two fraction bars showing 2/3 (16/24) is slightly larger than 5/8 (15/24)",
+          "caption": null
+        },
+        "explanation_visual": {
+          "type": "svg_inline",
+          "svg_code": "<svg viewBox='0 0 400 150' xmlns='http://www.w3.org/2000/svg'><text x='10' y='25' font-size='14' font-weight='bold'>Step 1: Find common denominator</text><text x='20' y='50' font-size='13'>LCM of 3 and 8 = 24</text><text x='10' y='80' font-size='14' font-weight='bold'>Step 2: Convert fractions</text><text x='20' y='105' font-size='13'>2/3 = 16/24</text><text x='150' y='105' font-size='13'>5/8 = 15/24</text><rect x='250' y='85' width='64' height='25' fill='#3B82F6' rx='3'/><text x='282' y='103' font-size='12' fill='white' text-anchor='middle'>16/24</text><rect x='320' y='85' width='60' height='25' fill='#F59E0B' rx='3'/><text x='350' y='103' font-size='12' fill='white' text-anchor='middle'>15/24</text><text x='10' y='140' font-size='14' font-weight='bold'>Result: <tspan fill='#3B82F6'>2/3</tspan> > <tspan fill='#F59E0B'>5/8</tspan> because 16 > 15</text></svg>",
+          "alt_text": "Step by step: Convert to common denominator 24. 2/3 becomes 16/24, 5/8 becomes 15/24. Since 16 > 15, 2/3 is larger.",
+          "caption": "Convert to the same denominator, then compare numerators"
+        }
+      }
+    }
+  ],
+
+  "storage_analysis": {
+    "average_visual_spec_size_bytes": 800,
+    "questions_with_visuals_10000": {
+      "total_storage_mb": 8,
+      "comparison": "Smaller than a single high-res image"
+    },
+    "benefits": [
+      "Zero runtime API costs",
+      "Instant rendering",
+      "Consistent styling",
+      "Accessible (alt text included)",
+      "Easy to update/fix",
+      "Responsive by default",
+      "Works offline"
+    ]
+  }
+}

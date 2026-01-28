@@ -1,0 +1,209 @@
+{
+  "demo_info": {
+    "title": "Visual Explanation Generation Approaches for Ember Ascent",
+    "description": "Demonstrates how to pre-compute visual explanations at question generation time"
+  },
+
+  "approach_1_svg_inline": {
+    "description": "Pre-generate SVG code stored as string - renders instantly, tiny storage",
+    "example_question": {
+      "question_id": "MATH-FRC-visual-S-Y5-001",
+      "question_text": "What fraction of this shape is shaded?",
+      "computed_answer": "3/8",
+      "visual_explanation": {
+        "type": "svg_inline",
+        "svg_code": "<svg viewBox='0 0 200 50' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='25' height='50' fill='#3B82F6' stroke='#1E40AF'/><rect x='25' y='0' width='25' height='50' fill='#3B82F6' stroke='#1E40AF'/><rect x='50' y='0' width='25' height='50' fill='#3B82F6' stroke='#1E40AF'/><rect x='75' y='0' width='25' height='50' fill='#E5E7EB' stroke='#6B7280'/><rect x='100' y='0' width='25' height='50' fill='#E5E7EB' stroke='#6B7280'/><rect x='125' y='0' width='25' height='50' fill='#E5E7EB' stroke='#6B7280'/><rect x='150' y='0' width='25' height='50' fill='#E5E7EB' stroke='#6B7280'/><rect x='175' y='0' width='25' height='50' fill='#E5E7EB' stroke='#6B7280'/></svg>",
+        "alt_text": "A rectangle divided into 8 equal parts, with 3 parts shaded blue",
+        "caption": "3 out of 8 parts are shaded = 3/8"
+      }
+    },
+    "pros": ["Zero runtime cost", "Tiny storage (~500 bytes)", "Instant rendering", "Scalable", "Accessible (alt text)"],
+    "cons": ["Limited to vector graphics", "Complex scenes difficult"],
+    "storage_estimate": "10,000 questions × 500 bytes = ~5 MB total"
+  },
+
+  "approach_2_chart_spec": {
+    "description": "Store chart specification as JSON - render client-side with Chart.js/Recharts",
+    "example_question": {
+      "question_id": "MATH-STA-visual-S-Y6-001",
+      "question_text": "The bar chart shows favourite fruits. How many more children chose apples than oranges?",
+      "computed_answer": "5",
+      "visual_explanation": {
+        "type": "chart_spec",
+        "chart_library": "recharts",
+        "spec": {
+          "type": "bar",
+          "data": [
+            {"fruit": "Apples", "count": 12},
+            {"fruit": "Oranges", "count": 7},
+            {"fruit": "Bananas", "count": 9},
+            {"fruit": "Grapes", "count": 4}
+          ],
+          "xKey": "fruit",
+          "yKey": "count",
+          "colors": {"Apples": "#EF4444", "Oranges": "#F97316", "Bananas": "#EAB308", "Grapes": "#8B5CF6"},
+          "title": "Favourite Fruits Survey"
+        },
+        "alt_text": "Bar chart showing Apples: 12, Oranges: 7, Bananas: 9, Grapes: 4",
+        "caption": "Difference: 12 - 7 = 5 more children chose apples"
+      }
+    },
+    "pros": ["Interactive", "Responsive", "Tiny storage", "Easy to update"],
+    "cons": ["Requires JS library", "Client-side rendering"],
+    "storage_estimate": "~300 bytes per chart spec"
+  },
+
+  "approach_3_number_line": {
+    "description": "Structured data for number line visualizations - extremely common in 11+",
+    "example_question": {
+      "question_id": "MATH-NPV-visual-F-Y5-001",
+      "question_text": "What is -3 + 7?",
+      "computed_answer": "4",
+      "visual_explanation": {
+        "type": "number_line",
+        "spec": {
+          "min": -5,
+          "max": 6,
+          "start_point": -3,
+          "jumps": [
+            {"from": -3, "to": 4, "label": "+7", "color": "#22C55E"}
+          ],
+          "markers": [
+            {"value": -3, "label": "Start", "color": "#EF4444"},
+            {"value": 0, "label": "0", "color": "#6B7280"},
+            {"value": 4, "label": "End", "color": "#3B82F6"}
+          ]
+        },
+        "alt_text": "Number line from -5 to 6, showing a jump of +7 from -3 to 4",
+        "caption": "Start at -3, jump +7 to reach 4"
+      }
+    },
+    "render_component": "NumberLineVisual.tsx - reusable React component",
+    "pros": ["Consistent styling", "Highly reusable", "Accessible", "Tiny storage"],
+    "cons": ["Need to build renderer once"]
+  },
+
+  "approach_4_geometry_spec": {
+    "description": "Structured geometry specifications for shapes, angles, etc.",
+    "example_question": {
+      "question_id": "MATH-GEO-visual-C-Y5-001",
+      "question_text": "Find angle x in this triangle.",
+      "computed_answer": "67",
+      "visual_explanation": {
+        "type": "geometry",
+        "spec": {
+          "shape": "triangle",
+          "vertices": [
+            {"x": 100, "y": 20, "label": "A"},
+            {"x": 20, "y": 150, "label": "B"},
+            {"x": 180, "y": 150, "label": "C"}
+          ],
+          "angles": [
+            {"vertex": "A", "value": "x°", "unknown": true},
+            {"vertex": "B", "value": "65°", "unknown": false},
+            {"vertex": "C", "value": "48°", "unknown": false}
+          ],
+          "show_labels": true
+        },
+        "alt_text": "Triangle ABC with angle B = 65°, angle C = 48°, and angle A = x° (unknown)",
+        "solution_overlay": {
+          "steps": [
+            {"highlight": "all_angles", "text": "Angles in a triangle sum to 180°"},
+            {"highlight": "known_angles", "text": "65° + 48° = 113°"},
+            {"highlight": "unknown_angle", "text": "x = 180° - 113° = 67°"}
+          ]
+        }
+      }
+    },
+    "pros": ["Perfect for geometry", "Animated solutions possible", "Consistent"],
+    "cons": ["Complex renderer needed"]
+  },
+
+  "approach_5_fraction_visual": {
+    "description": "Pre-defined fraction visualization specs",
+    "example_question": {
+      "question_id": "MATH-FRC-compare-S-Y5-001",
+      "question_text": "Which is larger: 2/3 or 3/4?",
+      "computed_answer": "3/4",
+      "visual_explanation": {
+        "type": "fraction_comparison",
+        "spec": {
+          "fractions": [
+            {"numerator": 2, "denominator": 3, "label": "2/3"},
+            {"numerator": 3, "denominator": 4, "label": "3/4"}
+          ],
+          "display_as": "bars",
+          "show_equivalent": {
+            "common_denominator": 12,
+            "converted": ["8/12", "9/12"]
+          },
+          "highlight_larger": true
+        },
+        "alt_text": "Two fraction bars: 2/3 (8/12) and 3/4 (9/12), showing 3/4 is slightly larger",
+        "caption": "Converting to twelfths: 8/12 < 9/12, so 2/3 < 3/4"
+      }
+    }
+  },
+
+  "approach_6_pre_rendered_library": {
+    "description": "For Non-Verbal Reasoning - human-created images with metadata",
+    "note": "NVR MUST be human-created per business brief - AI cannot reliably generate these",
+    "example_question": {
+      "question_id": "NVR-patterns-C-Y6-001",
+      "question_text": "Which shape comes next in the pattern?",
+      "visual_explanation": {
+        "type": "image_reference",
+        "image_id": "nvr_pattern_042",
+        "image_path": "/images/nvr/patterns/nvr_pattern_042.svg",
+        "image_hash": "sha256:a3f2b8c9...",
+        "dimensions": {"width": 400, "height": 100},
+        "alt_text": "Pattern showing shapes rotating 45° clockwise each step",
+        "created_by": "human_illustrator",
+        "reviewed": true,
+        "ember_score_visual": 95
+      }
+    },
+    "storage": "Separate image CDN, metadata in database"
+  },
+
+  "recommended_architecture": {
+    "overview": "Hybrid approach maximizing efficiency",
+    "by_question_type": {
+      "fractions": "SVG inline or fraction_spec → renderer",
+      "number_operations": "number_line spec → renderer",
+      "geometry": "geometry_spec → SVG renderer",
+      "statistics": "chart_spec → Chart.js/Recharts",
+      "algebra": "SVG inline for simple, MathJax for equations",
+      "non_verbal_reasoning": "Human-created image library (MANDATORY)",
+      "verbal_reasoning": "Mostly text, occasional SVG for code puzzles"
+    },
+    "storage_strategy": {
+      "specs_in_database": "JSON specs stored with questions (~500 bytes each)",
+      "svg_inline": "For simple diagrams, store SVG string directly",
+      "image_cdn": "For NVR and complex pre-rendered images",
+      "client_rendering": "React components render specs at display time"
+    },
+    "estimated_storage": {
+      "10000_questions_with_visuals": "~10-15 MB for specs",
+      "nvr_image_library": "~50-100 MB for human-created images",
+      "total": "~100 MB (very manageable)"
+    }
+  },
+
+  "implementation_example": {
+    "database_schema_addition": {
+      "visual_explanations": {
+        "id": "uuid",
+        "question_id": "uuid references questions(id)",
+        "visual_type": "enum('svg_inline', 'chart_spec', 'number_line', 'geometry', 'fraction', 'image_ref')",
+        "spec_json": "jsonb",
+        "svg_code": "text (nullable, for inline SVG)",
+        "image_path": "text (nullable, for image references)",
+        "alt_text": "text NOT NULL",
+        "caption": "text",
+        "created_at": "timestamp"
+      }
+    },
+    "react_component_pattern": "// See code file for VisualExplanation.tsx component"
+  }
+}
